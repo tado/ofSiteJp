@@ -19,6 +19,7 @@
 <script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
 <script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
 <script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushJava.js" type="text/javascript"></script>
 <link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
 <link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
 
@@ -94,81 +95,86 @@
                 
   <h1>linux codeblocks &#038; makefiles</h1>
 <h2>codeblocks</h2>
-<p>Codeblocks is a fairly nice IDE for writing code on linux, and we are happy to support it. Here are some setup instructions for ubuntu, debian and fedora. If you use other distributions please let us know if there are additional steps:</p>
+<p>Codeblocks is a fairly nice IDE for writing code on Linux, and we are happy to support it. Here are some setup instructions for Ubuntu, Debian and Fedora. If you use other distributions please let us know if there are additional steps:</p>
 <ul>
-<li>in the scripts folder inside the openframeworks package you will find a directory with the name of your distribution. There&#8217;re 2 scripts, install_codeblocks.sh and install_dependencies.sh. don&#8217;t execute them from the desktop, as they need root privileges to run, you will need to run them from a terminal. The order of execution doesn&#8217;t matter and you can execute them more than once without problem if something goes wrong. If you update your OF version or are having problems with codeblocks execute both scripts. Once you finish this steps, you will find codeblocks under Applications &gt; Development and will be able to open the openframeworks examples in the apps folder just by double clicking on the .cbp file</li>
+<li>in the scripts/linux folder inside the openFrameworks package you will find a directory with the name of your distribution. There are 2 scripts, install_codeblocks.sh and install_dependencies.sh. Don&#8217;t execute them from the desktop, as they need root privileges to run, you will need to run them from a terminal. The order of execution doesn&#8217;t matter and you can execute them more than once without problem if something goes wrong. If you update your openFrameworks version or are having problems with codeblocks, execute both scripts. Once you finish these steps, you will find codeblocks under Applications &gt; Development and will be able to open the openFrameworks examples in the apps folder just by double clicking on the .cbp file</li>
 </ul>
-<p><strong>ubuntu:</strong> </p>
+<p><strong>Ubuntu:</strong> </p>
 <ul>
 <li>
-<p>open a terminal from Applications &gt; Accesories &gt; Terminal</p>
+<p>open a terminal from Applications &gt; Accessories &gt; Terminal</p>
 </li>
 <li>
-<p>in the terminal go to the directory where your openframeworks package is.</p>
+<p>in the terminal go to the directory where your openFrameworks package is.</p>
 </li>
 <li>
 <p>ie. if your user name is ofuser and you have uncompressed the oF package in the desktop it should be something like:</p>
-<pre><code>cd /home/ofuser/Desktop/of_preRelease_v0.06_linux_cb_FAT/scripts/ubuntu
+<pre><code>cd /home/ofuser/Desktop/of_preRelease_v0.06_linux_cb_FAT/scripts/linux/ubuntu
 </code></pre>
 </li>
 <li>
 <p>once in this directory run the scripts with:</p>
-<pre><code>sudo ./install_codeblocks.shsudo ./install_dependencies.sh
+<pre><code>sudo ./install_codeblocks.sh
+sudo ./install_dependencies.sh
 </code></pre>
 </li>
 <li>
-<p><em>problems with karmic:</em> if you were having problems with installing codeblocks, that&#8217;s solved with the new install script, but if you already ran the previous one perhaps you need to clean your apt cache:</p>
-<pre><code>sudo rm /var/cache/apt/archives/libwxbase*sudo rm /var/cache/apt/archives/libwxgtk*sudo apt-get remove libwxbase2.8-0 libwxgtk2.8-0
+<p><em>problems with Ubuntu 9.10 (Karmic Koala):</em> if you were having problems with installing codeblocks, that&#8217;s solved with the new install script, but if you already ran the previous one perhaps you need to clean your apt cache:</p>
+<pre><code>sudo rm /var/cache/apt/archives/libwxbase*
+sudo rm /var/cache/apt/archives/libwxgtk*
+sudo apt-get remove libwxbase2.8-0 libwxgtk2.8-0
 </code></pre>
 </li>
 </ul>
-<p>and execute again the install_codeblocks script. this will remove any program that you have installed that uses wx-widgets, but you can install them later without problem.</p>
-<p><strong>debian:</strong></p>
+<p>and execute again the install_codeblocks script. This will remove any program that you have installed that uses wx-widgets, but you can install them later without problem.</p>
+<p><strong>Debian:</strong></p>
 <ul>
 <li>
-<p>open a terminal from Applications &gt; Accesories &gt; Root Terminal</p>
+<p>open a terminal from Applications &gt; Accessories &gt; Root Terminal</p>
 </li>
 <li>
-<p>in the terminal go to the directory where your openframeworks package is.</p>
+<p>in the terminal go to the directory where your openFrameworks package is.</p>
 </li>
 <li>
-<p>ie. if your user name is ofuser and you have uncompressed the oF package in the desktop it should be something like:</p>
-<pre><code>cd /home/ofuser/Desktop/of_preRelease_v0.06_linux_cb_FAT/scripts/debian
+<p>ie. if your user name is ofuser and you have uncompressed the openFrameworks package in the desktop it should be something like:</p>
+<pre><code>cd /home/ofuser/Desktop/of_preRelease_v0.06_linux_cb_FAT/scripts/linux/debian
 </code></pre>
 </li>
 <li>
-<p>once in this directory run the scripts with:</p>
-<pre><code>./install_codeblocks.sh./install_dependencies.sh
+<p>once in this directory run the scripts:</p>
+<pre><code>./install_codeblocks.sh
+./install_dependencies.sh
 </code></pre>
 </li>
 </ul>
-<p><strong>fedora:</strong></p>
+<p><strong>Fedora:</strong></p>
 <ul>
 <li>
 <p>open a terminal from Applications &gt; System Tools &gt; Terminal
-    in fedora first of all you need to become root, for that, type in the terminal:</p>
+    in Fedora first of all you need to become root, for that, type in the terminal:</p>
 <pre><code>su -
 </code></pre>
 <p>and enter the root password</p>
 </li>
 <li>
-<p>in the terminal go to the directory where your openframeworks package is.</p>
+<p>in the terminal go to the directory where your openFrameworks package is.</p>
 </li>
 <li>
 <p>ie. if your user name is ofuser and you have uncompressed the oF package in the desktop it should be something like:</p>
-<pre><code>cd /home/ofuser/Desktop/of_preRelease_v0.06_linux_cb_FAT/scripts/fedora
+<pre><code>cd /home/ofuser/Desktop/of_preRelease_v0.06_linux_cb_FAT/scripts/linux/fedora
 </code></pre>
 </li>
 <li>
 <p>once in this directory run the scripts with:</p>
-<pre><code>./install_codeblocks.sh./install_dependencies.sh
+<pre><code>./install_codeblocks.sh
+./install_dependencies.sh
 </code></pre>
 </li>
 </ul>
 <h2>makefiles</h2>
-<p>From 0.06 there&#8217;s makefiles for all the examples. There&#8217;s no special package, the makefiles are in the codeblocks distribution.</p>
+<p>From openFrameworks 0.06 there are makefiles for all the examples. There&#8217;s no special package, the makefiles are in the codeblocks distribution.</p>
 <p>You only need to execute the install_dependencies script in case you don&#8217;t want to use codeblocks. Follow the instructions for your platform in the codeblocks install.</p>
-<p>To use the makefiles just enter the example directory from a console and type make. It will compile everything and generate the executable and the clickToLaunch.sh script in the bin directory the same as with codeblocks.</p>
+<p>To use the makefiles just enter the example directory from a console and type make. It will compile everything and generate the executable and the clickToLaunch.sh script in the bin directory, the same as with codeblocks.</p>
 <p>The make targets are:</p>
 <ul>
 <li>Debug: to generate the executable with debug symbols</li>
@@ -178,8 +184,27 @@
 <li>CleanRelease: cleans only the release build</li>
 <li>help: shows the help message on how to use the makefile</li>
 </ul>
-<p><strong>0061 new makefile:</strong> The makefile has been updated in 0061, now it autodetects the project file name, source files&#8230; so you can just make a copy of any example, rename the folder and it will work. The behaviour of the makefile can be tweaked editing just 4 variables, at the beginning of the file, everything else should work automatically.</p>
-<p>Also you can tell the makefile to include addons just by creating an addons.make file in the root of your project, just put the names of the addons that you want to use in one line each and it will do the rest.</p>
+<p><strong>0061 new makefile:</strong> The makefile has been updated in 0061, now it autodetects the project file name, source files, etc&#8230; so you can just make a copy of any example, rename the folder and it will work. The behaviour of the makefile can be tweaked editing just 4 variables at the beginning of the file. Everything else should work automatically.</p>
+<p>You can also tell the makefile to include addons just by creating an addons.make file in the root of your project. Just put the names of the addons that you want to use in one line each and it will do the rest.</p>
+<h2>FAQ</h2>
+<p><strong>The examples aren't compiling! I'm getting errors like this one:</strong></p>
+<pre><code>../../../libs/glew/include/GL/glew.h:1172:20: fatal error: GL/glu.h: No such file or directory
+</code></pre>
+<ul>
+<li>Did you run install_dependencies.sh first? It will install libraries which are needed to compile the examples.</li>
+</ul>
+<p><strong>I got an example to compile, but it's not running correctly. There's a window but nothing is being displayed.</strong></p>
+<ul>
+<li>
+<p>Are you using a 3D-accelerated layout manager? Later versions of Ubuntu use one by default. Sometimes this may interfere with the graphics in your openFrameworks program. Try turning it off temporarily.</p>
+<p>If you're using Gnome, type this command in your terminal:</p>
+<pre><code>metacity --replace &amp;
+</code></pre>
+<p>Or for KDE:</p>
+<pre><code>kwin --replace &amp;
+</code></pre>
+</li>
+</ul>
 
             </div>
       </div>
@@ -189,13 +214,13 @@
 
 Last updated 
   
-Thursday, 23 February 2012 20:54:24 UTC
+Thursday, 23 February 2012 23:41:29 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-f75045478675c9d7b8286ce7054f906b3a242d03
+4006e2cd096a9ade8a77ccac5b70f7bc6c8d84c2
 ">
 
-f75045478675c9d7b8286ce7054f906b3a242d03
+4006e2cd096a9ade8a77ccac5b70f7bc6c8d84c2
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->

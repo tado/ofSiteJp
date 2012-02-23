@@ -12,6 +12,10 @@
       <div id="body-wrap">	
 
 	<div class="page-wide">
+	  <ul class="submenu">
+            <li><a href="/documentation">reference</a></li>
+            <li><a href="/tutorials">tutorials</a></li>
+          </ul>
           
           <h1>documentation</h1>
 	  <div class="page-left-split">

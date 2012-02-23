@@ -3,20 +3,23 @@
 
 ##Description
 
-FirmataライブラリがインストールされたArduinoをoFからコントロールします。FirmataをArduinoにロードするには、まずArduino開発環境を起動し、「Example > Firmata > StandardFirmata」のスケッチを開きます。次にArduinoのボードにスケッチをアップロードします。
-ofArduinoのインスタンスがisArduinoReady()からtrueを返したら、sendDigitalPinMode()を利用してデジタルピンのモードを設定可能となります。
+
+This is a way to control an ARduino that has had the firmata library loaded onto it from OF. To load firmata onto your Arduino,  run the Arduino IDE, open the Examples > Firmata > StandardFirmata sketch, and upload it to the Arduino board.
+Once the ofArduino instance returns true from isArduinoReady() you can set the mode of the different digital pins using sendDigitalPinMode()
    
     ~~~~{.cpp}
 	sendDigitalPinMode(9, ARD_INPUT)
 	~~~~
 
-ボタンが押されたことを検知するために、9番ピンをインプットに設定します。
+This sets pin 9 to input so that it can read a button press, while:
 
     ~~~~{.cpp}
 	sendDigitalPinMode(9, ARD_PWM)
 	~~~~
 
-9番ピンをPWMとして設定します。この操作はPWMが利用可能なピンに限られることに注意してください。
+sets pin 9 to be a PWM out pin. Note that this only works on pins that are PWM enabled.
+
+
 
 
 ##Methods
@@ -239,7 +242,7 @@ _advanced: False_
 
 _description: _
 
-Arduinoに接続するためのシリアルポートを開く
+opens a serial port connection to the arduino
 
 
 
@@ -324,7 +327,7 @@ _advanced: False_
 
 _description: _
 
-シリアルポートの接続を閉じる。Arduinoを停止するわけではない。
+closes the serial port connection. Does not turn the Arduino off.
 
 
 
@@ -409,7 +412,7 @@ _advanced: False_
 
 _description: _
 
-シリアルポートからデータを取得する。この命令は定期的に呼ばれるようにすべきである。
+polls data from the serial port, this has to be called periodically
 
 
 
@@ -494,7 +497,8 @@ _advanced: False_
 
 _description: _
 
-正しく接続が確立したらtrueを返し、Arduinoはファームウェアに通知する。
+returns true if a succesfull connection has been established and the Arduino has reported a firmware
+
 
 
 
@@ -522,8 +526,8 @@ _advanced: True_
 
 _description: _
 
-Arduino Uno：9, 10ピン
-作動させるには、ピンにサーボモーターを接続する
+On the Arduino Uno pin: 9, 10
+the pin has to have a servo attached for this to work.
 
 
 
@@ -580,8 +584,8 @@ _advanced: True_
 
 _description: _
 
-Arduino Uno：サーボモータが接続された、9, 10ピン
-Firmata 2.2では、angleパラメータは推奨されていない
+On the Arduino Uno pin: 9, 10 attaches a servo to a pin
+angle parameter DEPRECATED as of Firmata 2.2
 
 
 
@@ -638,8 +642,9 @@ _advanced: True_
 
 _description: _
 
-Arduino Unoでは9, 10番でピンからサーボ機能を切り離す。ピンのモードはOUTPUTのまま保持される。
-sendServoDetachはFirmata 2.2では推奨されていない。
+On the Arduino Uno pin: 9, 10 detaches a servo from a pin, the pin mode remains as OUTPUT
+sendServoDetach DEPRECATED as of Firmata 2.2
+
 
 
 
@@ -695,7 +700,7 @@ _advanced: True_
 
 _description: _
 
-もしピーンにサーボが設定されていたら、最後に設定されたサーボの値を返す。
+returns the last set servo value for a pin if the pin has a servo attached
 
 
 
@@ -752,7 +757,7 @@ _advanced: False_
 
 _description: _
 
-Arduino Unoでは、pin：2-13に対応。mode：RD_INPUT, ARD_OUTPUT, ARD_PWM。ピンモードがARD_INPUTに設定されていたら、ポートにピンがONだと通知する。注意：アナログピン0-5はデジタルピンの16-21としても作動する、しかしそのなかの一つのピンでもARD_INPUTに設定されていたら、全てのアナログピンの反応は停止する。
+On the Arduino Uno pin: 2-13 mode: ARD_INPUT, ARD_OUTPUT, ARD_PWM setting a pins mode to ARD_INPUT turns on reporting for the port the pin is on Note: analog pins 0-5 can be used as digitial pins 16-21 but if the mode of _one_ of these pins is set to ARD_INPUT then _all_ analog pin reporting will be turned off
 
 
 
@@ -837,7 +842,9 @@ _advanced: False_
 
 _description: _
 
-Arduino Unoでは、3, 5, 6, 9, 10, 11ピン。値は0(完全にoff)から255(常にon)。ピンのモードはARD_PWMにしなくてはならない。
+On the Uno this will work on pins: 3, 5, 6, 9, 10 and 11 value: 0 (always off) to 255 (always on). the pins mode has to be set to ARD_PWM
+TODO check if the PWM bug still is there causing frequent digital port reporting...
+
 
 
 
@@ -893,7 +900,7 @@ _advanced: False_
 
 _description: _
 
-Firmataは12文字以上の文字列は扱えない
+firmata can not handle strings longer than 12 characters.
 
 
 
@@ -978,7 +985,8 @@ _advanced: False_
 
 _description: _
 
-Arduinoをリセットして内部のプログラムを再起動する。
+This will cause your Arduino to reset and boot into the program again.
+
 
 
 
@@ -1062,7 +1070,8 @@ _advanced: False_
 
 _description: _
 
-Firmataのメッセージとして、ラッピングすることなくバイトを送出する。データは、0から127の範囲。127より大きな値は、コマンドとして解釈される。
+sends a byte without wrapping it in a firmata message, data has to be in the 0-127 range,
+values > 127 will be interpreted as commands.
 
 
 
@@ -1119,11 +1128,10 @@ _advanced: False_
 
 _description: _
 
-Arduino Unoの場合
-ピン：3, 5, 6, 9, 10 and 11
-指定したピンの最後にセットされたPWMの値を返す
-ピンのモードは、ARD_PWMにする
-注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
+On the Arduino Uno pin: 3, 5, 6, 9, 10 and 11
+returns the last set PWM value (0-255) for the given pin
+the pins mode has to be ARD_PWM
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
 
 
 
@@ -1152,11 +1160,10 @@ _advanced: False_
 
 _description: _
 
-Arduino Unoでは、ピン：2-13
-もしピンモードがARD_INPUTだったら最後に受信した値、ピンモードがARD_OUTPUTだったら最後に設定した値を返す
-注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
-返り値が、1か0か、highかlowかに関わらず、if()を用いて下記のようなステイトメントで値をテストすることができる
-
+On the Arduino Uno pin: 2-13
+returns the last received value (if the pin mode is ARD_INPUT) or the last set value (if the pin mode is ARD_OUTPUT) for the given pin
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
+Returns whether the pin is reading high or low, 1 or 0. You can test against this with an if() statement which is handy:
 ~~~~{.cpp}
 if(arduino.getDigital(pin)){
     // do something on high
@@ -1192,7 +1199,8 @@ _advanced: False_
 
 _description: _
 
-現在指定したピンが読み込んでいるアナログ値を返す。Arduinoは10ビットのADCを持つので、0〜1024の値を持つことができる
+Returns the analog in value that the pin is currently reading. because the Arduino has a 10 bit ADC you get between 0 and 1023 for possible values.
+
 
 
 
@@ -1220,7 +1228,7 @@ _advanced: True_
 
 _description: _
 
-最後に受信したSysExメッセージを返す
+returns the last received SysEx message
 
 
 
@@ -1249,7 +1257,7 @@ _advanced: False_
 
 _description: _
 
-最後に受信した文字列を返す
+returns the last received string
 
 
 
@@ -1278,7 +1286,7 @@ _advanced: True_
 
 _description: _
 
-ファームウェアのメジャーバージョンを返す
+returns the major firmware version
 
 
 
@@ -1307,7 +1315,7 @@ _advanced: True_
 
 _description: _
 
-ファームウェアーのマイナーバージョンを返す
+returns the minor firmware version
 
 
 
@@ -1336,7 +1344,7 @@ _advanced: True_
 
 _description: _
 
-ファームウェアのメジャーバージョンを返す
+returns the major firmware version
 
 
 
@@ -1365,7 +1373,7 @@ _advanced: True_
 
 _description: _
 
-ファームウェアーのマイナーバージョンを返す
+returns the minor firmware version
 
 
 
@@ -1394,7 +1402,7 @@ _advanced: True_
 
 _description: _
 
-ファームウェアの名前を返す
+returns the name of the firmware
 
 
 
@@ -1423,9 +1431,10 @@ _advanced: True_
 
 _description: _
 
-Arduino Unoではピン：2-13
-指定したピンのデジタルデータの履歴のリストへのポインタを返す
-注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
+On the Arduino Uno pin: 2-13
+returns a pointer to the digital data history list for the given pin
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
+
 
 
 
@@ -1453,9 +1462,8 @@ _advanced: True_
 
 _description: _
 
-Arduino Unoでは、ピン：0-5
-指定したピンのアナログデータの履歴のリスト
-
+On the Arduino Uno pin: 0-5
+returns a pointer to the analog data history list for the given pin
 
 
 
@@ -1484,7 +1492,7 @@ _advanced: True_
 
 _description: _
 
-SysExメッセージの履歴のポインタを返す
+returns a pointer to the SysEx history
 
 
 
@@ -1513,7 +1521,7 @@ _advanced: True_
 
 _description: _
 
-文字列の履歴のポインタを返す
+returns a pointer to the string history
 
 
 
@@ -1542,7 +1550,8 @@ _advanced: False_
 
 _description: _
 
-デジタルピンのモードを返す：ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG
+returns ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG
+
 
 
 
@@ -1570,8 +1579,7 @@ _advanced: False_
 
 _description: _
 
-
-ARD_ON,またはARD_OFF
+returns ARD_ON, ARD_OFF
 
 
 
@@ -1600,8 +1608,7 @@ _advanced: True_
 
 _description: _
 
-SysExメッセージのパースに使う
-
+useful for parsing SysEx messages
 
 
 
@@ -1658,7 +1665,7 @@ _advanced: True_
 
 _description: _
 
-もしデジタルルピンの値が変化したらトリガーされる。
+triggered when a digital pin changes value, the pin that changed is passed as an argument
 
 
 

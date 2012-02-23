@@ -19,6 +19,7 @@
 <script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
 <script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
 <script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushJava.js" type="text/javascript"></script>
 <link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
 <link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
 
@@ -98,18 +99,18 @@
               <h1>ofArduino</h1>
               <p>
               
-  <p>FirmataライブラリがインストールされたArduinoをoFからコントロールします。FirmataをArduinoにロードするには、まずArduino開発環境を起動し、「Example &gt; Firmata &gt; StandardFirmata」のスケッチを開きます。次にArduinoのボードにスケッチをアップロードします。
-ofArduinoのインスタンスがisArduinoReady()からtrueを返したら、sendDigitalPinMode()を利用してデジタルピンのモードを設定可能となります。</p>
+  <p>This is a way to control an ARduino that has had the firmata library loaded onto it from OF. To load firmata onto your Arduino,  run the Arduino IDE, open the Examples &gt; Firmata &gt; StandardFirmata sketch, and upload it to the Arduino board.
+Once the ofArduino instance returns true from isArduinoReady() you can set the mode of the different digital pins using sendDigitalPinMode()</p>
 <pre><code>~~~~{.cpp}
 sendDigitalPinMode(9, ARD_INPUT)
 ~~~~
 </code></pre>
-<p>ボタンが押されたことを検知するために、9番ピンをインプットに設定します。</p>
+<p>This sets pin 9 to input so that it can read a button press, while:</p>
 <pre><code>~~~~{.cpp}
 sendDigitalPinMode(9, ARD_PWM)
 ~~~~
 </code></pre>
-<p>9番ピンをPWMとして設定します。この操作はPWMが利用可能なピンに限られることに注意してください。</p>
+<p>sets pin 9 to be a PWM out pin. Note that this only works on pins that are PWM enabled.</p>
 
               </p>
         	</div><!-- End Prose Block -->
@@ -252,7 +253,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Arduinoに接続するためのシリアルポートを開く</p>
+  <p>opens a serial port connection to the arduino</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -288,7 +289,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>シリアルポートの接続を閉じる。Arduinoを停止するわけではない。</p>
+  <p>closes the serial port connection. Does not turn the Arduino off.</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -324,7 +325,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>シリアルポートからデータを取得する。この命令は定期的に呼ばれるようにすべきである。</p>
+  <p>polls data from the serial port, this has to be called periodically</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -360,7 +361,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>正しく接続が確立したらtrueを返し、Arduinoはファームウェアに通知する。</p>
+  <p>returns true if a succesfull connection has been established and the Arduino has reported a firmware</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -378,7 +379,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Arduino Unoでは、pin：2-13に対応。mode：RD_INPUT, ARD_OUTPUT, ARD_PWM。ピンモードがARD_INPUTに設定されていたら、ポートにピンがONだと通知する。注意：アナログピン0-5はデジタルピンの16-21としても作動する、しかしそのなかの一つのピンでもARD_INPUTに設定されていたら、全てのアナログピンの反応は停止する。</p>
+  <p>On the Arduino Uno pin: 2-13 mode: ARD_INPUT, ARD_OUTPUT, ARD_PWM setting a pins mode to ARD_INPUT turns on reporting for the port the pin is on Note: analog pins 0-5 can be used as digitial pins 16-21 but if the mode of <em>one</em> of these pins is set to ARD_INPUT then <em>all</em> analog pin reporting will be turned off</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -432,7 +433,8 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Arduino Unoでは、3, 5, 6, 9, 10, 11ピン。値は0(完全にoff)から255(常にon)。ピンのモードはARD_PWMにしなくてはならない。</p>
+  <p>On the Uno this will work on pins: 3, 5, 6, 9, 10 and 11 value: 0 (always off) to 255 (always on). the pins mode has to be set to ARD_PWM
+TODO check if the PWM bug still is there causing frequent digital port reporting...</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -450,7 +452,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Firmataは12文字以上の文字列は扱えない</p>
+  <p>firmata can not handle strings longer than 12 characters.</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -468,7 +470,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Arduinoをリセットして内部のプログラムを再起動する。</p>
+  <p>This will cause your Arduino to reset and boot into the program again.</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -486,7 +488,8 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Firmataのメッセージとして、ラッピングすることなくバイトを送出する。データは、0から127の範囲。127より大きな値は、コマンドとして解釈される。</p>
+  <p>sends a byte without wrapping it in a firmata message, data has to be in the 0-127 range,
+values &gt; 127 will be interpreted as commands.</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -504,11 +507,10 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Arduino Unoの場合
-ピン：3, 5, 6, 9, 10 and 11
-指定したピンの最後にセットされたPWMの値を返す
-ピンのモードは、ARD_PWMにする
-注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能</p>
+  <p>On the Arduino Uno pin: 3, 5, 6, 9, 10 and 11
+returns the last set PWM value (0-255) for the given pin
+the pins mode has to be ARD_PWM
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -526,10 +528,10 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>Arduino Unoでは、ピン：2-13
-もしピンモードがARD_INPUTだったら最後に受信した値、ピンモードがARD_OUTPUTだったら最後に設定した値を返す
-注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
-返り値が、1か0か、highかlowかに関わらず、if()を用いて下記のようなステイトメントで値をテストすることができる</p>
+  <p>On the Arduino Uno pin: 2-13
+returns the last received value (if the pin mode is ARD_INPUT) or the last set value (if the pin mode is ARD_OUTPUT) for the given pin
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
+Returns whether the pin is reading high or low, 1 or 0. You can test against this with an if() statement which is handy:</p>
 <pre><code class="cpp">if(arduino.getDigital(pin)){
     // do something on high
 }else{
@@ -553,7 +555,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>現在指定したピンが読み込んでいるアナログ値を返す。Arduinoは10ビットのADCを持つので、0〜1024の値を持つことができる</p>
+  <p>Returns the analog in value that the pin is currently reading. because the Arduino has a 10 bit ADC you get between 0 and 1023 for possible values.</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -571,7 +573,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>最後に受信した文字列を返す</p>
+  <p>returns the last received string</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -589,7 +591,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>デジタルピンのモードを返す：ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG</p>
+  <p>returns ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -607,7 +609,7 @@ sendDigitalPinMode(9, ARD_PWM)
 	<div class="documentation_detail_description">
 		
 		
-  <p>ARD_ON,またはARD_OFF</p>
+  <p>returns ARD_ON, ARD_OFF</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -630,13 +632,13 @@ sendDigitalPinMode(9, ARD_PWM)
 
 Last updated 
   
-Thursday, 23 February 2012 20:53:35 UTC
+Thursday, 23 February 2012 23:41:00 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-f75045478675c9d7b8286ce7054f906b3a242d03
+4006e2cd096a9ade8a77ccac5b70f7bc6c8d84c2
 ">
 
-f75045478675c9d7b8286ce7054f906b3a242d03
+4006e2cd096a9ade8a77ccac5b70f7bc6c8d84c2
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->

@@ -46,12 +46,16 @@ blog.name = "openFrameworks.jp"
 blog.description = "Your Blog's short description"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
-blog.timezone = "US/Eastern"
+blog.timezone = "JP"
 
 controllers.documentation.enabled = True
 controllers.community.enabled = True
+controllers.tutorials.enabled = True
 
 documentation = controllers.documentation
 documentation.path = 'documentation'
+
+tutorials = controllers.documentation
+tutorials.path = 'tutorials'
 
 

@@ -2,55 +2,55 @@
 
 <h1>download</h1>
 <div id="download-latest-header">
-	<h2>007</h2>
-	<p><strong>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも…バージョン間の違いの一覧は、<a href="https://github.com/openframeworks/openFrameworks/blob/develop/changes.txt">更新履歴</a>を参照してください。</strong></p>
-	<p>openFrameworksを使用するためにはIDE(統合開発環境)が必要です。また、実際に試していくにはプラットフォームごとのセットアップガイドが必要となるでしょう。もしバグをみつけたら<a href="http://github.com/openframeworks/openFrameworks/issues">問題点</a>のページに投稿してください。その他質問があれば、<a href="http://forum.openframeworks.cc">フォーラム</a>に投稿してください。openFrameworksは、<a href="../about/license.html">MITライセンス</a>で配布されています。</p>
+  <h2>007</h2>
+  <p><strong>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも…バージョン間の違いの一覧は、<a href="https://github.com/openframeworks/openFrameworks/blob/develop/changes.txt">更新履歴</a>を参照してください。</strong></p>
+  <p>openFrameworksを使用するためにはIDE(統合開発環境)が必要です。また、実際に試していくにはプラットフォームごとのセットアップガイドが必要となるでしょう。もしバグをみつけたら<a href="http://github.com/openframeworks/openFrameworks/issues">問題点</a>のページに投稿してください。その他質問があれば、<a href="http://forum.openframeworks.cc">フォーラム</a>に投稿してください。openFrameworksは、<a href="../about/license.html">MITライセンス</a>で配布されています。</p>
 </div>
 
 <div id="download-latest-platform">
-	<h2>osx</h2>
-	<h3>ダウンロード</h3>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_osx.zip">xcode</a></p><br/>
-	<h3>セットアップガイド</h3>
-	<p><a href="../setup/xcode">xcode</a></p>
+  <h2>osx</h2>
+  <h3>ダウンロード</h3>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_osx.zip">xcode</a></p><br/>
+  <h3>セットアップガイド</h3>
+  <p><a href="../setup/xcode">xcode</a></p>
 </div>
 
 <div id="download-latest-platform">
-	<h2>linux</h2>
-	<h3>ダウンロード</h3>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_linux.tar.gz">code::blocks</a></p>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_linux64.tar.gz">code::blocks (64 bit)</a></p><br/>
-	<h3>セットアップガイド</h3>
-	<p><a href="../setup/linux-codeblocks">code::blocks</a></p>
+  <h2>linux</h2>
+  <h3>ダウンロード</h3>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_linux.tar.gz">code::blocks</a></p>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_linux64.tar.gz">code::blocks (64 bit)</a></p><br/>
+  <h3>セットアップガイド</h3>
+  <p><a href="../setup/linux-codeblocks">code::blocks</a></p>
 </div>
 
 <div id="download-latest-platform">
-	<h2>windows</h2>
-	<h3>ダウンロード</h3>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_win_cb.zip">code::blocks</a></p>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_vs2010.zip">visual studio 2010</a></p><br/>
-	<h3>セットアップガイド</h3>
-	<p><a href="../setup/codeblocks">code::blocks</a></p>
-	<!--<p><a href="../setup/vs-2008">visual studio 2008</a></p>-->
-	<p><a href="../setup/vs-2010">visual studio 2010</a></p>
+  <h2>windows</h2>
+  <h3>ダウンロード</h3>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_win_cb.zip">code::blocks</a></p>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_vs2010.zip">visual studio 2010</a></p><br/>
+  <h3>セットアップガイド</h3>
+  <p><a href="../setup/codeblocks">code::blocks</a></p>
+  <!--<p><a href="../setup/vs-2008">visual studio 2008</a></p>-->
+  <p><a href="../setup/vs-2010">visual studio 2010</a></p>
 </div>
 
 <div id="download-latest-platform">
-	<h2>ios</h2>
-	<p><em>osxのみ</em></p><br/>
-	<h3>ダウンロード</h3>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_iphone.zip">ios</a></p><br/>
-	<h3>セットアップガイド</h3>
-	<p><a href="../setup/iphone">ios</a></p>
+  <h2>ios</h2>
+  <p><em>osxのみ</em></p><br/>
+  <h3>ダウンロード</h3>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_iphone.zip">ios</a></p><br/>
+  <h3>セットアップガイド</h3>
+  <p><a href="../setup/iphone">ios</a></p>
 </div>
 
 <div id="download-latest-platform">
-	<h2>android</h2>
-	<p><em>linuxもしくはosxのみ</em></p><br/>
-	<h3>ダウンロード</h3>
-	<p><a href="../versions/preRelease_v0.07/of_preRelease_v007_android.tar.gz">eclipse</a></p><br/>
-	<h3>セットアップガイド</h3>
-	<p><a href="../setup/android-eclipse">eclipse</a></p>
+  <h2>android</h2>
+  <p><em>linuxもしくはosxのみ</em></p><br/>
+  <h3>ダウンロード</h3>
+  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_android.tar.gz">eclipse</a></p><br/>
+  <h3>セットアップガイド</h3>
+  <p><a href="../setup/android-eclipse">eclipse</a></p>
 </div>
 
 <br class="clearboth"/>
@@ -64,10 +64,10 @@ openFrameworksはコンパイルされていない状態でライブラリとし
 *バージョン007では、さらにいくつかの新しいサンプルが追加されています：立方体、assimpローダー、シェーダー、floating point imageなど*
 
 <div id="myslides">
-<img src="0.png" />
-<img src="1.jpg" />
-<img src="2.png" />
-<img src="3.jpg" />
+  <img src="0.png" />
+  <img src="1.jpg" />
+  <img src="2.png" />
+  <img src="3.jpg" />
 </div>
 
 --------------------------------

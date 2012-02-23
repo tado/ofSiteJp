@@ -1,4 +1,4 @@
-//----------------------
+/----------------------
 
 ##arduino##
 
@@ -579,11 +579,6 @@ __advanced: true__
 ###ofBaseVideoGrabber###
 __visible: true__
 __advanced: true__
-
-
-###ofTypes###
-__visible: true__
-__advanced: false__
 
 
 ###ofBaseVideoDraws###
