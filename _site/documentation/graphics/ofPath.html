@@ -1,0 +1,1423 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofPath</h1>
+              <p>
+              
+  <p>ofPath is a way to create a path or multiple paths consisting of points. It allows you to combine multiple paths consisting of points into a single vector data object that can be drawn to the screen, manipulated point by point, or manipulated with it's child subpaths. It is better at representing and manipulating complex shapes than the <a href="ofPolyline.htm">ofPolyline</a> and more easily represents multiple child lines or shapes as either ofSubPath or ofPolyline instances. By default ofPath uses ofSubPath instances. Closing the path automatically creates a new path:</p>
+<pre><code class="cpp">for( int i = 0; i &lt; 5; i++) {
+    path.arc( i * 50 + 20, i * 50 + 20, i * 40 + 10, i * 40 + 10, 0, 360); // creates a new ofSubPath
+    path.close();
+}
+</code></pre>
+
+<p>To use ofPolyline instances, simply set the mode to POLYLINES</p>
+<pre><code class="cpp">path.setMode(POLYLINES);
+</code></pre>
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#ofPath">ofPath()</a> </li>
+                         
+                              
+                             <li> <a href="#clear">clear()</a> </li>
+                         
+                              
+                             <li> <a href="#newSubPath">newSubPath()</a> </li>
+                         
+                              
+                             <li> <a href="#close">close()</a> </li>
+                         
+                              
+                             <li> <a href="#lineTo">lineTo(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#moveTo">moveTo(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#curveTo">curveTo(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#bezierTo">bezierTo(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#quadBezierTo">quadBezierTo(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#arc">arc(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#setPolyWindingMode">setPolyWindingMode(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setFilled">setFilled(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setStrokeWidth">setStrokeWidth(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setColor">setColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setHexColor">setHexColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setFillColor">setFillColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setFillHexColor">setFillHexColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setStrokeColor">setStrokeColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setStrokeHexColor">setStrokeHexColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getWindingMode">getWindingMode()</a> </li>
+                         
+                              
+                             <li> <a href="#isFilled">isFilled()</a> </li>
+                         
+                              
+                             <li> <a href="#getFillColor">getFillColor()</a> </li>
+                         
+                              
+                             <li> <a href="#getStrokeColor">getStrokeColor()</a> </li>
+                         
+                              
+                             <li> <a href="#getStrokeWidth">getStrokeWidth()</a> </li>
+                         
+                              
+                             <li> <a href="#hasOutline">hasOutline()</a> </li>
+                         
+                              
+                             <li> <a href="#draw">draw(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#getSubPaths">getSubPaths()</a> </li>
+                         
+                              
+                             <li> <a href="#getOutline">getOutline()</a> </li>
+                         
+                              
+                             <li> <a href="#getTessellation">getTessellation()</a> </li>
+                         
+                              
+                             <li> <a href="#simplify">simplify(...)</a> </li>
+                         
+                              
+                             <li> <a href="#flagShapeChanged">flagShapeChanged()</a> </li>
+                         
+                              
+                             <li> <a href="#setMode">setMode(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setCurveResolution">setCurveResolution(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getCurveResolution">getCurveResolution()</a> </li>
+                         
+                              
+                             <li> <a href="#setArcResolution">setArcResolution(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getArcResolution">getArcResolution()</a> </li>
+                         
+                              
+                             <li> <a href="#setUseShapeColor">setUseShapeColor(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getUseShapeColor">getUseShapeColor()</a> </li>
+                         
+                              
+                             <li> <a href="#tessellate">tessellate()</a> </li>
+                         
+                              
+                             <li> <a href="#translate">translate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotate">rotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#scale">scale(...)</a> </li>
+                         
+                         
+                         
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+            
+             
+            
+             <!-- list of functions -->              
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/graphics/ofPath.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation//ofPath_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofPath methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofPath">ofPath()</a></h1>
+	<h2>
+  <p>ofPath::ofPath()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a new ofPath instance.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="clear">clear()</a></h1>
+	<h2>
+  <p>void ofPath::clear()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Removes all subpaths from the ofPath instance.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newSubPath">newSubPath()</a></h1>
+	<h2>
+  <p>void ofPath::newSubPath()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a new subpath, either an ofPolyline instance or an ofSubPath instance. All points added after a call to ofSubPath will be done in the newly created subpath. Calling close() automatically calls create newSubPath(), ensuring that the closed path doesn't have new points added to it.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="close">close()</a></h1>
+	<h2>
+  <p>void ofPath::close()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Closes the current subpath and creates a new subpath, either an ofPolyline or ofSubPath by calling newSubPath(), ensuring that the closed path doesn't have new points added to it.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="lineTo">lineTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::lineTo(const ofPoint &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws a straight line from the current drawing position to the location indicated by p.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="lineTo">lineTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::lineTo(float x, float y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws a straight line from the current drawing position to the location indicated by x,y.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="lineTo">lineTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::lineTo(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws a straight line from the current drawing position to the location indicated by x,y,z.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="moveTo">moveTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::moveTo(const ofPoint &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Moves the drawing position to p. This means that a subsequent calls to, for instance, lineTo() or curveTo() will connect the location p to the new location.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="moveTo">moveTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::moveTo(float x, float y, float z=0)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Moves the drawing position to x,y.z. This means that a subsequent calls to, for instance, lineTo() or curveTo() will connect the location x,y,z to the new location.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="curveTo">curveTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::curveTo(const ofPoint &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws a curve to p from the current drawing position.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="curveTo">curveTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::curveTo(float x, float y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws a curve to x,y from the current drawing position. To draw a small rose curves at the mouse position:</p>
+<p>~~~~{.cpp}
+float scale = ofDist(mouseX, mouseY, px, py);</p>
+<p>for( float theta = 0; theta &lt; TWO_PI; theta += 0.1) 
+{
+    float r =  cos(theta * (scale/6)) * scale; 
+    path.curveTo(mouseX + r * cos(theta), mouseY + r * sin(theta));
+}</p>
+<p>px = mouseX;
+py = mouseY;
+$$/code</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="curveTo">curveTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::curveTo(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws a curve to x,y,z from the current drawing position.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="bezierTo">bezierTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::bezierTo(const ofPoint &amp;cp1, const ofPoint &amp;cp2, const ofPoint &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a cubic bezier line from the current drawing point with the 2 control points indicated by ofPoint cp1 and cp2, that ends at ofPoint to. For instance, the following:</p>
+<pre><code class="cpp">line.addVertex(ofPoint(200, 400));
+line.bezierTo(100, 100, 800, 100, 700, 400);
+</code></pre>
+
+<p>Creates this:
+<img alt="polyline bezier" src="/bezier.png" />
+The control points are shown in yellow.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="bezierTo">bezierTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::bezierTo(float cx1, float cy1, float cx2, float cy2, float x, float y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a cubic bezier line from the current drawing point with the 2 control points indicated by the coordinates cx1, cy1 and cx2, cy2, that ends at the coordinates x, y.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="bezierTo">bezierTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::bezierTo(float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a cubic bezier line in 3D space from the current drawing point with the 2 control points indicated by the coordinates cx1, cy1, cz1 and cx2, cy2, cz2, that ends at the coordinates x, y, z.</p>
+<pre><code class="cpp">float cx = ofGetWidth()/2;
+float cy = 200;
+float step = TWO_PI / 60;
+for (float i = 0.0; i &lt; TWO_PI; i+=step) {
+
+    if(i == 0.0) {
+        line.addVertex(cx + (400*cos(i)), cy+400, 400 * sin(i));
+    } else {
+        line.bezierTo( cx - (200*cos(i)), cy-100, 400 * sin(i), 
+                       cx + (200*cos(i)), cy+600, 400 * sin(i), 
+                       cx + (400*cos(i)), cy+400, 400 * sin(i));
+    }
+}
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="quadBezierTo">quadBezierTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::quadBezierTo(const ofPoint &amp;cp1, const ofPoint &amp;cp2, const ofPoint &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a quadratic bezier line in 3D space from the current drawing point with the beginning indicated by the coordinates cx1, cy1, cz1, the control point at cx2, cy2, cz2, and that ends at the coordinates x, y, z.
+<img alt="polyline curves" src="/curves.png" /></p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="quadBezierTo">quadBezierTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::quadBezierTo(float cx1, float cy1, float cx2, float cy2, float x, float y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a quadratic bezier line in 2D space from the current drawing point with the beginning indicated by the point p1, the control point at p2, and that ends at the point p3.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="quadBezierTo">quadBezierTo(...)</a></h1>
+	<h2>
+  <p>void ofPath::quadBezierTo(float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates a quadratic bezier line in 3D space from the current drawing point with the beginning indicated by the coordinates cx1, cy1, the control point at cx2, cy2, and that ends at the coordinates x, y.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="arc">arc(...)</a></h1>
+	<h2>
+  <p>void ofPath::arc(const ofPoint &amp;centre, float radiusX, float radiusY, float angleBegin, float angleEnd)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates an arc at centre, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd. To draw a circle with a radius of 50 pixels at 100, 100:</p>
+<p>~~~~{.cpp}
+path.arc( 100, 100, 50, 50, 0, 360);
+$$/code</p>
+<p>Note that angleBegin needs to be larger than angleEnd, i.e. 0, 180 is ok, while 180,0 is not.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="arc">arc(...)</a></h1>
+	<h2>
+  <p>void ofPath::arc(float x, float y, float radiusX, float radiusY, float angleBegin, float angleEnd)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates an arc at x,y, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd. To draws a shape with a radius of 200 pixels at 300, 300:</p>
+<p>~~~~{.cpp}
+path.moveTo(300, 300);
+path.arc( 300, 300, 200, 200, 0, 271); // note 271, not 270 for precision
+$$/code</p>
+<p><img alt="ofPath arc" src="/ofPath_arc.png" /></p>
+<p>Note that angleBegin needs to be larger than angleEnd, i.e. 0, 180 is ok, while 180,0 is not.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="arc">arc(...)</a></h1>
+	<h2>
+  <p>void ofPath::arc(float x, float y, float z, float radiusX, float radiusY, float angleBegin, float angleEnd)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Creates an arc at x,y,z, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPolyWindingMode">setPolyWindingMode(...)</a></h1>
+	<h2>
+  <p>void ofPath::setPolyWindingMode(ofPolyWindingMode mode)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the way that the points in the sub paths are connected. OpenGL can only render convex polygons which means that any shape that isn't convex, i.e. that has points which are concave, going inwards, need to be tessellated into triangles so that OpenGL can render them. If you're using filled shapes with your ofPath this is done automatically for you. The possible options you can pass in are:</p>
+<p>OF_POLY_WINDING_ODD
+OF_POLY_WINDING_NONZERO
+OF_POLY_WINDING_POSITIVE
+OF_POLY_WINDING_NEGATIVE
+OF_POLY_WINDING_ABS_GEQ_TWO</p>
+<p><img alt="ofPath winding modes" src="/windingModes.gif" /></p>
+<p>So adding the following points:</p>
+<p>~~~~{.cpp}
+void testApp::setup(){</p>
+<pre><code>path.lineTo(0, 400);
+path.lineTo(400, 400);
+path.lineTo(400, 0);
+path.lineTo(0, 0); // outer
+path.close();
+path.moveTo(100, 100);
+path.lineTo(100, 300);
+path.lineTo(300, 300);
+path.lineTo(300, 100); 
+path.lineTo(100, 100); // inner 1
+path.close();
+path.moveTo(250, 150);
+path.lineTo(150, 150);
+path.lineTo(150, 250);
+path.lineTo(250, 250); 
+path.lineTo(250, 150); // inner 2 (backwards)
+
+path2.lineTo(0, 400);
+path2.lineTo(400, 400);
+path2.lineTo(400, 0);
+path2.lineTo(0, 0); // outer
+path2.close();
+path2.moveTo(100, 100);
+path2.lineTo(300, 100);
+path2.lineTo(300, 300);
+path2.lineTo(100, 300); 
+path2.lineTo(100, 100); // inner 1
+path2.close();
+path2.moveTo(150, 150);
+path2.lineTo(250, 150);
+path2.lineTo(250, 250);
+path2.lineTo(150, 250); 
+path2.lineTo(150, 150); // inner 2 (fwds)
+</code></pre>
+<p>}</p>
+<p>void testApp::draw(){</p>
+<pre><code>ofTranslate(40,40);
+path.draw();
+ofTranslate(410, 0);
+path2.draw();
+</code></pre>
+<p>}</p>
+<p>void testApp::keyPressed(int key){</p>
+<pre><code>mode++;
+if( mode &gt; 4 ) mode = 0;
+
+path.setPolyWindingMode((ofPolyWindingMode) mode);
+path2.setPolyWindingMode((ofPolyWindingMode) mode);
+</code></pre>
+<p>}
+$$/code</p>
+<p>we can see non zero and positive handle the winding differently:</p>
+<p><img alt="ofPath winding" src="path_winding.png" /></p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setFilled">setFilled(...)</a></h1>
+	<h2>
+  <p>void ofPath::setFilled(bool hasFill)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets whether the path should be drawn as wireframes or filled.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setStrokeWidth">setStrokeWidth(...)</a></h1>
+	<h2>
+  <p>void ofPath::setStrokeWidth(float width)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets the stroke width of the line if the ofPath is to be drawn not in wireframe.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setColor">setColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setColor(const ofColor &amp;color)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the color of the path. This affects both the line if the path is drawn as wireframe and the fill if the path is drawn with fill. All subpaths are affeted.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setHexColor">setHexColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setHexColor(int hex)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the color of the path. This affects both the line if the path is drawn as wireframe and the fill if the path is drawn with fill. All subpaths are affeted.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setFillColor">setFillColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setFillColor(const ofColor &amp;color)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the fill color of the path. This has no affect if the path is drawn as wireframe.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setFillHexColor">setFillHexColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setFillHexColor(int hex)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the fill color of the path. This has no affect if the path is drawn as wireframe.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setStrokeColor">setStrokeColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setStrokeColor(const ofColor &amp;color)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the stroke color of the path. This has no affect if the path is drawn filled.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setStrokeHexColor">setStrokeHexColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setStrokeHexColor(int hex)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the stroke color of the path. This has no affect if the path is drawn filled.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getWindingMode">getWindingMode()</a></h1>
+	<h2>
+  <p>ofPolyWindingMode ofPath::getWindingMode()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the poly winding mode currently in use.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="isFilled">isFilled()</a></h1>
+	<h2>
+  <p>bool ofPath::isFilled()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Whether the path is using a fill or not.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getFillColor">getFillColor()</a></h1>
+	<h2>
+  <p>ofColor ofPath::getFillColor()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the ofColor that the ofPath is using.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getStrokeColor">getStrokeColor()</a></h1>
+	<h2>
+  <p>ofColor ofPath::getStrokeColor()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the stroke color that the ofPath is using.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getStrokeWidth">getStrokeWidth()</a></h1>
+	<h2>
+  <p>float ofPath::getStrokeWidth()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the stroke width.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="hasOutline">hasOutline()</a></h1>
+	<h2>
+  <p>bool ofPath::hasOutline()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="draw">draw(...)</a></h1>
+	<h2>
+  <p>void ofPath::draw(float x, float y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws the path at x,y. Calling draw() also calls tessllate().</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="draw">draw()</a></h1>
+	<h2>
+  <p>void ofPath::draw()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Draws the path at 0,0. Calling draw() also calls tessllate().</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getSubPaths">getSubPaths()</a></h1>
+	<h2>
+  <p>ofSubPath ofPath::getSubPaths()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This returns a vector of ofSubPath instances that you can walk to inspect their properties. If you've set your ofPath instance to use ofPolylines then this method does nothing.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getOutline">getOutline()</a></h1>
+	<h2>
+  <p>ofPolyline ofPath::getOutline()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This returns an ofPolyline representing the outline of an ofPath.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getTessellation">getTessellation()</a></h1>
+	<h2>
+  <p>ofMesh ofPath::getTessellation()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="simplify">simplify(...)</a></h1>
+	<h2>
+  <p>void ofPath::simplify(float tolerance=0.3)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="flagShapeChanged">flagShapeChanged()</a></h1>
+	<h2>
+  <p>void ofPath::flagShapeChanged()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setMode">setMode(...)</a></h1>
+	<h2>
+  <p>void ofPath::setMode(Mode mode)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setCurveResolution">setCurveResolution(...)</a></h1>
+	<h2>
+  <p>void ofPath::setCurveResolution(int curveResolution)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getCurveResolution">getCurveResolution()</a></h1>
+	<h2>
+  <p>int ofPath::getCurveResolution()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setArcResolution">setArcResolution(...)</a></h1>
+	<h2>
+  <p>void ofPath::setArcResolution(int res)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getArcResolution">getArcResolution()</a></h1>
+	<h2>
+  <p>int ofPath::getArcResolution()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setUseShapeColor">setUseShapeColor(...)</a></h1>
+	<h2>
+  <p>void ofPath::setUseShapeColor(bool useColor)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getUseShapeColor">getUseShapeColor()</a></h1>
+	<h2>
+  <p>bool ofPath::getUseShapeColor()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="tessellate">tessellate()</a></h1>
+	<h2>
+  <p>void ofPath::tessellate()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="translate">translate(...)</a></h1>
+	<h2>
+  <p>void ofPath::translate(const ofPoint &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>void ofPath::rotate(float az, const ofVec3f &amp;axis)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="scale">scale(...)</a></h1>
+	<h2>
+  <p>void ofPath::scale(float x, float y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Changes the size of either the ofPolyline or ofSubPath instances that the ofPath contains. These changes are non-reversible, so for instance scaling by 0,0 zeroes out all data.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+              
+              <!-- functions detail -->
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:52 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,1179 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofSoundPlayer</h1>
+              <p>
+              
+  <p>The ofSoundPlayer class wraps one of several underlying audio utility libraries, depending on your OS and your configuration that can be Fmod, Quicktime, or OpenAL. The ofSoundPlayer is primarily to allow you to load sound files and control and manipulate their playback and properties, if you want more low level access to sound data and to your sound card then you should take a look at the ofSoundStream class. </p>
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                         
+                         
+                              
+                             <li> <a href="#loadSound">loadSound(...)</a> </li>
+                         
+                              
+                             <li> <a href="#unloadSound">unloadSound()</a> </li>
+                         
+                              
+                             <li> <a href="#play">play()</a> </li>
+                         
+                              
+                             <li> <a href="#stop">stop()</a> </li>
+                         
+                              
+                             <li> <a href="#setVolume">setVolume(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setPan">setPan(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setSpeed">setSpeed(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setPaused">setPaused(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setLoop">setLoop(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setMultiPlay">setMultiPlay(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setPosition">setPosition(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getPosition">getPosition()</a> </li>
+                         
+                              
+                             <li> <a href="#getIsPlaying">getIsPlaying()</a> </li>
+                         
+                              
+                             <li> <a href="#getSpeed">getSpeed()</a> </li>
+                         
+                              
+                             <li> <a href="#getPan">getPan()</a> </li>
+                         
+                              
+                             <li> <a href="#setPlayer">setPlayer(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getPlayer">getPlayer()</a> </li>
+                         
+                              
+                             <li> <a href="#setPositionMS">setPositionMS(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getPositionMS">getPositionMS()</a> </li>
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+                <p class="top_list_header"><a href="#variables">class variables</a></p>
+                <ul class="functionslist">
+                             <li> <a href="#isStreaming">bool isStreaming</a> </li>
+                             <li> <a href="#bMultiPlay">bool bMultiPlay</a> </li>
+                             <li> <a href="#bLoop">bool bLoop</a> </li>
+                             <li> <a href="#bLoadedOk">bool bLoadedOk</a> </li>
+                             <li> <a href="#bPaused">bool bPaused</a> </li>
+                             <li> <a href="#pan">float pan</a> </li>
+                             <li> <a href="#volume">float volume</a> </li>
+                             <li> <a href="#speed">float speed</a> </li>
+                             <li> <a href="#length">unsigned int length</a> </li>
+                 </ul>
+            
+             
+            
+             <!-- list of functions -->              
+            <p class="top_list_header"><a href="#functions">functions</a></p>
+                <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#ofSoundSetVolume">ofSoundSetVolume(...)</a> </li>
+                         
+                              
+                             <li> <a href="#ofSoundStopAll">ofSoundStopAll()</a> </li>
+                         
+                              
+                             <li> <a href="#ofSoundUpdate">ofSoundUpdate()</a> </li>
+                         
+                 </ul>
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/sound/ofSoundPlayer.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/sound/ofSoundPlayer_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofSoundPlayer methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="loadSound">loadSound(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::loadSound(string fileName, bool stream)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Loads a sound file given by fileName. Sound files can be in .wav, .aif, .mp3, .mp2, .ogg or .raw format. The program will look for the file relative to the data/ folder. If you set the optional 'bool stream' argument to true the file will be streamed from disk instead of being completely loaded into memory. It makes a lot of sense to stream files if you are dynamically loading large sound files into your program, which would normally cause the program to freeze for a short time as the whole sound is read into memory. </p>
+<p>Examples:</p>
+<p>Load a Sound</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.loadSound(&quot;beat.mp3&quot;);
+</code></pre>
+
+<p>Load a Sound with Folder Path</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.loadSound(&quot;sounds/beat.mp3&quot;);
+</code></pre>
+
+<p>Loads a sound file given by fileName. Sound files can be in .wav, .aif, .mp3,
+.mp2, .ogg or .raw format. The program will look for the file relative to the
+data/ folder. If you set the optional 'bool stream' argument to true the file
+will be streamed from disk instead of being completely loaded into memory. It
+makes a lot of sense to stream files if you are dynamically loading large
+sound files into your program, which would normally cause the program to
+freeze for a short time as the whole sound is read into memory.</p>
+<p>Examples:</p>
+<p>Load a Sound</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.loadSound(&quot;beat.mp3&quot;);
+</code></pre>
+
+<p>Load a Sound with Folder Path</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.loadSound(&quot;sounds/beat.mp3&quot;);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="unloadSound">unloadSound()</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::unloadSound()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Stops and unloads the current sound.</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.unloadSound(); //Stops sound from playing, unloads &quot;beat.mp3&quot;
+</code></pre>
+
+<p>Stops and unloads the current sound.</p>
+<p>Example:
+~~~~{.cpp}
+~~~~{.cpp}</p>
+<pre><code>ofSoundPlayer mySound;
+
+mySound.load("beat.mp3");
+
+mySound.play();
+
+mySound.unloadSound(); //Stops sound from playing, unloads "beat.mp3"
+</code></pre>
+<p>~~~~`</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="play">play()</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::play()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Plays the sound. If setMultiPlay() has been set to true each play() command will spawn a new copy of the sound on a new channel, letting the existing sounds continue until they are finished. If setMultiPlay() is set to false it will restart the playback of the song.</p>
+<p>Examples:</p>
+<p>Normal Playback:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play(); //Plays sound
+mySound.play(); //Restarts and plays sound
+</code></pre>
+
+<p>Multiplay:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.setMultiPlay(true);
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play(); //Plays sound
+mySound.play(); //Adds new copy of sound to channel and plays over currently playing sound
+</code></pre>
+
+<p>description
+Plays the sound. If setMultiPlay() has been set to true each play() command
+will spawn a new copy of the sound on a new channel, letting the existing
+sounds continue until they are finished. If setMultiPlay() is set to false it
+will restart the playback of the song.</p>
+<p>Examples:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play(); //Plays sound  
+
+    mySound.play(); //Restarts and plays sound
+</code></pre>
+
+<p>Multiplay:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.setMultiPlay(true);  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play(); //Plays sound  
+
+    mySound.play(); //Adds new copy of sound to channel and plays over currently playing sound
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="stop">stop()</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::stop()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Stops the sound currently playing. </p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play(); //Begins playback of sound
+mySound.stop(); //Ends playback, stops audio
+</code></pre>
+
+<p>Stops the sound currently playing.</p>
+<p>Example:</p>
+<pre><code class="cpp">~~~~{.cpp}    
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play(); //Begins playback of sound  
+
+    mySound.stop(); //Ends playback, stops audio
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setVolume">setVolume(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setVolume(float vol)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets the volume (vol) of the sound. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume. </p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.setVolume(0.1f); //Sets volume at 10% of maximum
+</code></pre>
+
+<p>Sets the volume (vol) of the sound. 0.0 - 1.0 range. 0.0 is silent and 1.0 is
+full volume.</p>
+<p>Example:</p>
+<pre><code class="cpp">~~~~{.cpp}    
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play();  
+
+    mySound.setVolume(0.1f); //Sets volume at 10% of maximum
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPan">setPan(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setPan(float vol)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets the pan position (pct) of the sound. 0.0 - 1.0 range. 0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. </p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.pan(0.2f); //Pans to the left
+mySound.pan(0.8f); //Pans to the right
+mySound.pan(0.5f); //Back to center
+</code></pre>
+
+<p>Sets the pan position (pct) of the sound. 0.0 - 1.0 range. 0.5 is center pan,
+0.0 is full left pan and 1.0 is full right pan.</p>
+<p>Example:</p>
+<pre><code class="cpp">~~~~{.cpp}
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play();  
+
+    mySound.pan(0.2f); //Pans to the left  
+
+    mySound.pan(0.8f); //Pans to the right  
+
+    mySound.pan(0.5f); //Back to center
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setSpeed">setSpeed(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setSpeed(float spd)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets the playback speed (spd) of the sound. 1.0 is the normal speed. 2.0 is double the normal speed etc. </p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.loadSound(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.setSpeed(2.0f); //Chipmunk Voice
+mySound.setSpeed(0.2f); //Isaac Hayes on Muscle Relaxers
+mySound.setSpeed(1.0f); //Normal again
+</code></pre>
+
+<p>Sets the playback speed (spd) of the sound. 1.0 is the normal speed. 2.0 is
+double the normal speed etc.</p>
+<p>Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.loadSound(&quot;beat.mp3&quot;);  
+
+    mySound.play();  
+
+    mySound.setSpeed(2.0f); //Chipmunk Voice  
+
+    mySound.setSpeed(0.2f); //Isaac Hayes on Muscle Relaxers  
+
+    mySound.setSpeed(1.0f); //Normal again
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPaused">setPaused(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setPaused(bool bP)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Pauses and un-pauses the playback of the sound. </p>
+<p>Example</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.setPaused(true); //Sound is paused
+mySound.setPaused(false); //Sound is unpaused, playback continues
+</code></pre>
+
+<p>Pauses and un-pauses the playback of the sound.</p>
+<p>Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play();  
+
+    mySound.setPaused(true); //Sound is paused  
+
+    mySound.setPaused(false); //Sound is unpaused, playback continues
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setLoop">setLoop(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setLoop(bool bLp)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Loops the sound if set to true. Does not loop the sound if set to false. Default is false.</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.setLoop(true); //Sound will loop
+mySound.play();
+</code></pre>
+
+<p>Loops the sound if set to true. Does not loop the sound if set to false.
+Default is false.</p>
+<p>Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.setLoop(true); //Sound will loop  
+
+    mySound.play();
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setMultiPlay">setMultiPlay(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setMultiPlay(bool bMp)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Allows a sound to be played multiple times at once. When set to true the play() function will start playing the sound on a new channel, letting the old channels continue until they are done playing. When set to false the play() function will stop the channel before playing the sound.</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.setMultiPlay(true);
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play(); //Plays sound
+mySound.play(); //Adds new copy of sound to channel and plays over currently playing sound
+</code></pre>
+
+<p>Allows a sound to be played multiple times at once. When set to true the
+play() function will start playing the sound on a new channel, letting the old
+channels continue until they are done playing. When set to false the play()
+function will stop the channel before playing the sound.</p>
+<p>Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.setMultiPlay(true);  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play(); //Plays sound  
+
+    mySound.play(); //Adds new copy of sound to channel and plays over currently playing sound
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPosition">setPosition(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setPosition(float pct)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets the playback-head to the position (pct) specified. 0.0 - 1.0 range. 0.0 is the beginning of the sound file and 1.0 is the end.</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.setPosition(0.5f); //Moves the playhead to halfway through the sound
+mySound.setPosition(0.0f); //Moves the playhead back to the beginning of the sound
+</code></pre>
+
+<p>Sets the playback-head to the position (pct) specified. 0.0 - 1.0 range. 0.0
+is the beginning of the sound file and 1.0 is the end.</p>
+<p>Example:
+~~~~{.cpp}</p>
+<pre><code>ofSoundPlayer mySound;
+
+mySound.load("beat.mp3");
+
+mySound.play();
+
+mySound.setPosition(0.5f); //Moves the playhead to halfway through the sound
+
+mySound.setPosition(0.0f); //Moves the playhead back to the beginning of the sound
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPosition">getPosition()</a></h1>
+	<h2>
+  <p>float ofSoundPlayer::getPosition()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>0.0 is the beginning of the sound file and 1.0 is the end.</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.getPosition(); //Returns the current position as a percent 0.0-1.0
+</code></pre>
+
+<p>Returns the current position of the playback-head in the sound. 0.0 - 1.0
+range. 0.0 is the beginning of the sound file and 1.0 is the end.</p>
+<p>Example:</p>
+<pre><code class="cpp">    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play();  
+
+    mySound.getPosition(); //Returns the current position as a percent 0.0-1.0
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getIsPlaying">getIsPlaying()</a></h1>
+	<h2>
+  <p>bool ofSoundPlayer::getIsPlaying()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.getIsPlaying(); //Returns false
+mySound.play();
+mySound.getIsPlaying(); //Returns true
+</code></pre>
+
+<p>Returns true if sound is currently playing, otherwise returns false.
+Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.getIsPlaying(); //Returns false  
+
+    mySound.play();  
+
+    mySound.getIsPlaying(); //Returns true
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getSpeed">getSpeed()</a></h1>
+	<h2>
+  <p>float ofSoundPlayer::getSpeed()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan.</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.getSpeed(); //Returns 1.0
+mySound.setSpeed(2.0f);
+mySound.getSpeed(); //Returns 2.0f
+</code></pre>
+
+<p>Returns the pan position of the sound. 0.0 - 1.0 range.
+0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan.</p>
+<p>Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.getSpeed(); //Returns 1.0  
+
+    mySound.setSpeed(2.0f);  
+
+    mySound.getSpeed(); //Returns 2.0f
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPan">getPan()</a></h1>
+	<h2>
+  <p>float ofSoundPlayer::getPan()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. Default is 0.5</p>
+<p>Example:</p>
+<pre><code class="cpp">ofSoundPlayer mySound;
+mySound.load(&quot;beat.mp3&quot;);
+mySound.play();
+mySound.getPan();//Returns 0.5
+mySound.setPan(0.2f);
+mySound.getPan();//Returns 0.2
+</code></pre>
+
+<p>Returns the pan position of the sound. 0.0 - 1.0 range.
+0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. Default is
+0.5</p>
+<p>Example:</p>
+<pre><code class="cpp">
+    ofSoundPlayer mySound;  
+
+    mySound.load(&quot;beat.mp3&quot;);  
+
+    mySound.play();  
+
+    mySound.getPan();//Returns 0.5  
+
+    mySound.setPan(0.2f);  
+
+    mySound.getPan();//Returns 0.2
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPlayer">setPlayer(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setPlayer(ofPtr&lt; ofBaseSoundPlayer &gt; newPlayer)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>ofSoundPlayer actually wraps a dynamic instance of a sound player, that is, it contains an interface to the sound engine being used to load and playback sounds. If you want to set the interface that your system uses, you can pass an ofPtr to an ofSoundPlayer into the ofSoundPlayer and have the ofSoundPlayer manipulate that one instead.</p>
+<pre><code class="cpp">ofPtr&lt;ofBaseSoundPlayer&gt; soundPtr(new ofOpenALSoundPlayer());
+player.setPlayer(soundPtr);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPlayer">getPlayer()</a></h1>
+	<h2>
+  <p>ofPtr ofSoundPlayer::getPlayer()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>ofSoundPlayer actually wraps a dynamic instance of a specific sound player for a specific engine, that is, it contains an interface to the sound engine being used to load and playback sounds. This allows you access to the pointer that contains the specific interface.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPositionMS">setPositionMS(...)</a></h1>
+	<h2>
+  <p>void ofSoundPlayer::setPositionMS(int ms)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This sets the position of the sound currently playing in milliseconds.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPositionMS">getPositionMS()</a></h1>
+	<h2>
+  <p>int ofSoundPlayer::getPositionMS()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This returns the milliseconds of the sound or file currently playing in milliseconds.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+                  <h2><a name="variables"></a>ofSoundPlayer variables</h2>
+                            
+<div class="documentation_detail">
+	<h1>bool <a name="isStreaming">isStreaming</a></h1>
+	<h2>
+  <p>bool ofSoundPlayer::isStreaming</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+This boolean variable tells if the sound we are using is streaming or not.
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>bool <a name="bMultiPlay">bMultiPlay</a></h1>
+	<h2>
+  <p>bool ofSoundPlayer::bMultiPlay</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+Allows a sound to be played multiple times at once. See setMultiPlay(bool bMp) function for more info.
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>bool <a name="bLoop">bLoop</a></h1>
+	<h2>
+  <p>bool ofSoundPlayer::bLoop</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+bLoop variable controls if we are playing the sound as a loop.
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>bool <a name="bLoadedOk">bLoadedOk</a></h1>
+	<h2>
+  <p>bool ofSoundPlayer::bLoadedOk</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+bLoadedOk is a boolean variable containing true if the sound was successfully loaded.  
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>bool <a name="bPaused">bPaused</a></h1>
+	<h2>
+  <p>bool ofSoundPlayer::bPaused</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+bPaused contain true if we pause the sound.
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>float <a name="pan">pan</a></h1>
+	<h2>
+  <p>float ofSoundPlayer::pan</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+Contains the pan position of the sound. Going from 0 to 1.
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>float <a name="volume">volume</a></h1>
+	<h2>
+  <p>float ofSoundPlayer::volume</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+Contains the value of the volume of our sound.
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>float <a name="speed">speed</a></h1>
+	<h2>
+  <p>float ofSoundPlayer::speed</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double the normal speed, -1 is backwards etc. 
+
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>unsigned int <a name="length">length</a></h1>
+	<h2>
+  <p>unsigned int ofSoundPlayer::length</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+              
+              <!-- functions detail -->
+                  <h2><a name="functions"></a>ofSoundPlayer functions</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofSoundSetVolume">ofSoundSetVolume(...)</a></h1>
+	<h2>
+  <p>void ofSoundSetVolume(float vol)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Sets the volume of all ofSoundPlayer objects to the volume (vol) specified. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofSoundStopAll">ofSoundStopAll()</a></h1>
+	<h2>
+  <p>void ofSoundStopAll()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Stops all sounds being played by all ofSoundPlayer objects.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofSoundUpdate">ofSoundUpdate()</a></h1>
+	<h2>
+  <p>void ofSoundUpdate()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:55 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,212 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofPtr</h1>
+              <p>
+              
+  <p>ofPtr is a shared pointer implementation that allows you to dynamically allocate objects, much like a pointer, without needing to worry about when and who will free that pointers memory because the shared pointer implementation is able to sort out when a resource is no longer being used free that resource as soon as nobody is interested in it anymore. This means it's much less likely that you'll end up with dangling pointers and memory leaks in your application. Last one to leave turns out the lights. This is like garbage collection but actually better and more powerful because resources are freed immediately and not at some undetermined future time when the VM decides to do a sweep.</p>
+<p>To create an ofPtr instance, do the following:</p>
+<pre><code class="cpp">ofPtr&lt;Foo&gt; ptr(new Foo());
+</code></pre>
+
+<p>So it looks like you're creating a pointer to a Foo, which you are, but then the ofPtr is going to take care of it from then on out. This means that you can return it from a function, pass it to another class, generally be reckless with it, and not have to worry about when it'll be deleted.</p>
+<p>You access the methods and properties of an ofPtr just the same as a regular pointer:</p>
+<pre><code class="cpp">fooPtr-&gt;bar();
+fooPtr-&gt;fizz = PI;
+</code></pre>
+
+<p>You'll see this in the OF core code in places like ofVideoPlayer:</p>
+<pre><code class="cpp">setPlayer(ofPtr&lt;ofBaseVideoPlayer&gt; newPlayer);
+</code></pre>
+
+<p>When you should use ofPtr: </p>
+<ul>
+<li>When you have a resource that you need to dynamic allocate and delete and share among multiple objects and processes. </li>
+<li>When your code is not heavily multi-threaded. </li>
+<li>When you don't need blazing speed for pointer access because a shared pointer is <em>not</em> a pointer, it's more complex and slower.</li>
+<li>When you don't to have multiple processes handle deleting a resource.</li>
+</ul>
+<p>For more info on shared pointers this is an excellent reference:  http://ootips.org/yonat/4dev/smart-pointers.html</p>
+<p>or you can look at the Poco implementation of shared pointers: http://pocoproject.org/slides/030-MemoryManagement.pdf (linking into their documenation isn't possible, frame fail)</p>
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+            
+             
+             
+             <!-- list of variables -->              
+            
+             
+            
+             <!-- list of functions -->              
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/types/ofPtr.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation//ofPtr_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+              
+              <!-- vars detail -->
+              
+              <!-- functions detail -->
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:59 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

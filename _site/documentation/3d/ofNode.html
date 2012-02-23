@@ -1,0 +1,1397 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofNode</h1>
+              <p>
+              
+  
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#ofNode">ofNode()</a> </li>
+                         
+                              
+                             <li> <a href="#~ofNode">~ofNode()</a> </li>
+                         
+                              
+                             <li> <a href="#setParent">setParent(...)</a> </li>
+                         
+                              
+                             <li> <a href="#clearParent">clearParent()</a> </li>
+                         
+                              
+                             <li> <a href="#getParent">getParent()</a> </li>
+                         
+                              
+                             <li> <a href="#getPosition">getPosition()</a> </li>
+                         
+                              
+                             <li> <a href="#getX">getX()</a> </li>
+                         
+                              
+                             <li> <a href="#getY">getY()</a> </li>
+                         
+                              
+                             <li> <a href="#getZ">getZ()</a> </li>
+                         
+                              
+                             <li> <a href="#getXAxis">getXAxis()</a> </li>
+                         
+                              
+                             <li> <a href="#getYAxis">getYAxis()</a> </li>
+                         
+                              
+                             <li> <a href="#getZAxis">getZAxis()</a> </li>
+                         
+                              
+                             <li> <a href="#getSideDir">getSideDir()</a> </li>
+                         
+                              
+                             <li> <a href="#getLookAtDir">getLookAtDir()</a> </li>
+                         
+                              
+                             <li> <a href="#getUpDir">getUpDir()</a> </li>
+                         
+                              
+                             <li> <a href="#getPitch">getPitch()</a> </li>
+                         
+                              
+                             <li> <a href="#getHeading">getHeading()</a> </li>
+                         
+                              
+                             <li> <a href="#getRoll">getRoll()</a> </li>
+                         
+                              
+                             <li> <a href="#getOrientationQuat">getOrientationQuat()</a> </li>
+                         
+                              
+                             <li> <a href="#getOrientationEuler">getOrientationEuler()</a> </li>
+                         
+                              
+                             <li> <a href="#getScale">getScale()</a> </li>
+                         
+                              
+                             <li> <a href="#getLocalTransformMatrix">getLocalTransformMatrix()</a> </li>
+                         
+                              
+                             <li> <a href="#getGlobalTransformMatrix">getGlobalTransformMatrix()</a> </li>
+                         
+                              
+                             <li> <a href="#getGlobalPosition">getGlobalPosition()</a> </li>
+                         
+                              
+                             <li> <a href="#getGlobalOrientation">getGlobalOrientation()</a> </li>
+                         
+                              
+                             <li> <a href="#setTransformMatrix">setTransformMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setPosition">setPosition(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#setGlobalPosition">setGlobalPosition(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#setOrientation">setOrientation(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#setGlobalOrientation">setGlobalOrientation(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setScale">setScale(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#move">move(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#truck">truck(...)</a> </li>
+                         
+                              
+                             <li> <a href="#boom">boom(...)</a> </li>
+                         
+                              
+                             <li> <a href="#dolly">dolly(...)</a> </li>
+                         
+                              
+                             <li> <a href="#tilt">tilt(...)</a> </li>
+                         
+                              
+                             <li> <a href="#pan">pan(...)</a> </li>
+                         
+                              
+                             <li> <a href="#roll">roll(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotate">rotate(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#rotateAround">rotateAround(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#lookAt">lookAt(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#orbit">orbit(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#transformGL">transformGL()</a> </li>
+                         
+                              
+                             <li> <a href="#restoreTransformGL">restoreTransformGL()</a> </li>
+                         
+                              
+                             <li> <a href="#resetTransform">resetTransform()</a> </li>
+                         
+                              
+                             <li> <a href="#customDraw">customDraw()</a> </li>
+                         
+                              
+                             <li> <a href="#draw">draw()</a> </li>
+                         
+                         
+                         
+                         
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+            
+             
+            
+             <!-- list of functions -->              
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/3d/ofNode.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation//ofNode_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofNode methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofNode">ofNode()</a></h1>
+	<h2>
+  <p>ofNode::ofNode()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="~ofNode">~ofNode()</a></h1>
+	<h2>
+  <p>ofNode::~ofNode()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setParent">setParent(...)</a></h1>
+	<h2>
+  <p>void ofNode::setParent(ofNode &amp;parent)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="clearParent">clearParent()</a></h1>
+	<h2>
+  <p>void ofNode::clearParent()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getParent">getParent()</a></h1>
+	<h2>
+  <p>ofNode ofNode::getParent()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPosition">getPosition()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getPosition()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getX">getX()</a></h1>
+	<h2>
+  <p>float ofNode::getX()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getY">getY()</a></h1>
+	<h2>
+  <p>float ofNode::getY()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getZ">getZ()</a></h1>
+	<h2>
+  <p>float ofNode::getZ()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getXAxis">getXAxis()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getXAxis()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getYAxis">getYAxis()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getYAxis()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getZAxis">getZAxis()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getZAxis()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getSideDir">getSideDir()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getSideDir()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getLookAtDir">getLookAtDir()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getLookAtDir()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getUpDir">getUpDir()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getUpDir()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPitch">getPitch()</a></h1>
+	<h2>
+  <p>float ofNode::getPitch()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getHeading">getHeading()</a></h1>
+	<h2>
+  <p>float ofNode::getHeading()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRoll">getRoll()</a></h1>
+	<h2>
+  <p>float ofNode::getRoll()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getOrientationQuat">getOrientationQuat()</a></h1>
+	<h2>
+  <p>ofQuaternion ofNode::getOrientationQuat()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getOrientationEuler">getOrientationEuler()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getOrientationEuler()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getScale">getScale()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getScale()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getLocalTransformMatrix">getLocalTransformMatrix()</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofNode::getLocalTransformMatrix()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getGlobalTransformMatrix">getGlobalTransformMatrix()</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofNode::getGlobalTransformMatrix()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getGlobalPosition">getGlobalPosition()</a></h1>
+	<h2>
+  <p>ofVec3f ofNode::getGlobalPosition()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getGlobalOrientation">getGlobalOrientation()</a></h1>
+	<h2>
+  <p>ofQuaternion ofNode::getGlobalOrientation()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setTransformMatrix">setTransformMatrix(...)</a></h1>
+	<h2>
+  <p>void ofNode::setTransformMatrix(const ofMatrix4x4 &amp;m44)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPosition">setPosition(...)</a></h1>
+	<h2>
+  <p>void ofNode::setPosition(float px, float py, float pz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setPosition">setPosition(...)</a></h1>
+	<h2>
+  <p>void ofNode::setPosition(const ofVec3f &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setGlobalPosition">setGlobalPosition(...)</a></h1>
+	<h2>
+  <p>void ofNode::setGlobalPosition(float px, float py, float pz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setGlobalPosition">setGlobalPosition(...)</a></h1>
+	<h2>
+  <p>void ofNode::setGlobalPosition(const ofVec3f &amp;p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setOrientation">setOrientation(...)</a></h1>
+	<h2>
+  <p>void ofNode::setOrientation(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setOrientation">setOrientation(...)</a></h1>
+	<h2>
+  <p>void ofNode::setOrientation(const ofVec3f &amp;eulerAngles)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setGlobalOrientation">setGlobalOrientation(...)</a></h1>
+	<h2>
+  <p>void ofNode::setGlobalOrientation(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setScale">setScale(...)</a></h1>
+	<h2>
+  <p>void ofNode::setScale(float s)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setScale">setScale(...)</a></h1>
+	<h2>
+  <p>void ofNode::setScale(float sx, float sy, float sz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setScale">setScale(...)</a></h1>
+	<h2>
+  <p>void ofNode::setScale(const ofVec3f &amp;s)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="move">move(...)</a></h1>
+	<h2>
+  <p>void ofNode::move(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="move">move(...)</a></h1>
+	<h2>
+  <p>void ofNode::move(const ofVec3f &amp;offset)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="truck">truck(...)</a></h1>
+	<h2>
+  <p>void ofNode::truck(float amount)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="boom">boom(...)</a></h1>
+	<h2>
+  <p>void ofNode::boom(float amount)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="dolly">dolly(...)</a></h1>
+	<h2>
+  <p>void ofNode::dolly(float amount)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="tilt">tilt(...)</a></h1>
+	<h2>
+  <p>void ofNode::tilt(float degrees)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="pan">pan(...)</a></h1>
+	<h2>
+  <p>void ofNode::pan(float degrees)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="roll">roll(...)</a></h1>
+	<h2>
+  <p>void ofNode::roll(float degrees)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>void ofNode::rotate(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>void ofNode::rotate(float degrees, const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>void ofNode::rotate(float degrees, float vx, float vy, float vz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotateAround">rotateAround(...)</a></h1>
+	<h2>
+  <p>void ofNode::rotateAround(const ofQuaternion &amp;q, const ofVec3f &amp;point)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotateAround">rotateAround(...)</a></h1>
+	<h2>
+  <p>void ofNode::rotateAround(float degrees, const ofVec3f &amp;axis, const ofVec3f &amp;point)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="lookAt">lookAt(...)</a></h1>
+	<h2>
+  <p>void ofNode::lookAt(const ofVec3f &amp;lookAtPosition, ofVec3f upVector=ofVec3f(0, 1, 0))</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="lookAt">lookAt(...)</a></h1>
+	<h2>
+  <p>void ofNode::lookAt(ofNode &amp;lookAtNode, const ofVec3f &amp;upVector=ofVec3f(0, 1, 0))</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="orbit">orbit(...)</a></h1>
+	<h2>
+  <p>void ofNode::orbit(float longitude, float latitude, float radius, const ofVec3f &amp;centerPoint=ofVec3f(0, 0, 0))</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="orbit">orbit(...)</a></h1>
+	<h2>
+  <p>void ofNode::orbit(float longitude, float latitude, float radius, ofNode &amp;centerNode)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="transformGL">transformGL()</a></h1>
+	<h2>
+  <p>void ofNode::transformGL()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="restoreTransformGL">restoreTransformGL()</a></h1>
+	<h2>
+  <p>void ofNode::restoreTransformGL()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="resetTransform">resetTransform()</a></h1>
+	<h2>
+  <p>void ofNode::resetTransform()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="customDraw">customDraw()</a></h1>
+	<h2>
+  <p>void ofNode::customDraw()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="draw">draw()</a></h1>
+	<h2>
+  <p>void ofNode::draw()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+              
+              <!-- functions detail -->
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:45 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

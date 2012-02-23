@@ -1,0 +1,678 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofArduino</h1>
+              <p>
+              
+  <p>FirmataライブラリがインストールされたArduinoをoFからコントロールします。FirmataをArduinoにロードするには、まずArduino開発環境を起動し、「Example &gt; Firmata &gt; StandardFirmata」のスケッチを開きます。次にArduinoのボードにスケッチをアップロードします。
+ofArduinoのインスタンスがisArduinoReady()からtrueを返したら、sendDigitalPinMode()を利用してデジタルピンのモードを設定可能となります。</p>
+<pre><code>~~~~{.cpp}
+sendDigitalPinMode(9, ARD_INPUT)
+~~~~
+</code></pre>
+<p>ボタンが押されたことを検知するために、9番ピンをインプットに設定します。</p>
+<pre><code>~~~~{.cpp}
+sendDigitalPinMode(9, ARD_PWM)
+~~~~
+</code></pre>
+<p>9番ピンをPWMとして設定します。この操作はPWMが利用可能なピンに限られることに注意してください。</p>
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#connect">connect(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#connect">connect(...)</a> </li>
+                         
+                              
+                             <li> <a href="#disconnect">disconnect()</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#isArduinoReady">isArduinoReady()</a> </li>
+                         
+                              
+                             <li> <a href="#update">update()</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#setUseDelay">setUseDelay(...)</a> </li>
+                         
+                              
+                             <li> <a href="#isInitialized">isInitialized()</a> </li>
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#sendDigitalPinMode">sendDigitalPinMode(...)</a> </li>
+                         
+                              
+                             <li> <a href="#sendAnalogPinReporting">sendAnalogPinReporting(...)</a> </li>
+                         
+                              
+                             <li> <a href="#sendDigital">sendDigital(...)</a> </li>
+                         
+                              
+                             <li> <a href="#sendPwm">sendPwm(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#sendString">sendString(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#sendReset">sendReset()</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#sendByte">sendByte(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#getPwm">getPwm(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getDigital">getDigital(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getAnalog">getAnalog(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#getString">getString()</a> </li>
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#getDigitalPinMode">getDigitalPinMode(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getAnalogPinReporting">getAnalogPinReporting(...)</a> </li>
+                         
+                         
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+            
+             
+            
+             <!-- list of functions -->              
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/arduino/ofArduino.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation//ofArduino_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofArduino methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="connect">connect(...)</a></h1>
+	<h2>
+  <p>bool ofArduino::connect(string device, int baud)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Arduinoに接続するためのシリアルポートを開く</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="connect">connect(...)</a></h1>
+	<h2>
+  <p>int ofArduino::connect(string device, int baud)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="disconnect">disconnect()</a></h1>
+	<h2>
+  <p>void ofArduino::disconnect()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>シリアルポートの接続を閉じる。Arduinoを停止するわけではない。</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="isArduinoReady">isArduinoReady()</a></h1>
+	<h2>
+  <p>bool ofArduino::isArduinoReady()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="update">update()</a></h1>
+	<h2>
+  <p>void ofArduino::update()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>シリアルポートからデータを取得する。この命令は定期的に呼ばれるようにすべきである。</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setUseDelay">setUseDelay(...)</a></h1>
+	<h2>
+  <p>void ofArduino::setUseDelay(bool bDelay)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="isInitialized">isInitialized()</a></h1>
+	<h2>
+  <p>bool ofArduino::isInitialized()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>正しく接続が確立したらtrueを返し、Arduinoはファームウェアに通知する。</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendDigitalPinMode">sendDigitalPinMode(...)</a></h1>
+	<h2>
+  <p>void ofArduino::sendDigitalPinMode(int pin, int mode)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Arduino Unoでは、pin：2-13に対応。mode：RD_INPUT, ARD_OUTPUT, ARD_PWM。ピンモードがARD_INPUTに設定されていたら、ポートにピンがONだと通知する。注意：アナログピン0-5はデジタルピンの16-21としても作動する、しかしそのなかの一つのピンでもARD_INPUTに設定されていたら、全てのアナログピンの反応は停止する。</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendAnalogPinReporting">sendAnalogPinReporting(...)</a></h1>
+	<h2>
+  <p>void ofArduino::sendAnalogPinReporting(int pin, int mode)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendDigital">sendDigital(...)</a></h1>
+	<h2>
+  <p>void ofArduino::sendDigital(int pin, int value, bool force)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendPwm">sendPwm(...)</a></h1>
+	<h2>
+  <p>void ofArduino::sendPwm(int pin, int value, bool force)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>On the Uno this will work on pins: 3, 5, 6, 9, 10 and 11 value: 0 (always off) to 255 (always on). the pins mode has to be set to ARD_PWM
+TODO check if the PWM bug still is there causing frequent digital port reporting...</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendString">sendString(...)</a></h1>
+	<h2>
+  <p>void ofArduino::sendString(string str)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>firmata can not handle strings longer than 12 characters.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendReset">sendReset()</a></h1>
+	<h2>
+  <p>void ofArduino::sendReset()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This will cause your Arduino to reset and boot into the program again.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="sendByte">sendByte(...)</a></h1>
+	<h2>
+  <p>void ofArduino::sendByte(unsigned char byte)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>sends a byte without wrapping it in a firmata message, data has to be in the 0-127 range,
+values &gt; 127 will be interpreted as commands.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPwm">getPwm(...)</a></h1>
+	<h2>
+  <p>int ofArduino::getPwm(int pin)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>On the Arduino Uno pin: 3, 5, 6, 9, 10 and 11
+returns the last set PWM value (0-255) for the given pin
+the pins mode has to be ARD_PWM
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getDigital">getDigital(...)</a></h1>
+	<h2>
+  <p>int ofArduino::getDigital(int pin)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>On the Arduino Uno pin: 2-13
+returns the last received value (if the pin mode is ARD_INPUT) or the last set value (if the pin mode is ARD_OUTPUT) for the given pin
+Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
+Returns whether the pin is reading high or low, 1 or 0. You can test against this with an if() statement which is handy:</p>
+<pre><code class="cpp">if(arduino.getDigital(pin)){
+    // do something on high
+}else{
+    // do something on low
+}
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getAnalog">getAnalog(...)</a></h1>
+	<h2>
+  <p>int ofArduino::getAnalog(int pin)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the analog in value that the pin is currently reading. because the Arduino has a 10 bit ADC you get between 0 and 1023 for possible values.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getString">getString()</a></h1>
+	<h2>
+  <p>string ofArduino::getString()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>returns the last received string</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getDigitalPinMode">getDigitalPinMode(...)</a></h1>
+	<h2>
+  <p>int ofArduino::getDigitalPinMode(int pin)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>returns ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getAnalogPinReporting">getAnalogPinReporting(...)</a></h1>
+	<h2>
+  <p>int ofArduino::getAnalogPinReporting(int pin)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>returns ARD_ON, ARD_OFF</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+              
+              <!-- functions detail -->
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:49 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

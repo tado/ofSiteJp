@@ -1,0 +1,2529 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+  </head>
+  <body>
+    <div id="content">
+      
+
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">	
+
+	<div class="page-wide">
+          
+          <h1>documentation</h1>
+	  <div class="page-left-split">
+	    <p>このページは、openFrameworksの主要部分とアドオンを含めたリファレンスです。<a href="http://ofxaddons.com/">第三者から提供されたアドオン</a>もあります。openFrameworksのAPIは、常に進化しています。ぜひ、修正、追加、コメントをしてください。</p>
+	    <p>この文書の作成に協力したいのであれば、<a href="https://github.com/openframeworks/openFrameworks/wiki/Contributing-documentation">インストラクション</a>に従ってください。</p>
+	    <p>この文書は最新のリリースのバージョン<strong>007</strong>に準拠しています。</p>
+	  </div>
+	  <div class="page-right-narrow">
+	    <!--p>
+		<strong>Show advanced?</strong><br />
+		<a href="documentation?adv=yes">yes</a> / no
+	    </p-->
+	    <div id="documentation-ebook">
+	      <h2>download</h2>
+	      <p><a href="http://localhost:8080/epub/ofReference.zip"><strong>html</strong></a></p>
+	      <!--p><a href="http://localhost:8080/epub/ofReference.pdf"><strong>pdf</strong></a></p>
+		  <p><a href="http://localhost:8080/epub/ofReference.epub"><strong>epub</strong></a></p>
+		  <p><a href="http://localhost:8080/epub/ofReference.mobi"><strong>mobi (kindle)</strong></a></p-->
+	    </div>
+	  </div>
+
+    	</div>
+
+
+    	<div class="page-wide">
+    	  <hr/>
+          <div class="page-left-split">
+	    <h2>core</h2>
+          </div>
+        </div><!-- End Page Wide -->
+
+    	<div class="page-wide">
+          <div class="documentation_col">
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			arduino			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="arduino/ofArduino.html" class="documentation_class_link"><strong>ofArduino</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			3d			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="3d/ofNode.html" class="documentation_class_link"><strong>ofNode</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="3d/ofEasyCam.html" class="documentation_class_link"><strong>ofEasyCam</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="3d/ofMesh.html" class="documentation_class_link"><strong>ofMesh</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="3d/ofCamera.html" class="documentation_class_link"><strong>ofCamera</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			math			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofVec2f.html" class="documentation_class_link"><strong>ofVec2f</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofMatrix4x4.html" class="documentation_class_link"><strong>ofMatrix4x4</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofMath.html" class="documentation_class_link"><strong>ofMath</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofQuaternion.html" class="documentation_class_link"><strong>ofQuaternion</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofMatrix3x3.html" class="documentation_class_link"><strong>ofMatrix3x3</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofVec4f.html" class="documentation_class_link"><strong>ofVec4f</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="math/ofVec3f.html" class="documentation_class_link"><strong>ofVec3f</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			gl			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofMaterial.html" class="documentation_class_link"><strong>ofMaterial</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofFbo.html" class="documentation_class_link"><strong>ofFbo</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofGLRenderer.html" class="documentation_class_link"><strong>ofGLRenderer</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofVbo.html" class="documentation_class_link"><strong>ofVbo</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofTextureData.html" class="documentation_class_link"><strong>ofTextureData</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofShader.html" class="documentation_class_link"><strong>ofShader</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofVboMesh.html" class="documentation_class_link"><strong>ofVboMesh</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofTexture.html" class="documentation_class_link"><strong>ofTexture</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofGLUtils.html" class="documentation_class_link"><strong>ofGLUtils</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+                    &#160;&#160;&#160;&#160;<a href="gl/ofGLUtils.html#ofGetOFPolyMode" title="ofGetOFPolyMode(...)" class="documentation_func">ofGetOFPolyMode(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="gl/ofGLUtils.html#ofGetGLPrimitiveMode" title="ofGetGLPrimitiveMode(...)" class="documentation_func">ofGetGLPrimitiveMode(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="gl/ofGLUtils.html#ofGetGLPolyMode" title="ofGetGLPolyMode(...)" class="documentation_func">ofGetGLPolyMode(...)</a><br />
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="gl/ofLight.html" class="documentation_class_link"><strong>ofLight</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			utils			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofDirectory.html" class="documentation_class_link"><strong>ofDirectory</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofHttpResponse.html" class="documentation_class_link"><strong>ofHttpResponse</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofFileDialogResult.html" class="documentation_class_link"><strong>ofFileDialogResult</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofLogError.html" class="documentation_class_link"><strong>ofLogError</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofLogWarning.html" class="documentation_class_link"><strong>ofLogWarning</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofSystemUtils.html" class="documentation_class_link"><strong>ofSystemUtils</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+                    &#160;&#160;&#160;&#160;<a href="utils/ofSystemUtils.html#ofSystemAlertDialog" title="ofSystemAlertDialog(...)" class="documentation_func">ofSystemAlertDialog(...)</a><br />
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofBuffer.html" class="documentation_class_link"><strong>ofBuffer</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofFile.html" class="documentation_class_link"><strong>ofFile</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofLogNotice.html" class="documentation_class_link"><strong>ofLogNotice</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofFileUtils.html" class="documentation_class_link"><strong>ofFileUtils</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofFilePath.html" class="documentation_class_link"><strong>ofFilePath</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofHttpRequest.html" class="documentation_class_link"><strong>ofHttpRequest</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofLogVerbose.html" class="documentation_class_link"><strong>ofLogVerbose</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofLog.html" class="documentation_class_link"><strong>ofLog</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofPtr.html" class="documentation_class_link"><strong>ofPtr</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofUtils.html" class="documentation_class_link"><strong>ofUtils</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofThread.html" class="documentation_class_link"><strong>ofThread</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofLogFatalError.html" class="documentation_class_link"><strong>ofLogFatalError</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="utils/ofURLFileLoader.html" class="documentation_class_link"><strong>ofURLFileLoader</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			video			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="video/ofVideoPlayer.html" class="documentation_class_link"><strong>ofVideoPlayer</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="video/ofVideoGrabber.html" class="documentation_class_link"><strong>ofVideoGrabber</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+          </div>
+          <div class="documentation_col">
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			graphics			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofPath.html" class="documentation_class_link"><strong>ofPath</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofImage.html" class="documentation_class_link"><strong>ofImage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofPixels.html" class="documentation_class_link"><strong>ofPixels</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofGraphics.html" class="documentation_class_link"><strong>ofGraphics</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetStyle" title="ofGetStyle()" class="documentation_func">ofGetStyle()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEndShape" title="ofEndShape(...)" class="documentation_func">ofEndShape(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetViewportWidth" title="ofGetViewportWidth()" class="documentation_func">ofGetViewportWidth()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetSphereResolution" title="ofSetSphereResolution(...)" class="documentation_func">ofSetSphereResolution(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetupScreenPerspective" title="ofSetupScreenPerspective(...)" class="documentation_func">ofSetupScreenPerspective(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEnablePointSprites" title="ofEnablePointSprites()" class="documentation_func">ofEnablePointSprites()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetFill" title="ofGetFill()" class="documentation_func">ofGetFill()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofDisableAlphaBlending" title="ofDisableAlphaBlending()" class="documentation_func">ofDisableAlphaBlending()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofDrawBitmapString" title="ofDrawBitmapString(...)" class="documentation_func">ofDrawBitmapString(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofRotateX" title="ofRotateX(...)" class="documentation_func">ofRotateX(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofPopMatrix" title="ofPopMatrix()" class="documentation_func">ofPopMatrix()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEnableSmoothing" title="ofEnableSmoothing()" class="documentation_func">ofEnableSmoothing()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetCoordHandedness" title="ofSetCoordHandedness(...)" class="documentation_func">ofSetCoordHandedness(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetupScreenOrtho" title="ofSetupScreenOrtho(...)" class="documentation_func">ofSetupScreenOrtho(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofScale" title="ofScale(...)" class="documentation_func">ofScale(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofNoFill" title="ofNoFill()" class="documentation_func">ofNoFill()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofRotateY" title="ofRotateY(...)" class="documentation_func">ofRotateY(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofVertex" title="ofVertex(...)" class="documentation_func">ofVertex(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetLineWidth" title="ofSetLineWidth(...)" class="documentation_func">ofSetLineWidth(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEllipse" title="ofEllipse(...)" class="documentation_func">ofEllipse(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofPopStyle" title="ofPopStyle()" class="documentation_func">ofPopStyle()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofbClearBg" title="ofbClearBg()" class="documentation_func">ofbClearBg()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofRect" title="ofRect(...)" class="documentation_func">ofRect(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBezier" title="ofBezier(...)" class="documentation_func">ofBezier(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetCurrentRenderer" title="ofSetCurrentRenderer(...)" class="documentation_func">ofSetCurrentRenderer(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetCurveResolution" title="ofSetCurveResolution(...)" class="documentation_func">ofSetCurveResolution(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofDisableSmoothing" title="ofDisableSmoothing()" class="documentation_func">ofDisableSmoothing()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofLine" title="ofLine(...)" class="documentation_func">ofLine(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetViewportHeight" title="ofGetViewportHeight()" class="documentation_func">ofGetViewportHeight()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofDisableBlendMode" title="ofDisableBlendMode()" class="documentation_func">ofDisableBlendMode()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBox" title="ofBox(...)" class="documentation_func">ofBox(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetGLRenderer" title="ofGetGLRenderer()" class="documentation_func">ofGetGLRenderer()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetCoordHandedness" title="ofGetCoordHandedness()" class="documentation_func">ofGetCoordHandedness()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetRectMode" title="ofGetRectMode()" class="documentation_func">ofGetRectMode()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofPushView" title="ofPushView()" class="documentation_func">ofPushView()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetPolyMode" title="ofSetPolyMode(...)" class="documentation_func">ofSetPolyMode(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofClear" title="ofClear(...)" class="documentation_func">ofClear(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBackground" title="ofBackground(...)" class="documentation_func">ofBackground(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEnableBlendMode" title="ofEnableBlendMode(...)" class="documentation_func">ofEnableBlendMode(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofVertexes" title="ofVertexes(...)" class="documentation_func">ofVertexes(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetBackgroundColor" title="ofSetBackgroundColor(...)" class="documentation_func">ofSetBackgroundColor(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofDisablePointSprites" title="ofDisablePointSprites()" class="documentation_func">ofDisablePointSprites()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofOrientationToDegrees" title="ofOrientationToDegrees(...)" class="documentation_func">ofOrientationToDegrees(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetCircleResolution" title="ofSetCircleResolution(...)" class="documentation_func">ofSetCircleResolution(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofTriangle" title="ofTriangle(...)" class="documentation_func">ofTriangle(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetHexColor" title="ofSetHexColor(...)" class="documentation_func">ofSetHexColor(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofCurveVertex" title="ofCurveVertex(...)" class="documentation_func">ofCurveVertex(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofRotate" title="ofRotate(...)" class="documentation_func">ofRotate(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSphere" title="ofSphere(...)" class="documentation_func">ofSphere(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofNextContour" title="ofNextContour(...)" class="documentation_func">ofNextContour(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetRectMode" title="ofSetRectMode(...)" class="documentation_func">ofSetRectMode(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBackgroundHex" title="ofBackgroundHex(...)" class="documentation_func">ofBackgroundHex(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofClearAlpha" title="ofClearAlpha()" class="documentation_func">ofClearAlpha()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBezierVertex" title="ofBezierVertex(...)" class="documentation_func">ofBezierVertex(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBeginShape" title="ofBeginShape()" class="documentation_func">ofBeginShape()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofCurve" title="ofCurve(...)" class="documentation_func">ofCurve(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetDrawBitmapMode" title="ofSetDrawBitmapMode(...)" class="documentation_func">ofSetDrawBitmapMode(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofTranslate" title="ofTranslate(...)" class="documentation_func">ofTranslate(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetBackgroundColorHex" title="ofSetBackgroundColorHex(...)" class="documentation_func">ofSetBackgroundColorHex(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEndSaveScreenAsPDF" title="ofEndSaveScreenAsPDF()" class="documentation_func">ofEndSaveScreenAsPDF()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofPushMatrix" title="ofPushMatrix()" class="documentation_func">ofPushMatrix()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetCurrentRenderer" title="ofGetCurrentRenderer()" class="documentation_func">ofGetCurrentRenderer()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofCurveVertexes" title="ofCurveVertexes(...)" class="documentation_func">ofCurveVertexes(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetupGraphicDefaults" title="ofSetupGraphicDefaults()" class="documentation_func">ofSetupGraphicDefaults()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBeginSaveScreenAsPDF" title="ofBeginSaveScreenAsPDF(...)" class="documentation_func">ofBeginSaveScreenAsPDF(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofCircle" title="ofCircle(...)" class="documentation_func">ofCircle(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofBgColorPtr" title="ofBgColorPtr()" class="documentation_func">ofBgColorPtr()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofFill" title="ofFill()" class="documentation_func">ofFill()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetColor" title="ofSetColor(...)" class="documentation_func">ofSetColor(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetBackgroundAuto" title="ofSetBackgroundAuto(...)" class="documentation_func">ofSetBackgroundAuto(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetStyle" title="ofSetStyle(...)" class="documentation_func">ofSetStyle(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofEnableAlphaBlending" title="ofEnableAlphaBlending()" class="documentation_func">ofEnableAlphaBlending()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofSetupScreen" title="ofSetupScreen()" class="documentation_func">ofSetupScreen()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofPopView" title="ofPopView()" class="documentation_func">ofPopView()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofViewport" title="ofViewport(...)" class="documentation_func">ofViewport(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofPushStyle" title="ofPushStyle()" class="documentation_func">ofPushStyle()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofGetCurrentViewport" title="ofGetCurrentViewport()" class="documentation_func">ofGetCurrentViewport()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="graphics/ofGraphics.html#ofRotateZ" title="ofRotateZ(...)" class="documentation_func">ofRotateZ(...)</a><br />
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofPixelUtils.html" class="documentation_class_link"><strong>ofPixelUtils</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofTrueTypeFont.html" class="documentation_class_link"><strong>ofTrueTypeFont</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofPolyline.html" class="documentation_class_link"><strong>ofPolyline</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofTessellator.html" class="documentation_class_link"><strong>ofTessellator</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofImage_.html" class="documentation_class_link"><strong>ofImage_</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofPixels_.html" class="documentation_class_link"><strong>ofPixels_</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="graphics/ofRendererCollection.html" class="documentation_class_link"><strong>ofRendererCollection</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+          </div>
+          <div class="documentation_col">
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			types			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="types/ofColor_.html" class="documentation_class_link"><strong>ofColor_</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="types/ofStyle.html" class="documentation_class_link"><strong>ofStyle</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="types/ofTypes.html" class="documentation_class_link"><strong>ofTypes</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="types/ofRectangle.html" class="documentation_class_link"><strong>ofRectangle</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="types/ofPoint.html" class="documentation_class_link"><strong>ofPoint</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="types/ofColor.html" class="documentation_class_link"><strong>ofColor</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			events			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofKeyEventArgs.html" class="documentation_class_link"><strong>ofKeyEventArgs</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofAudioEventArgs.html" class="documentation_class_link"><strong>ofAudioEventArgs</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofCoreEvents.html" class="documentation_class_link"><strong>ofCoreEvents</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofEventArgs.html" class="documentation_class_link"><strong>ofEventArgs</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofEvent.html" class="documentation_class_link"><strong>ofEvent</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofMouseEventArgs.html" class="documentation_class_link"><strong>ofMouseEventArgs</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofResizeEventArgs.html" class="documentation_class_link"><strong>ofResizeEventArgs</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofEvents.html" class="documentation_class_link"><strong>ofEvents</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="events/ofEventUtils.html" class="documentation_class_link"><strong>ofEventUtils</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			sound			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="sound/ofSoundPlayer.html" class="documentation_class_link"><strong>ofSoundPlayer</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="sound/ofSoundStream.html" class="documentation_class_link"><strong>ofSoundStream</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			application			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="application/ofAppBaseWindow.html" class="documentation_class_link"><strong>ofAppBaseWindow</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="application/ofDragInfo.html" class="documentation_class_link"><strong>ofDragInfo</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="application/ofAppRunner.html" class="documentation_class_link"><strong>ofAppRunner</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetScreenWidth" title="ofGetScreenWidth()" class="documentation_func">ofGetScreenWidth()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofShowCursor" title="ofShowCursor()" class="documentation_func">ofShowCursor()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWidth" title="ofGetWidth()" class="documentation_func">ofGetWidth()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowSize" title="ofGetWindowSize()" class="documentation_func">ofGetWindowSize()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetWindowShape" title="ofSetWindowShape(...)" class="documentation_func">ofSetWindowShape(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetScreenHeight" title="ofGetScreenHeight()" class="documentation_func">ofGetScreenHeight()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofHideCursor" title="ofHideCursor()" class="documentation_func">ofHideCursor()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetAppPtr" title="ofSetAppPtr(...)" class="documentation_func">ofSetAppPtr(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetWindowTitle" title="ofSetWindowTitle()" class="documentation_func">ofSetWindowTitle()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetFrameNum" title="ofGetFrameNum()" class="documentation_func">ofGetFrameNum()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowPositionX" title="ofGetWindowPositionX()" class="documentation_func">ofGetWindowPositionX()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetAppPtr" title="ofGetAppPtr()" class="documentation_func">ofGetAppPtr()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowPositionY" title="ofGetWindowPositionY()" class="documentation_func">ofGetWindowPositionY()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowRect" title="ofGetWindowRect()" class="documentation_func">ofGetWindowRect()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetFrameRate" title="ofSetFrameRate(...)" class="documentation_func">ofSetFrameRate(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofDoesHWOrientation" title="ofDoesHWOrientation()" class="documentation_func">ofDoesHWOrientation()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofExit" title="ofExit(...)" class="documentation_func">ofExit(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofToggleFullscreen" title="ofToggleFullscreen()" class="documentation_func">ofToggleFullscreen()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofDisableSetupScreen" title="ofDisableSetupScreen()" class="documentation_func">ofDisableSetupScreen()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetOrientation" title="ofGetOrientation()" class="documentation_func">ofGetOrientation()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetFrameRate" title="ofSetFrameRate()" class="documentation_func">ofSetFrameRate()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowMode" title="ofGetWindowMode()" class="documentation_func">ofGetWindowMode()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofEnableSetupScreen" title="ofEnableSetupScreen()" class="documentation_func">ofEnableSetupScreen()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetLastFrameTime" title="ofGetLastFrameTime()" class="documentation_func">ofGetLastFrameTime()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetHeight" title="ofGetHeight()" class="documentation_func">ofGetHeight()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetupOpenGL" title="ofSetupOpenGL(...)" class="documentation_func">ofSetupOpenGL(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetFullscreen" title="ofSetFullscreen(...)" class="documentation_func">ofSetFullscreen(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetFrameRate" title="ofGetFrameRate()" class="documentation_func">ofGetFrameRate()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetOrientation" title="ofSetOrientation(...)" class="documentation_func">ofSetOrientation(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowWidth" title="ofGetWindowWidth()" class="documentation_func">ofGetWindowWidth()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetWindowTitle" title="ofSetWindowTitle(...)" class="documentation_func">ofSetWindowTitle(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofRunApp" title="ofRunApp(...)" class="documentation_func">ofRunApp(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSetWindowPosition" title="ofSetWindowPosition(...)" class="documentation_func">ofSetWindowPosition(...)</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofGetWindowHeight" title="ofGetWindowHeight()" class="documentation_func">ofGetWindowHeight()</a><br />
+                    &#160;&#160;&#160;&#160;<a href="application/ofAppRunner.html#ofSleepMillis" title="ofSleepMillis(...)" class="documentation_func">ofSleepMillis(...)</a><br />
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="application/ofBaseApp.html" class="documentation_class_link"><strong>ofBaseApp</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			serial			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="serial/ofSerial.html" class="documentation_class_link"><strong>ofSerial</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+          </div>
+        </div><!-- End Page Wide -->
+        
+    	<div class="page-wide">
+    	  <hr/>
+          <div class="page-left-split">
+	    <h2>addons</h2>
+          </div>
+        </div><!-- End Page Wide -->
+
+    	<div class="page-wide">
+          <div class="documentation_col">
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxMultitouch			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxMultitouch/ofxMultiTouchHandler.html" class="documentation_class_link"><strong>ofxMultiTouchHandler</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxMultitouch/ofxMultiTouchListener.html" class="documentation_class_link"><strong>ofxMultiTouchListener</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxAssimpModelLoader			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAssimpModelLoader/ofxAssimpModelLoader.html" class="documentation_class_link"><strong>ofxAssimpModelLoader</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxiPhone			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneImagePicker.html" class="documentation_class_link"><strong>ofxiPhoneImagePicker</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneAlertsHandler.html" class="documentation_class_link"><strong>ofxiPhoneAlertsHandler</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneMapKitListener.html" class="documentation_class_link"><strong>ofxiPhoneMapKitListener</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneCoreLocation.html" class="documentation_class_link"><strong>ofxiPhoneCoreLocation</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneApp.html" class="documentation_class_link"><strong>ofxiPhoneApp</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofAppiPhoneWindow.html" class="documentation_class_link"><strong>ofAppiPhoneWindow</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneAlertsListener.html" class="documentation_class_link"><strong>ofxiPhoneAlertsListener</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxiPhone/ofxiPhoneKeyboard.html" class="documentation_class_link"><strong>ofxiPhoneKeyboard</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxAccelerometer			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAccelerometer/ofxAccelerometerHandler.html" class="documentation_class_link"><strong>ofxAccelerometerHandler</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+          </div>
+          <div class="documentation_col">
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxNetwork			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxNetwork/ofxTCPClient.html" class="documentation_class_link"><strong>ofxTCPClient</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxNetwork/ofxUDPManager.html" class="documentation_class_link"><strong>ofxUDPManager</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxNetwork/ofxTCPManager.html" class="documentation_class_link"><strong>ofxTCPManager</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxNetwork/ofxTCPServer.html" class="documentation_class_link"><strong>ofxTCPServer</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxVectorMath			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxVectorGraphics			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxVectorGraphics/ofxVectorGraphics.html" class="documentation_class_link"><strong>ofxVectorGraphics</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofx3DModelLoader			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofx3DModelLoader/ofx3DBaseLoader.html" class="documentation_class_link"><strong>ofx3DBaseLoader</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofx3DModelLoader/ofx3DModelLoader.html" class="documentation_class_link"><strong>ofx3DModelLoader</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxAndroid			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAndroid/ofxAndroidVideoGrabber.html" class="documentation_class_link"><strong>ofxAndroidVideoGrabber</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAndroid/ofxAndroidApp.html" class="documentation_class_link"><strong>ofxAndroidApp</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAndroid/ofxAndroidSoundPlayer.html" class="documentation_class_link"><strong>ofxAndroidSoundPlayer</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAndroid/ofAppAndroidWindow.html" class="documentation_class_link"><strong>ofAppAndroidWindow</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAndroid/ofxAndroidSoundStream.html" class="documentation_class_link"><strong>ofxAndroidSoundStream</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxAndroid/ofxAndroidGPS.html" class="documentation_class_link"><strong>ofxAndroidGPS</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxThreadedImageLoader			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxThreadedImageLoader/ofxThreadedImageLoader.html" class="documentation_class_link"><strong>ofxThreadedImageLoader</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+          </div>
+          <div class="documentation_col">
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxXmlSettings			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxXmlSettings/ofxXmlSettings.html" class="documentation_class_link"><strong>ofxXmlSettings</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxOpenCv			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvShortImage.html" class="documentation_class_link"><strong>ofxCvShortImage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvImage.html" class="documentation_class_link"><strong>ofxCvImage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvFloatImage.html" class="documentation_class_link"><strong>ofxCvFloatImage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvBlob.html" class="documentation_class_link"><strong>ofxCvBlob</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvHaarFinder.html" class="documentation_class_link"><strong>ofxCvHaarFinder</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvContourFinder.html" class="documentation_class_link"><strong>ofxCvContourFinder</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvColorImage.html" class="documentation_class_link"><strong>ofxCvColorImage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOpenCv/ofxCvGrayscaleImage.html" class="documentation_class_link"><strong>ofxCvGrayscaleImage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+            
+<div class="documentation_group">
+    <div class="documentation_group_head">&#160;&#160;
+			ofxOsc			
+	</div>
+			
+	<!-- fileFuncs -->
+
+	
+
+	<!-- file vars -->
+	
+
+	<!-- CLASSES -->
+
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscBundle.html" class="documentation_class_link"><strong>ofxOscBundle</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscArgFloat.html" class="documentation_class_link"><strong>ofxOscArgFloat</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscArg.html" class="documentation_class_link"><strong>ofxOscArg</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscReceiver.html" class="documentation_class_link"><strong>ofxOscReceiver</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscArgInt32.html" class="documentation_class_link"><strong>ofxOscArgInt32</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscSender.html" class="documentation_class_link"><strong>ofxOscSender</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscMessage.html" class="documentation_class_link"><strong>ofxOscMessage</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+    	<div class="documentation_class">
+    	    <!-- class link -->
+            &#160;&#160;&#160;<a href="ofxOsc/ofxOscArgString.html" class="documentation_class_link"><strong>ofxOscArgString</strong></a><br />
+            
+            
+    	    <!-- class methods -->
+            
+            
+            <!--hr/-->
+            
+            
+    	    <!-- class variables -->
+            
+            
+        </div>
+</div>
+
+          </div>
+        </div><!-- End Page Wide -->
+        
+      </div><!-- End Body Wrap -->
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:37:01 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

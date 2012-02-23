@@ -1,0 +1,673 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofSerial</h1>
+              <p>
+              
+  <p>ofSerial provides a cross platform system for interfacing with the serial port. You can choose the port and baud rate, and then read and send data. Please note that the port must be set manually in the code, so you should be clear what port your device is on. For example, Arduino users should check the arduino app to see what port their device is on. Alternatively the ofSerial class can attempt to communicate with the first available device it finds.</p>
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                         
+                         
+                              
+                             <li> <a href="#enumerateDevices">enumerateDevices()</a> </li>
+                         
+                              
+                             <li> <a href="#close">close()</a> </li>
+                         
+                              
+                             <li> <a href="#setup">setup()</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#readBytes">readBytes(...)</a> </li>
+                         
+                              
+                             <li> <a href="#writeBytes">writeBytes(...)</a> </li>
+                         
+                              
+                             <li> <a href="#writeByte">writeByte(...)</a> </li>
+                         
+                              
+                             <li> <a href="#readByte">readByte()</a> </li>
+                         
+                              
+                             <li> <a href="#flush">flush(...)</a> </li>
+                         
+                              
+                             <li> <a href="#available">available()</a> </li>
+                         
+                              
+                             <li> <a href="#setVerbose">setVerbose(...)</a> </li>
+                         
+                              
+                             <li> <a href="#listDevices">listDevices()</a> </li>
+                         
+                              
+                             <li> <a href="#getDeviceList">getDeviceList()</a> </li>
+                         
+                              
+                             <li> <a href="#readBytes">readBytes(...)</a> </li>
+                         
+                              
+                             <li> <a href="#writeBytes">writeBytes(...)</a> </li>
+                         
+                              
+                             <li> <a href="#drain">drain()</a> </li>
+                         
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+            
+             
+            
+             <!-- list of functions -->              
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/serial/ofSerial.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation//ofSerial_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofSerial methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="enumerateDevices">enumerateDevices()</a></h1>
+	<h2>
+  <p>void ofSerial::enumerateDevices()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Prints out the available serial devices:
+On mac and linux it might list something like this:</p>
+<pre><code class="cpp">
+device 0 - cu.modem 
+device 1 - cu.USA19H181P1.1
+</code></pre>
+
+<p>and on a pc, like:</p>
+<pre><code class="cpp">
+device 0 - COM2 
+device 1 - COM4
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="close">close()</a></h1>
+	<h2>
+  <p>void ofSerial::close()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Closes the connection to the serial device. </p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setup">setup()</a></h1>
+	<h2>
+  <p>bool ofSerial::setup()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Attempts to setup the first available device at a baud rate of 9600. </p>
+<pre><code class="cpp">
+ofSerial mySerial;
+if( mySerial.setup() ){
+    printf(&quot;serial is setup!
+&quot;); 
+}
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setup">setup(...)</a></h1>
+	<h2>
+  <p>bool ofSerial::setup(string portName, int baudrate)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Opens the serial port, with the given name and baud rate. On mac and linux, it might look like:</p>
+<pre><code class="cpp">
+ofSerial mySerial;
+mySerial.setup(&quot;/dev/cu.USA19H181P1.1&quot;, 9600);
+</code></pre>
+
+<p>and on a pc, like:</p>
+<pre><code class="cpp">
+ofSerial mySerial;
+mySerial.setup(&quot;COM4&quot;, 9600);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setup">setup(...)</a></h1>
+	<h2>
+  <p>bool ofSerial::setup(int deviceNumber, int baudrate)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Opens the serial port based on the order in which is listed and sets the baud rate. The code bellow would open the first serial device found by the system:</p>
+<pre><code class="cpp">
+ofSerial mySerial;
+mySerial.setup(0, 9600);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="readBytes">readBytes(...)</a></h1>
+	<h2>
+  <p>int ofSerial::readBytes(unsigned char * buffer, int length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Tries to read 'length' bytes from the connected serial device. In some cases it may read less than 'length' bytes, so for reliable reading of &gt;1 bytes of data the return value must be checked against the number of bytes requested, and if fewer bytes than requested were read then the call must be tried again.</p>
+<p>This function should only be called when Serial.available() is reporting &gt;0 bytes available.</p>
+<p>An example of how to reliably read 8 bytes:
+~~~~{.cpp}</p>
+<p>// we want to read 8 bytes
+int bytesRequired = 8;
+unsigned char bytes[bytesRequired];
+int bytesRemaining = bytesRequired;
+// loop until we've read everything
+while ( bytesRemaining &gt; 0 )
+{
+  // check for data
+  if ( serial.available() &gt; 0 )
+  {
+    // try to read - note offset into the bytes[] array, this is so
+    // that we don't overwrite the bytes we already have
+    int bytesArrayOffset = bytesRequired - bytesRemaining;
+    int result = serial.readBytes( &amp;bytes[bytesArrayOffset],
+      bytesRemaining );</p>
+<pre><code>// check for error code
+if ( result == OF_SERIAL_ERROR )
+{
+  // something bad happened
+  ofLog( OF_LOG_ERROR, "unrecoverable error reading from serial" );
+  // bail out
+  break;
+}
+else if ( result == OF_SERIAL_NO_DATA )
+{
+  // nothing was read, try again
+}
+else
+{
+  // we read some data!
+  bytes_remaining -= result;
+}
+</code></pre>
+<p>}
+}
+$$/code</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="writeBytes">writeBytes(...)</a></h1>
+	<h2>
+  <p>int ofSerial::writeBytes(unsigned char * buffer, int length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Writes a string of bytes to the connected serial device. As with readBytes() the return code should be checked and the call to writeBytes() repeated with the remaining data until all bytes have been written.
+~~~~{.cpp}</p>
+<p>ofSerial mySerial;
+mySerial.setup(0, 9600);
+int numSent = mySerial.writeBytes("Hello World");
+// numSent is how many bytes written; for example if numSent 
+// is 3 then "Hel" has been written and the call should be retried
+// with "lo World" to complete the write.
+$$/code</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="writeByte">writeByte(...)</a></h1>
+	<h2>
+  <p>bool ofSerial::writeByte(unsigned char singleByte)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Writes a single byte to the connected serial device. Check the return value to be sure the data was written.</p>
+<pre><code class="cpp">
+ofSerial mySerial;
+mySerial.setup(0, 9600);
+unsigned char myByte = 225;
+bool byteWasWritten = mySerial.writeByte(myByte);
+if ( !byteWasWritten )
+  printf(&quot;byte was not written to serial port&quot;);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="readByte">readByte()</a></h1>
+	<h2>
+  <p>int ofSerial::readByte()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Reads and returns a single byte from the requested device. </p>
+<pre><code class="cpp">
+ofSerial mySerial;
+mySerial.setup(0, 9600);
+int myByte = 0;
+myByte = mySerial.readByte();
+if ( myByte == OF_SERIAL_NO_DATA )
+  printf(&quot;no data was read&quot;);
+else if ( myByte == OF_SERIAL_ERROR )
+  printf(&quot;an error occurred&quot;);
+else
+  printf(&quot;myByte is %d&quot;, myByte);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="flush">flush(...)</a></h1>
+	<h2>
+  <p>void ofSerial::flush(bool flushIn, bool flushOut)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Clears data from one or both of the serial buffers. Any data in the cleared buffers is discarded. flushIn = true clears the incoming data buffer and  fluhOut = true clear the outcoming data buffer. </p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="available">available()</a></h1>
+	<h2>
+  <p>int ofSerial::available()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>The available method is useful when you want to know how many bytes are available in the serial port. For instance, if you only want to read when there are 8 bytes waiting for you, you would do:</p>
+<pre><code class="cpp">if(device.available() &gt; 8) {
+  device.readBytes(buffer, 8);
+}
+</code></pre>
+
+<p>This is useful when you know how long a complete message from a device is going to be.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setVerbose">setVerbose(...)</a></h1>
+	<h2>
+  <p>void ofSerial::setVerbose(bool bLoudmouth)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Enable or disable ofSerial messages and errors being sent to the console.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="listDevices">listDevices()</a></h1>
+	<h2>
+  <p>void ofSerial::listDevices()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This lists out all the available serial devices to the console or standard output. On OSX and Linus this will return all the devices listed in /dev tty and cu, so you might want to compare it against a list of devices that you're expecting if you want to use it to dynamically connect to a device.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getDeviceList">getDeviceList()</a></h1>
+	<h2>
+  <p>ofSerialDeviceInfo ofSerial::getDeviceList()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This returns a vector of ofSerialDeviceInfo instances with the devicePath, deviceName, deviceID set.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="readBytes">readBytes(...)</a></h1>
+	<h2>
+  <p>int ofSerial::readBytes(unsigned char *buffer, int length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This reads bytes from the serial buffer into the buffer pointer passed in:</p>
+<pre><code class="cpp">unsigned char* buf = new unsigned char[4];
+device.readBytes(buf, 4);
+// do something with buf
+delete buf; // clean up
+</code></pre>
+
+<p>You can also use an array like so:</p>
+<pre><code class="cpp">unsigned char buf[4];
+device.readBytes(&amp;buf[0], 4);
+</code></pre>
+
+<p>Be aware that the type of your buffer can only be unsigned char. If you're trying to receieve ints or signed chars over a serial connection you'll need to do some bit manipulation to correctly interpret that values.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="writeBytes">writeBytes(...)</a></h1>
+	<h2>
+  <p>int ofSerial::writeBytes(unsigned char *buffer, int length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>This writes bytes into the serial buffer from the buffer pointer passed in:</p>
+<pre><code class="cpp">unsigned char buf[3] = {'o', 'f', '!'};
+device.writeBytes(&amp;buf[0], 3);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="drain">drain()</a></h1>
+	<h2>
+  <p>void ofSerial::drain()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>drain is only available on OSX and Linux and is very similar to flush(), but blocks until all the data has been written to or read from the serial port.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+              
+              <!-- functions detail -->
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:54 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

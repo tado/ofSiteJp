@@ -1,0 +1,2353 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofMatrix4x4</h1>
+              <p>
+              
+  
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#ofMatrix4x4">ofMatrix4x4()</a> </li>
+                         
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#~ofMatrix4x4">~ofMatrix4x4()</a> </li>
+                         
+                              
+                             <li> <a href="#operator()">operator()(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getRowAsVec3f">getRowAsVec3f(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getRowAsVec4f">getRowAsVec4f(...)</a> </li>
+                         
+                              
+                             <li> <a href="#isValid">isValid()</a> </li>
+                         
+                              
+                             <li> <a href="#isNaN">isNaN()</a> </li>
+                         
+                              
+                             <li> <a href="#operator=">operator=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#set">set(...)</a> </li>
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#getPtr">getPtr()</a> </li>
+                         
+                              
+                             <li> <a href="#isIdentity">isIdentity()</a> </li>
+                         
+                              
+                             <li> <a href="#makeIdentityMatrix">makeIdentityMatrix()</a> </li>
+                         
+                              
+                             <li> <a href="#makeScaleMatrix">makeScaleMatrix(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#makeTranslationMatrix">makeTranslationMatrix(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#makeRotationMatrix">makeRotationMatrix(...)</a> </li>
+                         
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#makeInvertOf">makeInvertOf(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makeOrthoNormalOf">makeOrthoNormalOf(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makeFromMultiplicationOf">makeFromMultiplicationOf(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getInverse">getInverse()</a> </li>
+                         
+                              
+                             <li> <a href="#makeOrthoMatrix">makeOrthoMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makeOrtho2DMatrix">makeOrtho2DMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makeFrustumMatrix">makeFrustumMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makePerspectiveMatrix">makePerspectiveMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makeLookAtMatrix">makeLookAtMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#makeLookAtViewMatrix">makeLookAtViewMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getOrtho">getOrtho(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getFrustum">getFrustum(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getPerspective">getPerspective(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getLookAt">getLookAt(...)</a> </li>
+                         
+                              
+                             <li> <a href="#decompose">decompose(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMult">postMult(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*">operator*(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMult">postMult(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*">operator*(...)</a> </li>
+                         
+                              
+                             <li> <a href="#preMult">preMult(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#setRotate">setRotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#setTranslation">setTranslation(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#rotate">rotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotateRad">rotateRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotate">rotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#translate">translate(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#scale">scale(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#glRotate">glRotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#glRotateRad">glRotateRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#glRotate">glRotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#glTranslate">glTranslate(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#glScale">glScale(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#getRotate">getRotate()</a> </li>
+                         
+                              
+                             <li> <a href="#getTranslation">getTranslation()</a> </li>
+                         
+                              
+                             <li> <a href="#getScale">getScale()</a> </li>
+                         
+                              
+                             <li> <a href="#postMult">postMult(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*=">operator*=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*">operator*(...)</a> </li>
+                         
+                              
+                             <li> <a href="#preMult">preMult(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMultTranslate">postMultTranslate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMultScale">postMultScale(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMultRotate">postMultRotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMultTranslate">postMultTranslate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMultRotate">postMultRotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#postMultScale">postMultScale(...)</a> </li>
+                         
+                              
+                             <li> <a href="#preMultScale">preMultScale(...)</a> </li>
+                         
+                              
+                             <li> <a href="#preMultTranslate">preMultTranslate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#preMultRotate">preMultRotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newIdentityMatrix">newIdentityMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newScaleMatrix">newScaleMatrix(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#newTranslationMatrix">newTranslationMatrix(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#newRotationMatrix">newRotationMatrix(...)</a> </li>
+                         
+                         
+                         
+                         
+                         
+                              
+                             <li> <a href="#getInverseOf">getInverseOf(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getTransposedOf">getTransposedOf(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getOrthoNormalOf">getOrthoNormalOf(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newOrthoMatrix">newOrthoMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newOrtho2DMatrix">newOrtho2DMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newFrustumMatrix">newFrustumMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newPerspectiveMatrix">newPerspectiveMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#newLookAtMatrix">newLookAtMatrix(...)</a> </li>
+                         
+                              
+                             <li> <a href="#transform3x3">transform3x3(...)</a> </li>
+                         
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+                <p class="top_list_header"><a href="#variables">class variables</a></p>
+                <ul class="functionslist">
+                             <li> <a href="#_mat">ofVec4f _mat</a> </li>
+                 </ul>
+            
+             
+            
+             <!-- list of functions -->              
+            <p class="top_list_header"><a href="#functions">functions</a></p>
+                <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#operator<<">operator<<(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator>>">operator>>(...)</a> </li>
+                         
+                 </ul>
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/math/ofMatrix4x4.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/math/ofMatrix4x4_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofMatrix4x4 methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofMatrix4x4">ofMatrix4x4()</a></h1>
+	<h2>
+  <p>ofMatrix4x4::ofMatrix4x4()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofMatrix4x4">ofMatrix4x4(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4::ofMatrix4x4(const ofMatrix4x4 &amp;mat)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofMatrix4x4">ofMatrix4x4(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4::ofMatrix4x4(float const *const ptr)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofMatrix4x4">ofMatrix4x4(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4::ofMatrix4x4(const ofQuaternion &amp;quat)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofMatrix4x4">ofMatrix4x4(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4::ofMatrix4x4(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="~ofMatrix4x4">~ofMatrix4x4()</a></h1>
+	<h2>
+  <p>ofMatrix4x4::~ofMatrix4x4()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator()">operator()(...)</a></h1>
+	<h2>
+  <p>float ofMatrix4x4::operator()(int row, int col)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRowAsVec3f">getRowAsVec3f(...)</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::getRowAsVec3f(int i)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRowAsVec4f">getRowAsVec4f(...)</a></h1>
+	<h2>
+  <p>ofVec4f ofMatrix4x4::getRowAsVec4f(int i)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="isValid">isValid()</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::isValid()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="isNaN">isNaN()</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::isNaN()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator=">operator=(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::operator=(const ofMatrix4x4 &amp;rhs)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="set">set(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::set(const ofMatrix4x4 &amp;rhs)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="set">set(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::set(float const *const ptr)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="set">set(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::set(double const *const ptr)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="set">set(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::set(float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPtr">getPtr()</a></h1>
+	<h2>
+  <p>const float * ofMatrix4x4::getPtr()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="isIdentity">isIdentity()</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::isIdentity()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeIdentityMatrix">makeIdentityMatrix()</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeIdentityMatrix()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeScaleMatrix">makeScaleMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeScaleMatrix(const ofVec3f &amp;)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeScaleMatrix">makeScaleMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeScaleMatrix(float, float, float)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeTranslationMatrix">makeTranslationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeTranslationMatrix(const ofVec3f &amp;)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeTranslationMatrix">makeTranslationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeTranslationMatrix(float, float, float)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeRotationMatrix">makeRotationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeRotationMatrix(const ofVec3f &amp;from, const ofVec3f &amp;to)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeRotationMatrix">makeRotationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeRotationMatrix(float angle, const ofVec3f &amp;axis)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeRotationMatrix">makeRotationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeRotationMatrix(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeRotationMatrix">makeRotationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeRotationMatrix(const ofQuaternion &amp;)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeRotationMatrix">makeRotationMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeRotationMatrix(float angle1, const ofVec3f &amp;axis1, float angle2, const ofVec3f &amp;axis2, float angle3, const ofVec3f &amp;axis3)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeInvertOf">makeInvertOf(...)</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::makeInvertOf(const ofMatrix4x4 &amp;rhs)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeOrthoNormalOf">makeOrthoNormalOf(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeOrthoNormalOf(const ofMatrix4x4 &amp;rhs)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeFromMultiplicationOf">makeFromMultiplicationOf(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeFromMultiplicationOf(const ofMatrix4x4 &amp;, const ofMatrix4x4 &amp;)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getInverse">getInverse()</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::getInverse()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeOrthoMatrix">makeOrthoMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeOrthoMatrix(double left, double right, double bottom, double top, double zNear, double zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeOrtho2DMatrix">makeOrtho2DMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeOrtho2DMatrix(double left, double right, double bottom, double top)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeFrustumMatrix">makeFrustumMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeFrustumMatrix(double left, double right, double bottom, double top, double zNear, double zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makePerspectiveMatrix">makePerspectiveMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makePerspectiveMatrix(double fovy, double aspectRatio, double zNear, double zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeLookAtMatrix">makeLookAtMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeLookAtMatrix(const ofVec3f &amp;eye, const ofVec3f &amp;center, const ofVec3f &amp;up)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="makeLookAtViewMatrix">makeLookAtViewMatrix(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::makeLookAtViewMatrix(const ofVec3f &amp;eye, const ofVec3f &amp;center, const ofVec3f &amp;up)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getOrtho">getOrtho(...)</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::getOrtho(double &amp;left, double &amp;right, double &amp;bottom, double &amp;top, double &amp;zNear, double &amp;zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getFrustum">getFrustum(...)</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::getFrustum(double &amp;left, double &amp;right, double &amp;bottom, double &amp;top, double &amp;zNear, double &amp;zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPerspective">getPerspective(...)</a></h1>
+	<h2>
+  <p>bool ofMatrix4x4::getPerspective(double &amp;fovy, double &amp;aspectRatio, double &amp;zNear, double &amp;zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getLookAt">getLookAt(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::getLookAt(ofVec3f &amp;eye, ofVec3f &amp;center, ofVec3f &amp;up, float lookDistance=1.0f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="decompose">decompose(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::decompose(ofVec3f &amp;translation, ofQuaternion &amp;rotation, ofVec3f &amp;scale, ofQuaternion &amp;so)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMult">postMult(...)</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::postMult(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*">operator*(...)</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::operator*(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMult">postMult(...)</a></h1>
+	<h2>
+  <p>ofVec4f ofMatrix4x4::postMult(const ofVec4f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*">operator*(...)</a></h1>
+	<h2>
+  <p>ofVec4f ofMatrix4x4::operator*(const ofVec4f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="preMult">preMult(...)</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::preMult(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="preMult">preMult(...)</a></h1>
+	<h2>
+  <p>ofVec4f ofMatrix4x4::preMult(const ofVec4f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setRotate">setRotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::setRotate(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setTranslation">setTranslation(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::setTranslation(float tx, float ty, float tz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="setTranslation">setTranslation(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::setTranslation(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::rotate(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotateRad">rotateRad(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::rotateRad(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::rotate(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="translate">translate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::translate(float tx, float ty, float tz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="translate">translate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::translate(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="scale">scale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::scale(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="scale">scale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::scale(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glRotate">glRotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glRotate(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glRotateRad">glRotateRad(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glRotateRad(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glRotate">glRotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glRotate(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glTranslate">glTranslate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glTranslate(float tx, float ty, float tz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glTranslate">glTranslate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glTranslate(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glScale">glScale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glScale(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="glScale">glScale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::glScale(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRotate">getRotate()</a></h1>
+	<h2>
+  <p>ofQuaternion ofMatrix4x4::getRotate()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getTranslation">getTranslation()</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::getTranslation()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getScale">getScale()</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::getScale()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMult">postMult(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMult(const ofMatrix4x4 &amp;)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*=">operator*=(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::operator*=(const ofMatrix4x4 &amp;other)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*">operator*(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::operator*(const ofMatrix4x4 &amp;m)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="preMult">preMult(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::preMult(const ofMatrix4x4 &amp;)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMultTranslate">postMultTranslate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMultTranslate(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMultScale">postMultScale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMultScale(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMultRotate">postMultRotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMultRotate(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMultTranslate">postMultTranslate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMultTranslate(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMultRotate">postMultRotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMultRotate(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="postMultScale">postMultScale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::postMultScale(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="preMultScale">preMultScale(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::preMultScale(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="preMultTranslate">preMultTranslate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::preMultTranslate(const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="preMultRotate">preMultRotate(...)</a></h1>
+	<h2>
+  <p>void ofMatrix4x4::preMultRotate(const ofQuaternion &amp;q)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newIdentityMatrix">newIdentityMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newIdentityMatrix(void)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newScaleMatrix">newScaleMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newScaleMatrix(const ofVec3f &amp;sv)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newScaleMatrix">newScaleMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newScaleMatrix(float sx, float sy, float sz)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newTranslationMatrix">newTranslationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newTranslationMatrix(const ofVec3f &amp;dv)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newTranslationMatrix">newTranslationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newTranslationMatrix(float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newRotationMatrix">newRotationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newRotationMatrix(const ofVec3f &amp;from, const ofVec3f &amp;to)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newRotationMatrix">newRotationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newRotationMatrix(float angle, float x, float y, float z)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newRotationMatrix">newRotationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newRotationMatrix(float angle, const ofVec3f &amp;axis)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newRotationMatrix">newRotationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newRotationMatrix(float angle1, const ofVec3f &amp;axis1, float angle2, const ofVec3f &amp;axis2, float angle3, const ofVec3f &amp;axis3)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newRotationMatrix">newRotationMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newRotationMatrix(const ofQuaternion &amp;quat)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getInverseOf">getInverseOf(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::getInverseOf(const ofMatrix4x4 &amp;matrix)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getTransposedOf">getTransposedOf(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::getTransposedOf(const ofMatrix4x4 &amp;matrix)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getOrthoNormalOf">getOrthoNormalOf(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::getOrthoNormalOf(const ofMatrix4x4 &amp;matrix)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newOrthoMatrix">newOrthoMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newOrthoMatrix(double left, double right, double bottom, double top, double zNear, double zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newOrtho2DMatrix">newOrtho2DMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newOrtho2DMatrix(double left, double right, double bottom, double top)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newFrustumMatrix">newFrustumMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newFrustumMatrix(double left, double right, double bottom, double top, double zNear, double zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newPerspectiveMatrix">newPerspectiveMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newPerspectiveMatrix(double fovy, double aspectRatio, double zNear, double zFar)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="newLookAtMatrix">newLookAtMatrix(...)</a></h1>
+	<h2>
+  <p>ofMatrix4x4 ofMatrix4x4::newLookAtMatrix(const ofVec3f &amp;eye, const ofVec3f &amp;center, const ofVec3f &amp;up)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="transform3x3">transform3x3(...)</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::transform3x3(const ofVec3f &amp;v, const ofMatrix4x4 &amp;m)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="transform3x3">transform3x3(...)</a></h1>
+	<h2>
+  <p>ofVec3f ofMatrix4x4::transform3x3(const ofMatrix4x4 &amp;m, const ofVec3f &amp;v)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+                  <h2><a name="variables"></a>ofMatrix4x4 variables</h2>
+                            
+<div class="documentation_detail">
+	<h1>ofVec4f <a name="_mat">_mat</a></h1>
+	<h2>
+  <p>ofVec4f ofMatrix4x4::_mat</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+              
+              <!-- functions detail -->
+                  <h2><a name="functions"></a>ofMatrix4x4 functions</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator<<">operator<<(...)</a></h1>
+	<h2>
+  <p>ostream &amp; operator&lt;&lt;(ostream &amp;os, const ofMatrix4x4 &amp;M)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator>>">operator>>(...)</a></h1>
+	<h2>
+  <p>istream &amp; operator&gt;&gt;(istream &amp;is, ofMatrix4x4 &amp;M)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:53 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+

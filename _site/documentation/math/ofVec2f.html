@@ -1,0 +1,1886 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+  <title>openFrameworks.jp</title>
+
+<!-- syntax highlighting for the documentation -->
+<script src="http://localhost:8080/js/shCore.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shAutoloader.js" type="text/javascript"></script>
+<script src="http://localhost:8080/js/shBrushCpp.js" type="text/javascript"></script>
+<link href="http://localhost:8080/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/css/print.css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="http://localhost:8080/opensearch.xml" title="openFrameworks" />
+
+<link rel="shortcut icon" href="http://localhost:8080/favicon.ico" />
+<link rel="icon" href="http://localhost:8080/favicon.ico" type="image/x-icon" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://localhost:8080/js/jquery.timeago.js" type="text/javascript"></script>
+
+<meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
+
+
+    <script src="http://localhost:8080/js/jquery.columnizer.min.js"></script>
+    <script src="http://localhost:8080/js/documentation.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      
+  
+
+<div id="head">
+
+		<div id="head-left">
+			<a href="http://localhost:8080" class="nohover"><img src="http://localhost:8080/images/ofw-logo.png" border="0" alt="openFrameworks" /></a>
+		</div>
+
+		<div id="head-right">
+		<ul>
+		
+	        <li><a href="http://localhost:8080/about" class="">about</a></li>
+	        <li><a href="http://localhost:8080/download" class="" >download</a></li>
+	        <li><a href="http://localhost:8080/documentation" class="active">documentation</a></li>
+	        <li><a href="http://localhost:8080/gallery" class="">gallery</a></li>
+	        <li><a href="http://localhost:8080/community" class="">community</a></li> 
+		</ul>
+		
+		<ul class="menu-externals">
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
+			<li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/list-info" target="_blank">mailing list</a></li>
+		</ul>
+			<!--form method="get" id="searchform" action="/index.php">
+			<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
+			</form-->
+			<!--form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                <input type="hidden" name="list" value="list@openframeworks.cc" />
+                <input type="hidden" name="domain" value="openframeworks.cc" />
+                <input type="hidden" name="url" value="http://openframeworks.cc/list-info/subscribe.html"  />
+                <input type="hidden" name="unsuburl" value="http://openframeworks.cc/list-info/unsubscribe.html" />
+                <input type="hidden" name="alreadyonurl" value="http://openframeworks.cc/list-info/already.html" />
+                <input type="hidden" name="notonurl" value="http://openframeworks.cc/list-info/not.html" />
+                <input type="hidden" name="invalidurl" value="http://openframeworks.cc/list-info/invalid.html" />
+                <input type="hidden" name="emailconfirmurl" value="http://openframeworks.cc/list-info/confirm.html" />
+                <input type="hidden" name="emailit" value="1" />
+                name: <input name="name" /> <br />
+                email: <input name="email" /><br />
+                <span class='but'><input type="submit" name="submit" value="subscribe" /></span> <br/ >
+                <span class='but'><input type="submit" name="unsub" value="unsubscribe" /></span>
+            </form-->
+		</div>
+</div><!-- head -->
+
+
+
+      <div id="body-wrap">
+        
+          <div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">
+              <h1>ofVec2f</h1>
+              <p>
+              
+  <p>A class to describe a two dimensional vector. This datatype stores two variables (x and y). It's commonly used as a position, velocity, and/or acceleration. Technically, positions is described as a point (and commonly defined with a ofPoint, that in fact it's a ofVec3f).
+Vectors in general are entities with magnitude ( also called length) and direction. A vector whose magnitude is 1 is a unit or normalized vector.  Witch means that it's important data that stores it's the direction of a point. This last practice it's very well-known on 3D design for defining the direction of a plane by passing-through the normal value of each vertex that conform a triangle or quad mesh. </p>
+<p>Any way, what's very handy of this class it's that you could perform arithmetic operations on vectors really easy, just as you deal with int or floats. This is a substantial difference from the Processing implementation call PVectors.</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);   // one way of assignment 
+ofVec2f v2;
+v2.set(25,50);  // other way of assignment
+v1 = v1 + v2;   // vector operation also equivalent of: v1 += v2 
+cout &lt;&lt; v1 &lt;&lt; endl;
+</code></pre>
+
+              </p>
+        	</div><!-- End Prose Block -->
+         </div><!-- End Main Block -->
+	</div>
+		<div class="page-wide">
+      	<div id="top_list">
+             
+             <!-- list of methods -->
+               
+ 			
+			<p class="top_list_header"><a href="#methods">class methods</a></p>
+			
+                 <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#ofVec2f">ofVec2f(...)</a> </li>
+                         
+                         
+                         
+                              
+                             <li> <a href="#getPtr">getPtr()</a> </li>
+                         
+                              
+                             <li> <a href="#operator[]">operator[](...)</a> </li>
+                         
+                              
+                             <li> <a href="#set">set(...)</a> </li>
+                         
+                         
+                              
+                             <li> <a href="#operator==">operator==(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator!=">operator!=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#match">match(...)</a> </li>
+                         
+                              
+                             <li> <a href="#align">align(...)</a> </li>
+                         
+                              
+                             <li> <a href="#alignRad">alignRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator+">operator+(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator+=">operator+=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator-">operator-(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator-=">operator-=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*">operator*(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*=">operator*=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator/">operator/(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator/=">operator/=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator+">operator+(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator+=">operator+=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator-">operator-(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator-=">operator-=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator-">operator-()</a> </li>
+                         
+                              
+                             <li> <a href="#operator*">operator*(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*=">operator*=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator/">operator/(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator/=">operator/=(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getScaled">getScaled(...)</a> </li>
+                         
+                              
+                             <li> <a href="#scale">scale(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getRotated">getRotated(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getRotatedRad">getRotatedRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotate">rotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotateRad">rotateRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getRotated">getRotated(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotate">rotate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getRotatedRad">getRotatedRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotateRad">rotateRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getMapped">getMapped(...)</a> </li>
+                         
+                              
+                             <li> <a href="#map">map(...)</a> </li>
+                         
+                              
+                             <li> <a href="#distance">distance(...)</a> </li>
+                         
+                              
+                             <li> <a href="#squareDistance">squareDistance(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getInterpolated">getInterpolated(...)</a> </li>
+                         
+                              
+                             <li> <a href="#interpolate">interpolate(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getMiddle">getMiddle(...)</a> </li>
+                         
+                              
+                             <li> <a href="#middle">middle(...)</a> </li>
+                         
+                              
+                             <li> <a href="#average">average(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getNormalized">getNormalized()</a> </li>
+                         
+                              
+                             <li> <a href="#normalize">normalize()</a> </li>
+                         
+                              
+                             <li> <a href="#getLimited">getLimited(...)</a> </li>
+                         
+                              
+                             <li> <a href="#limit">limit(...)</a> </li>
+                         
+                              
+                             <li> <a href="#getPerpendicular">getPerpendicular()</a> </li>
+                         
+                              
+                             <li> <a href="#perpendicular">perpendicular()</a> </li>
+                         
+                              
+                             <li> <a href="#length">length()</a> </li>
+                         
+                              
+                             <li> <a href="#squareLength">squareLength()</a> </li>
+                         
+                              
+                             <li> <a href="#angle">angle(...)</a> </li>
+                         
+                              
+                             <li> <a href="#angleRad">angleRad(...)</a> </li>
+                         
+                              
+                             <li> <a href="#dot">dot(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rescaled">rescaled(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rescale">rescale(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotated">rotated(...)</a> </li>
+                         
+                              
+                             <li> <a href="#normalized">normalized()</a> </li>
+                         
+                              
+                             <li> <a href="#limited">limited(...)</a> </li>
+                         
+                              
+                             <li> <a href="#perpendiculared">perpendiculared()</a> </li>
+                         
+                              
+                             <li> <a href="#lengthSquared">lengthSquared()</a> </li>
+                         
+                              
+                             <li> <a href="#interpolated">interpolated(...)</a> </li>
+                         
+                              
+                             <li> <a href="#middled">middled(...)</a> </li>
+                         
+                              
+                             <li> <a href="#mapped">mapped(...)</a> </li>
+                         
+                              
+                             <li> <a href="#distanceSquared">distanceSquared(...)</a> </li>
+                         
+                              
+                             <li> <a href="#rotated">rotated(...)</a> </li>
+                         
+                 </ul>
+            
+             
+             
+             <!-- list of variables -->              
+                <p class="top_list_header"><a href="#variables">class variables</a></p>
+                <ul class="functionslist">
+                             <li> <a href="#x">float x</a> </li>
+                             <li> <a href="#y">float y</a> </li>
+                 </ul>
+            
+             
+            
+             <!-- list of functions -->              
+            <p class="top_list_header"><a href="#functions">functions</a></p>
+                <ul class="functionslist">
+                     
+                              
+                             <li> <a href="#operator+">operator+(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator-">operator-(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator*">operator*(...)</a> </li>
+                         
+                              
+                             <li> <a href="#operator/">operator/(...)</a> </li>
+                         
+                 </ul>
+            
+		</div>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/math/ofVec2f.markdown">edit class on GitHub</a></p>
+	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/math/ofVec2f_functions.markdown">edit functions on GitHub</a></p>
+
+	</div>
+		<div class="page-left-wide">
+          <div id="main_block">
+            <div id="prose_block">	
+              
+              <!-- methods detail -->
+                  <h2><a name="methods"></a>ofVec2f methods</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofVec2f">ofVec2f(...)</a></h1>
+	<h2>
+  <p>ofVec2f::ofVec2f(float _x=0.f, float _y=0.f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Vector constructor passing two floats variables</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofVec2f">ofVec2f(...)</a></h1>
+	<h2>
+  <p>ofVec2f::ofVec2f(const ofVec3f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Vector constructor passing a 3 dimensional vector (ofVec3f)</p>
+<pre><code class="cpp">ofVec3f v1 = ofVec3f(40, 20, 50);
+ofVec2f v2 = ofVec2f(v1);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="ofVec2f">ofVec2f(...)</a></h1>
+	<h2>
+  <p>ofVec2f::ofVec2f(const ofVec4f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Vector constructor passing a 4 dimensional vector (ofVec4f)</p>
+<pre><code class="cpp">ofVec4f v1 = ofVec4f(40, 20, 50, 0);
+ofVec2f v2 = ofVec2f(v1);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPtr">getPtr()</a></h1>
+	<h2>
+  <p>const float * ofVec2f::getPtr()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Gets the pointer to the memory position of the first element of the vector</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);
+float *a;
+a = v1.getPtr();
+cout &lt;&lt; *a &lt;&lt; &quot; = 40 ( x value )&quot; &lt;&lt; endl;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator[]">operator[](...)</a></h1>
+	<h2>
+  <p>float ofVec2f::operator<a href="int n"></a></p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the value corresponding to the allocation position inside this object. In this case: 0 it's for x and 1 it's for y</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);
+cout &lt;&lt; v1[1] &lt;&lt; &quot; = 20 ( y value )&quot; &lt;&lt; endl;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="set">set(...)</a></h1>
+	<h2>
+  <p>void ofVec2f::set(float _x, float _y)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Setting the values by using two floats variables</p>
+<pre><code class="cpp">ofVec2f v1;
+v1.set(40, 20);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="set">set(...)</a></h1>
+	<h2>
+  <p>void ofVec2f::set(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Setting the values by using other 2 dimension vector (ofVec2f)</p>
+<pre><code class="cpp">ofVec2f v1;
+ofVec2f v2;
+v1.set(40, 20);
+v2.set(v1);
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator==">operator==(...)</a></h1>
+	<h2>
+  <p>bool ofVec2f::operator==(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Equal comparison of two vectors</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator!=">operator!=(...)</a></h1>
+	<h2>
+  <p>bool ofVec2f::operator!=(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Not Equal comparison of two vectors </p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="match">match(...)</a></h1>
+	<h2>
+  <p>bool ofVec2f::match(const ofVec2f &amp;vec, float tolerance=0.0001)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let you check if two vectors are similar given a tolerance threshold (default = 0.0001 )
+For example this gives true:</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);
+ofVec2f v2 = ofVec2f(40.01, 19.999);
+cout &lt;&lt; v1.match(v2, 0.1) &lt;&lt; endl;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="align">align(...)</a></h1>
+	<h2>
+  <p>bool ofVec2f::align(const ofVec2f &amp;vec, float tolerance=0.0001)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let's you check if both vectors are align with a angular tolerance threshold (default = 0.0001 )</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);
+ofVec2f v2 = ofVec2f(4, 2);
+cout &lt;&lt; v1.align(v2, 0.0) &lt;&lt; endl;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="alignRad">alignRad(...)</a></h1>
+	<h2>
+  <p>bool ofVec2f::alignRad(const ofVec2f &amp;vec, float tolerance=0.0001)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let's you check if both vectors are align with a radial tolerance threshold (default = 0.0001 )</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20);
+ofVec2f v2 = ofVec2f(4, 2);
+cout &lt;&lt; v1.alignRad(v2, 0.0) &lt;&lt; endl;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator+">operator+(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator+(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let's you make vectorial addition super easy</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 = v1 + v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator+=">operator+=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator+=(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Addition assignment of a vector (v2) to it's own data (v1)</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 += v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator-">operator-(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator-(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let's you make vectorial subtraction super easy</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 = v1 - v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator-=">operator-=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator-=(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Subtraction assignment of a vector (v2) to it's own data (v1)</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 -= v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*">operator*(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator*(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let's you make vectorial multiplication super easy</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 = v1 * v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*=">operator*=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator*=(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Multiplication assignment of a vector (v2) to it's own data (v1)</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 *= v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator/">operator/(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator/(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Let's you make vectorial division super easy</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 = v1 / v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator/=">operator/=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator/=(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Division assignment of a vector (v2) to it's own data (v1)</p>
+<pre><code class="cpp">ofVec2f v1 = ofVec2f(40, 20); 
+ofVec2f v2 = ofVec2f(25,50);
+v1 /= v2;
+</code></pre>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator+">operator+(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator+(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Adds a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator+=">operator+=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator+=(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Adds a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator-">operator-(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator-(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Subtract a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator-=">operator-=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator-=(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Subtracts a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator-">operator-()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator-()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*">operator*(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator*(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Multiply a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*=">operator*=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator*=(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Multiply a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator/">operator/(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator/(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Devides a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator/=">operator/=(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::operator/=(const float f)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Devides a value to both x and y variables</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getScaled">getScaled(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getScaled(const float length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return a 2D vector after scaling it.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="scale">scale(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::scale(const float length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Scales the vector some amount of length.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRotated">getRotated(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getRotated(float angle)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return a 2D vector after rotating it a given angle</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRotatedRad">getRotatedRad(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getRotatedRad(float angle)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return a 2D vector after rotating it a given radio</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rotate(float angle)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Rotates the vector a given amount of angles</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotateRad">rotateRad(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rotateRad(float angle)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Rotates the vector a given amount of radial angles</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRotated">getRotated(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getRotated(float angle, const ofVec2f &amp;pivot)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return a 2D vector after rotating it with given angle over some pivot (that actually it's another vector)</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotate">rotate(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rotate(float angle, const ofVec2f &amp;pivot)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Rotates the vector with a given angle over some pivot (that actually it's another vector)</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getRotatedRad">getRotatedRad(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getRotatedRad(float angle, const ofVec2f &amp;pivot)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return a 2D vector after rotating it with given radial angle over some pivot (that actually it's another vector)</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotateRad">rotateRad(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rotateRad(float angle, const ofVec2f &amp;pivot)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Rotates the vector over a pivot vector (another ofVec2f) a given amount of radial angles</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getMapped">getMapped(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getMapped(const ofVec2f &amp;origin, const ofVec2f &amp;vx, const ofVec2f &amp;vy)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns a 2D vector that fits on the range of another to 2D vectors that correspond to the x range (max and min) and the y range (max and min) </p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="map">map(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::map(const ofVec2f &amp;origin, const ofVec2f &amp;vx, const ofVec2f &amp;vy)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Fits the vector inside the range of two another 2D vectors that set the max and the min of X and the max and min of Y.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="distance">distance(...)</a></h1>
+	<h2>
+  <p>float ofVec2f::distance(const ofVec2f &amp;pnt)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the distance from the vector to another</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="squareDistance">squareDistance(...)</a></h1>
+	<h2>
+  <p>float ofVec2f::squareDistance(const ofVec2f &amp;pnt)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns the distance from the vector to another</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getInterpolated">getInterpolated(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getInterpolated(const ofVec2f &amp;pnt, float p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="interpolate">interpolate(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::interpolate(const ofVec2f &amp;pnt, float p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getMiddle">getMiddle(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getMiddle(const ofVec2f &amp;pnt)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Returns a 2D vector ( ofVec2f ) that's match the precise middle point between the vector and other one given as parameter</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="middle">middle(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::middle(const ofVec2f &amp;pnt)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Set's the value of the vector to the exactly middle point of it with another one given as parameter</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="average">average(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::average(const ofVec2f *points, int num)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Calculates the average of a given array of vectors (ofVec2f) and the total number of them.</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getNormalized">getNormalized()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getNormalized()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return the normalized vector. That means that it will return a vector with the same direction but with length equal to 1. This it's pretty handy when it's not important the magnitude just the direction of a point or plane (surface).</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="normalize">normalize()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::normalize()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Normalized the vector. That means that it will return a vector with the same direction but with length equal to 1. This it's pretty handy when it's not important the magnitude just the direction of a point or plane (surface).</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getLimited">getLimited(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getLimited(float max)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="limit">limit(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::limit(float max)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="getPerpendicular">getPerpendicular()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::getPerpendicular()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return a 2D vector (ofVec2f) rotated at 90 degrees </p>
+<p><img alt="PERPENDICULAR" src="../math/perpendicular.png" />
+Image courtesy of Wikipedia</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="perpendicular">perpendicular()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::perpendicular()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Rotates the vector at 90 degrees </p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="length">length()</a></h1>
+	<h2>
+  <p>float ofVec2f::length()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Return the magnitude or length of the vector</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="squareLength">squareLength()</a></h1>
+	<h2>
+  <p>float ofVec2f::squareLength()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="angle">angle(...)</a></h1>
+	<h2>
+  <p>float ofVec2f::angle(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="angleRad">angleRad(...)</a></h1>
+	<h2>
+  <p>float ofVec2f::angleRad(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="dot">dot(...)</a></h1>
+	<h2>
+  <p>float ofVec2f::dot(const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  <p>Dot Product, or less commonly know as Euclidean inner product. It can be used to get the angle between to vectors.</p>
+<p><img alt="DOT" src="../math/dotproduct.png" />
+Image courtesy of Wikipedia</p>
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rescaled">rescaled(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rescaled(const float length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rescale">rescale(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rescale(const float length)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotated">rotated(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rotated(float angle)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="normalized">normalized()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::normalized()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="limited">limited(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::limited(float max)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="perpendiculared">perpendiculared()</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::perpendiculared()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="lengthSquared">lengthSquared()</a></h1>
+	<h2>
+  <p>float ofVec2f::lengthSquared()</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="interpolated">interpolated(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::interpolated(const ofVec2f &amp;pnt, float p)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="middled">middled(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::middled(const ofVec2f &amp;pnt)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="mapped">mapped(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::mapped(const ofVec2f &amp;origin, const ofVec2f &amp;vx, const ofVec2f &amp;vy)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="distanceSquared">distanceSquared(...)</a></h1>
+	<h2>
+  <p>float ofVec2f::distanceSquared(const ofVec2f &amp;pnt)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="rotated">rotated(...)</a></h1>
+	<h2>
+  <p>ofVec2f ofVec2f::rotated(float angle, const ofVec2f &amp;pivot)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+              
+              <!-- vars detail -->
+                  <h2><a name="variables"></a>ofVec2f variables</h2>
+                            
+<div class="documentation_detail">
+	<h1>float <a name="x">x</a></h1>
+	<h2>
+  <p>float ofVec2f::x</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+                            
+<div class="documentation_detail">
+	<h1>float <a name="y">y</a></h1>
+	<h2>
+  <p>float ofVec2f::y</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+    
+              
+              <!-- functions detail -->
+                  <h2><a name="functions"></a>ofVec2f functions</h2>
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator+">operator+(...)</a></h1>
+	<h2>
+  <p>ofVec2f operator+(float f, const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator-">operator-(...)</a></h1>
+	<h2>
+  <p>ofVec2f operator-(float f, const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator*">operator*(...)</a></h1>
+	<h2>
+  <p>ofVec2f operator*(float f, const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+                            
+<div class="documentation_detail">
+  	 
+	<h1><a name="operator/">operator/(...)</a></h1>
+	<h2>
+  <p>ofVec2f operator/(float f, const ofVec2f &amp;vec)</p>
+</h2>
+	<div class="documentation_detail_description">
+		
+		
+  
+
+	</div>
+	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
+</div>
+
+
+    
+            </div><!-- End Prose Block -->
+          </div><!-- End Main Block -->
+        </div>
+      </div>
+      
+      <div id="footer">
+        
+  <p id="credits">
+
+Last updated 
+  
+Thursday, 23 February 2012 16:36:54 UTC
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+">
+
+3502ef7e4b5fa05835dd8bac83ed8c767f8e6821
+</a>
+
+<!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
+
+<br/>
+
+</p>
+
+
+
+
+<!--tracking -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9614675-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+
+
+
+
+
+
+      </div> <!-- End Footer -->
+    </div> <!-- End Content -->
+  </body>
+</html>
+
+
+
+
+
