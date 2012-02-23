@@ -837,9 +837,7 @@ _advanced: False_
 
 _description: _
 
-On the Uno this will work on pins: 3, 5, 6, 9, 10 and 11 value: 0 (always off) to 255 (always on). the pins mode has to be set to ARD_PWM
-TODO check if the PWM bug still is there causing frequent digital port reporting...
-
+Arduino Unoでは、3, 5, 6, 9, 10, 11ピン。値は0(完全にoff)から255(常にon)。ピンのモードはARD_PWMにしなくてはならない。
 
 
 
@@ -895,7 +893,7 @@ _advanced: False_
 
 _description: _
 
-firmata can not handle strings longer than 12 characters.
+Firmataは12文字以上の文字列は扱えない
 
 
 
@@ -980,8 +978,7 @@ _advanced: False_
 
 _description: _
 
-This will cause your Arduino to reset and boot into the program again.
-
+Arduinoをリセットして内部のプログラムを再起動する。
 
 
 
@@ -1065,8 +1062,7 @@ _advanced: False_
 
 _description: _
 
-sends a byte without wrapping it in a firmata message, data has to be in the 0-127 range,
-values > 127 will be interpreted as commands.
+Firmataのメッセージとして、ラッピングすることなくバイトを送出する。データは、0から127の範囲。127より大きな値は、コマンドとして解釈される。
 
 
 
@@ -1123,10 +1119,11 @@ _advanced: False_
 
 _description: _
 
-On the Arduino Uno pin: 3, 5, 6, 9, 10 and 11
-returns the last set PWM value (0-255) for the given pin
-the pins mode has to be ARD_PWM
-Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
+Arduino Unoの場合
+ピン：3, 5, 6, 9, 10 and 11
+指定したピンの最後にセットされたPWMの値を返す
+ピンのモードは、ARD_PWMにする
+注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
 
 
 
@@ -1155,10 +1152,11 @@ _advanced: False_
 
 _description: _
 
-On the Arduino Uno pin: 2-13
-returns the last received value (if the pin mode is ARD_INPUT) or the last set value (if the pin mode is ARD_OUTPUT) for the given pin
-Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
-Returns whether the pin is reading high or low, 1 or 0. You can test against this with an if() statement which is handy:
+Arduino Unoでは、ピン：2-13
+もしピンモードがARD_INPUTだったら最後に受信した値、ピンモードがARD_OUTPUTだったら最後に設定した値を返す
+注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
+返り値が、1か0か、highかlowかに関わらず、if()を用いて下記のようなステイトメントで値をテストすることができる
+
 ~~~~{.cpp}
 if(arduino.getDigital(pin)){
     // do something on high
@@ -1194,8 +1192,7 @@ _advanced: False_
 
 _description: _
 
-Returns the analog in value that the pin is currently reading. because the Arduino has a 10 bit ADC you get between 0 and 1023 for possible values.
-
+現在指定したピンが読み込んでいるアナログ値を返す。Arduinoは10ビットのADCを持つので、0〜1024の値を持つことができる
 
 
 
@@ -1223,7 +1220,7 @@ _advanced: True_
 
 _description: _
 
-returns the last received SysEx message
+最後に受信したSysExメッセージを返す
 
 
 
@@ -1252,7 +1249,7 @@ _advanced: False_
 
 _description: _
 
-returns the last received string
+最後に受信した文字列を返す
 
 
 
@@ -1281,7 +1278,7 @@ _advanced: True_
 
 _description: _
 
-returns the major firmware version
+ファームウェアのメジャーバージョンを返す
 
 
 
@@ -1310,7 +1307,7 @@ _advanced: True_
 
 _description: _
 
-returns the minor firmware version
+ファームウェアーのマイナーバージョンを返す
 
 
 
@@ -1339,7 +1336,7 @@ _advanced: True_
 
 _description: _
 
-returns the major firmware version
+ファームウェアのメジャーバージョンを返す
 
 
 
@@ -1368,7 +1365,7 @@ _advanced: True_
 
 _description: _
 
-returns the minor firmware version
+ファームウェアーのマイナーバージョンを返す
 
 
 
@@ -1397,7 +1394,7 @@ _advanced: True_
 
 _description: _
 
-returns the name of the firmware
+ファームウェアの名前を返す
 
 
 
@@ -1426,10 +1423,9 @@ _advanced: True_
 
 _description: _
 
-On the Arduino Uno pin: 2-13
-returns a pointer to the digital data history list for the given pin
-Note: pin 16-21 can also be used if analog inputs 0-5 are used as digital pins
-
+Arduino Unoではピン：2-13
+指定したピンのデジタルデータの履歴のリストへのポインタを返す
+注意：アナログ入力0-5がデジタルピンとして使用されていれば、16-21のピンとして使用可能
 
 
 
@@ -1457,8 +1453,9 @@ _advanced: True_
 
 _description: _
 
-On the Arduino Uno pin: 0-5
-returns a pointer to the analog data history list for the given pin
+Arduino Unoでは、ピン：0-5
+指定したピンのアナログデータの履歴のリスト
+
 
 
 
@@ -1487,7 +1484,7 @@ _advanced: True_
 
 _description: _
 
-returns a pointer to the SysEx history
+SysExメッセージの履歴のポインタを返す
 
 
 
@@ -1516,7 +1513,7 @@ _advanced: True_
 
 _description: _
 
-returns a pointer to the string history
+文字列の履歴のポインタを返す
 
 
 
@@ -1545,8 +1542,7 @@ _advanced: False_
 
 _description: _
 
-returns ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG
-
+デジタルピンのモードを返す：ARD_INPUT, ARD_OUTPUT, ARD_PWM, ARD_SERVO, ARD_ANALOG
 
 
 
@@ -1574,7 +1570,8 @@ _advanced: False_
 
 _description: _
 
-returns ARD_ON, ARD_OFF
+
+ARD_ON,またはARD_OFF
 
 
 
@@ -1603,7 +1600,8 @@ _advanced: True_
 
 _description: _
 
-useful for parsing SysEx messages
+SysExメッセージのパースに使う
+
 
 
 
@@ -1660,7 +1658,7 @@ _advanced: True_
 
 _description: _
 
-triggered when a digital pin changes value, the pin that changed is passed as an argument
+もしデジタルルピンの値が変化したらトリガーされる。
 
 
 
