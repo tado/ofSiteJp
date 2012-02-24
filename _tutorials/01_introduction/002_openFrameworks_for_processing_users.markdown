@@ -106,12 +106,11 @@ author_site: http://www.stfj.net
     }
 ~~~~
 
-しかし、もし複数の種類の敵を作りたかったり、それぞれ違う描画のされかたをしたい場合はどうやるのでしょう? こうしたとき、クラスの継承が役立ちます。全ての敵は、依然としてInit()で自身を初期化してmove()でスクリーンを動くようにしていきましょう。わたしたちが変更したい唯一の機能は、それぞれの構成をdraw()関数で描画することです。
+しかし、もし複数の種類の敵を作りたかったり、それぞれ違う描画のされかたをしたい場合はどうやるのでしょう? こうしたとき、クラスの継承が役立ちます。全ての敵は、依然としてinit()で自身を初期化してmove()でスクリーンを動くようにしていきましょう。わたしたちが変更したい唯一の機能は、それぞれの構成をdraw()関数で描画することです。
 
-Enemyクラスは「基底クラス」と呼ばれる方法で使用しましょう。基底クラス自体は初期化されることはおそらくありません。その代わり
-We are now using the Enemy class as what is called a Base Class. A Base Class is a class that probably won't ever be instantiated, only inherited by other classes. Because the draw function is the only one we want to change, we don't need to write either the init() or move() functions. By declaring the draw() function again however, we are doing something called function re-definition. This is where you re-declare a function that has already been declared, in effect overwriting it for this subclass of Enemy.
+Enemyクラスは「基底クラス」と呼ばれる方法で使用しましょう。基底クラス自体は初期化されることはおそらくありません、その代わり継承された別のクラスからのみ初期化されます。何故なら、draw()関数のみがわたしたちが変更したい部分です、init()やmove()は変更する必要はありません。draw()関数を再度宣言することで、我々は関数を再定義できるのです。それは、既に宣言された関数の場所で再度宣言することで行います。結果として、その敵のサブクラスは機能を上書きします。
 
-For example, in Java,
+例えば、Javaであれば
 
 ~~~~{.cpp}
     class DoubleEnemy extends Enemy
@@ -123,7 +122,7 @@ For example, in Java,
     }
 ~~~~
 
-which in C++ would be something like,
+C++ではこう書きます
 
 ~~~~{.cpp}
     //on a "DoubleEnemy.h" file
@@ -133,8 +132,8 @@ which in C++ would be something like,
     }; // note the ";" at the end of the class statement
 ~~~~
     
+DobubeEnemyクラスは抽象的なEnemyクラスを拡張して、Enemyクラスで宣言された全ての機能と変数を継承します。それによって、我々は新たにinit()やmove()を書く必要がなくなるのです。わたしたちはまた、別の特別なEnemyクラスも作成できます。
 
-Because DoubleEnemy extends our abstract Enemy class, it inherits all of the functions and variables that we declared in the Enemy class. Because of this, we will never have to write a new init or move function. We could even create another specialized Enemy class:
 
 ~~~~{.cpp}
     //on a "TripleEnemy.h" file
@@ -144,145 +143,137 @@ Because DoubleEnemy extends our abstract Enemy class, it inherits all of the fun
     };
 ~~~~
 
-Now we have two enemy types that know how to move and initialize themselves but each display differently. Another advantage to this is that if we ever have to change how enemies move or initialize, we only need to change it once, in the base class, and the change will take effect through all of our specialized enemy types.
+これで自分自身で動きまわり初期化するが、それぞれに別々に表示される2つの敵のタイプができました。この方法の別の利点としては、もしわたしたちが敵の移動や初期化の方法を知らなかったとしても、基底クラスを一度だけ変更すれば、全ての特殊な敵を動かし初期化できるのです。
 
 ### 了解、じゃあProcessingではそれはどうやるの?
 
-Although Processing hides it from you through their compiler, Processing is actually an engine running a Base Class (pApplet). Anything that you write, including classes, inside the Processing application automatically extends this base class that the Processing engine then runs. When you write draw() and setup() functions, you are actually re-defining the draw() and setup() functions that are in the processing base class.
+しかしながら、プロセッシングはこうした方法をコンパイラから隠しています。Processingは実際基底クラス(pApplet)を動かしています。あなたが記述したプログラムはすべて、もちろんクラスも含め、Processingのアプリケーション内部では、自動的に動作してるProcessingエンジンの基底クラスを派生させています。あなたがdraw()やsetup()関数を書いた時、実際にはProcessingの基底クラスの中になるdraw()やsetup()関数を再定義しているのです。
+
 
 ## openFramewroksはどうやって動いているの?
 
-OpenFrameworks is built in much the same way as Processing. It just doesn't hide any of the complicated parts from you. However, if you open up testApp.h, right under the \#include "ofMain.h" line, you will see a line that says: "class TestApp : public ofSimpleApp{". 
+openFrameworksは、Processingとよく似た方法で作られています。ただ、煩雑な部分もそのまま隠していません。しかし、testApp.hを開いてみると\#include "ofMain.h" という行のすぐ下に、"class TestApp : public ofSimpleApp{"という記述がみられます。
 
-This means, the testApp class extends the ofSimpleApp class, just like in processing. Right under that, under "Public:" are all of the functions that testApp is inheriting from ofSimpleApp that it needs to re-write, like in processing.
+これは、Processingと同様に、testAppクラスがofSimpleAppクラスを拡張していることを意味します。すぐ下の"Public:"という記述以下は、Processingと同様に、ofSimpAppから継承したtestAppで再度記述するの全ての関数となっています。
 
-Every C++ application needs a function called int main() to define where the program starts. Java requires this as well, but Processing hides this fact from you since anything you write is only extending a larger class with that main being called elsewhere. 
+全てのC++のアプリケーションは、プログラムの開始地点を定義するためにmain()関数を使用しています。Javaも同様です。しかしProcessingではこの事実は隠されています、なぜなら、あなたはmain関数から呼びだされる派生したクラスさえ定義すれば良いからです。
 
-C++ however must start with int main(). This is called the "entry point" and is the jumping off point for your program. 
+しかし、C++はmain()関数からスタートしなくてはなりません。これは「エントリーポイント」と呼ばれ、あなたのプログラムの出発点なのです。
 
-main.cpp contains this main() function, and essentially contains the code to set your screen size, and kick off an infinite loop which runs your program. If you want to learn more about this, you can read section 2.1, but it's not necessary, and can be confusing at this point.
+main.cppはmain()関数を含んでいます。この中にはスクリーンサイズを設定したり、プログラムのなかで動作させる無限ループを開始したりしています。もし、より詳しく知りたいのであれば、2.1のセクションを読んでみてください。しかし、これは現在のところ混乱を招きかねないので、必須ではありません。
+
 
 ### Main.cppの詳細
 
-If you look at any of the OF example files you will see that in the main.cpp file contains two \#include statements up at the top. These operate the same way as they do in Processing. 
+oFのサンプルプログラムのどれをみても、main.cppファイルには一番上に2つの\#includeの宣言が含まれているのがわかります。これは、Processingが行なっている方法と一緒です。
 
-The first one, 
+最初の記述、
+
 
 ~~~~{.cpp}
     #include "ofMain.h"
 ~~~~
 
-adds the entire OpenFrameworks library to the main.cpp class. This allows the class to run two important OF functions, ofSetupOpenGL(), which creates the window to display your application, and ofRunApp(), which runs your application.
+これは、全てのopenFrameworksのライブラリをmain.cppに加えます。これによりmainクラスで2つの重要なoFの機能を実行できるようになります。ofSetupOpenGL()はアプリケーションのウィンドウを生成します、ofRunApp()はアプリケーションを起動します。
 
-If you notice, ofRunApp() is passing a parameter, 
+注意してみると、ofRunApp()はパラメータを渡しています。
 
 ~~~~{.cpp}
     new testApp()
 ~~~~
 
-ofRunApp() is passing an instance of the testApp class, which happens to be the second thing included up at the top of main.cpp. ( \#include "testApp.h" ) 
+ofRunApp()は、testAppクラスのインスタンスを渡します、main.cppの2つめのincludeの記述(\#include "testApp.h")でおこなわれています。
 
-ofRunApp requires the passed parameter to be a type of ofSimpleApp, which is why when we looked at testApp.h earlier, we noticed it extended ofSimpleApp.
+ofRunAppは、ofSimpleAppの種類をパラメータを渡さなくてはなりません。これがわたしたちがまず最初にtestApp.hを見た理由です。このクラスはofSimpAppを継承していることに注意してください。
 
-To recap, 
-we have main.cpp which includes ofMain and testApp.
+くり返すと、
 
-*   It includes ofMain to set the screenSize and to call ofRunApp
+* main.cppは、ofMainとtestAppを内包しています
+
+* ofMainは、スクリーンサイズを設定し、ofRunAppを呼びだします
+
+* testAppもまた、ofMainを内包します
+
+* testAppに書かれた全てのコードは、openFrameworksのライブラリの恩恵を受けることが可能となります
     
-
-(It includes testApp to have a class to pass ofRunApp.
-
-We also have testApp which includes ofMain
-
-*   It includes ofMain so that any code you write in testApp can benefit from the OpenFrameworks Library.
-    
-
-Until you start writing your own classes, it might help to think of testApp.cpp and testApp.h as the main window in Processing. Meaning, any code you write will go into one of those two files, and until you feel comfortable, you won't have to look at anything else in Xcode.
+あなたが自分自身でクラスを書くようになるまでは、testApp.hとtestApp.cppはProcessingのメインウィンドウのように考える助けとなるかもしれません。あなたの記述する全てのコードは、この2つのファイルに含まれます。その気がなければ、その他のXcodeに入っているコードは見る必要はないのです。
 
 ## Java vs. C++ コンパイルのプロセス
 
-Java and C++ have vastly different compiling processes. It is important to understand the C++ compilation process as each stage of it can produce different types of errors. Knowing what stage produces what type of errors can go a long way towards debugging your project.
+JavaとC++では、コンパイルのプロセスが大きく異なります。C++のコンパイルのプロセスをステージごとに理解しることは、吐きださせる様々なタイプのエラーの内容を理解する上でとても重要です。どの段階でどのようなエラーがあるのかという知識によって、プロジェクトのデバッグの助けになります。
 
-In Java, every time you compile, your entire program is run through and changed into byte code. Then when you run your program, a Java interpreter does runtime compilation to make your program work.
+Javaではコンパイルのたびにプログラムの全てを走査しバイトコードへと変換します。プログラムを実行すると、Javaインタプリタが、プログラムが作動するようにランタイムコンパイルします。
 
-C++ is a bit more complicated.
+C++の場合はより複雑です。
 
-*   First, the compiler pre-processes your program. This means that it goes through all of your \#include statements and copy and pastes chunks of your code to create essentially one gigantic file. (Any statements preceded by a \# symbol are targeted at the pre-processor).
-    
+* はじめに、コンパイラがまずプログラムをプリプロセスします。全ての\#include宣言をたどっていき作成たコードをコピー＆ペーストして一つの大きなファイルを作成します。(C++の全ての\#がついた宣言はプリプロセッサの対象です)
 
-*   Second, the compiler parses through your code, making sure that all of your code makes sense, and breaking your code down into parse-trees, which it then translates into Assembly (a very low level language). 
-    
+* 第2に、コンパイラはコード全体をパースします。コードの全てに意味があるのか確認し、パースツリーの中にコードを分類し、アセンブラ(とても低レベルの言語)に翻訳されます。
 
-*   Thirdly, the Assembly is translated into machine-readable code inside object files.
-    
+* 第3に、アセンブラは、オブジェクトファイルの中で機械語に翻訳されます。
 
-*   and Lastly, these Object Files are linked together to create your .exe or .app file
-    
+* 最後に、オブジェクトファイルは結びあわされ、.exeや.appなどの実行ファイルを生成します。    
 
-One particular advantage that you will notice right away of the C++ compiler style is that when compiling huge programs (like OpenFrameworks applications), sections that have not been updated won't need to be re-compiled. This is easy to understand by opening any example and compiling it. Your first compilation could take 30 seconds to a minute. If you then make changes to testApp.cpp and compile again, compilation should go much quicker. This is because Xcode no longer needs to compile the entire OpenFrameworks library, only your small bit of code that changed.
+この方法の利点は、一度コンパイルしたセクションは再コンパイルする必要はないので、C++のコンパイラのスタイルは巨大なプログラム(例えば、openFrameworksのアプリケーション本体)に向いているという点であるとすぐに理解できでしょう。これは、実際にサンプルプログラムを開いてコンパイルしてみるとわかります。最初のコンパイルは30秒から1分ほどかかるかもしれません。もし、testApp.cppに変更を加えて再度コンパイルすると、コンパイルはずっと早く終わるはずです。これは、XCodeはopenFrameworksの全てのライブラリをもうコンパイルする必要がなく、修正した少量のコード変化だけを再コンパイルすれば良いからです。
+
 
 ## C++ではクラスはどうやって動かすの? (2つのファイル!?)
 
-C++ classes comprise of two files. 
-It helps to think of these two classes as a recipe. 
+C++のクラスは2つのファイルから構成されています。
+この2つは、レシピだと思うと理解しやすいでしょう。
 
-The header file (.h) is like the list of ingredients, and contains:
+ヘッダーファイル(.h)は、原材料と含有物のリストです。
 
-*   Any preprocessor statements there to prevent multiple header definitions
-*   Any include statements to other classes
-*   Any class extension statements
-*   Any variables local to the class
-*   Prototypes of any functions to be contained in the class
-*   And the security settings of these functions and variables (e.g. public, private, protected, etc).
+* ヘッダーの宣言が重なるのを防ぐためのプリプロセッサ宣言
+* 他のクラスを読みこむためのinclude宣言
+* クラスの継承の宣言
+* クラス変数
+* クラスに含まれる関数のプロトタイプ
+* それらの属性に対するセキュリティ設定 (public, private, protected, など).
     
+実装ファイル(.cpp)は、材料に何をするのかの説明です。
 
-and a body file (.cpp) which is like the instructions on what to do with the ingredients and contains:
+* 全てのーinclude宣言が、.hファイルを読みこみます
+* 全てのコードはファンクション・プロトタイプで定義した全ての関数
 
-*   An include statement that references the .h file
-*   All of the code to fill in the function prototypes.
-    
-
-To explore this more, open up the testApp.cpp and testApp.h files.
+これらを確認するために、testApp.cppとtestApp.をみてみましょう。
 
 ### testApp.h
 
-All of the code in testApp.h is wrapped in a large if statement called \#ifndef. This statement is designed explicitly for the preProcessor stage of compilation. Basically, when the compiler runs through your code before it compiles, it copies and pastes code to make all of the include statements work. If you have included the same header file in multiple places, this can cause a problem for compilation. \#ifndef tells the compiler that if whatever variable name you have decided, in this case, \_TEST\_APP, has already been defined somewhere in the code, not to define it again. It's sort of a hack to make organizing code easier, and is good practice to include in any custom classes you make (with a different variable name obviously).
+testApp.hの全てのコードは、もし\#ifndefを宣言をすると全体を囲むことがきる。この宣言はコンパイルのプリプロセッサのステージのためのものです。基本的にコンパイラがコード全体をコンパイルする前に、全てのinclude宣言が機能するようにコードをコピー＆ペーストします。もし複数の場所に同じヘッダーが呼びだされてしまった場合、コンパイルの際に問題を引きおこします。\#ifndefは任意の変数名をつけてコンパイラに伝えます。例えば\_TEST\_APPのような名前が既にどこかのコードで使用されていたら、再度定義することはできなくなります。この手法は、コードの構造を簡単にするハックの一種で、自分でカスタムのクラスを生成した際にも実践できます(違う変数名をつけてあげれば良いのです)。
 
-After this comes the \#include statement that brings in all of the OpenFrameworks functionality.
+その後で\#includeを使用して、全てのopenFrameworksの機能を呼びだします。
 
-Then comes the class testApp : public ofSimpleApp{ line which is very similar to java's class declaration structure. To compare the two:
-C++  :
-class \[className\] : \[privacy\] \[extendedClass\]
+つぎの行にくる「class testApp : public ofSimpleApp{ ...」はJavaの記述の構造によく似ています。2つを比較してみましょう。
 
-JAVA/P5:
-\[privacy\] class \[className\] extends \[extendedClass\]
+C++ : class \[className\] : \[privacy\] \[extendedClass\]
+JAVA/P5 : \[privacy\] class \[className\] extends \[extendedClass\]
 
-Following the class definition is the meat of the .h file, the class itself. The class is broken into privacy blocks. In this case, there is only a public: block, but you may wish to add a private or protected block yourself. In Java, you can define your public and private functions and variables in any order, but in c++ they must be grouped into blocks.
+そこに続くクラス定義は、クラスそのものです。クラスはプライバシー単位でのブロックに分かれています。場合によっては、public:ブロックしかない場合もあります。しかし、private:やprotected:のグループを望みに応じて追加することが可能です。Javaではpublicやpriveteな関数や変数をどの場所にも定義できました。しかし、c++の場合にはグループごとにブロック分けしておかなければなりません。
 
-It is important to note that in c++ you must define your classes in your header before you use them (much like your classes local variables). This is called prototyping. At first it can be annoying, but in the end, having all of your functions and variables in an easy to read header file can serve as a sort of documentation for your class, and is especially useful when trying to learn about someone else's classes or the OpenFrameworks library.
+C++では実際に使用する前にヘッダー内でクラスについて定義しなくてはなりません(クラスのローカル変数に似ています)。これはプロトタイピングと呼ばれます。始めはわずらわしく感じるかもしれません、しかし慣れてくると全ての関数と変数がヘッダーファイルの中で簡単に読むことができて、クラスに関するドキュメンテーションのように活用することもできます。特にopenFrameworksの他の誰かのクラスを学ぼうとする際にとても有用なものです。
 
-It is important to note that classes end with a curly bracket and semi-colon "};" and not just a normal curly bracket. Also important is the \#endif which ends the \#ifndef statement from the top of the .h file
+クラスの最後は、ただの括弧ではなく、括弧の後ろにセミコロン"};"が付いていることに注意してください。また、\#endifが最後にあり、先頭の\#ifndefと対応していることにも注意してください。
 
-More information on C++ classes can be found at:
+より詳細なC++のクラスについての情報は以下を参照してください：
 [http://pages.cs.wisc.edu/~hasti/cs368/CppTutorial/NOTES/CLASSES-INTRO.html][48]
 
 ### testApp.cpp
 
-This is where you write the actual code for your class. The syntax for class functions is slightly different than Processing.
-C++  :
-\[ReturnType\] \[class\] :: \[functionName\] ( \[type\]\[variableName\]..etc )
-
-JAVA/P5:
-\[ReturnType\] \[functionName\] ( \[type\]\[variableName\]..etc )
+ここにあなたの実際のコードの実装を記述します。クラスの関数の書式はProcessingとはちょっと異なります。
+C++ :  \[ReturnType\] \[class\] :: \[functionName\] ( \[type\]\[variableName\]..etc )
+JAVA/P5 : \[ReturnType\] \[functionName\] ( \[type\]\[variableName\]..etc )
 
 ## なんだ\*&れは? (ポインタの初歩).
 
-Pointers are arguably the most difficult and frustrating part of C++.
-I am going to provide a very basic explanation of Pointers here, enough to get some of an idea of what they are about, and how they relate to Java, but if you want a full-blown explanation of how they work and what they can be used for, I suggest reading this excellent and massive tutorial:
+Pointerは間違いなく、C++のもっとも困難でがっかりさせられる部分でしょう。
+
+わたしはポインタの入門解説をここでしようと思いました。ポインタとは何なのかということだけでなく、それがどのようにJavaと関連しているのかというところまでです。しかし、ポインタに関して、それが何なのか、何のために使われるのかといった完全な内容は下記の重厚なチュートリアルを参考にしてください。
 
 [http://www.cplusplus.com/doc/tutorial/pointers.html][51]
 
-One of the largest differences between C++ and Java is that in Java, except for the basic data-types (byte, short, int, long, float, double, boolean, and char), all values are passed by reference. One important note is that Processing copies Strings by value, whereas C++ copies them by reference like all other classes.
+C++とJavaの最も大きな違いは、Javaは基本的なデータ型(byte, short, int, long, float, double, boolean, and char)を除いて、全ての値は参照渡しされます。ひとつ重要な注意点としては、Processingでは文字列(String)は値で渡されます。それに対して、C++は全てのクラスに見られるように値をコピーします。
+
 
 ### 値と参照Value vs. Reference
 
