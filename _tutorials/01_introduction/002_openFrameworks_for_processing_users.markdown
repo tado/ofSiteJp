@@ -275,15 +275,19 @@ Pointerは間違いなく、C++のもっとも困難でがっかりさせられ�
 C++とJavaの最も大きな違いは、Javaは基本的なデータ型(byte, short, int, long, float, double, boolean, and char)を除いて、全ての値は参照渡しされます。ひとつ重要な注意点としては、Processingでは文字列(String)は値で渡されます。それに対して、C++は全てのクラスに見られるように値をコピーします。
 
 
-### 値と参照Value vs. Reference
+### 値と参照
 
-To understand the difference between value and reference you must first understand how the computer stores variables in its RAM.
+値と参照の違いを理解するには、まずコンピュータがRAMの中に値をどのように記録しているのかを知るべきです。
 
-When you write the Processing line:
+Processingに会のように書いたときには、
 
 ~~~~{.cpp}
     int num = 5;
 ~~~~
+
+ここでコンピュータがやっているのは、メモリの中にいってそこに整数型のデータを記憶します。メモリの中で整数型で必要となる分の空の場所を選択して、そこに5という数値置いています。その後、num変数にはデータを入れた場所のアドレスを送っています。
+
+
 
 What the computer does is it goes to the place in its memory that is set up to store integers, picks an empty spot with the right number of bytes to store an integer, places the number 5 in that spot, and then sends the address of that spot to your program which stores it in the "num" variable.
 
