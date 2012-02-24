@@ -1,86 +1,88 @@
 ---
 date: 2008/06/30 14:16:00
-title: openFrameworks for Processing users
-summary: An overview of OpenFrameworks for processing junkies
+title: ProcessingユーザーのためのopenFrameworks
+summary: Processingジャンキーのための、openFrameworksの概観
 author: Zach Gage
 author_site: http://www.stfj.net 
 ---
 ## Contents
 
-*   [1 An overview of OpenFrameworks for processing junkies.][2]
+*   [1 Processingジャンキーのための、openFrameworksの概観][2]
     
-    *   [1.1 How Processing Actually Works][3]
+    *   [1.1 Processingは実際どのように動作しているのか?][3]
         
-        *   [1.1.1 What is class extending? (base and sub classes)?][4]
-        *   [1.1.2 Ok, so what does this have to do with Processing?][5]
+        *   [1.1.1 クラスの拡張とは? (基底クラスとサブクラスって何?)][4]
+        *   [1.1.2 了解、じゃあProcessingではそれはどうやるの?][5]
             
         
-    *   [1.2 How OpenFrameworks Works.][6]
+    *   [1.2 openFramewroksはどうやって動いているの?][6]
         
-        *   [1.2.1 Main.cpp In-depth][7]
+        *   [1.2.1 Main.cppの詳細][7]
             
         
-    *   [1.3 Java vs. C++ Compile Processes][8]
-    *   [1.4 How Classes Work in C++ (Two Files!?)][9]
+    *   [1.3 Java vs. C++ コンパイルのプロセス][8]
+    *   [1.4 C++ではクラスはどうやって動かすの? (2つのファイル!?)][9]
         
         *   [1.4.1 testApp.h][10]
         *   [1.4.2 testApp.cpp][11]
             
         
-    *   [1.5 What the Fu\*&? (a very basic introduction to pointers).][12]
+    *   [1.5 なんだ\*&れは? (ポインタの初歩).][12]
         
-        *   [1.5.1 Value vs. Reference][13]
-        *   [1.5.2 & and \*][14]
-        *   [1.5.3 So Where Do I use This?][15]
-        *   [1.5.4 Basic Data-types][16]
+        *   [1.5.1 値と参照Value vs. Reference][13]
+        *   [1.5.2 &と\*][14]
+        *   [1.5.3 どんな状況で使うのか?][15]
+        *   [1.5.4 基本のデータ型][16]
             
-            *   [1.5.4.1 The Processing String Exception][17]
+            *   [1.5.4.1 Processingの文字列の例外][17]
                 
             
             
         
-    *   [1.6 PImage, updatePixels() vs. ofTexture, pixels\[\]][18]
+    *   [1.6 PImage, updatePixels() 対 ofTexture, pixels\[\]][18]
         
-        *   [1.6.1 How are pixel values stored without a Color object?][19]
+        *   [1.6.1 何故Pixelの値はColorオブジェクトとして格納されていないの?][19]
             
         
-    *   [1.7 Common Problems With C++ / Misc. Topics][20]
+    *   [1.7 C++に関する既知の問題 / その他のトピックス][20]
         
-        *   [1.7.1 Expecting implicit data conversion?][21]
-        *   [1.7.2 Changing window size][22]
-        *   [1.7.3 Update() and Draw()?][23]
-        *   [1.7.4 How in the world do I print to the console?][24]
+        *   [1.7.1 暗黙のデータ変換の期待][21]
+        *   [1.7.2 ウィンドウのサイズ変更][22]
+        *   [1.7.3 Update()とDraw()?][23]
+        *   [1.7.4 コンソールに出力するには?][24]
             
             *   [1.7.4.1 printf][25]
             *   [1.7.4.2 iostream][26]
                 
             
-        *   [1.7.5 Smoothing not working on filled shapes?][27]
-        *   [1.7.6 Displaying video problem/feature related to ofSetColor][28]
-        *   [1.7.7 Processing background() vs. OF ofBackground()][29]
-        *   [1.7.8 ofFill() / ofNoFill() vs. processing fill() noFill()][30]
-        *   [1.7.9 Math functions, and where they come from (no more Math.\*)][31]
+        *   [1.7.5 塗り潰しの図形は、スムージングできない?][27]
+        *   [1.7.6 ofSetColorに関するビデオ表示の問題][28]
+        *   [1.7.7 Processingのbackground() 対 oFのofBackground()][29]
+        *   [1.7.8 ofFill() / ofNoFill() 対 Processingのfill() noFill()][30]
+        *   [1.7.9 数学関数とそれはどこから来たのか?(ノー・モア Math.\*)][31]
             
             *   [1.7.9.1 cmath][32]
             *   [1.7.9.2 ofConstants][33]
             *   [1.7.9.3 ofMath][34]
                 
             
-        *   [1.7.10 Structs, what are they for, and how can we use them?][35]
-        *   [1.7.11 Memory Management and You][36]
-        *   [1.7.12 Basic Logic Problems][37]
-        *   [1.7.13 accidental breakpoints in Xcode and Why Having a Debugger Rocks][38]
+        *   [1.7.10 構造体、何のために、どうやって使うのか?][35]
+        *   [1.7.11 メモリ管理][36]
+        *   [1.7.12 基本的な論理構造の問題][37]
+        *   [1.7.13 Xcodeのブレイクポイントと、何故デバッガが凄いのか][38]
             
 
-## How Processing Actually Works
+## Processingは実際どのように動作しているのか?
 
-If you've been programming in processing for a while (and if you made it by the disclaimer), it's safe to assume that you've used classes before. One aspect of Java classes that you might not have used however, is polyMorphism (class extending). 
+もし、あなたがある程度Processingでプログラミングしてきたのなら、あなたは当然クラスを使ったことがあると受けとめて良いでしょう。Javaのクラスの特徴一つは、もしかしたら馴染みがないかもしれませんが、多態性(ポリモーフィズム、クラスの継承)です。
 
-### What is class extending? (base and sub classes)?
 
-Class extension is a way that you can take one class and add functionality to it with a new class.
+### クラスの拡張とは? (基底クラスとサブクラスって何?)
 
-If for instance you were making a video game of some sort. You might make a class for Enemies so that they can load an image of what they look like, figure out their own movement and then draw themselves to the screen at their proper location. It might look like this:
+クラスの拡張は、基本となる一つのクラスから、機能を追加したクラスを新規に生成するための方法です。
+
+もし、例えばあなたがビデオゲームのようなものを作っていたとします。あなたは「敵」というクラスを作り、その外観を画像として読みこんだり、その動きを定義したり、スクリーンの望みの場所に描画したりするでしょう。そのコードは以下のようになるでしょう。
+
 
 ~~~~{.cpp}
     class Enemy
@@ -104,8 +106,9 @@ If for instance you were making a video game of some sort. You might make a clas
     }
 ~~~~
 
-But what if you wanted to make multiple types of enemies, each drawing themselves differently? This is where class extension comes in. All of the enemies are still going to have to Init() themselves and move() themselves around screen, so really the only function that we want to change here on an individual basis is the draw() function. 
+しかし、もし複数の種類の敵を作りたかったり、それぞれ違う描画のされかたをしたい場合はどうやるのでしょう? こうしたとき、クラスの継承が役立ちます。全ての敵は、依然としてInit()で自身を初期化してmove()でスクリーンを動くようにしていきましょう。わたしたちが変更したい唯一の機能は、それぞれの構成をdraw()関数で描画することです。
 
+Enemyクラスは「基底クラス」と呼ばれる方法で使用しましょう。基底クラス自体は初期化されることはおそらくありません。その代わり
 We are now using the Enemy class as what is called a Base Class. A Base Class is a class that probably won't ever be instantiated, only inherited by other classes. Because the draw function is the only one we want to change, we don't need to write either the init() or move() functions. By declaring the draw() function again however, we are doing something called function re-definition. This is where you re-declare a function that has already been declared, in effect overwriting it for this subclass of Enemy.
 
 For example, in Java,
@@ -143,11 +146,11 @@ Because DoubleEnemy extends our abstract Enemy class, it inherits all of the fun
 
 Now we have two enemy types that know how to move and initialize themselves but each display differently. Another advantage to this is that if we ever have to change how enemies move or initialize, we only need to change it once, in the base class, and the change will take effect through all of our specialized enemy types.
 
-### Ok, so what does this have to do with Processing?
+### 了解、じゃあProcessingではそれはどうやるの?
 
 Although Processing hides it from you through their compiler, Processing is actually an engine running a Base Class (pApplet). Anything that you write, including classes, inside the Processing application automatically extends this base class that the Processing engine then runs. When you write draw() and setup() functions, you are actually re-defining the draw() and setup() functions that are in the processing base class.
 
-## How OpenFrameworks Works.
+## openFramewroksはどうやって動いているの?
 
 OpenFrameworks is built in much the same way as Processing. It just doesn't hide any of the complicated parts from you. However, if you open up testApp.h, right under the \#include "ofMain.h" line, you will see a line that says: "class TestApp : public ofSimpleApp{". 
 
@@ -159,7 +162,7 @@ C++ however must start with int main(). This is called the "entry point" and is 
 
 main.cpp contains this main() function, and essentially contains the code to set your screen size, and kick off an infinite loop which runs your program. If you want to learn more about this, you can read section 2.1, but it's not necessary, and can be confusing at this point.
 
-### Main.cpp In-depth
+### Main.cppの詳細
 
 If you look at any of the OF example files you will see that in the main.cpp file contains two \#include statements up at the top. These operate the same way as they do in Processing. 
 
@@ -196,7 +199,7 @@ We also have testApp which includes ofMain
 
 Until you start writing your own classes, it might help to think of testApp.cpp and testApp.h as the main window in Processing. Meaning, any code you write will go into one of those two files, and until you feel comfortable, you won't have to look at anything else in Xcode.
 
-## Java vs. C++ Compile Processes 
+## Java vs. C++ コンパイルのプロセス
 
 Java and C++ have vastly different compiling processes. It is important to understand the C++ compilation process as each stage of it can produce different types of errors. Knowing what stage produces what type of errors can go a long way towards debugging your project.
 
@@ -218,7 +221,7 @@ C++ is a bit more complicated.
 
 One particular advantage that you will notice right away of the C++ compiler style is that when compiling huge programs (like OpenFrameworks applications), sections that have not been updated won't need to be re-compiled. This is easy to understand by opening any example and compiling it. Your first compilation could take 30 seconds to a minute. If you then make changes to testApp.cpp and compile again, compilation should go much quicker. This is because Xcode no longer needs to compile the entire OpenFrameworks library, only your small bit of code that changed.
 
-## How Classes Work in C++ (Two Files!?)
+## C++ではクラスはどうやって動かすの? (2つのファイル!?)
 
 C++ classes comprise of two files. 
 It helps to think of these two classes as a recipe. 
@@ -272,7 +275,7 @@ C++  :
 JAVA/P5:
 \[ReturnType\] \[functionName\] ( \[type\]\[variableName\]..etc )
 
-## What the Fu\*&? (a very basic introduction to pointers).
+## なんだ\*&れは? (ポインタの初歩).
 
 Pointers are arguably the most difficult and frustrating part of C++.
 I am going to provide a very basic explanation of Pointers here, enough to get some of an idea of what they are about, and how they relate to Java, but if you want a full-blown explanation of how they work and what they can be used for, I suggest reading this excellent and massive tutorial:
@@ -281,7 +284,7 @@ I am going to provide a very basic explanation of Pointers here, enough to get s
 
 One of the largest differences between C++ and Java is that in Java, except for the basic data-types (byte, short, int, long, float, double, boolean, and char), all values are passed by reference. One important note is that Processing copies Strings by value, whereas C++ copies them by reference like all other classes.
 
-### Value vs. Reference
+### 値と参照Value vs. Reference
 
 To understand the difference between value and reference you must first understand how the computer stores variables in its RAM.
 
@@ -369,7 +372,7 @@ So when test is passed through addOne(), really just 52498, or whatever the actu
 
 Java does this because if it were to pass entire objects around constantly everything would slow to a crawl. The basic data-types are small enough to get passed by value, but everything else is passed by reference.
 
-### & and \*
+### &と\*
 
 C++ differs from Java in that you need to explicitly state whether you are passing something by value or by reference. You can also define when a variable will behave as if it contains actual data and when a variable will only contain a pointer to data. You can even make an int that behaves like the Test class did above. This is all done with the & (referencing) and \* (dereferencing) symbols.
 
@@ -412,7 +415,7 @@ example:
     //x now equals 10
 ~~~~
 
-### So Where Do I use This?
+### どんな状況で使うのか?
 
 Initially, you will use pointers to pass arrays back and forth through functions. This can be seen in the movieGrabberExample, where a pointer is used to access the pixels from the video grabber. 
 
@@ -433,7 +436,7 @@ So to pass an array in C++ you must pass it without the \[\]'s, and the receivin
 To learn more about the infinite complexities of pointers, I recommend visiting the site I referenced at the top of this section.
 ( [http://www.cplusplus.com/doc/tutorial/pointers.html][51] )
 
-### Basic Data-types
+### 基本のデータ型
 
 Java and C++ share most basic data-types:
 
@@ -447,7 +450,7 @@ unsigned byte, unsigned short, unsigned int, unsigned long, unsigned float, unsi
 Unsigned means that instead of running positive and negative, (e.g. char can be set to any value between -128 and 127), these variables have no sign. (e.g. unsigned char can be set to any value 0-255).
 
   
-#### The Processing String Exception
+#### Processingの文字列の例外
 
 One major difference in the basic data-types is that Processing's string type is "String" while C++ uses a lowercase "string". But more importantly, C++'s string type, when set equal to another string type refers to it by reference (does not make a copy).
 
@@ -479,7 +482,7 @@ but in C++
 
 will print "no".
 
-## PImage, updatePixels() vs. ofTexture, pixels\[\]
+## PImage, updatePixels() 対 ofTexture, pixels\[\]
 
 When you draw in openGL (OF draws using the GLUT library, which in turn uses openGL, Processing draws to openGL optionally, if you decide to when declaring your window size), any pixel data that you want to put on the screen must be preloaded into your RAM before you can draw it. Loading pixel (bitmap) data to RAM is called loading your image into a texture.
 
@@ -526,7 +529,7 @@ You can edit the pixels of an ofImage because ofImages contain two data structur
 You can actually turn off this texture in an ofImage to save RAM if you know you won't ever have to draw what you are loading to the screen. This could be useful if you only need to load an image to access pixel color values in it, or if you are taking a screenshot that you will save to your hard drive but never draw. 
 see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 
-### How are pixel values stored without a Color object?
+### 何故Pixelの値はColorオブジェクトとして格納されていないの?
 
 Pixel values are stored as a series of Unsigned Characters. An Unsigned Character is a fancy way of saying a byte value between 0 and 255 inclusive. Every object in OF that can return a pixel array ( getPixels() ), will return you an array of unsigned characters. Because it takes three unsigned characters to denote a color (one for each of the red, green, blue, channels), this array's length will be three times the number of pixels inside of it and structured like:
 
@@ -544,9 +547,9 @@ To access a color of a specific pixel:
     //sets the color of each channel by going to the successive two values in the array after that of the red channel. 
 ~~~~
 
-## Common Problems With C++ / Misc. Topics
+## C++に関する既知の問題 / その他のトピックス
 
-### Expecting implicit data conversion?
+### 暗黙のデータ変換の期待
 
 One big surprise that comes with C++ is that it doesn't do implicit data conversion.
 A good example of this is trying to print an integer.
@@ -561,18 +564,18 @@ will yield an error.
 This is because printf only prints strings and chars, and num is neither one of these.
 To convert any non-string or non-char to a string, use the ofToString() function.
 
-### Changing window size
+### ウィンドウのサイズ変更
 
 Window size is set intuitively in main.cpp. If you open it up, the comments will show you clearly how to change the size or go to fullscreen mode.
 
-### Update() and Draw()?
+### Update()とDraw()?
 
 Unlike Processing, OF contains two methods that are run every loop through of your program, Update() and Draw(). 
 It is good practice to do all of your calculations in the Update() function and reserve Draw() for simply showing results on the screen. This prevents any large slowdowns that might occur during a draw function that could be too complicated. Instead of getting halves of images drawn or screen-tearing, you simply get a low framerate.
 
 Additionally, I should mention that if you do any heavy lifting in your project (e.g. loading in images, or loading anything at all from a file really), you should do it in your setup() function if possible. Update() and Draw() run in a loop, and because of that you should only include code in them that has to run every frame. If something only has to run once, it should probably be in Setup().
 
-### How in the world do I print to the console?
+### コンソールに出力するには?
 
 For printing to the console, you have two options. The first is printf, which is robust but a bit complicated, and is included by default in openframeworks.
 
@@ -643,7 +646,7 @@ in the console. Note that with iostream, unlike in processing, a false boolean i
 
 Also note that in Java, ending or not ending the line after you print is accomplished by which function you pick, print() or println(), whereas in c++ with iostream, it is controlled by whether or not you put the 'endl' keyword at the end of your cout statement.
 
-### Smoothing not working on filled shapes?
+### 塗り潰しの図形は、スムージングできない?
 
 If you are drawing a filled shape, e.g. with ofBeginShape(), even if you have called ofEnableSmoothing(), you will notice that the edges of the shape have not been smoothed. This is because GLUT, the library that OF uses for openGL management, doesn't have support for true full-screen graphics, and therefor can't run full-screen anti-aliasing, which is what would smooth your shapes.
 
@@ -670,7 +673,7 @@ An easy workaround for this is to simply draw your shapes twice, the first time 
     ofEndShape();
 ~~~~
 
-### Displaying video problem/feature related to ofSetColor
+### ofSetColorに関するビデオ表示の問題
 
 Although this is a problem/feature affecting any object that uses an ofTexture draw itself to the screen, I first encountered it with the videoGrabber, and I think that may be the case for many people, so I'm listing it as the video problem/feature.
 
@@ -684,7 +687,7 @@ which would make whatever ofTexture you're telling to draw not show up at all.
 
 The solution to this is easy, just make sure that right before you tell any ofTextures to draw, you call ofSetColor() and set it to white, or whatever tint you want to use.
 
-### Processing background() vs. OF ofBackground()
+### Processingのbackground() 対 oFのofBackground()
 
 In Processing, making the background() call automatically tells Processing to set the background to be set every frame to the color you specified in your function call.
 
@@ -704,7 +707,7 @@ If you don't want to redraw, but make a cumulative image, use:
 
 Because by default OF redraws the screen every frame.
 
-### ofFill() / ofNoFill() vs. processing fill() noFill()
+### ofFill() / ofNoFill() 対 Processingのfill() noFill()
 
 In processing, you can toggle fills and strokes:
 fill(), noFill.
@@ -728,7 +731,7 @@ A way around this is to change the stroke size with an openGL call, but it doesn
 ~~~~
 
   
-### Math functions, and where they come from (no more Math.\*)
+### 数学関数とそれはどこから来たのか?(ノー・モア Math.\*)
 
 Math functions in OpenFrameworks actually come from three separate files
 
@@ -770,7 +773,7 @@ additionally ofMath() provides functions for getting random values.
 
 [http://www.openframeworks.cc/documentation\#ofMath-about][78]
 
-### Structs, what are they for, and how can we use them?
+### 構造体、何のために、どうやって使うのか?
 
 Structs are like miniature classes except they don't have methods. Basically they're custom data objects.
 
@@ -793,7 +796,7 @@ Anyway, the general format of a struct is :
     };
     
 
-### Memory Management and You
+### メモリ管理
 
 In Java/p5 the way garbage collection works is that every few cycles the interpreter sweeps the ram looking for any used objects that have no pointers referencing them, and deletes them.
 
@@ -816,7 +819,7 @@ Fortunately, they're easy to avoid as long as you plan your programs carefully. 
     delete temp;
 ~~~~
 
-### Basic Logic Problems
+### 基本的な論理構造の問題
 
 Zach Lieberman asked me to include a bit on conditional logic errors so here goes.
 
@@ -858,7 +861,7 @@ is x less than 0 or greater than 10
 you need to ask:
 is x less than 0 or **is x** greater than 10
 
-### accidental breakpoints in Xcode and Why Having a Debugger Rocks
+### Xcodeのブレイクポイントと、何故デバッガが凄いのか
 
 [![Image:BkPt.jpg](002_images/BkPt.jpg)][84]
 

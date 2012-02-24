@@ -1,24 +1,25 @@
 ---
 date: 2012/02/23 10:00:00
-title: How openFrameworks works
-summary: Brief description about common patterns used in the OF code
+title: openFrameworksはどうやって動いているのか
+summary: oFのコードの中で用いられる共通のパターンについての簡単な解説
 author: Arturo Castro
 author_site: http://arturocastro.net
 ---
 
-openFrameworks is an open source C++ toolkit designed to assist the creative process by providing a simple and intuitive framework for experimentation. The toolkit is designed to work as a general purpose glue, and wraps together several commonly used libraries. 
+openFrameworksはオープンソースのC++書かれたツールキットで、シンプルで直感的な記述で創造的なプロセスを支援するようにデザインされています。ツールキットは汎用に使える「糊」として機能し、広く利用されている数多くのライブラリを束ねてまとめてくれます。
 
-openFrameworks uses a few patterns so it's easy to understand how things work. Once you understand how what this patterns are it should be easier to use any of the functionality in openFrameworks.
+openFrameworksはわずかなパターンしか使用していないので、どのように作動しているのか知るのはとても簡単です。一度それらのパターンを理解さえすれば、openFrameworksの全ての機能も簡単に使えるようになるでしょう。
 
-If you are a developer contributing to OF then this document will also be useful to know how to code your classes so they behave in a consistent way with the rest of openFrameworks
+もし、あなたは既にoFの開発者として貢献しているのであれば、この文書は、どのようにしたら他のopenFrameworksのプロジェクトに一貫した方法で、あなた自身のクラスをコーディングするのかを知る上での助けになるでしょう。
 
 ##	 setup, update, draw
 
-Most functionality in openframeworks works using this pattern. In every example ofApp's there's also always a setup, update and draw methods.
+openFramewroksで最も実用的な方法はこのパターンです。oFに含まれている全てのサンプルは、この「setup・update・draw」メソッドを使用しています。
 
 ###setup()
 
-The setup method is called only once at the beginning of the application and it's used to initialize other objects or variables usually declared in ofApp.h
+setupメソッドは、アプリケーションが開始した際に一度だけ実行されます、主にofApp.hで宣言されたオブジェクトや変数を初期化といった用途に用いられます。
+
 
 __ofApp.h__
 
@@ -36,16 +37,17 @@ void ofApp::setup(){
 }
 ~~~~
 
-In c++ it's super important to initialize variables since by default they are not initialized so for example if we don't do counter = 0; counter can have any value.
+C++で変数の初期化に関する特に重要な注意事項として、変数は初期状態では初期化されていないという点があげられます。例えば、このサンプルでは最初に counter = 0; としています。しかしこの変数counterには別の値が入っていることが有り得ます。
 
 
 ###update/draw()
 
-Update and draw are called in an inifinite loop one after another in that order till we finish the application.
+updateとdrawは無限ループと呼ばれます。アプリケーションが終了するまでは、繰り返し順番に実行されます。
 
-Update is meant to be used for updating the state of our application, do any calculations we need to do and update other objects like video players, grabbers any computer vision analisys we might be doing...
+updateは一般的にアプリケーションの状態を変更する際に用いられます。何らかの演算をする際には他のオブジェクトに対してupdateする必要があります、例えば動画の再生や、コンピュータビジョンや解析などあらゆる操作をするような際に当てはまります。
 
-In draw we draw to the screen.
+drawは、画面を描画する際に用いるようにします。
+
 
 
 __ofApp.h__
@@ -70,19 +72,20 @@ void ofApp::draw(){
 }
 ~~~~
 
-will draw a circle at y=120 moving from the left to the right of the screen.
+このコードはy = 120の位置で、スクリーンを左から右に円が移動します。
 
-## Classes
+## クラス
 
-openFrameworks is mostly organized in classes. There's 3 types of classes:
+openFrameworksの大部分はクラスから構成されています。クラスは3つのタイプがあります。
 
-### Utility classes
+### ユーティリティ・クラス
 
-This are classes that do something. Classes like ofVideoGrabber, ofVideoPlayer, ofSoundPlayer, ofImage... most of this classes work using the setup/update/draw pattern. Of course for some of them draw won't make sense like an ofSoundPlayer doesn't have a draw method.
+このクラスは何かを行うためのクラスです。例えば、ofVideoGrabber、ofVideoPlayer、ofSoundPlayer、ofImageといったクラスがあげられます。これらのクラスの多くは「setup/update/draw」パターンを用います。もちろんその中には、例えばofSoundPlayerなどのように「draw」という関数名が意味を無さない場合もあるでしょう。そうした「draw」関数を持たないクラスもあります。
 
-This classes also follow a shared pointer pattern. That means that when they are copied the copy is actually what it's called a shallow copy. A shallow copy is only a reference to the object not a copy of it's contents.
+このクラスはShared Pointerパターンを引き継ぐものでもあります。これらの複製方法は「浅いコピー」と呼ばれます。「浅いコピー」はオブジェクトの参照を作成するのみで、オブジェクトはその内容はコピーしません。
 
-For example if you copy a video player and then modify the copy somehow that will also modify the original:
+例えば、もしビデオプレーヤーをコピーしてなにか変更を加えたとしたら、オリジナル自体も変更されるでしょう：
+
 
 __ofApp.h__
 
@@ -99,14 +102,15 @@ void ofApp::update(){
 }
 ~~~~
 
-will set the current frame to 100 both in player and player2 since actually both player and player2 are a reference to the same object
+もし現在のフレームを100に設定すると、playerとplayer2は双方同じく動作します、playerとplayer2は同じオブジェクトを参照しているからです。
 
 
-### Data containers
+### データ・コンテナ
 
-This classes contain data and can do some operations over the data they contain. Classes like ofPixels or ofBuffer.
+このクラスはデータを保持します、そしてデータに対する操作を受けても元のデータを保持しつづけます。ofPixelsやofBufferなどのクラスがこれにあたります。
 
-This classes follow an allocate/loadData pattern. allocate reserves memory in the container to then put data in it using loadData. The name of this functions change depending on the class but the functionality is the same. Copying this classes makes a depth copy, that means that a copy is a whole new object with the same contents as the original so modifying the copy won't touch the original.
+これらのクラスは「allocatte/loadData」パターンを継承します。allocateはコンテナ内のメモリー内にデータ領域を確保し、loadDataを使用してデータを入れこみます。関数の名前はクラスの内容によって変化することはありますが、その機能は同じです。こうしたクラスは「深いコピー」と呼ばれます。これは、新規に生成した同じコンテンツをもった全てのオブジェクトがオリジナルなものとなることを意味します。結果として、コピーされたオブジェクトのデータを変更しても、オリジナルに触れることはできません。
+
 
 __ofApp.h__
 
@@ -136,15 +140,15 @@ void ofApp::draw(){
 }
 ~~~~
 
-will draw a completely black image in the left of the screen and a black image with a white pixel at 10,10 in the right. When we call pixels2 = pixels1  pixels2 is allocated with the same size and number of channels as pixels1 and the data in pixels1 is copied to pixels2.
+このコードは完全に黒い画像をスクリーンの左に描画し、黒いイメージと白いピクセルを(10, 10)の位置に配置したものを右に描画します。pixel2 = pixel1を実行した際に、pixel2はpixel1と同じサイズのチャンネル分のデータ領域を確保します。そして、pixel1のデータがpixel2にコピーされます。
 
-### GL Data containers
+### GLデータ・コンテナ
 
-GL data containers are a special case to data containers. The functionality is pretty similar to other data containers and they also follow the allocate/loadData pattern. This are classes like ofTexture, ofFbo, ofVbo or ofVboMesh. All of them are in the gl folder, although not everything in the gl folder is a data container, like ofShader, ofLight which are GL utility classes and usually behave exactly the same as other utility classes.
+GLデータ・コンテナは、データ・コンテナーの特殊なケースです。機能的にはとてもよく似ています。データを保持するには「allocate/loadData」パターンに従います。ofTexture、ofFbo、ofVbo、ofVboMeshなどが相当します。それらのクラス全てはglフォルダの中に格納されてます。ただし、glフォルダの中にあるクラスが全てデータ・コンテナというわけではありません。ofShader、ofLightなどはGLユーティリティクラスで、その他のユーテリティ・クラスと同様のふるまいをします。
 
-The main difference between GL data containers and other data containers is that GL data containers follow a shallow copy pattern. The main reason for this is performance, making a copy of resources in the GPU is usually slow so we don't copy them by default.
+GLデータ・コンテナとその他のデータ・コンテナの主要な違いは、GLデータ・コンテナは「浅いコピー」のパターンに従うというところです。この理由は、主にパフォーマンスに関連しています。GPU(ビデオカード)の中でリソースをコピーすることはスピードの定価を招きます。ですので、初期状態ではデータを複製しないようにしているのです。
 
-For example:
+例えば：
 
 __ofApp.h__
 
@@ -172,13 +176,13 @@ void ofApp::draw(){
 }
 ~~~~
 
-will draw a black rectangle with a white pixel at 10,10 in both left and right sides of the screen. This is because in this case we are copying the GL resource which is actually just a reference to the texture ID of the first texture, not a full copy so when modifying it we are also modifying the original.
+このコードは、黒い四角形の上に白いピクセルが(10, 10)の位置にある図形を右と左の両方に描画します。これは、GLのリソース管理は、実際には最初のテクスチャのID番号を参照しているに過ぎず、完全なコピーではないからです。データを変更すると、オリジナルのデータも変更されてしまいます。
 
-### Data types
 
-These are classes that represent types in openFrameworks like ofRectangle, ofVec3f or ofMatrix4x4.
+### データ・タイプ
 
-## Functions
+これらのクラスは、openFrameworksで使用するデータ型を表現します。ofRectangle、ofVec3f、ofMatrix4x4などのクラスが相当します。
 
-Some functionality in openFrameworks is provided through plain c functions. This are usually utility functions like ofToString(), ofRandom(), ofDrawBitmapString() and simple draw functions like ofCircle(), ofRect()
+## 関数
 
+openFramworksのいくつかの機能は、プレーンなC言語として提供されます。これらは、通常はユーテリティ関数として機能します。ofToString()、ofRandom()、ofDrawBitmapString()、もしくはofCircle()やofRect()のような関数がこれにあたります。
