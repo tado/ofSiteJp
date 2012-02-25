@@ -8,102 +8,75 @@ author_site: http://www.stfj.net
 ## Contents
 
 *   [1 Processingジャンキーのための、openFrameworksの概観][2]
-    
     *   [1.1 Processingは実際どのように動作しているのか?][3]
-        
         *   [1.1.1 クラスの拡張とは? (基底クラスとサブクラスって何?)][4]
         *   [1.1.2 了解、じゃあProcessingではそれはどうやるの?][5]
-            
-        
     *   [1.2 openFramewroksはどうやって動いているの?][6]
-        
         *   [1.2.1 Main.cppの詳細][7]
-            
-        
     *   [1.3 Java vs. C++ コンパイルのプロセス][8]
     *   [1.4 C++ではクラスはどうやって動かすの? (2つのファイル!?)][9]
-        
         *   [1.4.1 testApp.h][10]
         *   [1.4.2 testApp.cpp][11]
-            
-        
     *   [1.5 なんだ\*&れは? (ポインタの初歩).][12]
-        
         *   [1.5.1 値と参照Value vs. Reference][13]
         *   [1.5.2 &と\*][14]
         *   [1.5.3 どんな状況で使うのか?][15]
         *   [1.5.4 基本のデータ型][16]
-            
             *   [1.5.4.1 Processingの文字列の例外][17]
-                
-            
-            
-        
     *   [1.6 PImage, updatePixels() 対 ofTexture, pixels\[\]][18]
-        
         *   [1.6.1 何故Pixelの値はColorオブジェクトとして格納されていないの?][19]
-            
-        
     *   [1.7 C++に関する既知の問題 / その他のトピックス][20]
-        
         *   [1.7.1 暗黙のデータ変換の期待][21]
         *   [1.7.2 ウィンドウのサイズ変更][22]
         *   [1.7.3 Update()とDraw()?][23]
         *   [1.7.4 コンソールに出力するには?][24]
-            
             *   [1.7.4.1 printf][25]
             *   [1.7.4.2 iostream][26]
-                
-            
         *   [1.7.5 塗り潰しの図形は、スムージングできない?][27]
         *   [1.7.6 ofSetColorに関するビデオ表示の問題][28]
         *   [1.7.7 Processingのbackground() 対 oFのofBackground()][29]
         *   [1.7.8 ofFill() / ofNoFill() 対 Processingのfill() noFill()][30]
         *   [1.7.9 数学関数とそれはどこから来たのか?(ノー・モア Math.\*)][31]
-            
             *   [1.7.9.1 cmath][32]
             *   [1.7.9.2 ofConstants][33]
             *   [1.7.9.3 ofMath][34]
-                
-            
         *   [1.7.10 構造体、何のために、どうやって使うのか?][35]
         *   [1.7.11 メモリ管理][36]
         *   [1.7.12 基本的な論理構造の問題][37]
         *   [1.7.13 Xcodeのブレイクポイントと、何故デバッガが凄いのか][38]
-            
 
 ## Processingは実際どのように動作しているのか?
 
-もし、あなたがある程度Processingでプログラミングしてきたのなら、あなたは当然クラスを使ったことがあると受けとめて良いでしょう。Javaのクラスの特徴一つは、もしかしたら馴染みがないかもしれませんが、多態性(ポリモーフィズム、クラスの継承)です。
-
+もし、あなたがある程度Processingでプログラミングしてきたのなら、あなたは当然クラスを使ったことがあると受けとめて良いですよね? Javaのクラスの特徴一つは、もしかしたら馴染みがないかもしれませんが、多態性(ポリモーフィズム、クラスの継承)です。
 
 ### クラスの拡張とは? (基底クラスとサブクラスって何?)
 
 クラスの拡張は、基本となる一つのクラスから、機能を追加したクラスを新規に生成するための方法です。
 
-もし、例えばあなたがビデオゲームのようなものを作っていたとします。あなたは「敵」というクラスを作り、その外観を画像として読みこんだり、その動きを定義したり、スクリーンの望みの場所に描画したりするでしょう。そのコードは以下のようになるでしょう。
-
+もし、例えばあなたがビデオゲームのようなものを作っていたとします。あなたは「敵」というクラスを作り、その外観を画像として読みこんだり、その動きを定義したり、スクリーンの望みの場所に描画するとします。そのコードは以下のようになるでしょう。
 
 ~~~~{.cpp}
-    class Enemy
-    {
-    	int x; //x position
-    	int y; //y position
-    	public void init(String pathToEnemyPicture, int startX, int startY)
-    	{
-    		//load in the enemy picture from the hard-drive
-    		//assign starting positions
-    	}
+class Enemy
+{
+  int x; //x座標
+  int y; //y座標
+
+  public void init(String pathToEnemyPicture, int startX, int startY)
+  {
+    //敵の画像をHDから読み込む
+    //開始位置をアサイン
+  }
     	
-    	public void move()
-    	{
-    		//move, maybe shoot at player
-    	}
-    	public void draw()
-    	{
-    		//draw my picture to the screen at the proper location
-    	}
-    }
+  public void move()
+  {
+    //動いたり、プレーヤを撃ったり
+  }
+    
+  public void draw()
+  {
+    //指定した位置に敵の画像を表示
+  }
+}
 ~~~~
 
 しかし、もし複数の種類の敵を作りたかったり、それぞれ違う描画のされかたをしたい場合はどうやるのでしょう? こうしたとき、クラスの継承が役立ちます。全ての敵は、依然としてinit()で自身を初期化してmove()でスクリーンを動くようにしていきましょう。わたしたちが変更したい唯一の機能は、それぞれの構成をdraw()関数で描画することです。
@@ -113,34 +86,35 @@ Enemyクラスは「基底クラス」と呼ばれる方法で使用しましょ
 例えば、Javaであれば
 
 ~~~~{.cpp}
-    class DoubleEnemy extends Enemy
-    {
-    	public void draw()
-    	{
-    		//draw myself twice
-    	}
-    }
+class DoubleEnemy extends Enemy
+{
+  public void draw()
+  {
+    //もう一度自分自身を描く
+  }
+}
 ~~~~
 
 C++ではこう書きます
 
 ~~~~{.cpp}
-    //on a "DoubleEnemy.h" file
-    class DoubleEnemy: public Enemy // class[className]:[privacy][extended Class]{}
-    {
-    	public void draw();//the actual code for draw would be on the "DoubleEnemy.cpp" file
-    }; // note the ";" at the end of the class statement
+// "DoubleEnemy.h"ファイル
+
+class DoubleEnemy: public Enemy // class[className]:[privacy][extended Class]{}
+{
+  public void draw();// 実際のコードは"DoubleEnemy.cpp"に書くこと
+}; // クラスの最後に";"(セミコロン)をつける
 ~~~~
     
 DobubeEnemyクラスは抽象的なEnemyクラスを拡張して、Enemyクラスで宣言された全ての機能と変数を継承します。それによって、我々は新たにinit()やmove()を書く必要がなくなるのです。わたしたちはまた、別の特別なEnemyクラスも作成できます。
 
 
 ~~~~{.cpp}
-    //on a "TripleEnemy.h" file
-    class TripleEnemy : public Enemy
-    {
-    	public void draw(); //draw myself three times
-    };
+// "TripleEnemy.h" ファイル
+class TripleEnemy : public Enemy
+{
+  public void draw(); //敵を3度描く
+};
 ~~~~
 
 これで自分自身で動きまわり初期化するが、それぞれに別々に表示される2つの敵のタイプができました。この方法の別の利点としては、もしわたしたちが敵の移動や初期化の方法を知らなかったとしても、基底クラスを一度だけ変更すれば、全ての特殊な敵を動かし初期化できるのです。
@@ -171,7 +145,7 @@ oFのサンプルプログラムのどれをみても、main.cppファイルに�
 
 
 ~~~~{.cpp}
-    #include "ofMain.h"
+#include "ofMain.h"
 ~~~~
 
 これは、全てのopenFrameworksのライブラリをmain.cppに加えます。これによりmainクラスで2つの重要なoFの機能を実行できるようになります。ofSetupOpenGL()はアプリケーションのウィンドウを生成します、ofRunApp()はアプリケーションを起動します。
@@ -179,7 +153,7 @@ oFのサンプルプログラムのどれをみても、main.cppファイルに�
 注意してみると、ofRunApp()はパラメータを渡しています。
 
 ~~~~{.cpp}
-    new testApp()
+new testApp()
 ~~~~
 
 ofRunApp()は、testAppクラスのインスタンスを渡します、main.cppの2つめのincludeの記述(\#include "testApp.h")でおこなわれています。
@@ -189,11 +163,8 @@ ofRunAppは、ofSimpleAppの種類をパラメータを渡さなくてはなり�
 くり返すと、
 
 * main.cppは、ofMainとtestAppを内包しています
-
 * ofMainは、スクリーンサイズを設定し、ofRunAppを呼びだします
-
 * testAppもまた、ofMainを内包します
-
 * testAppに書かれた全てのコードは、openFrameworksのライブラリの恩恵を受けることが可能となります
     
 あなたが自分自身でクラスを書くようになるまでは、testApp.hとtestApp.cppはProcessingのメインウィンドウのように考える助けとなるかもしれません。あなたの記述する全てのコードは、この2つのファイルに含まれます。その気がなければ、その他のXcodeに入っているコードは見る必要はないのです。
@@ -207,11 +178,8 @@ Javaではコンパイルのたびにプログラムの全てを走査しバイ�
 C++の場合はより複雑です。
 
 * はじめに、コンパイラがまずプログラムをプリプロセスします。全ての\#include宣言をたどっていき作成たコードをコピー＆ペーストして一つの大きなファイルを作成します。(C++の全ての\#がついた宣言はプリプロセッサの対象です)
-
 * 第2に、コンパイラはコード全体をパースします。コードの全てに意味があるのか確認し、パースツリーの中にコードを分類し、アセンブラ(とても低レベルの言語)に翻訳されます。
-
 * 第3に、アセンブラは、オブジェクトファイルの中で機械語に翻訳されます。
-
 * 最後に、オブジェクトファイルは結びあわされ、.exeや.appなどの実行ファイルを生成します。    
 
 この方法の利点は、一度コンパイルしたセクションは再コンパイルする必要はないので、C++のコンパイラのスタイルは巨大なプログラム(例えば、openFrameworksのアプリケーション本体)に向いているという点であるとすぐに理解できでしょう。これは、実際にサンプルプログラムを開いてコンパイルしてみるとわかります。最初のコンパイルは30秒から1分ほどかかるかもしれません。もし、testApp.cppに変更を加えて再度コンパイルすると、コンパイルはずっと早く終わるはずです。これは、XCodeはopenFrameworksの全てのライブラリをもうコンパイルする必要がなく、修正した少量のコード変化だけを再コンパイルすれば良いからです。
@@ -282,594 +250,537 @@ C++とJavaの最も大きな違いは、Javaは基本的なデータ型(byte, sh
 Processingに会のように書いたときには、
 
 ~~~~{.cpp}
-    int num = 5;
+int num = 5;
 ~~~~
 
-ここでコンピュータがやっているのは、メモリの中にいってそこに整数型のデータを記憶します。メモリの中で整数型で必要となる分の空の場所を選択して、そこに5という数値置いています。その後、num変数にはデータを入れた場所のアドレスを送っています。
+ここでコンピュータがやっているのは、メモリの中にいってそこに整数型のデータを記憶します。メモリの中で整数型で必要となる分の空の場所を選択して、そこに5という数値置いています。その後、"num"変数にはデータを入れた場所のアドレスを送っています。
 
+メモリの中では、numは5という数字を格納している箱を参照していると考えるとわかりやすいでしょう。
 
-
-What the computer does is it goes to the place in its memory that is set up to store integers, picks an empty spot with the right number of bytes to store an integer, places the number 5 in that spot, and then sends the address of that spot to your program which stores it in the "num" variable.
-
-It might be easier to think of the spot in memory that num references as a box containing the number 5:
 5
-// value stored
+// 値を格納
 
 2591
-// address in memory
+// メモリ内でのアドレス
 
-  
-and as num as knowing the address this box
+そしてnumはその箱のアドレスによって知られています。
 
 num:
 2591
-// address in memory
+// メモリ内でのアドレス 
 
-Because Processing knows you're using an int and knows to pass it by value, when you ask for what num is with the line print(num), it prints the value of the address that num is referencing.
+Processingはあなたがintを値として代入していることを知っているので、もしnumが何かを知りたければ print(num) とすれば良い。numが参照しているアドレスの値が表示される。
 
-Try typing this code into processing:
+このコードをProcessingで試してみましょう。
 
 ~~~~{.cpp}
-    void setup()
-    {
-    int num = 1;
-    addOne(num);
-    print(num);
-    }
+void setup()
+{
+  int num = 1;
+  addOne(num);
+  print(num);
+}
     
-    void addOne(int num)
-    {
-      num++;
-    }
+void addOne(int num)
+{
+  num++;
+}
 ~~~~
 
-Unsurprisingly, the program prints "1". We know that this is because when you pass num to a function, the function makes a copy of num and doesn't modify the original. This is called passing by value.
+当然のことながら、プログラムは"1"を出力する。なぜなら、numを別の関数に渡した際に、関数はnumのコピーを作成するのでオリジナルのデータは変更しないからです。この方法を「値渡し」と呼びます。
 
-  
-Lets look at another example. Here, instead of passing an integer, we will try passing a class containing an integer. Try typing this code into Processing:
+では、別のサンプルを見てみましょう。整数を渡す代わりに、整数を含むクラスを渡してみましょう。下記のコードを入力します。  
 
 ~~~~{.cpp}
-    class Test
-    {
-      int num=0;
-    }
-    
-    void setup()
-    {
+class Test
+{
+    int num=0;
+}
+ 
+void setup()
+{
     Test test = new Test();
     test.num=1;
     addOne(test);
     print(test.num);
-    }
-    
-    void addOne(Test test)
-    {
-      test.num++;
-    }
+}
+ 
+void addOne(Test test)
+{
+    test.num++;
+}
 ~~~~
 
+このコードは"2"を出力します。いった何が起こっているのでしょうか?
   
-This time it printed "2". What's going on here? 
+これはTestクラスに起因しています。Processingはこれを基本のデータタイプとは見なしません(たとえクラスが持っている値が基本のデータ型のintであっても)。そしてそれを関数に参照として渡します。参照とはTestオブジェクト全体複製をaddOn関数に渡すのではなく、Testクラスがメモリのどこに配置されたかというアドレスしか渡していないのです。
 
-What happened is that because we created a class Test, Processing recognized that it was not a basic data-type (even though the class contained an int which IS a basic data-type), and passed it to the function by reference. Reference means that instead of passing a copy of the entire Test object to the addOne function, it sent only the address in memory of where the class was stored. 
-
-Let's look at boxes again.
+もう一度みてみましょう。
 
 test:
 52498
-// address in memory
+// メモリのアドレス
 
 52498:
 1
 // test.num
 
-So when test is passed through addOne(), really just 52498, or whatever the actual memory address of test's data is passed. Because of that, when test's num is incremented, it is actually changed. No copy is ever made.
+testがaddOne()に渡されたときには、それは実際には52498、もしくは実際のメモリ上のアドレスを渡しているのです。そういったわけで、もしtestのnumに数字を足すと、実際に値が変化するのです。複製は一切つくられません。
 
-Java does this because if it were to pass entire objects around constantly everything would slow to a crawl. The basic data-types are small enough to get passed by value, but everything else is passed by reference.
+オブジェクトにまつわる全てを渡していたのでは動作が遅くなっていまうので、このようにしているのです。基本データタイプは値で渡せるだけ小さいのですが、それ以外の全ては参照でわたされます。
 
 ### &と\*
 
-C++ differs from Java in that you need to explicitly state whether you are passing something by value or by reference. You can also define when a variable will behave as if it contains actual data and when a variable will only contain a pointer to data. You can even make an int that behaves like the Test class did above. This is all done with the & (referencing) and \* (dereferencing) symbols.
+C++はJavaとは違って、渡しているものが値なのか参照なのかを明確に表明しなくてはなりません。また、変数が実際の値を入れるためのものなのかデータの位置を指し示しているだけなのか、そのふるまいを定義することもできるのです。int型を先程Testクラスでやったときのようにふるまうように作成することも可能です。それらの操作は全て&(参照)と\*(参照外し)の2つの記号で行います。
 
-the & symbol is used to acquire the memory address of a variable or function, so for example:
+&記号は変数や関数のメモリ上でのアドレスを取得します。例えば：
 
 ~~~~{.cpp}
-    b=1;
-    a = &b;
+ b=1;
+ a = &b;
 ~~~~
 
-means, a is now equal to (or points to) the memory address of b, (and not the value of b). At this point, 
+
+この操作は、変数aは、変数b(値ではなく)のメモリ上のアドレスと等しくなります。この際に、
+
 
 ~~~~{.cpp}
-    a++;
+ a++;
 ~~~~
 
-would make a equal to the next memory address after b.
+この操作は、bの格納されているメモリ上のアドレスの次の値になります。
 
-the \* symbol is used to acquire the value stored in an address. So, 
+\*記号は、アドレスに格納されている値を取得するのに使用されます。つまり、
 
 ~~~~{.cpp}
-    *a++;
+ *a++;
 ~~~~
 
-would increment the value stored in a, and therefore, b would now equal 2\.
+この操作は、aに格納されている値に1を足します、つまりbが2になります。
 
-But how do I declare a variable to point to an address?
-To do this, you use the \* symbol. This variable is called a pointer. Because different types of variables take on specific numbers of bytes, it is important to declare pointers of the same type as what they are pointing to, e.g. integer pointers for integers, float pointers for floats, etc.
+しかし、どのようにしてアドレスを指ししめす変数を定義できるのでしょうか?
+こうした用途に、\*記号をつかいます。この変数を「ポインタ」と読んでいます。様々な型の変数が、特定の数値を保持しています。ポインタを宣言するときには、そのポインタが指し示す変数型と同じにする必要があります。例えば、int型のポインタがintを指し、float型のポインタがfloatを指すといったような感じです。
 
-example:
+例:
 
 ~~~~{.cpp}
-    int x;
-    int *ptr;
+ int x;
+ int *ptr;
     
-    x=5;
-    ptr = &x;
-    *ptr = 10;
-    
-    //x now equals 10
+ x=5;
+ ptr = &x;
+ *ptr = 10;
+ //xは10になる
 ~~~~
 
 ### どんな状況で使うのか?
 
-Initially, you will use pointers to pass arrays back and forth through functions. This can be seen in the movieGrabberExample, where a pointer is used to access the pixels from the video grabber. 
+最初に、関数同士で配列をやりとりしたいのであればポインタを使うと便利です。例えば、movieGrabberExampleで実例を見ることが可能です。ここではポインタは、取得したビデオのピクセルにアクセスするためにポインタを使っています。
 
 ~~~~{.cpp}
-    ( unsigned char * 	videoInverted;)
+ (unsigned char * videoInverted;)
 ~~~~
 
-This works because when you refer to an array in C++ without the \[\]'s you are actually referring to an address in memory. The \[\]'s work as a dereferencing operator, or, a "\*". 
+このコードが正しく作動するのは、いかなる配列でも、その配列がメモリのアドレスを参照しているのでない限り、\[\]の記号を使用しなくても参照可能です。\[\]は、参照外しをした演算子や"\*"で行うことができるのです。
 
-At runtime, your processor multiplies the number inside of the \[\]'s (your index) by the number of bytes your data-type takes up in memory to figure out how far it must jump in memory to reach that index of your array.
+動作中には、プロセッサーはデータ型に応じたバイト数だけかけ算された数値が\[\]の内部に設定されています。そのためどれだけメモリをジャンブすれば次の配列のインデックスに届くのか簡単にわかるのです。
 
-So to pass an array in C++ you must pass it without the \[\]'s, and the receiving function must be aware it is receiving a pointer:
+そのため、C++では配列を関数に渡す際には\[\]記号をつけずに渡します、そして受信側の関数はポインタとして受信します。
 
-    [functionName] ( [variable type] * [varName]){
-    }
-    
+~~~~{.cpp}
+ [functionName] ( [variable type] * [varName]){
+ }
+~~~~    
 
-To learn more about the infinite complexities of pointers, I recommend visiting the site I referenced at the top of this section.
+ポインタについてより詳細に学ぶのであれば、下記のサイトをみてください。わたしはこのサイトの冒頭部分を参照しました。
 ( [http://www.cplusplus.com/doc/tutorial/pointers.html][51] )
 
 ### 基本のデータ型
 
-Java and C++ share most basic data-types:
+JavaとC++は多くの基本データ型を共有しています。
 
-byte, short, int, long, float, double, and char. 
-(Boolean is also in C++, and works the same way as it does in processing except it is called 'bool').
+「byte、shor、int、long、float、double、char」などです。
+(BooleanもC++にあります、同じように機能するのですが、Processingと違い「bool」と呼ばれます。)
 
-However, C++ has an extra set of data-types that are unsigned:
-
-unsigned byte, unsigned short, unsigned int, unsigned long, unsigned float, unsigned double, unsigned char.
-
-Unsigned means that instead of running positive and negative, (e.g. char can be set to any value between -128 and 127), these variables have no sign. (e.g. unsigned char can be set to any value 0-255).
-
-  
-#### Processingの文字列の例外
-
-One major difference in the basic data-types is that Processing's string type is "String" while C++ uses a lowercase "string". But more importantly, C++'s string type, when set equal to another string type refers to it by reference (does not make a copy).
-
-_**NOTE: (theo) not sure if this is true. I think C++ is by copy. So this example might be incorrect.** _
-
-_**NOTE: (nathan) I've tested this. It's definitely incorrect. Output is "yes". Also it should be a.c\_str() not a.c\_str(a)** _
-
-So, in processing:
-
-~~~~{.java}
-    String a = "yes";
-    String b = a;
-    b = "no";
-    
-    print(a);
-~~~~
-
-will print "yes"
-
-but in C++
-
-~~~~{.cpp}
-    string a = "yes";
-    string b = a;
-    b = "no";
-    printf("%s \n", a.c_str(a));   // to see how this prints, see section 6.3.3 How in the world do I print to the console?
-~~~~
-    
-
-will print "no".
+しかし、C++には「unsigned」というさらに別のデータ型が存在します。
+unsigned byte、unsigned short、unsigned int、unsigned long、unsigned float、unsigned double、unsigned char
+unsignedはプラスとマイナスの値(例えば、charは-128から127の値をもつ)の代わりに、プラスマイナス記号のない変数(unsigned charは0ー255の値を持つ)を意味します。
 
 ## PImage, updatePixels() 対 ofTexture, pixels\[\]
 
-When you draw in openGL (OF draws using the GLUT library, which in turn uses openGL, Processing draws to openGL optionally, if you decide to when declaring your window size), any pixel data that you want to put on the screen must be preloaded into your RAM before you can draw it. Loading pixel (bitmap) data to RAM is called loading your image into a texture.
+OpenGLに描画する際に(oFではOpenGLを使用したGLUTライブラリを使って描画しています。ProcessingではオプションでOpenGLの描画を選びます。使用するかどうかはウィンドウサイズを宣言するところで決定します)、画面に表示しようとしているいかなるピクセルデータも描画前にRAMにプレロードされている必要があります。ピクセル(ビットマップ)データをRAMにロードすることを、イメージをテクスチャにすると呼びます。
 
-Processing has a number of ways to solve this texture problem that hide what you are actually doing from you.
+Processingではいくつかの方法でこのテクスチャ問題を回避していて、あなたは実際に何が起っているのかは知る必要がありません。
 
-The first is the PImage object. A PImage is a texture object that has a built in color array that holds pixel values so that you can access the individual pixels of the image that you have loaded in. Images cannot draw themselves exactly, but they can be drawn by the image() function.
+最初の例は、PImageオブジェクトです。PImageはピクセルが保持しているカラーの配列を持ったtextureオブジェクトです。そのためイメージを読みこむとピクセルの一つ一つにアクセス可能です。画像は自分自身で正確に描画できません。その代わりにimage()関数を使います。
 
 ~~~~{.java}
-    PImage myPImage; //allocate space for variable
-    myPImage = loadImage("sample.jpg"); //allocate space for pixels in ram, decode the jpg, and load pixels of the decoded sample.jpg into the pixels.
-    image(myPImage,100,100); //draw the texture to the screen at 100,100
+PImage myPImage; // 変数の領域を確保
+// RAMに格納するピクセルの領域を確保、Jpegをデコード、デコードされたsample.jpgのピクセルデータをロードする
+myPImage = loadImage("sample.jpg"); 
+image(myPImage,100,100); // 100,100の位置にテクスチャを描画
 ~~~~
     
+_image()関数は実はピクセルをPImageではなくRAMに読みこむことができることを指摘しておきます。しかし、しかし私はProcessingの背景テクノロジーに関してそこまで詳しくないので、それが確かかどうかはわかりません。_
 
-_I should note that its possible that the image() function actually loads the pixels into the ram instead of the PImage, but I dont know enough about the tech behind Processing to say for sure if this is the case or not._
+もしスクリーンの個々のピクセルにアクセスしたいのであれば、しかしながら、別の関数を使うでしょう。最初にloadPixels()を使います、これによってピクセルが変化します。もしupdatePixel()を呼びだせば変化した部分に対応します。
 
-If you want to access the individual pixels of the screen itself, however, you use a different function altogether. You first call loadPixels(), make your pixel changes, and then call updatePixels() to make your changes appear. 
+この方法はちょっと混乱します。なぜなら、実際に起っていることは、最初にPImageでやったことと一緒だからです。Processingはスクリーンからのピクセルを読み込んでtextureにしています。その後でtextureをスクリーンに描画しています。しかし、何かしらの理由で同じ関数は使用しないように決めました。
 
-This is slightly confusing, because what is actually happening here is the same as what happened above with the PImage: Processing is loading your pixels from the screen into a texture, essentially a PImage, and then drawing that texture to the screen after you update it. For some reason, however, they chose not to use the same function for both.
+openFrameworksの取り扱いかたはちょっと違います(そして、より良い方法とわたしは思います)。2つの異なるメソッドを共存させるのではなく、ofImageオブジェクトはファイルからの画像の読み込みに加えて、スクリーンのイメージも同様に扱えます。さらにofImageは自分自身も別々の関数に分けたりせずに共有できます。
 
-OpenFrameworks handles this a little differently (and a little bit better in my opinion). Instead of having two different methods, the ofImage object loads images from files, _and_ images from the screen. Additionally, ofImage can draw itself and needs no separate function to do this.
-
-The OF code for the example above with myPImage looks like:
-
-~~~~{.cpp}
-    ofImage myImage; //allocate space for variable
-    myImage.loadImage("sample.jpg"); //allocate space in ram, decode jpg, load pixels.
-    myImage.draw(100,100);
-~~~~
-
-If you wanted to change the pixels on the screen, you would also use an ofImage.
+例えば、以下のoFのコードは、ofImageをつかって画像を表示しています。
 
 ~~~~{.cpp}
-    ofImage theScreen; //declare variable
-    theScreen.grabScreen(0,0,1024,768); //grab at 0,0 a rect of 1024x768. Equivalent to loadPixels();
-    //edit pixels in theScreen
-    theScreen.draw(0,0); //equivalent to updatePixels();
+ofImage myImage; //変数の領域を確保
+myImage.loadImage("sample.jpg"); //RAMに領域を確保しピクセルを読み込み
+myImage.draw(100,100);
 ~~~~
 
-But how do I edit the pixels of something that is in the ram you may ask? The short answer is you cannot. Once something is in the RAM (in an ofTexture), you cannot access it anymore. 
+もしスクリーンに表示されたピクセルを変更したければ、同様にofImageを使用できます。
 
-You can edit the pixels of an ofImage because ofImages contain two data structures. One of these is an array of Unsigned Characters which represent all of the colors of every pixel, and the other is an ofTexture, which is used to upload those pixels into the ram after changes.
+~~~~{.cpp}
+ofImage theScreen; //変数を宣言
+theScreen.grabScreen(0,0,1024,768); // 0,0 から1024x768のサイズのスクリーンをキャプチャー、loadPixel()と同じはたらき
+// ここでピクセル情報を操作する
+theScreen.draw(0,0); // updatePixels(); と同じ
+~~~~
 
-You can actually turn off this texture in an ofImage to save RAM if you know you won't ever have to draw what you are loading to the screen. This could be useful if you only need to load an image to access pixel color values in it, or if you are taking a screenshot that you will save to your hard drive but never draw. 
+しかし、どのようにしたらRAMにあるピクセルの内容を編集できるのでしょうか? 簡単に言えば、できません。一度RAM(つまり、ofTextureに)格納してしまうと、もうそこにアクセスできなくなってしまいます。
+
+ofImageはピクセルを操作できます、なぜならofImageは2つのデータ構造を持っているからです。その1つは、unsignedのchar型で、全てのピクセルの色情報を持っています。もう1つはofTextureで、変更後のピクセル情報をRAMにアップロードします。
+
+もしスクリーンにロードした情報を今後描画する必要がないとわかっている場合、メモリの節約のためofImageのテクスチャーを切ることも可能です。もしイメージのピクセルの色情報のみが必要なようなときに、またはスクリーンショットをとって画面には描画せずそのままハードディスクに保存するといったときに、この方法は役にたつでしょう。
+
+
 see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 
 ### 何故Pixelの値はColorオブジェクトとして格納されていないの?
 
-Pixel values are stored as a series of Unsigned Characters. An Unsigned Character is a fancy way of saying a byte value between 0 and 255 inclusive. Every object in OF that can return a pixel array ( getPixels() ), will return you an array of unsigned characters. Because it takes three unsigned characters to denote a color (one for each of the red, green, blue, channels), this array's length will be three times the number of pixels inside of it and structured like:
+ピクセル値は、unsignedのchar型の連なりとして表現されています。unsignedのchar型は、0から255の範囲内に値を格納するさいにとても良い方法です。ピクセルの配列を返す(getPixels())oFの全てのオブジェクトは、unsignedのchar型の配列で値を返します。なぜなら色を表現するには3種類(red, green, blueの3つのチャンネル)のunsigned char型があれば良いからです。この配列の長さは全てのピクセルの数に3を掛けた数になり、下記のような構造で格納されています。
 
 ~~~~{.cpp}
     {pixel_1_Red, pixel_1_Green, pixel_1_Blue, pixel_2_Red, pixel_2_Green, pixel_2_Blue....}
 ~~~~
 
-To access a color of a specific pixel:
+特定のピクセルにアクセスするには、以下のようにします。
 
 ~~~~{.cpp}
-    unsigned char *	myPixels; //create a pointer to an unsigned charecter
-    myPixels = myOFImage.getPixels(); //set that pointer to point to the beginning of the pixel array
-    int colorIndex = y*(myOFImage.width*3)+x*3; // yPos * width * 3 + xPos * 3 = the red channel position
-    ofSetColor(myPixels[colorIndex],myPixels[colorIndex+1],myPixels[colorIndex+2]); 
-    //sets the color of each channel by going to the successive two values in the array after that of the red channel. 
+unsigned char *	myPixels; //unsigned char型のためのポインタを作成
+myPixels = myOFImage.getPixels(); //ピクセルの配列の先頭をポインタで指定
+int colorIndex = y*(myOFImage.width*3)+x*3; // yPos * width * 3 + xPos * 3 = 赤色のチャンネンルの場所
+ofSetColor(myPixels[colorIndex],myPixels[colorIndex+1],myPixels[colorIndex+2]); 
+//赤色に続く2つの配列の値をとりだして、それぞれの色のチャンネンルをセット
 ~~~~
 
 ## C++に関する既知の問題 / その他のトピックス
 
 ### 暗黙のデータ変換の期待
 
-One big surprise that comes with C++ is that it doesn't do implicit data conversion.
-A good example of this is trying to print an integer.
+C++で最初に驚かされる事の一つは、暗黙にデータ変換をしてくれないことです。
+下記の整数型を表示しようとしてるコードが良い例です。
+
 
 ~~~~{.cpp}
-    int num = 5;
-    printf(num +"\n");
+int num = 5;
+printf(num +"\n");
 ~~~~
 
-will yield an error.
+これはエラーになります。
 
-This is because printf only prints strings and chars, and num is neither one of these.
-To convert any non-string or non-char to a string, use the ofToString() function.
+これは、printf()がstring型かchar型しか出力してくれないことが原因です。numはこのどちらでもないからです。string型やchar型でない変数をstring型に変換するにはofToString()を使います。
 
 ### ウィンドウのサイズ変更
 
-Window size is set intuitively in main.cpp. If you open it up, the comments will show you clearly how to change the size or go to fullscreen mode.
+ウィンドウのサイズはmain.cooで直感的に設定可能です。main.cppをみれば、コメントにどのようにしてウィンドウのサイズを変更するのか、フルスクリーンにするか否かの説明があり、すぐに理解できると思います。
 
 ### Update()とDraw()?
 
-Unlike Processing, OF contains two methods that are run every loop through of your program, Update() and Draw(). 
-It is good practice to do all of your calculations in the Update() function and reserve Draw() for simply showing results on the screen. This prevents any large slowdowns that might occur during a draw function that could be too complicated. Instead of getting halves of images drawn or screen-tearing, you simply get a low framerate.
+Processingと違って、openFrameworksはプログラムのループ構造の中でupdate()とdraw()という2つのメソッドがあります。
+全ての計算をupdate()関数の中でするようにして、draw()関数は単純にその結果を表示するようにするように練習すると良いでしょう。このことによって、draw()関数が込み入り過ぎているためスピードが低下してしまうのを避けることができます。画面がちらついたりイメージの半分しか描画されないようなときには、単純にフレームレートを下げるべきです。
 
-Additionally, I should mention that if you do any heavy lifting in your project (e.g. loading in images, or loading anything at all from a file really), you should do it in your setup() function if possible. Update() and Draw() run in a loop, and because of that you should only include code in them that has to run every frame. If something only has to run once, it should probably be in Setup().
+加えて、もしプロジェクトの中でなにか付加のかかる処理(画像のローディングや、なんらかのデータをファイルから読みこむときなど)をするときには、それらの処理はsetup()関数の中で行うべきです。update()やdraw()関数はループのなかで動作するので、その中では毎フレームで行う処理のみを含めるようにすべきです。一度だけ実行すれば良いものは、setup()の中に置かれるべきでしょう。
 
 ### コンソールに出力するには?
 
-For printing to the console, you have two options. The first is printf, which is robust but a bit complicated, and is included by default in openframeworks.
+コンソールに出力するには、2つの方法があります。最初の1つはprintfで、とても強固ですがやや複雑です。openFramewroksに標準で含まれています。
 
-The second is iostream, which is simpler, but less robust, and not included by default.
+2つ目は、iostreamを使用する方法です。より単純ですが、その代わりやや強固さに欠けます。標準ではopenFrameworksには含まれていません。
 
 #### printf
 
-If you want to use printf to print to the console, this is a good tutorial on how it works:
+もしコンソールへの出力にprintfを使いたいのであれば、下記にとても良いチュートリアルがあります。
+
 [http://www.cplusplus.com/reference/clibrary/cstdio/printf.html][66]
 
   
 #### iostream
 
-Another option for printing to the console is iostream. This is a very old c++ library that lets you print to the console very easily and will implicitly convert many variable types for you so you don't have to use ofToString(). 
+もう一つのコンソールに出力するオプションはiostreamです。とても古いC++のライブラリで、、コンソールへとても簡単に出力が可能で、様々な変数の型を暗黙に変換してくれます。ofToString()を使う必要もありません。
 
-To use iostream you first need to include it at the top of your .cpp file
+iostreamを使うには、まずはじめに.cppファイルの先頭にincludeする必要があります。
 
 ~~~~{.cpp}
-    #include <iostream>
+#include <iostream>
 ~~~~
 
-Note that in some compilers, specifically very old ones, you will need to include <iostream.h\> instead of just <iostream\>. This is due to updates in the c++ standard language library (std) in recent years. A more detailed explanation can be found at:
+コンパイラによっては、特に古いコンパイラでは、 <iostream.h\>の代わりに<iostream\>をつかう環境もあります。これは、C++のstandard language library (std)が最近になって更新されたことに起因しています。より詳細な解説は下記を参照してください。
 
 [http://members.gamedev.net/sicrane/articles/iostream.html][68]
 
-Actually using iostream is extraordinarily easy.
+実際、iostreamの使用法はとても簡単です。
 
-in processing your code might look like this:
-
-~~~~{.java}
-    int i = 10;
-    String s = "Hello!";
-    boolean b = false;
-    
-    println(i+" "+s+" "+b); // print variables and end the line
-    print(i+" "+s+" "+b); // print variables without ending the line.
-~~~~
-
-this would print 
+たとえば、processingのコードでは下記のようなものがあったとします。
 
 ~~~~{.java}
-    10 Hello! false
-    10 Hello! false
+int i = 10;
+String s = "Hello!";
+boolean b = false;
+    
+println(i+" "+s+" "+b); // 変数を出力して改行
+print(i+" "+s+" "+b); // 変数を出力して改行は無し
 ~~~~
 
-in the console.
+これは、以下のメッセージをコンソールに出力します。
 
-The equivalent c++ code using iostream is:
+~~~~{.java}
+10 Hello! false
+10 Hello! false
+~~~~
+
+同じことをC++のコードで記述すると以下のようになります。
 
 ~~~~{.cpp}
-    int i = 10;
-    string s = "Hello!";
-    bool b = false;
+int i = 10;
+string s = "Hello!";
+bool b = false;
     
-    cout<<i<<" "<<s<<" "<<b<<endl; // print variables and end the line
-    cout<<i<<" "<<s<<" "<<b;       // print variables without ending the line.
+cout<<i<<" "<<s<<" "<<b<<endl; // 変数を出力して改行
+cout<<i<<" "<<s<<" "<<b;       // 変数を出力して改行はなし
 ~~~~
     
 
-this would print 
+これは以下の出力をします。
 
 ~~~~{.cpp}
-    10 Hello! 0
-    10 Hello! 0
+10 Hello! 0
+10 Hello! 0
 ~~~~
 
-in the console. Note that with iostream, unlike in processing, a false boolean is represented by a '0' and not "false", and a true boolean is represented by a '1'.
+iostreamではProcessingと違ってbool型のfalseは「false」ではなく「0」になります、またtrueは「1」になることに注意してください。
 
-Also note that in Java, ending or not ending the line after you print is accomplished by which function you pick, print() or println(), whereas in c++ with iostream, it is controlled by whether or not you put the 'endl' keyword at the end of your cout statement.
+もう一つの注意点として、Javaでは改行を入れるかどうかはprint()かprintln()のどちらの関数を選ぶかによって決まっていました。C++のiostreamでは、改行の有無はcoutの末尾に「endl」というキーワードをいれるかどうかで決まります。
 
 ### 塗り潰しの図形は、スムージングできない?
 
-If you are drawing a filled shape, e.g. with ofBeginShape(), even if you have called ofEnableSmoothing(), you will notice that the edges of the shape have not been smoothed. This is because GLUT, the library that OF uses for openGL management, doesn't have support for true full-screen graphics, and therefor can't run full-screen anti-aliasing, which is what would smooth your shapes.
+もし塗り潰しの図形(例えばofBegenShape()などで)を描こうとすると、ofEnableSmoothing()を使用したとしても図形のエッジがスムースに処理されていないことに気が付くでしょう。これはoFがOpenGLを扱うために使用しているGLUTに起因しています。GLUTはフルスクリーンのグラフィックに対応していませんでした。そのため、形をスムースにするためのフルスクリーン・アンチエイリアシングもできません。
 
-An easy workaround for this is to simply draw your shapes twice, the first time filled, and the second time not filled, so that OF draws lines, which it software anti-aliases.
+一番簡単な解決法は2度形を描くことです。最初に塗り潰しの図形を描いて、次に輪郭線を描くのです。oFはソフトウェアでアンチエイリアスされた線を描くことができます。
 
 ~~~~{.cpp}
-    ofFill();
+ofFill();
+ofBeginShape(); //形
+    ofVertex( 1,1 );
+    ofVertex( 5,5 );
+    ofVertex( 1,10 );
+    ofVertex( 1,1 );
+ofEndShape();
     
-    ofBeginShape(); //shape
-    	ofVertex( 1,1 );
-    	ofVertex( 5,5 );
-    	ofVertex( 1,10 );
-    	ofVertex( 1,1 );
-    ofEndShape();
-    
-    
-    ofNoFill();
-    
-    ofBeginShape(); //smoothed edges
-    	ofVertex( 1,1 );
-    	ofVertex( 5,5 );
-    	ofVertex( 1,10 );
-    	ofVertex( 1,1 );
-    ofEndShape();
+ofNoFill();
+ofBeginShape(); //なめらかなエッジ
+    ofVertex( 1,1 );
+    ofVertex( 5,5 );
+    ofVertex( 1,10 );
+    ofVertex( 1,1 );
+ofEndShape();
 ~~~~
 
 ### ofSetColorに関するビデオ表示の問題
 
-Although this is a problem/feature affecting any object that uses an ofTexture draw itself to the screen, I first encountered it with the videoGrabber, and I think that may be the case for many people, so I'm listing it as the video problem/feature.
+ofTextureを使用した全ての図形に関して、スクリーンの描画する際の問題(特徴)があります。わたしが最初にofVideGravverでこの問題に総合しました。これはおそらく多くの人が陥りやすいことなので、videoにまつわる問題(もしくは特徴)として挙げておきたいと思います。
 
-Basically, ofTextures are constructed so that they can be tinted by the ofSetColor() call. This is great as long as you know it's going to happen, but if it catches you by surprise it can be really confusing, especially if your background is black and you have just called 
+基本的にofTextureは構成されたものです、そのためofSetColor()によって色付けされています。何が起こっているのか知ってさえいれば素晴しい機能です。しかし、遭遇したときは混乱して驚くかもしれません。特に背景の色を黒にしていて下記のような指定をしてしまった場合です。
 
 ~~~~{.cpp}
-    ofSetColor(0,0,0);
+ofSetColor(0,0,0);
 ~~~~
 
-which would make whatever ofTexture you're telling to draw not show up at all.
+このコードでは、ofTextureを使用したいかなる図形も表示されなくなってしまいます。
 
-The solution to this is easy, just make sure that right before you tell any ofTextures to draw, you call ofSetColor() and set it to white, or whatever tint you want to use.
+解決法はとてもシンプルです。ofTextureを使用した図形を描画する前に、ofSetColor()を使用して描画色を白に、もしくは自分が着色したい色に設定されていることを確認することです。
 
 ### Processingのbackground() 対 oFのofBackground()
 
-In Processing, making the background() call automatically tells Processing to set the background to be set every frame to the color you specified in your function call.
+Processingではbackground()命令によってProcessingに望んだ色で背景を設定するようになっています。
 
-Of can make it auto-refresh every frame, there is a separate function to call:
-
-~~~~{.cpp}
-    ofSetBackgroundAuto(true);
-~~~~
-
-This function will make the background autorefresh with the last ofBackground() call, without having to re-call it each time inside draw().
-If you don't want to redraw, but make a cumulative image, use:
+oFでは自動的にリフレッシュされます。これは背景色の関数とは切り離されていて以下のような命令を使います。
 
 ~~~~{.cpp}
-    ofSetBackgroundAuto(false);
+ofSetBackgroundAuto(true);
 ~~~~
-    
 
-Because by default OF redraws the screen every frame.
+この関数は最後にofBackground()したときの設定で背景を自動的にリフレッシュします。draw()関数の中で毎回呼びだす必要はありません。
+
+もし背景を再描画せずに画像を生成したいときには以下のようにしてください。
+
+~~~~{.cpp}
+ofSetBackgroundAuto(false);
+~~~~  
+
+これによって、oFは画面をリフレッシュすることなく、毎フレーム描画していきます。
 
 ### ofFill() / ofNoFill() 対 Processingのfill() noFill()
 
-In processing, you can toggle fills and strokes:
+Processingでは、塗り潰しとストロークを以下の命令で切り替えます。
+
 fill(), noFill.
 stroke(), noStroke.
 
-In Openframeworks, it's one or the other.
-C++  :
-JAVA/P5:
+openFrameworksでは、塗り潰しとストロークはそれぞれどちらか選択しなくてはなりません。
 
-ofFill();
-fill(); noStroke();
-
-ofNoFill();
-noFill(); stroke(1);
-
-additionally, there is no way to change the stroke width built into openFrameworks.
-A way around this is to change the stroke size with an openGL call, but it doesn't look that great.
-
-~~~~{.cpp}
-    glLineWidth(STROKE_SIZE);
-~~~~
-
+C++ | JAVA/P5
+------------|---------
+ofFill();   | fill(); noStroke();
+ofNoFill(); | noFill(); stroke(1);
   
 ### 数学関数とそれはどこから来たのか?(ノー・モア Math.\*)
 
-Math functions in OpenFrameworks actually come from three separate files
+openFrameworksの数学関数は3種類のファイルからなりたっています。
 
 #### cmath
 
-Complex math functions (trigonometric, hyperbolic, exponential, logarithmic, power, rounding, absolute value and remainder functions) come from the cmath library (math.h), and are included by default in OF.
+複素数に関する数学関数です。(trigonometric, hyperbolic, exponential, logarithmic, power, rounding, absolute value and remainder functions)。これらはcmathライブラリ(math.h)から来ていて、oFで標準でインクルードされています。
 
-A list of these functions is available at:
+これらの関数の一覧は下記を参照してください。
 [http://www.cplusplus.com/reference/clibrary/cmath/][75]
 
 #### ofConstants
 
-Other basic math functions are provided by the ofConstants file.
+また別の基本的な数学関数として、ofConstantsから提供されているものがあります。
 
-These include:
+以下のものを含みます。
 
-Constants:
+定数：
 
 *   PI;
 *   TWO\_PI;
 *   M\_TWO\_PI;
 *   FOUR\_PI;
 *   HALF\_PI;
-    
 
-and Functions:
+関数：
 
 *   DEG\_TO\_RAD();
 *   RAD\_TO\_DEG();
 *   MIN(x,y);
 *   MAX(x,y);
 *   CLAMP(val,min,max);
-*   ABS(\[math functions you want to get the absolute value of\]);
-    
+*   ABS(\[絶対値を取得した数学関数\]);
 
 #### ofMath
 
-additionally ofMath() provides functions for getting random values.
+さらに、ofMath()はランダムな値を取得したいときに使います。
 
 [http://www.openframeworks.cc/documentation\#ofMath-about][78]
 
 ### 構造体、何のために、どうやって使うのか?
 
-Structs are like miniature classes except they don't have methods. Basically they're custom data objects.
+構造体は、クラスがミニチュアになったようなもので、メソッドを持ちません。基本的にはカスタムのデータ構造を扱うオブジェクトです。
 
-They're very convenient because they don't have to be created externally from your class files (although technically neither do classes..) 
+構造体が便利なのは、クラスファイルと別に外部に生成する必要がないところです(実際にはクラスでも必要はありませんが…)。
 
-Primarily they're used for implementing linked lists (similar to ArrayLists in java). Although linked lists are probably my favorite data structure, I'm not going to write a tutorial here because they can be very complicated at first.
+基本的に、構造体はLinked Listとして実装されます(JavaのArrayListに似ています)。Linked Listはおそらく私が一番すきな構造なのですが、ここでチュートリアルを記述するにはすこし込み入りすぎているので、書きません。
 
-A very inclusive tutorial on linked lists can be found here:
+Linked Listに関する包括的なチュートリアルは、下記のリンクから参照可能です。
 [http://richardbowles.tripod.com/cpp/linklist/linklist.htm][80]
 
-Anyway, the general format of a struct is :
-
-
-    struct [name]
-    {
-    	[varType] varName;
-    	[varType] varName;
-    	[varType] varName;
-    	[etc...]
-    };
-    
+いずれにせよ、一般的な構造体は以下のようなフォーマットになっています。
+~~~~{.cpp}
+struct [name]
+{
+  [varType] varName;
+  [varType] varName;
+  [varType] varName;
+  [etc...]
+};
+~~~~
 
 ### メモリ管理
 
-In Java/p5 the way garbage collection works is that every few cycles the interpreter sweeps the ram looking for any used objects that have no pointers referencing them, and deletes them.
+JavaやProcessingでは、ガベージコレクションが作動します、これによって短いサイクルで、ポインタが参照していない使用済みの全てのオブジェクトをインタプリタがRAMの中から探しだし、消去してくれます。
 
-That means if you were to declare
+もし下記のように宣言したとします。
 
-~~~~{.cpp}
-    myCustomDataType temp = new myCustomDataType();
-    temp = null;
+~~~~{.java}
+myCustomDataType temp = new myCustomDataType();
+temp = null;
 ~~~~
 
-temp was set to reference a newly created myCustomDataType. temp was then set equal to null. This did not actually clear the new myCustomDataType from ram, but whenever java's garbage collection runs it would notice that the new myCustomDataType has no references and would delete it. 
+tempは新規に生成されたmyCustomDataTypeを参照しました。その後、tempにnullが代入されています。この操作はRAMからmyCustomDataTypeを消去はしてくれません。しかし、Javaのガベージコレクションは生成したmyCustomDataTypeが既に参照されていないことを検知して、消去します。
 
-Unlike java/p5 however, c++ does not have automated garbage collection. This means that if you have declared object and you want to get rid of it, you will have to delete it yourself. Setting a pointer to NULL is not good enough.
+JavaやProcessingと違って、C++は自動化されたガベージコレクションを持っていません。このことは、もしオブジェクトを宣言してそれを消去したいとすると、あなたは自分自身で消去しなければいけないということを意味します。ポインタにNULLを代入するだけでは十分ではありません。
 
-calling the comparable code in c++ would result in an empty pointer and some memory that had been allocated in the ram but now is lost forever. This is called a memory leak. Although it might not affect you right off the bat, memory leaks can lead to your program eating up all of its available memory and crashing. These can be very frustrating to debug because they happen over time and don't give you a specific line that's crashing your program. 
+このようなコードを呼びだすと、C++はポインタは消去しRAM配置されていたポインタのメモリを消去します、そして永遠に失われます。これはメモリーリークと呼ばれます。これはバットを振った瞬間(プログラムを起動した瞬間)には影響ありません。メモリーリークは利用可能な全てのメモリを全て食べつくし、最後にクラッシュします。メモリーリークは、再現するまでに時間がかかり、しかもコードのどこがリークしているのか見付けることができないため、デバッグの際にとてもフラストレーションが溜ります。
 
-Fortunately, they're easy to avoid as long as you plan your programs carefully. The proper way to delete an object after you have created it is to use the delete keyword
+幸運なことに、プログラムを慎重に設計することで簡単にこの問題は避けられます。作成したオブジェクトを消去する正しい方法は、deleteというキーワードを使います。
 
 ~~~~{.cpp}
-    delete temp;
+delete temp;
 ~~~~
 
 ### 基本的な論理構造の問題
 
-Zach Lieberman asked me to include a bit on conditional logic errors so here goes.
+ザック・リーバーマンが論理演算のエラーについて少し含めてほしいということなので、ここで書いていきたい。
 
-A very common conditional logic error is forgetting to restate your entire argument inside an if statement with an && (and) or || (or) operator.
+もっとも一般的な論理演算のエラーは、&&(かつ)や||(または)を使ったif文の中で、引数を再度使うのを忘れてしまうことです。
 
-For example:
-
-~~~~{.cpp}
-    int x = 5;
-    if(x < 0 || > 10)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-~~~~
-
-will always return true because ( \> 10) is always true. The proper way to write this would be:
+例えば、
 
 ~~~~{.cpp}
-    int x = 5;
-    
-    if(x < 0 ||x > 10)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+int x = 5;
+if(x < 0 || > 10) {
+    return true;
+}
+else {
+    return false;
+}
 ~~~~
-    
 
-note how the entire argument is restated. Instead of asking:
-is x less than 0 or greater than 10
+この文はつねにtrueを返します。なぜなら( \> 10)は常にtrueだからです。正しくは以下のようにすべきでしょう。
 
-you need to ask:
-is x less than 0 or **is x** greater than 10
+~~~~{.cpp}
+int x = 5;
+   
+if(x < 0 || x > 10){
+  return true;
+ } else {
+  return false;
+ }
+~~~~
+
+ただしく使うようにするには、以下のように考えてください。
+
+xは、0より大きく、10より小さい
+
+こう問いかけてください：
+xは0より小さい、または、**xは** 10より大きい
 
 ### Xcodeのブレイクポイントと、何故デバッガが凄いのか
 
 [![Image:BkPt.jpg](002_images/BkPt.jpg)][84]
 
-Breakpoints are something that you can put in by clicking on the far left column of the editing window. If you're compiling in debug mode:
+ブレイクポイントは、エディターの左側にあるコラムをクリックすることで挿入できます。
+Breakpoints are something that you can put in by clicking on the far left column of the editing window. If you\'re compiling in debug mode:
+
 [![Image:BuildConf.jpg](002_images/BuildConf.jpg)][85]
 
-your program will stop running whenever it comes across one of these breakpoints and bring up the debugging console which lets you look at variable contents and the current running processes and things like that. 
+もしデバッグモードでデバッグすると、プログラムはブレイクポイントにさしかかったところで実行を止め、変数や現在作動しているプロセスを見ることのできるデバッグ用のコンソールを起動します。以下のようになるでしょう。
 [![Image:HilightedVar.jpg](002_images/HilightedVar.jpg)][86]
 
-  
-They're extremely convenient for debugging programs, but they can be confusing if you don't know what they are and they keep stopping your program.
+これは、本当に便利なデバッグプログラムです。しかし、どのようにしてプログラムの停止を維持しているのか知らないと、とまどうことになるかもしれません。
 
-To remove a debug point just click on it and drag it out of the window. You'll get a friendly poof of smoke and it'll be gone.
+ブレイクポイントを消去するには、クリックしたままドラッグしてウィンドウの外へもっていってください。
+
 [0]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#column-one
 [1]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#searchInput
 [2]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#An_overview_of_OpenFrameworks_for_processing_junkies.
