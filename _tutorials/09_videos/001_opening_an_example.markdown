@@ -1,7 +1,7 @@
 ---
 date: 2010/08/20 20:18:00
-title: Opening an Example in openFrameworks
-summary: First steps after you've downloaded OF [osx]
+title: openFrameworksのサンプルを開く
+summary: oFをダウンロードした後の最初のステップ [osx]
 author: Lucas Werthein
 author_site: 
 ---

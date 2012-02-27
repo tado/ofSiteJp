@@ -20,8 +20,9 @@
           <h1>documentation</h1>
 	  <div class="page-left-split">
 	    <p>このページは、openFrameworksの主要部分とアドオンを含めたリファレンスです。<a href="http://ofxaddons.com/">第三者から提供されたアドオン</a>もあります。openFrameworksのAPIは、常に進化しています。ぜひ、修正、追加、コメントをしてください。</p>
-	    <p>この文書の作成に協力したいのであれば、<a href="https://github.com/openframeworks/openFrameworks/wiki/Contributing-documentation">インストラクション</a>に従ってください。</p>
+	    <p>この文書の作成に協力されたい方は、<a href="https://github.com/openframeworks/openFrameworks/wiki/Contributing-documentation">インストラクション</a>をお読みください。</p>
 	    <p>この文書は最新のリリースのバージョン<strong>007</strong>に準拠しています。</p>
+	    <p>※現在翻訳しながら随時公開中です。</p>
 	  </div>
 	  <div class="page-right-narrow">
 	    <!--p>

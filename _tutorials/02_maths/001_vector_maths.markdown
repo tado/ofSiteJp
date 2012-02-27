@@ -1,7 +1,7 @@
 ---
 date: 2012/02/23 10:00:00
-title: Vector Maths
-summary: Basic concept of vector maths
+title: ベクトルの計算 (翻訳中, under translation)
+summary: ベクトル計算の基本コンセプト
 author: Keith Pasko
 ---
 

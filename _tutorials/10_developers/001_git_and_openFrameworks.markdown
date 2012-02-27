@@ -1,7 +1,7 @@
 ---
 date: 2012/02/23 19:52:00
-title: Basic introduction to git and OF
-summary: A short introduction to git in connection with openFrameworks
+title: gitとoFの導入 (翻訳中, under translation)
+summary: openFrameworksの関連したgitの簡単なイントロダクション
 author: Christoph Buchner
 author_site: 
 ---

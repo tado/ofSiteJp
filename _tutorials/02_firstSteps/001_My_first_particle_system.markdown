@@ -1,7 +1,7 @@
 ---
 date: 2012/02/24 10:00:00
-title: You first particle system
-summary: Is there something more fun that a particle system for making your first steps?
+title: パーティクルシステム入門 (翻訳中, under translation)
+summary: プログラムの入門としてパーティクルシステムの作成を楽しみませんか?
 author: Patricio Gonzalez Vivo
 author_site: http://patriciogonzalezvivo.com
 ---
