@@ -8,17 +8,16 @@ author_site:
 
 ## 目次
 
-*   [1 概略][2]
-*   [2 OOPとは何か?][3]
-*   [3 自分のクラスをどうやって作るのか][4]
-*   [4 クラスからオブジェクトを生成する][5]
-*   [5 クラスからオブジェクトを生成する - パート2][6]
-*   [6 クラスからオブジェクトを生成する - パート2.1][7]
-*   [7 make objects from your own Classes - part 3][8]
-*   [8 make objects from your own Classes - part 4][9]
-    
+* [1 概略][2]
+* [2 OOPとは何か?][3]
+* [3 自分のクラスをどうやって作るのか][4]
+* [4 クラスからオブジェクトを生成する][5]
+* [5 クラスからオブジェクトを生成する - パート2][6]
+* [6 クラスからオブジェクトを生成する - パート2.1][7]
+* [7 クラスからオブジェクトを生成する - パート3][8]
+* [8 クラスからオブジェクトを生成する - パート4][9]
 
-## Overview 
+## Overview
 
 このチュートリアルは、openFrameworksでオブジェクト指向プログラミングをするための簡単なイントロダクションと、自分のクラスを作成するためのHowToガイドです。
 
@@ -43,14 +42,14 @@ author_site:
 
 これが、ヘッダーファイルもしくは宣言(\*.h)でのクラスの定義の方法です。この例では、ファイル名はofBall.hにしています。
 [![Image:ex1-ball_h.jpg](./003_images/Ex1-ball_h.jpg)][15]
-
     
 ~~~~{.cpp}
 #ifndef _OF_BALL // if this class hasn't been defined, the program can define it
-#define _OF_BALL // by using this if statement you prevent the class to be called more 
+#define _OF_BALL // by using this if statement you prevent the class to be called more
                  // than once which would confuse the compiler
 #include "ofMain.h"
 class ofBall {
+
 public: 
   // place public functions or variables declarations here
   // methods, equivalent to specific functions of your class objects
@@ -87,52 +86,46 @@ if文(\#ifndef)は、ヘッダーファイルを重複して読みこんでし�
 Here's how you can write the class \*.cpp file, the implementation file:
 
 クラスの\*.cppファイル(実装ファイル)は、以下のように記述します。
-
+ss
 ~~~~{.cpp}
-    #include "ofBall.h"
-    
-    ofBall::ofBall()
-    {
-    	x = ofRandom(0, ofGetWidth());      // give some random positioning
-    	y = ofRandom(0, ofGetHeight());
-            speedX = ofRandom(-1, 1);           // and random speed and direction
-    	speedY = ofRandom(-1, 1);
-            dim = 20;
-    
-    }
-    
-    
-    void ofBall::update(){
+#include "ofBall.h"
+
+ofBall::ofBall() {
+
+  x = ofRandom(0, ofGetWidth());      // give some random positioning
+  y = ofRandom(0, ofGetHeight());
+  speedX = ofRandom(-1, 1);           // and random speed and direction
+  speedY = ofRandom(-1, 1);
+  dim = 20;
+
+}
+
+void ofBall::update(){
+
+  if(x < 0 ){
+    x = 0;
+    speedX *= -1;
+  } else if(x > ofGetWidth()){
+    x = ofGetWidth();
+    speedX *= -1;
+  }
+  if(y < 0 ){
+    y = 0;
+    speedY *= -1;
+  } else if(y > ofGetHeight()){
+    y = ofGetHeight();
+    speedY *= -1;
+  } 
+  x+=speedX;
+  y+=speedY;
     	
-    	if(x < 0 ){
-    			x = 0;
-    			speedX *= -1;
-    	} else if(x > ofGetWidth()){
-    			x = ofGetWidth();
-    			speedX *= -1;
-    	}
-    	
-    	
-    	if(y < 0 ){
-    			y = 0;
-    			speedY *= -1;
-    	} else if(y > ofGetHeight()){
-    			y = ofGetHeight();
-    			speedY *= -1;
-    	} 
-    	
-    	x+=speedX;
-    	y+=speedY;
-    	
-    }
-    
-    
-    void ofBall::draw(){
-            // values for R, G, B
-    	ofSetColor(120,120,120);
-    	ofCircle(x, y, dim);
-    
-    } 
+}
+
+void ofBall::draw(){
+  // values for R, G, B
+  ofSetColor(120,120,120);
+  ofCircle(x, y, dim);
+} 
 ~~~~
 
 [![Image:ex1-ball_cpp.jpg](003_images/Ex1-ball_cpp.jpg)][17]
@@ -164,10 +157,8 @@ myBall.update();                                // calling the object's update m
 draw()関数にも追加しましょう。
 
 ~~~~{.cpp}    
-            myBall.draw();                                  // call the draw method to draw the object
+myBall.draw();                                  // call the draw method to draw the object
 ~~~~    
-    
-    
 
 コンパイルして実行します!
 スクリーンを跳ねまわるボールが見えるはずです。すごい!
@@ -183,12 +174,10 @@ draw()関数にも追加しましょう。
 testApp.hにもどって、複数のオブジェクトを生成するだけです。
 
 ~~~~{.cpp}   
-    	 ofBall myBall1;
-    	 ofBall myBall2;
-    	 ofBall myBall3;
+ofBall myBall1;
+ofBall myBall2;
+ofBall myBall3;
 ~~~~    
-    
-    
 
 [![Image:ex2-h.jpg](003_images/Ex2-h.jpg)][23]
 
@@ -197,17 +186,17 @@ testApp.hにもどって、複数のオブジェクトを生成するだけで�
 testAppのupdate()関数に以下を記述します。
 
 ~~~~{.cpp}
-    	myBall1.update();
-    	myBall2.update();
-    	myBall3.update();
+myBall1.update();
+myBall2.update();
+myBall3.update();
 ~~~~
 
 draw()関数にも同様に記述します。
 
 ~~~~{.cpp}    
-    	myBall1.draw();
-    	myBall2.draw();
-    	myBall3.draw();
+myBall1.draw();
+myBall2.draw();
+myBall3.draw();
 ~~~~
 
 [![Image:ex2-cpp.jpg](003_images/Ex2-cpp.jpg)][24]
@@ -223,13 +212,13 @@ draw()関数にも同様に記述します。
 並べてオブジェクトを宣言するのではなく、ofBallの型の配列を生成しましょう。また、別の要素も紹介します - 定数(constant)です。定数は、「\#include」の後に、「\#define 定数の名前」をつけて定義されます。これは、プログラムの中で変更することの一切ない一定の値を宣言する方法です。
 
 ~~~~{.cpp}
-    	#define NBALLS 5
+#define NBALLS 5
 ~~~~
 
 ここでは、定数の値をオブジェクトの配列のサイズを宣言するために使用しています。
 
 ~~~~{.cpp}
-    	ofBall myBall[NBALLS];
+ofBall myBall[NBALLS];
 ~~~~
 
 [![Image:ex21h.jpg](003_images/Ex21h.jpg)][28]
@@ -239,19 +228,17 @@ draw()関数にも同様に記述します。
 update()の中に下記の記述をします。
 
 ~~~~{.cpp}
-    	for(int i=0; i<NBALLS; i++)
-    	{
-    		myBall[i].update();
-    	}
+for(int i=0; i<NBALLS; i++) {
+  myBall[i].update();
+}
 ~~~~
 
 draw()関数にも記述します。
 
 ~~~~{.cpp}
-    	for(int i=0; i<NBALLS; i++)
-    	{
-    		myBall[i].draw();
-    	}
+for(int i=0; i<NBALLS; i++) {
+  myBall[i].draw();
+}
 ~~~~    	
 
 [![Image:ex21cpp.jpg](003_images/Ex21cpp.jpg)][29]
@@ -262,63 +249,53 @@ draw()関数にも記述します。
 
 ## クラスからオブジェクトを生成する - パート3 
 
-As we've seen each of the objects has a set of properties defined by its variables (position, speed and direction and dimension).
-Another advantage of object oriented programming is that the objects created can have different values on each of its properties.
-For us to be able to have better control of each object we can have a constructor which defines these characteristics and lets us access them.
-In the ofBall definitions file (\*.h) we can change the constructor to include some of the objects properties (lets say position and dimension):
+これまで見てきたように、オブジェクトの変数(場所、早さ、方向、次元)によって決定されるプロパティが、それぞれのオブジェクトにセットされてきました。オブジェクト指向プログラムの別の利点は、オブジェクトガそれぞれのプロパティに別々の値を持つことができるということです。それぞれのオブジェクトをコントロールし易いように、オブジェクトの特性を決めそのプロパティにアクセス可能なコンストラクターを持つことができます。ofBallの定義ファイル(\*.hファイル)の中で、コンストラクターを変更して、オブジェクトのプロパテイ(位置と次元)を含めることにしましょう。
 
 ~~~~{.cpp}
-    	ofBall(float x, float y, int dim);
+ofBall(float x, float y, int dim);
 ~~~~
-    
 
-As we've changed the constructor we'll need to update the ofBall implementation (\*.cpp) file to reflect these.
+コンストラクターを変化させたので、実装(\*.cppファイル)もそれを反映したものに変える必要があります。
 
 ~~~~{.cpp}
-    ofBall::ofBall(float _x, float _y, int _dim)
-    {
-    	x = _x;
-    	y = _y;
-    	dim = _dim;
-    	
-    	speedX = ofRandom(-1, 1);
-    	speedY = ofRandom(-1, 1);
-    	
-    }
-~~~~    
-    
+ofBall::ofBall(float _x, float _y, int _dim) {
 
-By implementing these changes we'll also need to create space in memory for these objects. We'll do this by creating a pointer (a reference in memory) for each object.
-Back to the testApp.h (definitions) file we'll declare a new object like this:
+  x = _x;
+  y = _y;
+  dim = _dim;
+  speedX = ofRandom(-1, 1);
+  speedY = ofRandom(-1, 1); 
+}
+~~~~
+
+この実装の変更によって、これらのオブジェクトを生成する際に、メモリー内に領域を作成する必要がでてきました。それぞれのオブジェクトに対してポインター(メモリの参照)を作成することで、この操作が可能となります。
+
+testApp.h(定義)に戻って、新規のオブジェクトを以下ように宣言するようにしましょう。
 
 ~~~~{.cpp}  
-    	ofBall *myBall;  
+ofBall *myBall;  
 ~~~~  
-    
 
 [![Image:ex3-h.jpg](003_images/Ex3-h.jpg)][33]
 
-The star means it will be created in a reserved part of memory just for it.
+この星印(\*)は、オブジェクトのためのメモリーの領域を作成したことを意味しています。
 
-Now in the TestApp.cpp file we will need to create the object in the setup and we'll call the objects methods on the draw() and update() functions in a different way than we've been doing before.
-in the setup() :
+testApp.cppでは、setup()関数でオブジェクトを生成し、draw()とupdate()関数では、これまでと違う方法でオブジェクトのメソッドを呼びだす必要があります。
+
+setup()関数：
 
 ~~~~{.cpp}
-    	           // x-position,       y-position,       size
-    myBall = new ofBall(ofRandom(300,400), ofRandom(200,300), ofRandom(10,40));
+// x-position, y-position, size
+myBall = new ofBall(ofRandom(300,400), ofRandom(200,300), ofRandom(10,40));
 ~~~~
-    
-    
 
-As you see it is now possible to directly control the objects properties on its creation.
-and now we'll just need to update and draw it.
+この命令によって、オブジェクトの生成の際に、プロパティーのダイレクトなコントロールが可能となりました。
+
+そして、以下のような方法で、updateとdrawをします。
 
 ~~~~{.cpp}
-    myBall->update();
-    
-    
-
-    myBall->draw();
+myBall->update();
+myBall->draw();
 ~~~~ 
 
 [![Image:ex3-cpp.jpg](003_images/Ex3-cpp.jpg)][34]
@@ -327,55 +304,43 @@ and now we'll just need to update and draw it.
 
 [source code download here][36]
 
-## make objects from your own Classes - part 4 
+## クラスからオブジェクトを生成する - パート4
 
-we're now at the last part of this how-to tutorial on classes and objects. this part will now demonstrate an automation process to create objects from our previously built class. We'll be creating objects through arrays as we did in part 2.1 with some minor changes:
+クラスとオブジェクトに関するチュートリアルの最後となりました。このパートでは、これまで作成してきたクラスから、アニメーションのプロセスを作りだすデモをしたいと思います。パート2.1のところで行なった配列を利用したオブジェクトの生成に若干の変更を加えます。
 
 ~~~~{.cpp}
-    	ofBall** myBall;   // an array of pointers of type ofBall
-    	int nBalls;        //variable for the number of balls 
+ofBall** myBall;   // an array of pointers of type ofBall
+int nBalls;        //variable for the number of balls 
 ~~~~
-    
-    
 
 [![Image:ex4-h.jpg](003_images/Ex4-h.jpg)][38]
 
-As we're creating an array of objects, instead of creating one pointer only we'll also have to create an array of pointers. 
-That's why we have two 'stars' and not one in the declarations(\*.h) file. We have created a pointer to an array of pointers.
-Let's see how we'll create and call these objects in the implementation (\*.cpp) file:
+オブジェクトの配列を生成するには、オブジェクトのポインタだけでなく、ポインタの配列も作成しなくてはなりません。宣言ファイル(\*.hファイル)で2つの星印(\*)を使用している理由は、ポインタの配列を生成しているからなのです。では、実装ファイル(\*.cpp)では、どのようにしてこれらのオブジェクトのメソッドを呼びだすのか見ていきましょう。
 
 ~~~~{.cpp}
-        nBalls = 5; // the number of ball objects we want to create
-    
-    	myBall = new ofBall*[nBalls];   // an array of pointers for the objects
+nBalls = 5; // the number of ball objects we want to create
+myBall = new ofBall*[nBalls];   // an array of pointers for the objects
     	
-    		for (int i = 0; i < nBalls; i++){
-    			float x = 20+(100*i);     //using the value of the counter variable(i) to differentiate them
-    			float y = 20+(100*i);
-    			int dim = 10+(i*10);
-    
-    			myBall[i] = new ofBall(x,y,dim);  //create each object from the array
-    		}
+for (int i = 0; i < nBalls; i++) {
+  float x = 20+(100*i);     //using the value of the counter variable(i) to differentiate them
+  float y = 20+(100*i);
+  int dim = 10+(i*10);
+  
+  myBall[i] = new ofBall(x,y,dim);  //create each object from the array
+ }
 ~~~~  
-    
 
-similarly when we want to draw and update the objects we've created we'll need 'for' loops to run through the array.
+同じように、オブジェクトにdraw()とupdate()をしたいときには、配列を通して実行するfor文が必要です。
 
 ~~~~{.cpp}    
-            for (int i = 0; i < nBalls; i++){
-    			myBall[i]->update();
-    		}
-    
-    
+for (int i = 0; i < nBalls; i++){
+  myBall[i]->update();
+}
 
-  
-    
-            for (int i = 0; i < nBalls; i++){
-    			myBall[i]->draw();
-    		}
+for (int i = 0; i < nBalls; i++){
+  myBall[i]->draw();
+}
 ~~~~    
-    
-    
 
 [![Image:ex4-cpp.jpg](003_images/Ex4-cpp.jpg)][39]
 
