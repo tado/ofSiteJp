@@ -60,7 +60,7 @@ body {
 	padding: 0 0.2em 0 0.2em;
 	text-decoration: none;
 }
-#toolbar a:hover, #head-right a.active {
+#toolbar a:hover, #head-right a.active , #head-lang a.active {
 	background-color: #EE3987;
 	color: white;
 	text-decoration: none;
@@ -110,15 +110,15 @@ body {
 	padding: 10px 0px 0px 0px;
 	position: relative;
 }
-#head-right ul {
+#head-right ul{
 	list-style: none;
 }
-#head-right li {
+#head-right li{
 	display: block;
 	float: left;
 	margin-left: 2.1em;
 }
-#head-right li a {
+#head-right li a{
 	color: #333;
 	font-size: 2em;
 	padding: 0 0.2em 0 0.2em;

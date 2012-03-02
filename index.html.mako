@@ -35,7 +35,7 @@
   <div id="github"></div>
 
   <br class="clearboth">
-  <hr/>
+    <hr/>
 </div>
 
 <div class="page-wide">
