@@ -9,7 +9,7 @@
 
 <div class="page-right-narrow">
   <div class="home-links">
-    <h2><span style="font-size:28px">openFrameworks</span><br/><span style="font-size:15px">クリエイティブコーディングのための<br/>オープンソースのC++ツールキット</span></h2>
+    <h2>openFrameworks<br/>創造的なコーディングのための、C++のオープンソースなツールキット</span></h2>
     <h3><a href="download/">download</a></h3>
     <p>最新のリリースの入手と、openFrameworksを作動させるためのセットアップガイド。</p>
 

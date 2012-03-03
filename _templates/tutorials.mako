@@ -12,15 +12,10 @@
       <div id="body-wrap">	
 	<div class="page-wide">
           <ul class="submenu">
-            <li><a href="/documentation">reference</a></li>
-            <li><a href="/tutorials">tutorials</a></li>
+            <li><a href="${bf.config.site.url}/documentation">reference</a></li>
+            <li><a href="${bf.config.site.url}/tutorials">tutorials</a></li>
           </ul>
-
-          
           <h1>tutorials</h1>
-	  
-
-
           <div class="submenucol-left">
             <ul class="categories">
               % for category in categories:
@@ -31,14 +26,10 @@
 
           <div class="submenucol-right">
 	    <p>このセクションは、openFrameworksの機能ごとのチュートリアルを収録しています。もしチュートリアルに貢献したいと考えているのでしたら、GitHubにある<a href="http://github.com/openFrameworks/ofSite">ofSite</a>のリポジトリをフォークしてあなたのチュートリアルをmarkdownフォーマットで記述して「_tutorial」フォルダ以下に配置してください。</p>
+	    <p>※ 現在、翻訳しながら順次公開しています。</p>
           </div><!-- End Page Wide -->
-          
-    	  
-
     	</div>
-        
       </div><!-- End Body Wrap -->
-      
       <div id="footer">
         ${self.footer()}
       </div> <!-- End Footer -->

@@ -1,7 +1,6 @@
 <%def name="filter(chain)">
   ${bf.filter.run_chain(chain, capture(caller.body))}
 </%def>
-
 <%def name="header()">
   <% 
     template_name = bf.template_context['template_name']
@@ -17,7 +16,4 @@
 <%def name="footer()">
   <%include file="footer.mako" />
 </%def>
-
 ${next.body()}
-
-

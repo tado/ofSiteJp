@@ -1,5 +1,4 @@
 <%page args="active"/>
-
 <div id="head">
   <div class="clearboth"></div>
   <div id="head-left">
@@ -22,14 +21,11 @@
       <li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.cc/" target="_blank">english site</a></li>
     </ul>
     <div class="clearboth"></div>
-    <!--
-    <ul class="menu-externals">
-      <li>Beyond Interaction : </li>
-      <li><span class="external-dot"> ></span>&nbsp;<a href="http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html" target="_blank">BNN Inc. 書籍情報</a></li>
-      <li><span class="external-dot"> ></span>&nbsp;<a href="http://www.amazon.co.jp/Beyond-Interaction-%E2%80%95%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEopenFrameworks%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E7%94%B0%E6%89%80-%E6%B7%B3/dp/4861006708/ref=pd_ybh_2?pf_rd_p=74287706&pf_rd_s=center-2&pf_rd_t=1501&pf_rd_i=ybh&pf_rd_m=AN1VRQENFRJN5&pf_rd_r=0CEWEANCWDBNY0H47Y3Z" target="_blank">amazon</a></li>
+    <ul class="menu-externals" style="margin-top:0;padding-top:0">
+      <li><span class="external-dot"> ></span>&nbsp;<a href="http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html" target="_blank">beyond interaction (BNN Inc.)</a></li>
+      <li><span class="external-dot"> ></span>&nbsp;<a href="/forum">日本語フォーラム</a></li>
     </ul>
     <div class="clearboth"></div>
-    -->
     <!--form method="get" id="searchform" action="/index.php">
 	<input type="text" value="" name="s" id="s" class="search_input" /> <input type="submit" value="Search" class="search_button"/>
     </form-->
