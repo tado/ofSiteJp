@@ -8,9 +8,9 @@
      >
   <channel>
     <title>openFrameworks.jp</title>
-    <link>http://openframeworks.jpn.org/blog</link>
+    <link>http://localhost:8080/blog</link>
     <description>Your Blog's short description</description>
-    <pubDate>Fri, 02 Mar 2012 23:58:46 GMT</pubDate>
+    <pubDate>Sun, 04 Mar 2012 22:12:04 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
