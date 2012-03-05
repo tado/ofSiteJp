@@ -20,9 +20,9 @@
 #  non-blogofile site, then you would set the site_url to the full URL
 #  including that subdirectory: "http://www.yoursite.com/path/to/blogofile-dir"
 #site.url = "http://arturocastro.net/newofsite"
-site.url = "http://localhost:8080"
+#site.url = "http://localhost:8080"
 #site.url = "http://openframeworks.jpn.org"
-#site.url = "http://openFrameworks.jp"
+site.url = "http://openFrameworks.jp"
 
 
 #### Blog Settings ####

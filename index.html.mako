@@ -9,7 +9,7 @@
 
 <div class="page-right-narrow">
   <div class="home-links">
-    <h2>openFrameworks<br/>創造的なコーディングのための、C++のオープンソースなツールキット</span></h2>
+    <h3>openFrameworks<br/>創造的なコーディングのためのC++のオープンソースツールキット</span></h3>
     <h3><a href="download/">download</a></h3>
     <p>最新のリリースの入手と、openFrameworksを作動させるためのセットアップガイド。</p>
 
@@ -17,7 +17,7 @@
     <p>openFramewroksのクラス、関数、アドオンのリファレンス資料。ガイドやチュートリアルは、<a href="http://wiki.openframeworks.cc/">wiki</a>を参照してください。</p>
 
     <h3><a href="http://forum.openframeworks.cc/">forum</a></h3>
-    <p>フォーラムは、openFrameworksに関係する多くの仲間と交流する場となっています。自分の作品をシェアしたり、問題の解決の助けにしてください。</p>
+    <p>フォーラムは、openFrameworksに関係する多くの仲間と交流する場となっています。<a href="/forum">日本語フォーラム</a>もあります。</p>
   </div>
 </div>
 

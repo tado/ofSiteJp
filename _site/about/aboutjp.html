@@ -35,12 +35,23 @@
 <meta name="google-site-verification" content="RiGtl9pFuFnUeEQ4MU1miiutTR5mmCPUi38YLCn-M-g" />
 
 
-    <script src="http://openFrameworks.jp/js/jquery.columnizer.min.js"></script>
-    <script src="http://openFrameworks.jp/js/documentation.js"></script>
+ 	<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#myslides').cycle({
+			speed: 1100,
+			timeout: 2000
+		});
+	});
+	</script>
+
+
   </head>
   <body>
     <div id="content">
       
+  
   
 <div id="head">
   <div class="clearboth"></div>
@@ -49,9 +60,9 @@
   </div>
   <div id="head-right">
     <ul>
-      <li><a href="http://openFrameworks.jp/about" class="">about</a></li>
+      <li><a href="http://openFrameworks.jp/about" class="active">about</a></li>
       <li><a href="http://openFrameworks.jp/download" class="" >download</a></li>
-      <li><a href="http://openFrameworks.jp/documentation" class="active">documentation</a></li>
+      <li><a href="http://openFrameworks.jp/documentation" class="">documentation</a></li>
       <li><a href="http://openFrameworks.jp/gallery" class="">gallery</a></li>
       <li><a href="http://openFrameworks.jp/community" class="">community</a></li>
     </ul>
@@ -94,83 +105,37 @@
 
 
       <div id="body-wrap">
-        
-          <div class="page-left-wide">
-          <div id="main_block">
-            <div id="prose_block">
-              <h1>ofSystemUtils</h1>
-              <p>
-              
-  
+      		<div class="page-left-wide">
+                
+  <h1>日本語版について</h1>
 
-              </p>
-        	</div><!-- End Prose Block -->
-         </div><!-- End Main Block -->
-	</div>
-		<div class="page-wide">
-      	<div id="top_list">
-             
-             <!-- list of methods -->
-            
-             
-             
-             <!-- list of variables -->              
-            
-             
-            
-             <!-- list of functions -->              
-            <p class="top_list_header"><a href="#functions">functions</a></p>
-                <ul class="functionslist">
-                     
-                              
-                             <li> <a href="#ofSystemAlertDialog">ofSystemAlertDialog(...)</a> </li>
-                         
-                 </ul>
-            
-		</div>
-	<p><a href="https://github.com/openframeworks/ofSite/edit/master/_documentation/utils/ofSystemUtils_functions.markdown">edit functions on GitHub</a></p>
+<p>このサイト、<a href="http://openFrameworks.jp">openFrameworks.jp</a>は、<a href="http://openFrameworks.cc/">openFrameworks公式サイト</a>を日本語に翻訳して公開しています。まだ未訳の部分も多く残っていますが、少しずつ翻訳しながら順次公開していく予定です。このサイトによって、より多くのopenFrameworksユーザが日本にも増えることが、最大の目標です。</p>
+<p>翻訳は、主に<a href="http://yoppa.org">田所淳</a>が行っています。誤訳やリンク切れなどのエラーを発見した際には、tadokoro[at]gmail.comまでご連絡ください。</p>
+<p>翻訳を手伝っていただける方、大募集中です。サイトはGitHubのリポジトリで管理されています。</p>
+<ul>
+<li><a href="https://github.com/tado/ofSiteJp">https://github.com/tado/ofSiteJp</a></li>
+</ul>
+<p>まず、このリポジトリのクローンをローカルに作成してください。次に、英語サイトと同様にblogo fileというpythonのCMSシステムによって、記事を管理・書き出しするように作られています。環境の構築については、下記のリンクのReadmeを参照してください。</p>
+<ul>
+<li><a href="https://github.com/openframeworks/ofSite#readme">https://github.com/openframeworks/ofSite</a></li>
+</ul>
+<hr />
+<h2>日本語で閲覧可能なopenFrameworks情報</h2>
 
-	</div>
-		<div class="page-left-wide">
-          <div id="main_block">
-            <div id="prose_block">	
-              
-              <!-- methods detail -->
-              
-              <!-- vars detail -->
-              
-              <!-- functions detail -->
-                  <h2><a name="functions"></a>ofSystemUtils functions</h2>
-                            
-<div class="documentation_detail">
-  	 
-	<h1><a name="ofSystemAlertDialog">ofSystemAlertDialog(...)</a></h1>
-	<h2>
-  <p>void ofSystemAlertDialog(string errorMessage)</p>
-</h2>
-	<div class="documentation_detail_description">
-		
-		
-  
+<ul>
+<li><a href="http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html">「Beyon Interaction」書籍情報ページ(BNN Inc.)</a></li>
+<li><a href="http://www.bnn.co.jp/books/errata/of/of_seigohyou.html">「Beyond Interacion」正誤表</a></li>
+</ul>
 
-	</div>
-	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
-</div>
-
-
-    
-            </div><!-- End Prose Block -->
-          </div><!-- End Main Block -->
-        </div>
+            </div>
       </div>
-      
       <div id="footer">
         
   <p id="credits">
 
 Last updated 
   
-Monday, 05 March 2012 05:52:30 UTC
+Monday, 05 March 2012 05:52:39 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
 eb4c40e621764ba06f4322938cd1d4222a563828
@@ -210,5 +175,3 @@ pageTracker._trackPageview();
     </div> <!-- End Content -->
   </body>
 </html>
-
-

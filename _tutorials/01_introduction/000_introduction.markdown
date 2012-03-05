@@ -1,6 +1,6 @@
 ---
 date: 2012/02/28
-title: ofTutorials - イントロダクション (翻訳中, under translation)
+title: ofTutorials - イントロダクション
 summary: openFrameowrksの紹介と、最初のプロジェクトを開始するための準備
 author: Jeff Crouse
 author_site: http://jeffcrouse.com
@@ -25,7 +25,7 @@ openFrameworksは、シンプルで先端的なフレームワークによって
 
 openFrameworksは[ザック・リーバーマン(Zach Lieberman)](http://thesystemis.com/)、[セオドア・ワトソン(Theodore Watson)](http://muonics.net/), [アルトロ・カストロ(Arturo Castro)](http://arturocastro.net/)を中心にして、[OFコミュニティー](../community/)とともに開発されています。openFramewokrsは以下2つの先駆的なプロジェクトの恩恵を受けています。
 
-* [Processing](http://processing.org/)：[ケーシー・リーズ(Casey Reas)](http://reas.com/)と[ベン・フライ(Ben Fry)](http://benfry.com/)を中止に開発された開発環境
+* [Processing](http://processing.org/)：[ケーシー・リーズ(Casey Reas)](http://reas.com/)と[ベン・フライ(Ben Fry)](http://benfry.com/)を中心に開発された開発環境
 * ACUツールキット：ベン・フライらによって[MITメディアラボのAesthetics and Computation Group](http://acg.media.mit.edu/)で開発されたC++ライブラリ
 
 <p align="right">ー <a href="/about/index.html">openFrameworks about</a>より</p>
@@ -56,6 +56,8 @@ oFは実際、多くの[ライブラリ](http://ja.wikipedia.org/wiki/%E3%83%A9%
 
 大雑把なたとえで考えてみてください。あなたは映画制作会社で自身の映画を制作監督しています。制作会社は場所を用意し、全てのインフラを提供し、カメラクルーや照明監督、サウンドエンジニアなどの重要なスタッフを探してくれます。全ての人達は、あなたを含め、必要なときに時間通りに一斉に仕事をします。openFrameworksは、あなたのプログラムに対する制作会社のようなものです。openFramewroksは、事務的な部分やロジスティックな詳細はケアしてくれて、あなたを創造的な視点に集中させてくれます。
 
+------------------------------
+
 ## C++プログラミング言語
 
 前のセクションで学んだように、openFrameworks自体はプログラミング言語ではなく、[C++](http://ja.wikipedia.org/wiki/C%2B%2B)で書かれたソフトウェアプログラムです。では、C++とは何でしょう?
@@ -77,7 +79,7 @@ int main()
 }
 ~~~~
 
-※ このプログラムの各行ごとの細かな分析は、[Structure of a program](http://www.cplusplus.com/doc/tutorial/program_structure/)のチュートリアルを参照してください。
+※このプログラムの各行ごとの細かな分析は、[Structure of a program](http://www.cplusplus.com/doc/tutorial/program_structure/)のチュートリアルを参照してください。
 
 コンパイラでビルドすると、このコードは完全な実行可能なプログラムを生成します。これはとても単純なコマンドラインプログラムで、コンソールにただ「Hello World!」と出力するだけです。以下のステップの手順に従って、実際に挑戦してみましょう。
 
@@ -115,87 +117,83 @@ g++ -o hello hello.cpp <2>
 
 ![Hello World](images/hello.png)
 
+これは、普段見慣れているような、グラフィクスを使用したウィンドウを起動する派手なアイコンのプログラムとはちょっと違っているかもしれません。しかし、これもプログラムなのです。実際、あなたのコンピュータの全てのプログラムは、掘り下げてみれば、結局は今作成した「hello」プログラムのようなものなのです。
 
-This might not look like other programs that you are used to -- programs with flashy custom icons that launch windows and use graphics and such -- but it's a program nonetheless. In fact, if you dig deep enough, every program on your computer boils down to a something just like the 'hello' program you just created. The rest is just bells and whistles. 
+※重要：現時点では、ちょっと混乱してしまう人もいるかもしれません。でも心配しないでください! oFを使い初めたら、もっと刺激的な内容になります。このサンプルは、あくまでC++の基礎の低レベルな部分の説明でした。幸い、もうコマンドラインでコンパイルしてコマンドラインで表示するような必要はありません。
 
-IMPORTANT: I can hear some people panicing right now, but don't worry! Things get much more exciting when we start playing with oF. This example was only meant to illustrate the low-level basics of c++. Hopefully you will never have to compile a command line program on the command line again. 
+### コンパイラって何? IDE(統合開発環境)って何?
 
+もしFlashやProcessingのようなプログラムを使ったことがあるのなら、何かコードを書いて、その動きを観るために「再生」ボタンを押すというプロセスになじみがあるでしょう。このことを「コンパイル」と呼び、先程のセクションでやってきたことです。もしビデオ編集になじみがあるのなら、コンパイルはレンダリングのようなものです。コンパイルのアイデアとは、人間が読解可能なコードをコンピュータが実行可能なものに翻訳するということです。CやC++、Java、Objective-C、Fortran、Lisp、Pascalといったプログラミング言語は皆、[コンパイル言語](http://en.wikipedia.org/wiki/Compiled_language)です。それらの言語は人間に読解可能にできています。それらは人間によって書かれ、読むことができ、理解できるように作られています。しかしどの言語で始めようと、最終的には、コンピュータが理解する何らかのものに翻訳されます。大抵は[機械語](http://ja.wikipedia.org/wiki/%E6%A9%9F%E6%A2%B0%E8%AA%9E)が用いられます。
 
-### What is a compiler? and an IDE?
+※注：PHPやPythonのような言語は「スクリプト言語」として知られています。コンパイルが必要ですが、プログラムが実行される際に行われます。
 
-If you have used a program like Flash or Processing, you are familliar with the process of writing some code and then "pressing play" to see it in action. This is called *compilation* or *compiling*, and it's what we just did in the previous section. If you are familliar with video editing, compiling is somewhat similar to rendering. The idea is that you must translate the code that is "human readable" into format that your computer can execute. C, C++, Java, Objective-C, Fortran, Lisp, Pascal... these are all http://en.wikipedia.org/wiki/Compiled_language[compiled languages]. As cryptic as they may seem, all of these languages are supposed to be "human readable". They were created specifically to be written, read, and understood by humans. But no matter which language you start with, in the end, it has to be translated into something your computer can understand. Namely, http://en.wikipedia.org/wiki/Machine_code[machine code].
+コードを機械語に翻訳する仕事をするプログラムを「コンパイラ」と呼びます。[GCC](http://gcc.gnu.org/)は、もっとも有名なコンパイラの一つです。CGGは様々な言語をコンパイルすることが可能です。GCCはとても良いコンパイラなのですが、自分自身でやりたいこと正確にどのように正確にプログラムに伝えるのは頭の痛いフラストレーションが溜る問題です。先程のセクションでは、私達は単純に"g++ -o hello hello.cpp"というコマンドを用いました。しかし、様々なライブラリを使用したり、プロセッサに最適化させたり、画像などのリソースを含めたアプリケーションを作成しようといったことは、全ては無効となります。そこそこの複雑さのopenFramewroksのプロジェクトであっても、コンパイルの情報をCGGに伝える内容は、何百行もの難解な文法といくつものヘルパーツールが必要です。とても複雑です。
 
-NOTE: Some languages, such as PHP and Python are known as "scripting languages."  They still require compiling, but it happens right before the program executes.
+その代わり、多くの開発者はコードプロジェクトを作成し構成するために[IDE(統合開発環境)](http://ja.wikipedia.org/wiki/%E7%B5%B1%E5%90%88%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83)を使用しています。多くのIDEは、テキストエディター、ファイル構成機能、コンパイラ、様々なオプションやコンパイルのプロセスをカスタマイズするためのGUIインタフェイスを備えています。[有名なIDE](http://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments)には、XCode、Visual Studio、CodeBlocks、Eclipse、NetBeansなどが挙げられます。ほとんど全てのOSや言語にはIDEが存在します。IDEには特定の言語専用のものもあれば、多くの言語をサポートしているものもあります。
 
-The program that does the job of taking your code and translating it into machine code is called the *compiler*. http://gcc.gnu.org/[GCC] is one of the most popular compilers. It can compile lots of different languages. GCC is great for compiling, but knowing exactly how to tell the program exactly what you want to do is the subject of much headache and frustration. In the previous section, we conpiled a program with the simple command "g++ -o hello hello.cpp", but once you start doing stuff like using existing libraries, optimizing code for particular processors, bundling your application with resources like images, etc., all bets are off. Telling GCC to compile even a moderately complicated openFrameworks project takes hundreds of lines of isoteric syntax and invoking dozens of helper tools. It's super complex.
+Flash、Processing、VVVV、Max/MSPのような開発環境では、コンパイルに関する内容から離れていれられるかもしれません。IDEは白紙状態であるという違いがあります。IDEは特定の機能から成り立っているわけではありません。一方、ある目的に特化した機能を搭載したツールもあります。例えば、FlashはWebで動くためのプログラムのコンパイラであり、Processingは素早くプロトタイピングするためのツールです。
 
-So instead, most developers use http://en.wikipedia.org/wiki/Integrated_development_environment[IDEs (Integrated Development Environments)] to organize and create code projects. Most IDEs will include a text editor, a file organizer, a compiler, and lots of GUI interfaces for customizing all of the options and details of the compilation process. http://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments[Some popular IDEs are]: XCode, Visual Studio, CodeBlocks, Eclipse, NetBeans. There are IDEs for every operating system and language. Some IDEs are for one specific language and some support many.
+openFramewroksは、多くの機能から成り立っています。openFrameworksは、自前のIDEから構成されてはいないという違いがあります。技術的には、openFrameworksのプロジェクトを生成するのにどのようなIDEも使用できます。しかし、コンパイラと結びつける作業は難解です。IDEの中で様々な複雑さをもったプロジェクトを設定するプロセスは、難解で退屈です。openFrameworksの優れた点は、3つのプラットフォームでの、いくつかのIDEでのスタートポイントを提供しているところです。3つのメジャーなプラットフォームで3種類のIDEのプロジェクトテンプレートが作成済みです。ですから、ダウンロードさえすればコーディングが開始できるのです。
 
-You *might* be able to get away with calling stuff like Flash, Processing, VVVV, and MaxMSP IDEs -- most of the important features are there. The difference is that IDEs are typically blank slates -- they don't come with any specific functionality. The other tools, on the other hand, come with lots of built-in functionality that is usually optimized for a particular purpose. For insance, Flash compiles programs to be run on the web, while Processing is a rapid prototyping tool. 
-
-openFrameworks definitely comes with a lot of functionality. The difference with openFrameworks is that it doesn't come with it's own IDE. Technically, you can use whatever IDE you want to create an openFrameworks project, but just as interfacing with a compiler can be difficult, the process of setting up a project of any complexity in an IDE can also be complex and tedious. One of the great things about openFrameworks is that it provides starting points for several IDEs on the 3 major platforms. They've done the hard work of creating project templates for 3 different IDEs on the 3 major platforms so all you have to do is download and start coding.
-
-To get started working with openFrameworks, you will want to download and install an IDE for your operating system. Guides for installations can be found here:
+openFramewroksでの開発を始めるにあたり、OSごとにIDEをダウンロードしてインストールする必要があるでしょう。インストールのガイドは下記を参照してください。
 
 #### Windows
 
-* http://www.openframeworks.cc/setup/codeblocks/[code::blocks setup guide]
-* http://www.openframeworks.cc/setup/vs-2010/[vs 2010 setup guide]
+* [code::blocks設定ガイド](http://www.openframeworks.cc/setup/codeblocks/)
+* [Visual Studio 2010設定ガイド](http://www.openframeworks.cc/setup/vs-2010/)
 
 #### Mac
 
-* http://www.openframeworks.cc/setup/xcode/[XCode Setup Guide]
+* [XCode設定ガイド](http://www.openframeworks.cc/setup/xcode/)
 
 #### Linux
 
-* http://www.openframeworks.cc/setup/linux-codeblocks/[codeblocks & makefiles]
+* [codeblocksとmakefile](http://www.openframeworks.cc/setup/linux-codeblocks/)
 
-## What Can I Make with oF?
+## oFで何ができるの?
 
-The following collection of projects is an attempt to illustrate the range of different kinds of projects that have been built using openFrameworks.
-
+このセクションで紹介するプロジェクトは、openFrameworksで作成されたプロジェクトの種類の拡がりを描き出すことを目的としています。
 
 ### Puppet Parade
 
 by Emily Gobeille and Theo Watson
 
-> Puppet Parade is an interactive installation by Emily Gobeille and Theo Watson of Design I/O that allows children to use their arms to puppeteer larger than life creatures projected on the wall in front of them. This dual interactive setup allows children to perform alongside the puppets, blurring the line between the ‘audience’ and the puppeteers and creating an endlessly playful dialogue between the children in the space and the children puppeteering the creatures.
+Puppet ParadeはDesign I/OのEmily GobeilleとTheo Watsonによるインタラクティブなインスタレーションで、前方の壁にプロジェクションされた生き物のパペット(操り人形)を、子供達が腕をつかって操作することが可能です。二重のインタラクティブな仕掛けにより、子供達がパペットと一緒に演じることも可能で、「観客」とパペットとの境界線をぼかし、空間内の子供達とパペットを操作する子供達との間に尽きることのない楽しい対話を生み出します。
 
 <iframe src="http://player.vimeo.com/video/34824490?title=0&amp;byline=0&amp;portrait=0" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
-http://www.creativeapplications.net/openframeworks/puppet-parade-openframeworks/[More Information]
-
+[詳細な情報](http://www.creativeapplications.net/openframeworks/puppet-parade-openframeworks/)
 
 ### Interactive Wall at UD
 
-> The 36-foot wall at the University of Dayton’s admission center engages prospective students and reveals videos of student life at UD. The wall displays continuously changing patterns of generative graphics, which respond to the presence of people in front of the wall.
+デイトン大学のアドミッションセンターの36フィートの壁が、将来の学生と大学の学生生活を紹介するビデオとを結びつけます。壁の表示は、壁の前にいる人々の動きに反応して、生成的な表現によって常にパターンを変化させています。
 
-> The field of cubes is animated with waves of activity, and a viewer’s presence causes them to rotate and unveil POV videos of a student experience. The viewers can explore the videos moving around to reveal different video fragments. When viewers stand together, their silhouettes join to reveal more of the video. When no one is present in the interaction area the installation displays typographic animations overlaid on the dynamically animated graphic patterns.
+立方体のフィールドは、活動による波によって動かされています。そして、観客の存在が立方体を回転させ、学生生活の映像を表示します。壁の前を歩き回ることで、様々な映像の断片を探し出し探索するこごが可能です。観客が一緒に立つと、シルエットが結合してさらに多くの映像が現われます。もし誰もインタラクションするエリアにいなければ、ダイナミックに変化するグラフィックパターンの上で、文字によるアニメーションが表示されます。
 
-> For more video documentation and details of design and development process see the http://www.flightphase.com/main_wp/case-studies/ud-interactive-wall[Case Study].
+より詳細な映像記録やデザインと開発の細かな内容は、[ケーススタディー](http://www.flightphase.com/main_wp/case-studies/ud-interactive-wall)を参照してください。
 
 <iframe src="http://player.vimeo.com/video/27500054?title=0&amp;byline=0&amp;portrait=0" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
-http://www.flightphase.com/main_wp/expanded-media/interactive-wall-at-ud[More information]
+[詳細な情報](http://www.flightphase.com/main_wp/expanded-media/interactive-wall-at-ud)
 
 ### Scramble Suit
 
 by Arturo Castro and Kyle McDonald
 
-One great thing about openFrameworks is that how easy to incorporate c++ code from pretty much any library. To that end, Arturo and Kyle used a http://web.mac.com/jsaragih/FaceTracker/FaceTracker.html[Face Tracker library by Jason Saragih] to create a face-replacement technique that Kyle named "Scramble Suit" inspired by fictional technology from Philip K. Dick’s 1977 novel, "A Scanner Darkly". It’s effectively a cloak that hides the identify of the wearer by making it impossible to describe or remember them.
+openFrameworksの素晴しい点の一つは、C++の様々なライブラリを簡単に取り入れられることです。ArturoとKyleは、[Jason Saragih氏によるFace Tracker library](http://web.mac.com/jsaragih/FaceTracker/FaceTracker.html)を、フィリップ・K・ディックの1977年の小説「暗闇のスキャナー」に登場した架空の技術にインスパイアーされて「スクランブル・スーツ」を生みだすために活用しました。これは、記憶することを不可能にすることで、装着している人のアイデンティティーを隠すマントです。
 
 <iframe src="http://player.vimeo.com/video/29391633?title=0&amp;byline=0&amp;portrait=0" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
-## Why openFrameworks?
+## 何故openFrameworkを使うのか?
 
-openFrameworks is not the only creative coding framework out there. So why should you (or shouldn't you) use openFrameworks?
+openFrameworksだけが、創造的なコーディングのフレームワークというわけではありません。では、何故openFrameworksを使うべき(もしくは使うべきでない)のでしょう?
 
 coming soon...
 
-## Additional oF Resources
+## 参考資料
 
-* http://www.openframeworks.cc/about/[About openFrameworks] More about openFrameworks, including the design methodology.
-* http://www.openframeworks.cc/documentation/[Official Documentation] Where you can find descriptions of classes and functions that make up openFrameworks
-*  http://forum.openframeworks.cc/[oF Forum] Probably the best place to get your questions answered
-* http://www.amazon.com/Programming-Interactivity-Designers-Processing-Openframeworks/dp/0596154143[Programming Interactivity] A great book that covers openFrameworks, Processing, and Arduino.
-* http://www.creativeapplications.net/[Creative Applications]
+* [About openFrameworks](http://www.openframeworks.cc/about/)：デザインの方法論を含めた、openFrameworksについてのより詳しい情報
+* [Official Documentation](http://www.openframeworks.cc/documentation/)：openFrameworksを構成するクラスや関数の解説
+* [oF Forum](http://forum.openframeworks.cc/)：おそらく質問に答えてもらえる一番の場所
+* [Programming Interactivity](http://www.amazon.com/Programming-Interactivity-Designers-Processing-Openframeworks/dp/0596154143)：openFrameworks、Processing、Arduinoなどについて解説した素晴しい本
+* [Creative Applications](http://www.creativeapplications.net/)

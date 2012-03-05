@@ -13,7 +13,7 @@
       <li><a href="${bf.config.site.url}/community" class="${'active' if active=='community' else ''}">community</a></li>
     </ul>
     <ul class="menu-externals">
-      <li><span class="external-dot"> ></span>&nbsp;<a href="http://openframeworks.jp/forum" target="_blank">forum</a></li>
+      <li><span class="external-dot"> ></span>&nbsp;<a href="http://forum.openframeworks.cc/index.php" target="_blank">forum</a></li>
       <li><span class="external-dot"> ></span>&nbsp;<a href="http://ofxaddons.com" target="_blank">addons</a></li>
       <li><span class="external-dot"> ></span>&nbsp;<a href="http://wiki.openframeworks.cc/" target="_blank">wiki</a></li>
       <li><span class="external-dot"> ></span>&nbsp;<a href="http://github.com/openframeworks/openFrameworks" target="_blank">github</a></li>
@@ -22,7 +22,8 @@
     </ul>
     <div class="clearboth"></div>
     <ul class="menu-externals" style="margin-top:0;padding-top:0">
-      <li><span class="external-dot"> ></span>&nbsp;<a href="http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html" target="_blank">beyond interaction (BNN Inc.)</a></li>
+      <!-- li><span class="external-dot"> ></span>&nbsp;<a href="http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html" target="_blank"></a></li -->
+      <li><span class="external-dot"> ></span>&nbsp;<a href="/about/aboutjp.html">日本語版について</li>
       <li><span class="external-dot"> ></span>&nbsp;<a href="/forum">日本語フォーラム</a></li>
     </ul>
     <div class="clearboth"></div>
