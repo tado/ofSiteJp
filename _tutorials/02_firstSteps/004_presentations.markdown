@@ -1,12 +1,11 @@
 ---
 date: 2012/03/20 20:18:00
-title: openFrameworks 007 Presentations
-summary: This collection of keynotes documents the majority of the openFrameworks core, and was prepared for a FreakDay meeting in Antwerp.
+title: openFrameworks 007 プレゼンテーション
+summary: Antwerpで行われたFreakDayミーティング用に準備されたこれらの基調講演資料はopenFrameworks coreの大部分について説明されています。
 author: roxlu
 author_site: http://www.roxlu.com/
 ---
-
-These presentations were originally prepared by roxlu, and posted on his [blog](http://www.roxlu.com/blog/entry/145/openframeworks-007-presentations) after a FreakDay meeting in Antwerp.
+これらのプレゼンテーションはroxluによって準備され、Antwerpで行われたFreakDayミーティング後に彼の[ブログ](http://www.roxlu.com/blog/entry/145/openframeworks-007-presentations)にて公開されました。
 
 ## Sound
 
