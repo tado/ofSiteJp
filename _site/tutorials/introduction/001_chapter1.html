@@ -120,50 +120,50 @@
         	    <div class="article">
         	    
   <h2>Your First Look inside oF</h2>
-<p>By this point, I assume that you've http://www.openframeworks.cc/download/[downloaded openFrameworks and followed the appropriate setup guide]. So the first thing you'll want to do is uncompress the openFrameworks archive and place the resulting folder somewhere you can easily access. Personally, I like to drop it in my Documents folder and then put a shortcut in my sidebar, like this:</p>
+<p>今このページを閲覧している方々は、http://www.openframeworks.cc/download/ にてopenFrameworksアーカイブファイルをダウンロードし終わり、この適切なセットアップガイドのページにたどり着いているのかと思います。</p>
+<p>まず最初にダウンロードしたopenFrameworksのアーカイブファイルを解凍し、解凍後に出来たフォルダを、簡単にアクセス出来る場所に配置する事から行いましょう。　個人的には、下記の様に書類フォルダに配置し、そのショートカットをサイドバーに作成する事が好きです。</p>
 <p><img alt="Shortcut" src="images/shortcut.png" /></p>
-<p>No matter where you put it, when you open up the folder, you should see a set of folders that looks basically like this:</p>
+<p>配置場所に関係なく、フォルダを開くと基本的に下記に示す様なフォルダ構成を見る事が出来るはずです。</p>
 <p><img alt="addons, apps, and libs folders" src="images/structure1.png" /></p>
-<p>So what are these folders?</p>
+<p>では、これらのフォルダはどんなものなのでしょう？</p>
 <h4>addons</h4>
-<p>The "core" openFrameworks contains only the most essential functionality. Everything in the addons folder can be added to an application piecemeal. This includes stuff like reading an XML file, loading a 3D model, or using the computer vision library, openCV. </p>
+<p>openFrameworks "core"は、最も重要な機能のみを含んでいます。addonsフォルダに追加されるものは、断片的な機能を持ったアプリケーションになります。例えば、XMLファイルを解析するようなものであったり、3Dモデルデータをロードしたり、openCVライブラリを利用したものであったりします。</p>
 <h4>apps</h4>
-<p>This is where the applications that you make will be stored, and where you will be working most of the time. You will notice that there are already 2 folders in "apps": "examples" and "addonExamples". </p>
+<p>このフォルダが、あなたが作るアプリケーションを配置する場所となります。作業時間のほとんどを費やす場所でもありますね。既に２つのフォルダ… appsフォルダとaddonExamplesフォルダが存在していると思います。</p>
 <h4>libs</h4>
-<p>This folder contains all the libraries that openFramworks uses as well as the oF core.</p>
-<p>NOTE:  Of course, if you are reading this documentation, you probably also have a CodeForArt folder in there with addons, apps, and libs.</p>
-<h2>Take a Tour of the Examples</h2>
-<p>Inside the "apps" folder, you will see 2 sub-folders: "examples" and "addonsExamples". Both of these folders contain openFrameworks projects that illustrate some of the things that openFrameworks can do. Before you get into making your own app, it's a good idea to take a tour of all of the example applications. The process is slightly different depending on which IDE you are using. </p>
+<p>oF coreと同レベルでopenFrameworksが使用する全てのライブラリがこのフォルダに含まれています。</p>
+<p><strong>注意</strong>：このドキュメントを読んでいれば、CodeForArtフォルダもaddons, apps, libsフォルダと同階層に持つ事になるでしょう。</p>
+<h2>サンプルプログラムを試してみよう</h2>
+<p>appsフォルダにはexamplesフォルダとaddonsExamplesフォルダの２つのサブフォルダが存在します。両フォルダ内には、openFrameworksが出来る事を説明している、いくつかのopenFrameworksプロジェクトが入っています。まず、アプリケーション開発に入る前に、これら全てのサンプルアプリケーションを動かしてみる事が、よい試みとなるでしょう。ただし使用しているIDEによって、若干動作させる方法が違います。</p>
 <h3>XCode</h3>
-<p>Navigate to apps/examples/graphicsExample and double-click on "graphicsExample.xcodeproj". </p>
+<p>apps/examples/graphicsExampleフォルダを開き、"graphicsExample.xcodeproj"ファイルをダブルクリックしましょう。</p>
 <p><img alt="navigate to graphicsExample" src="images/graphicsExample01.png" /></p>
-<p>You should see a window that looks something like this:</p>
+<p>この様なウィンドウが表示されます。</p>
 <p><img alt="graphicsExample 02" src="images/graphicsExample02.png" /></p>
-<p>IMPORTANT: Find out which version you are using in the menubar: XCode &gt; About XCode. If you are using XCode &lt; 4.0 the window will look significantly different, but don't panic -- it should be fairly easy to find the corresponding interface features.</p>
-<p>You'll notice a big "Run" button at the top left side of the screen. In XCode 3, it is called "Build &amp; Run". That will run the currently active target. But you might find that, by default, the active target is the openFrameworks library, which, by itself, doesn't do anything. What we want to run is "graphicsExample" program. So if you see this:</p>
+<p><strong>重要：</strong>XCodeのバージョンが何か確認してください。メニューバーから、XCode &gt; About XCodeで確認できます。もし4.0より小さいバージョンですとwindowの見た目がかなり違うと思いますが、慌てる必要はありません。 インターフェース上、対応する機能は、簡単に見つけられるはずです。</p>
+<p>大きな"Run"ボタンが左上にあります。XCode3系をお使いの方ですと、"Build &amp; Run"ボタンです。 このボタンを押すと現在選択しているアーカイブターゲットが実行されます。しかし、デフォルトではアクティブターゲットが"openFrameworks"となっていると思います。このまま"Run"ボタンを押しても何も行われません。　今、実行したいプログラムは"graphicsExample"なので、もし以下の様に"openFrameworks"が選択されていたら、</p>
 <p><img alt="openFrameworks library chosen" src="images/target-bad.png" /></p>
-<p>Click and drag down so that it looks like this:</p>
+<p>"openFrameworks"の部分をクリックして"graphicsExample"を選択しましょう。下記の様になると思います。</p>
 <p><img alt="graphicsExample target chosen" src="images/target-good.png" /></p>
-<p>Now click "Run!"  You should see this:</p>
+<p>では、"Run"ボタンをクリックしましょう！この様に表示されるはずです。</p>
 <p><img alt="graphicsExample, running" src="images/graphicsExample03.png" /></p>
-<p>Press escape or Apple+Q to exit out of the program.</p>
-<p>[WARNING]</p>
-<h3>Troubleshooting compilation</h3>
-<p>If you are getting errors, try switching the "Base SDK" setting to 10.6</p>
+<p>エスケープキー　もしくは、Apple+Qでプログラムが終了します。</p>
+<p><strong>注意：トラブルシューティング</strong></p>
+<p>もしエラーが発生したら、"Base SDK"の設定を10.6にしましょう。</p>
 <ul>
-<li>Click on the "graphicsExample" in the section on the far left</li>
-<li>Click on "Build Settings" as shown below</li>
-<li>Make sure the "All" and "Combined" ovals are selected as shown below</li>
-<li>Next to <em>Base SDK</em>, click and drag to "10.6"</li>
+<li>左端にある"graphicsExample"をクリック</li>
+<li>“Build Settings”をクリック　- 下記参照</li>
+<li>"All"と"Combined"を選択しておきましょう。</li>
+<li><em>Base SDK</em> を選択して、10.6に設定しましょう。</li>
 </ul>
 <p><img alt="10.6 Fix" src="images/tenpointsix.png" /></p>
-<h2>It's possible that you will have to do this for every project, so you might as well get used to it :)</h2>
-<p>Now you should open and run all of the other examples.</p>
+<h5>プロジェクト毎にこの設定を行う可能性があるので、慣れておく事をお勧めします。</h5>
+<p>では、全てのサンプルプログラムを試してみましょう。</p>
 <h3>Code::Blocks</h3>
 <p>coming soon!</p>
 <h3>Visual Studio</h3>
 <p>coming soon!</p>
-<h2>Creating Your First Project</h2>
+<h2>初めてのプロジェクト作成</h2>
 <p>As mentioned in the introduction, openFrameworks takes care of most of the tedious work of setting up a c++ project in your IDE of choice. However, unlike programs like Flash or Processing, there is no "File &gt; New" that allows you to create a project. Instead, the preferred method is to duplicate one of the example projects. </p>
 <p>IMPORTANT: By extension, this means that you should never edit any of the example projects or put your own apps into the examples folders. They are placed there to provide starting points for your own apps, but you'll want to keep them pristene so that you always have a working starting point for your projects. You'll see the importance of this more as you move forward.</p>
 <p>As simple as this seems, this can be a huge stumbling block for a lot of beginners, so first lets agree on some terminology. </p>
@@ -1107,13 +1107,13 @@ Functions
 
 Last updated 
   
-Sunday, 11 March 2012 08:22:03 UTC
+Sunday, 11 March 2012 12:44:40 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-9bc2823a3a42b74671943cbeae9f1fb28a94f397
+393c30032e0e08f73a3146e5c5feccd218e9df39
 ">
 
-9bc2823a3a42b74671943cbeae9f1fb28a94f397
+393c30032e0e08f73a3146e5c5feccd218e9df39
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->

@@ -1,7 +1,8 @@
 ---
 date: 2012/03/20 20:18:00
 title: openFrameworks 007 プレゼンテーション
-summary: Antwerpで行われたFreakDayミーティング用に準備されたこれらの基調講演資料はopenFrameworks coreの大部分について説明されています。作成者：roxlu
+summary: Antwerpで行われたFreakDayミーティング用に準備されたこれらの基調講演資料はopenFrameworks coreの大部分について説明されています。
+author: roxlu
 author_site: http://www.roxlu.com/
 ---
 これらのプレゼンテーションはroxluによって準備され、Antwerpで行われたFreakDayミーティング後に彼の[ブログ](http://www.roxlu.com/blog/entry/145/openframeworks-007-presentations)にて公開されました。
