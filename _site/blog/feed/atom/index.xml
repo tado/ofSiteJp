@@ -7,10 +7,10 @@
   <title type="text">openFrameworks.jp</title>
   <subtitle type="text">Your Blog's short description</subtitle>
 
-  <updated>2012-03-11T12:44:19Z</updated>
+  <updated>2012-03-12T19:52:53Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
-  <link rel="alternate" type="text/html" href="http://localhost:8080/blog" />
-  <id>http://localhost:8080/blog/feed/atom/</id>
-  <link rel="self" type="application/atom+xml" href="http://localhost:8080/blog/feed/atom/" />
+  <link rel="alternate" type="text/html" href="http://openFrameworks.jp/blog" />
+  <id>http://openFrameworks.jp/blog/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://openFrameworks.jp/blog/feed/atom/" />
 </feed>
