@@ -1,59 +1,51 @@
 <%inherit file="/_templates/markdown.mako" />
 
-xcode setup guide
+Xcodeセットアップガイド
 ==================
 
-Step 1 -- Install Xcode  
-Step 2 -- Using openFrameworks
+ステップ1 -- Xcodeのインストール<br/>
+ステップ2 -- openFrameworksを使う
 
-Xcode Quirks: Spaces in main project folder name  
-Xcode Quirks: Adding files to project
-Xcode 4.0 Notes and 10.7.2 Issues
+Xcodeの癖：メインプロジェクトフォルダーの名前でのスペースの使用<br/>
+Xcodeの癖：新規ファイルの追加<br/>
+Xcode 4.0の注意と、OSX 10.7.2について
 
+**ステップ1：Xcode3以上のバージョンをダウンロードしてインストール** 
 
-**Step 1: Download and install Xcode 3 or higher**
-
-
-Xcode is Apple's free gcc based IDE for OS X. You can download it from the [Apple Developer Center][0], though you have to be registered as an apple developer. Registration is free and relatively painless.
+XcodeはApple社製のOSXベースのフリーの統合開発環境(IDE)です。Appleの開発者として登録していれば、[デベロッパーセンター][0]からダウンロードできます。[デベロッパー登録](https://developer.apple.com/jp/programs/register/)は無料で、さほど大変でもありません。
 
 ![adcLogin](adcLogin.jpg)  
 
-Once you are logged in, select the link in the for Mac Dev Center
+登録したアカウントでログインして、[Member Center](https://developer.apple.com/membercenter/index.action)のリンクを選びます。
 
 ![adcDeveloperTools](adcDeveloperTools.jpg)  
 
-
-Download the latest version of Xcode 3 or Xcode 4. 
-_ Note: Currently there are two distinct version of Xcode - Xcode 3 and Xcode 4 ( for Lion ). 
-We recommend Xcode 3 as Xcode 4 is still quite buggy and not as easy to navigate but openFrameworks does work on both. _
+最新のバージョンのXcode3、またはXcode4をダウンロードします。
 
 ![adcDownload](adcDownload.jpg)  
 
+ダウンロードが完了すると、インストーラーのディスクイメージがマウントされ、XcodeToolsのパッケージが起動されます。カスタマイズのオプションが出てくるまで、クリックしていきます。
 
-Once the download completes, mount the installer and run the XcodeTools package. Click through the installer till you see the customize option. 
+これはインストールするかしないかを選択するところで、もしあまりディスクスペースの余裕がなくて、1.3GBもある開発者ドキュメントをスキップしたいのであれあ、下記で図示した部分をクリックします。
 
-Click it. This gives you the option to skip certain parts of the install. If you are short on disk space you'll probably want to skip the 1.3GB of developer documentation.
-
-It is also recommended that you check any boxes that indicate support for older versions of OS X ie 10.5 / 10.6 etc. 
+また、OS X 10.5や10.6などの古いバージョンのサポートをするかどうかを示す全てのボックスをチェックしておくことをお勧めします。
 
 ![xcodeCustomize](xcodeCustomize.jpg)  
 
-
-The installer starts installing.
+インストーラーがインストールを開始します。
 
 ![xcodeInstalling](xcodeInstalling.jpg)  
 
-
-The Developer Tools installer will have installed a folder called _Developer_ in the root (highest level) of you hardrive. The Xcode application is located at _/Developer/Applications/Xcode.app_.
+デベロッパーツールのインストーラーは、ハードドライブのroot(一番上位の階層)にある_Developer_フォルダにインストールします。Xcodeのアプリケーションは、_/Developer/Applications/Xcode.app_に配置されます。
 
 ![xcodeLocation](xcodeLocation.jpg)  
 
+コンピュータにXcodeがうまくインストールできたら、いよいよopenFrameworksのサンプルをチェックします。
 
-Now that Xcode has been successfully installed on your computer it is time to check out the openFrameworks examples.
 
-**Step 2: Using openFrameworks**
+**ステップ2：openFrameworksを使う**
 
-Download the openFrameworks examples from the [download][1] section of this website. Once downloaded and unzipped place the folder in an appropriate location on your hardrive. Unzipped, the contents of the folder should look something like this.
+このWebサイトの[download][1]のセクションから、サンプルをダウンロードします。ダウンロードして展開したら、ハードドライブの適切な場所にフォルダを配置します。展開されたフォルダー内のコンテンツは下記のようになります。
 
 ![ofFolderStructure](ofFolderStructure.jpg)  
 
@@ -255,7 +247,7 @@ In the meantime check [these tips posted on the forum][3].
 
 
 
-[0]: https://connect.apple.com/
-[1]: http://www.openframeworks.cc/download
+[0]: http://connect.apple.com
+[1]: http://www.openframeworks.jp/download
 [2]: http://blog.davidpaulrosser.co.uk/2011/08/getting-openframeworks-0-07-compiling-with-osx-10-7/
 [3]: http://forum.openframeworks.cc/index.php/topic,7621.0.html

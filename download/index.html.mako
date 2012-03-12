@@ -10,7 +10,7 @@
 <div id="download-latest-platform">
   <h2>osx</h2>
   <h3>ダウンロード</h3>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_osx.zip">xcode</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_osx.zip">xcode</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/xcode">xcode</a></p>
 </div>
@@ -18,8 +18,8 @@
 <div id="download-latest-platform">
   <h2>linux</h2>
   <h3>ダウンロード</h3>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_linux.tar.gz">code::blocks</a></p>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_linux64.tar.gz">code::blocks (64 bit)</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_linux.tar.gz">code::blocks</a></p>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_linux64.tar.gz">code::blocks (64 bit)</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/linux-codeblocks">code::blocks</a></p>
 </div>
@@ -27,8 +27,8 @@
 <div id="download-latest-platform">
   <h2>windows</h2>
   <h3>ダウンロード</h3>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_win_cb.zip">code::blocks</a></p>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_vs2010.zip">visual studio 2010</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_win_cb.zip">code::blocks</a></p>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_vs2010.zip">visual studio 2010</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/codeblocks">code::blocks</a></p>
   <!--<p><a href="../setup/vs-2008">visual studio 2008</a></p>-->
@@ -39,7 +39,7 @@
   <h2>ios</h2>
   <p><em>osxのみ</em></p><br/>
   <h3>ダウンロード</h3>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_iphone.zip">ios</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_iphone.zip">ios</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/iphone">ios</a></p>
 </div>
@@ -48,7 +48,7 @@
   <h2>android</h2>
   <p><em>linuxもしくはosxのみ</em></p><br/>
   <h3>ダウンロード</h3>
-  <p><a href="../versions/preRelease_v0.07/of_preRelease_v007_android.tar.gz">eclipse</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_android.tar.gz">eclipse</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/android-eclipse">eclipse</a></p>
 </div>

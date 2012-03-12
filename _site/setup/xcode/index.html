@@ -95,38 +95,36 @@
       <div id="body-wrap">
       		<div class="page-left-wide">
                 
-  <h1>xcode setup guide</h1>
-<p>Step 1 -- Install Xcode<br />
-Step 2 -- Using openFrameworks</p>
-<p>Xcode Quirks: Spaces in main project folder name<br />
-Xcode Quirks: Adding files to project
-Xcode 4.0 Notes and 10.7.2 Issues</p>
-<p><strong>Step 1: Download and install Xcode 3 or higher</strong></p>
-<p>Xcode is Apple's free gcc based IDE for OS X. You can download it from the <a href="https://connect.apple.com/">Apple Developer Center</a>, though you have to be registered as an apple developer. Registration is free and relatively painless.</p>
+  <h1>Xcodeセットアップガイド</h1>
+<p>ステップ1 -- Xcodeのインストール<br/>
+ステップ2 -- openFrameworksを使う</p>
+<p>Xcodeの癖：メインプロジェクトフォルダーの名前でのスペースの使用<br/>
+Xcodeの癖：新規ファイルの追加<br/>
+Xcode 4.0の注意と、OSX 10.7.2について</p>
+<p><strong>ステップ1：Xcode3以上のバージョンをダウンロードしてインストール</strong> </p>
+<p>XcodeはApple社製のOSXベースのフリーの統合開発環境(IDE)です。Appleの開発者として登録していれば、<a href="http://connect.apple.com">デベロッパーセンター</a>からダウンロードできます。<a href="https://developer.apple.com/jp/programs/register/">デベロッパー登録</a>は無料で、さほど大変でもありません。</p>
 <p><img alt="adcLogin" src="adcLogin.jpg" /><br />
 </p>
-<p>Once you are logged in, select the link in the for Mac Dev Center</p>
+<p>登録したアカウントでログインして、<a href="https://developer.apple.com/membercenter/index.action">Member Center</a>のリンクを選びます。</p>
 <p><img alt="adcDeveloperTools" src="adcDeveloperTools.jpg" /><br />
 </p>
-<p>Download the latest version of Xcode 3 or Xcode 4. 
-_ Note: Currently there are two distinct version of Xcode - Xcode 3 and Xcode 4 ( for Lion ). 
-We recommend Xcode 3 as Xcode 4 is still quite buggy and not as easy to navigate but openFrameworks does work on both. _</p>
+<p>最新のバージョンのXcode3、またはXcode4をダウンロードします。</p>
 <p><img alt="adcDownload" src="adcDownload.jpg" /><br />
 </p>
-<p>Once the download completes, mount the installer and run the XcodeTools package. Click through the installer till you see the customize option. </p>
-<p>Click it. This gives you the option to skip certain parts of the install. If you are short on disk space you'll probably want to skip the 1.3GB of developer documentation.</p>
-<p>It is also recommended that you check any boxes that indicate support for older versions of OS X ie 10.5 / 10.6 etc. </p>
+<p>ダウンロードが完了すると、インストーラーのディスクイメージがマウントされ、XcodeToolsのパッケージが起動されます。カスタマイズのオプションが出てくるまで、クリックしていきます。</p>
+<p>これはインストールするかしないかを選択するところで、もしあまりディスクスペースの余裕がなくて、1.3GBもある開発者ドキュメントをスキップしたいのであれあ、下記で図示した部分をクリックします。</p>
+<p>また、OS X 10.5や10.6などの古いバージョンのサポートをするかどうかを示す全てのボックスをチェックしておくことをお勧めします。</p>
 <p><img alt="xcodeCustomize" src="xcodeCustomize.jpg" /><br />
 </p>
-<p>The installer starts installing.</p>
+<p>インストーラーがインストールを開始します。</p>
 <p><img alt="xcodeInstalling" src="xcodeInstalling.jpg" /><br />
 </p>
-<p>The Developer Tools installer will have installed a folder called <em>Developer</em> in the root (highest level) of you hardrive. The Xcode application is located at <em>/Developer/Applications/Xcode.app</em>.</p>
+<p>デベロッパーツールのインストーラーは、ハードドライブのroot(一番上位の階層)にある_Developer_フォルダにインストールします。Xcodeのアプリケーションは、_/Developer/Applications/Xcode.app_に配置されます。</p>
 <p><img alt="xcodeLocation" src="xcodeLocation.jpg" /><br />
 </p>
-<p>Now that Xcode has been successfully installed on your computer it is time to check out the openFrameworks examples.</p>
-<p><strong>Step 2: Using openFrameworks</strong></p>
-<p>Download the openFrameworks examples from the <a href="http://www.openframeworks.cc/download">download</a> section of this website. Once downloaded and unzipped place the folder in an appropriate location on your hardrive. Unzipped, the contents of the folder should look something like this.</p>
+<p>コンピュータにXcodeがうまくインストールできたら、いよいよopenFrameworksのサンプルをチェックします。</p>
+<p><strong>ステップ2：openFrameworksを使う</strong></p>
+<p>このWebサイトの<a href="http://www.openframeworks.jp/download">download</a>のセクションから、サンプルをダウンロードします。ダウンロードして展開したら、ハードドライブの適切な場所にフォルダを配置します。展開されたフォルダー内のコンテンツは下記のようになります。</p>
 <p><img alt="ofFolderStructure" src="ofFolderStructure.jpg" /><br />
 </p>
 <p>The examples are located within the <em>"apps"</em> folder. Within each example folder is the Xcode project file <em>"graphicsExample.xcodeproj"</em>. This file will open the Xcode project for that example.</p>
@@ -265,13 +263,13 @@ Click the folder icon at the top of the sidebar to show the traditional file vie
 
 Last updated 
   
-Monday, 12 March 2012 19:53:20 UTC
+Monday, 12 March 2012 22:02:43 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-a55ae25d45217c448031d080c2ce601a7a70d3ea
+ed20bcdfd2f4c891f34c832fc49c45e417caee44
 ">
 
-a55ae25d45217c448031d080c2ce601a7a70d3ea
+ed20bcdfd2f4c891f34c832fc49c45e417caee44
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
