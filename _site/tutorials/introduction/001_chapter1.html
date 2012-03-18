@@ -119,7 +119,7 @@
         	    <span class="article_meta">2012/02/28&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="http://www.jeffcrouse.info/">Jeff Crouse</a></span><br/>
         	    <div class="article">
         	    
-  <h2>Your First Look inside oF</h2>
+  <h2>openFrameworksディレクトリ構成</h2>
 <p>今このページを閲覧している方々は、http://www.openframeworks.cc/download/ にてopenFrameworksアーカイブファイルをダウンロードし終わり、この適切なセットアップガイドのページにたどり着いているのかと思います。</p>
 <p>まず最初にダウンロードしたopenFrameworksのアーカイブファイルを解凍し、解凍後に出来たフォルダを、簡単にアクセス出来る場所に配置する事から行いましょう。　個人的には、下記の様に書類フォルダに配置し、そのショートカットをサイドバーに作成する事が好きです。</p>
 <p><img alt="Shortcut" src="images/shortcut.png" /></p>
@@ -164,43 +164,52 @@
 <h3>Visual Studio</h3>
 <p>coming soon!</p>
 <h2>初めてのプロジェクト作成</h2>
-<p>As mentioned in the introduction, openFrameworks takes care of most of the tedious work of setting up a c++ project in your IDE of choice. However, unlike programs like Flash or Processing, there is no "File &gt; New" that allows you to create a project. Instead, the preferred method is to duplicate one of the example projects. </p>
-<p>IMPORTANT: By extension, this means that you should never edit any of the example projects or put your own apps into the examples folders. They are placed there to provide starting points for your own apps, but you'll want to keep them pristene so that you always have a working starting point for your projects. You'll see the importance of this more as you move forward.</p>
-<p>As simple as this seems, this can be a huge stumbling block for a lot of beginners, so first lets agree on some terminology. </p>
-<p>When you open your apps folder, you see 2 folders: <em>examples</em> and <em>addonsExamples</em>. Let's call these folders <em>workspaces</em>.</p>
-<p>If you open one of those workspaces, you see more folders, like <em>easyCamExample</em>, <em>floatingPointImageExample</em>, <em>movieGrabberExample</em>, and <em>serialExample</em>. Each one of those folders is a <em>project</em>. Each contains (among other things) an ".xcodeproj" file and a "src" folder. A <em>project</em> <em>must</em> be inside a <em>workspace</em> and can be compiled into a single application.</p>
+<p>冒頭で述べたように、openFrameworksは、うんざりするようなC++プロジェクトをセットアップする事に関しては必要ありません。しかしながらFlashやProcessingの様に、プロジェクトの作成方法として、"ファイル" &gt; "新規作成"というようなものが存在しません。代わりにexampleプロジェクトをコピーする事で賄っています。</p>
+<p><strong>重要：</strong>
+上記をふまえると、exampleプロジェクトを修正したりexpampleフォルダ内にあなたの作ったアプリケーションを配置するべきではないという事を意図しています。exampleプロジェクトは、あなた自身がこれから作ろうとするアプリケーションのスタートポイントとして配置（存在）されています。何か新しいプロジェクトを作成する時のスタートポイントとして維持しておいた方がよいでしょう。この大切さは、openFrameworksの理解が進むにつれ分かってくると思います。</p>
+<p>初心者の多くにとっては、これらは見た目よりも、大きな障害になる可能性がありますので、まず最初にいくつか用語を決めて、説明していきます。</p>
+<p>appsフォルダを開くと、 <em>examples</em> と <em>addonsExamples</em> フォルダが存在しています。
+これらを<em>ワークスペース</em>と呼ぶ事にしましょう。</p>
+<p>ワークスペースの一つを開いてみると、その中に幾つかのフォルダ… <em>easyCamExample</em>, <em>floatingPointImageExample</em>, <em>movieGrabberExample</em>, <em>serialExample</em> などがあります。これらの１つ１つが<em>プロジェクト</em>になります。各プロジェクトは、".xcodeproj"ファイルと"src"フォルダを含んでいます。<em>プロジェクト</em>は、<em>ワークスペース</em>内に存在していないといけません。そして１つのアプリケーションとしてコンパイルされます。</p>
 <p><img alt="Workspace terminology" src="images/workspace04.png" /></p>
-<p>We want to create a <em>project</em>, but every project has to live inside a <em>workspace</em>, and we're not supposed to put anything into the <em>examples</em> and <em>addonsExamples</em> workspaces, so our first step is going to be to make a new <em>workspace</em> by simply creating a folder called "MyFirstWorkspace" in the apps folder. You will probably end up making many workspaces while using openFrameworks. You can use them however you want, but the important thing is that they are directly inside the "apps" folder, ie: you can't have a workspace inside another workspace. </p>
+<p>各<em>プロジェクト</em>を作るにあたり、各プロジェクトは<em>ワークスペース</em>内に配置しなければなりません。そして、<em>examples</em>と<em>addonsExamples</em>ワークスペース内には、他にあなたが独自に作成したものを配置する事を推奨しません。
+という事をふまえ、まずは、新しい<em>ワークスペース</em>を作ってみましょう。単に“MyFirstWorkspace”というフォルダをappsフォルダ内に作成してください。openFrameworksを使って行くうちに、多くのワークスペースを作成することになるとおもいますが、"apps"フォルダ直下に置かなければいけないという事が重要です。言い換えれば、あるワークスペースは、他のワークスペース内に配置する事は出来ないという事です。</p>
 <p><img alt="&quot;My First Workspace&quot;" src="images/workspace01.png" /></p>
-<p>Next we will [underline]#copy# (NOT move) the entire "emptyExample" folder from the "examples" workspace and paste it into "MyFirstWorkspace". On a mac, you can literally click on the emptyExample folder, press apple+C, then navigate to the "MyFirstWorkspace" folder and press apple+V. So the result should look like this:</p>
+<p>次に、"emptyExample"フォルダを"examples"ワークスペースから"MyFirstWorkspace"フォルダへコピー（移動ではないですよ！）しましょう。Macをお使いの方でしたら、文字通りemptyExampleフォルダをクリックして選択し、コマンド＋Cでコピーし、“MyFirstWorkspace”フォルダに移動して、コマンド+Vでペーストになります。結果、次の様になっていると思います。</p>
 <p><img alt="My First Project" src="images/workspace02.png" /></p>
-<p>Next, we can rename the duplicate project folder from "emptyExample" to "MyFirstProject". </p>
+<p>次に、コピーした"emptyExample"フォルダ名を"MyFirstProject"とリネームしましょう。</p>
 <p><img alt="My First Project" src="images/workspace03.png" /></p>
-<p>The super important thing here is that your XCode Project file is <em>exactly</em> 3 folders "below" the Root Folder (refer to colorful diagram above). So, whenever you make a new project, or if you are suddenly getting thousands of errors for no apparent reason, you should always double check that your XCode Project file is in the correct place.</p>
-<p>The reason for this has to do with the 'lib' folder. We previously mentioned that openFrameworks is a "glue" for a bunch of different libraries, and these libraries are located in the 'lib' directory. We also discovered that it is the the job of the IDE know how to find and link together the various libraries. So, when the IDE tries to compile your program, it is set up to look for libraries in "../../../lib", or, in other words: "go back three folders (http://support.dtsearch.com/webhelp/dtsearch/relative_paths.htm[relative] to your .xcodeproj) and then look for a lib directory."  For instance, if you dig deep into the settings of any openFrameworks project, you will find paths like "../../../libs/FreeImage/include" and "../../../libs/poco/include". So, as long as your .xcodeproj file is within of_preRelease_v007_osx/apps/[workspace]/[project], everything will compile. If not, things will get ugly.</p>
-<p>Okay!  Now you have created your first very own openFrameworks project. Double click on the XCode Project file in your new "MyFirstProject" and make sure "emptyExample" is selected as the target and click "Run" and you should see:</p>
-<p>image:images/PlainGray.png["Plain Gray Window",width="600"]</p>
-<p>Nothing! But that's exactly what you should see. Well, it's not too exciting yet, but you are well on your way.</p>
-<p>Press escape or Apple+Q to exit out of the program.</p>
-<h3>Renaming your Project in XCode</h3>
-<p>You might be tempted to also rename "emptyExample.xcodeproj" to "MyFirstProject.xcodeproj", and if you are using XCode &lt; 4, you can. But as of XCode 4, this seems to cause some problems. So, instead, open up your project in XCode and click on the "emptyExample" title in the upper left as shown here:</p>
+<p>ここで一番重要な事は、XCodeプロジェクトファイルが、Rootフォルダ（色のついた上記の図を参照ください）から、<em>丁度</em>３つ下ったところに配置されている事です。新しいプロジェクトを作成した時に、明白な理由がないにも関わらず、もし何千ものエラーが出た場合は、XCodeプロジェクトファイルが正しい位置に配置されているかどうかを確認してください。</p>
+<p>この理由は'lib'フォルダと関係しています。以前、openFrameworksは沢山のライブラリ群の"糊"であり、それらのライブラリ群は'lib'ディレクトリに配置されていますと説明しました。</p>
+<p>またいろいろなライブラリ群を見つけてリンクをするのはIDEの仕事という事も、知りました。そのため、IDEがあなたのプログラムをコンパイルしようとする時、"../../../lib"内からライブラリ群を探す様にセットアップされたり、また、別の言い方をすると、「フォルダを３つ戻ってlibフォルダを探す(http://support.dtsearch.com/webhelp/dtsearch/relative_paths.htm[relative] to your .xcodeproj)」とも言えます。</p>
+<p>例えば、もしopenFrameworksプロジェクトの設定を深く掘った場合は、"../../../libs/FreeImage/include" や "../../../libs/poco/include"の様にして見つける事になるでしょう。</p>
+<p>.xcodeprojファイルがof_preRelease_v007_osx/apps/[workspace]/[project]内にある限りは、全てコンパイルされるでしょうが、そうでなければ、コンパイル結果は醜いものとなるでしょう。</p>
+<p>では、これで、あなたの最初のopenFrameworksプロジェクトが出来ました。"MyFirstProject"内のXCodeプロジェクトファイルをダブルクリックし、"emptyExample"がターゲットとして選択されている事を確認したら、"Run"ボタンをクリックしてみましょう。　</p>
+<p><img alt="My First Project" src="images/PlainGray.png" /></p>
+<p>なにもない！ですね。でも、これで大丈夫です。今のところ、エキサイティングなものではないのですが、これは正常な結果なのです。</p>
+<p>エスケープキーまたはコマンド+Qでプログラムを終了できます。</p>
+<h3>プロジェクト名の変更（XCode）</h3>
+<p>"emptyExample.xcodeproj"ファイル名を"MyFirstProject.xcodeproj"に変更したいと思うでしょう。もし使用しているXCodeのバージョンが4より小さい場合は可能ですが、XCode 4を使用している場合は、いくつか問題が生じます。
+XCode4を使用している場合は、XCodeでプロジェクトを開き、左上にある"emptyExample"をクリックし選択します。</p>
 <p><img alt="Renaming your Project" src="images/rename01.png" /></p>
-<p>After you rename it, you will get a dialog box asking you if you'd like to rename a bunch of other stuff. Click "Rename"</p>
+<p>リネームすると、下記の様なダイアログボックスが表示されますので、"Rename"ボタンをクリックしましょう。</p>
 <p><img alt="Renaming your Project" src="images/rename02.png" /></p>
-<h3>voila!</h3>
-<p>When you click "Run" from within XCode, what actually happens behind the scenes is that your code is compiled into an executable and placed within the "bin" directory. Then that application is run just as if you had double clicked it. So, if you look in "MyFirstWorkspace/MyFirstApplication/bin" folder, you should see an application icon. This is your application! If you double-click on it, you will see the same gray window. Now you can send this application to all of your friends (who use a Mac) and they can launch your wonderful gray window program.</p>
+<h3>完成!</h3>
+<p>XCodeの"Run"ボタンをクリックすると、プログラムコードがコンパイルされ実行可能ファイルが“bin”ディレクトリ内に配置されます。この実行可能ファイルをダブルクリックすることで、アプリケーションが実行されます。
+"MyFirstWorkspace/MyFirstApplication/bin"フォルダを見てみると、アプリケーションアイコンが見つかるはずです。
+それが、あなたのアプリケーションです！　それをダブルクリックすると、先ほどと同様なグレーウィンドウが表示されると思います。これで、このアプリケーションをMacユーザの友達に送る事が出来ますし、友人達はその素晴らしいグレーウィンドウアプリケーションを実行する事が出来ます。</p>
 <p><img alt="Your Executable" src="images/workspace05.png" /></p>
-<h2>Writing Code</h2>
-<p>Okay, now that you know how to create a project, it's time to start writing some code inside it. The next few sections will introduce you to the structure of an openFrameworks application and a few simple drawing and setup functions.</p>
+<h2>プログラムコードを書く</h2>
+<p>では、プロジェクト作成方法は理解出来たと思いますので、いくつかコードを書く事を始めてみましょう。これからのセクションではopenFrameworksアプリケーションの構造、単純な描画およびsetup関数の紹介になります。</p>
 <h3>testApp.cpp</h3>
-<p>So it's finally time to start looking at some code. The first thing you need to do is open up a project in XCode. I'm going to assume that we are working with "MyFirstProject" inside the workspace "MyFirstWorkspace" from the last section. When you first open it up, take a look in the <em>Navigator View</em> (the panel on the far left of XCode) and click the disclosure triangle like this:</p>
+<p>遂に！、プログラムコードを見て行くところまできました！まず最初に、プロジェクトファイルをXCodeで開く必要がありますね。先ほどのセクションで作成した、"MyFirstWorkspace"ワークスペース内の"MyFirstProject"で作成していきましょう。プロジェクトファイルを開いたら、XCodeの一番左側にある<em>ナビゲーションビュー</em>に目を移動し、以下の様に、三角マークをクリックして開きましょう。</p>
 <p><img alt="Open up the project" src="images/expand01.gif" /></p>
 <ul>
-<li>Click the disclosure triangle next to "MyFirstProject"</li>
-<li>Click the disclosure triangle next to "src"</li>
-<li>Click on testApp.cpp</li>
+<li>"MyFirstProject"の横にある三角マークをクリック</li>
+<li>"src"の横にある三角マークをクリック</li>
+<li>testApp.cppをクリック</li>
 </ul>
-<p>testApp.cpp is going to become your very good friend over the next few tutorials. In the <em>Editor Window</em>, you should see something that starts like this:</p>
+<p>testApp.cpp は、これからのチュートリアルを行ううちに、一番見慣れていくものになるでしょう。 <em>エディターウィンドウ</em>内で、以下の様になっているはずです。</p>
 <pre><code class="cpp">#include &quot;testApp.h&quot;
 
 //--------------------------------------------------------------
@@ -1107,13 +1116,13 @@ Functions
 
 Last updated 
   
-Monday, 12 March 2012 22:02:42 UTC
+Sunday, 18 March 2012 07:09:50 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-ed20bcdfd2f4c891f34c832fc49c45e417caee44
+1943b4029f0a154f5f371400b3ef7a287210118e
 ">
 
-ed20bcdfd2f4c891f34c832fc49c45e417caee44
+1943b4029f0a154f5f371400b3ef7a287210118e
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
