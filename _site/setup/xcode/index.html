@@ -101,7 +101,7 @@
 <p>Xcodeの癖：メインプロジェクトフォルダーの名前でのスペースの使用<br/>
 Xcodeの癖：新規ファイルの追加<br/>
 Xcode 4.0の注意と、OSX 10.7.2について</p>
-<p><strong>ステップ1：Xcode3以上のバージョンをダウンロードしてインストール</strong> </p>
+<p><strong>ステップ1：Xcode3以上のバージョンをダウンロードしてインストール</strong></p>
 <p>XcodeはApple社製のOSXベースのフリーの統合開発環境(IDE)です。Appleの開発者として登録していれば、<a href="http://connect.apple.com">デベロッパーセンター</a>からダウンロードできます。<a href="https://developer.apple.com/jp/programs/register/">デベロッパー登録</a>は無料で、さほど大変でもありません。</p>
 <p><img alt="adcLogin" src="adcLogin.jpg" /><br />
 </p>
@@ -127,133 +127,125 @@ Xcode 4.0の注意と、OSX 10.7.2について</p>
 <p>このWebサイトの<a href="http://www.openframeworks.jp/download">download</a>のセクションから、サンプルをダウンロードします。ダウンロードして展開したら、ハードドライブの適切な場所にフォルダを配置します。展開されたフォルダー内のコンテンツは下記のようになります。</p>
 <p><img alt="ofFolderStructure" src="ofFolderStructure.jpg" /><br />
 </p>
-<p>The examples are located within the <em>"apps"</em> folder. Within each example folder is the Xcode project file <em>"graphicsExample.xcodeproj"</em>. This file will open the Xcode project for that example.</p>
-<p>When the example opens in Xcode you will see a list of files in the left column and the content of the currently selected file (in this case <em>"testApp.cpp"</em>) in the right panel.</p>
+<p>サンプルは_"apps"<em>フォルダに格納されています。サンプルのそれぞれのフォルダの中に、</em>"graphicsExample.xcodeproj"_ のようにXcodeのプロジェクトファイルがあります。このファイルをXcodeで開きます。</p>
+<p>Xcodeでサンプルを開くと、左側のコラムにファイルのリストが、右側のコラムには現在選択しているファイル(この画像の場合は_"testApp.cpp"_)が表示されます。</p>
 <p><img alt="xcodeLeftSide" src="xcodeLeftSide.jpg" /><br />
 </p>
-<p>The first thing you will probably want to do is to compile and run the app to make sure it works. Along the top of the Xcode window you should see a button called <em>"Build and Go"</em> this button will compile the example app and as long as there are no errors it should then launch the app successfully. If you get a ton of errors on the first compile -- try going to the Build menu and selecting "Clean All Targets" -- then try again to compile.</p>
+<p>おそらく最初にやってみたいことは、プログラムをコンパイルして実際に動くかどうかアプリケーションを実行することでしょう。Xcodeのウィンドウの一番上に_"Build and Go"_ というボタンがあります。このボタンは、サンプルをコンパイルして、もしエラーがない限り、アプリを起動します。もし最初のコンパイルでエラーが出る場合は、Buildメニューから、"Clean All Targets"をを選択して、再度コンパイルし直してください。</p>
 <p><img alt="xcodeButtons" src="xcodeButtons.jpg" /><br />
 </p>
 <p><img alt="ofTypeWindow" src="ofTypeWindow.jpg" /><br />
 </p>
-<p><em>Once the app is running -- you can terminate it by hitting the "Esc" key on your keyboard.</em></p>
-<p><strong>Notes: Warnings and Errors</strong></p>
-<p>While the app is compiling you'll notice a little circular <strong>progress meter</strong> on the bottom right corner of the Xcode window. This indicates the percentage of the files compiled.</p>
-<p>The yellow triangle and the number next to it indicates the number of <strong>warning messages</strong> from the compiler. Most of the time you can ignore the warning messages but if you would like to read them click on the triangle and Xcode will open a separate window which will show them as a list.</p>
+<p><em>起動したアプリケーションを終了するには、「Esc(エスケープ)」キーを押します。</em></p>
+<p><strong>注：警告とエラー</strong></p>
+<p>アプリケーションがコンパイルされている間は、Xcodeウィンドウの右下のコーナーに<strong>プログレスメーター</strong>と呼ばれる小さな円が表示されます。これは、ファイルのコンパイル状況をパーセントで表示します。</p>
+<p>黄色い三角形とそれに続く数字は、コンパイラーからの<strong>警告メッセージ</strong>の数を示しています。大抵の場合は、警告メッセージは無視して構いません。しかし、もし警告の内容を読みたいのであれば、三角形をクリックするとXcodeが警告のリストを別ウィンドウで表示します。</p>
 <p><img alt="xcodeCompileProgress" src="xcodeCompileProgress.jpg" /><br />
 </p>
-<p>If the compiler finds <strong>errors</strong> in your code or is just generally unhappy about something the compile will fail and you will see something like this in the bottom right hand corner of your Xcode window.</p>
+<p>もしコンパイラーがコードの中に<strong>エラー</strong>を発見した場合や何らかの喜ばしくないことがある場合、コンパイルは失敗し、Xcodeのウィンドウの右下に何らかの表示がされます。</p>
 <p><img alt="xcodeError" src="xcodeError.jpg" /><br />
 </p>
-<p>As with the warning messages, to <strong>view the errors</strong> click on the red circle and Xcode will bring up a new window where it will list the errors and attempt to <strong>highlight the line in the code</strong> where the errors occurred.</p>
+<p>警告メッセージと同じように、<strong>view the errors</strong>をみるために赤い丸をクリックすると、Xcodeはエラーのリストとどこでエラーが起きたのかわかるように<strong>コードの中をハイライト</strong>して新しいウィンドウで表示します。</p>
 <p><img alt="xcodeErrorShow" src="xcodeErrorShow.jpg" /><br />
 </p>
-<p>Bear in mind that the <strong>error message might not always make sense to you</strong> but most of the time just showing you where the error is will be enough for you to realise your mistake.</p>
-<p>In the code above, by looking at the highlighted line it is quite easy to see that I forgot to put a coma between <em>"frabk.tff"</em> (the font name I wanted to load) and <em>32</em> (the size I wanted to font to be).</p>
-<p>If I put the coma back in both errors go away and the app compiles and launches nicely.</p>
+<p><strong>エラーメッセージは常に意味をなすわけではない</strong>ということを心に留めてください。しかし、多くの場合、エラーがどこで発生したのかを知るだけで、間違いをはっきりさせるには十分です。</p>
+<p>上のコードでは、ハイライトされた行から、<em>"frabk.tff"</em>(ロードしたいフォントの名前)と_32_(フォントのサイズ)の間にコンマをつけ忘れたことを簡単に発見できます。</p>
+<p>もしコンマを挿入すれば、エラーは無くなりアプリケーションはコンパイルされて起動するでしょう。</p>
 <p><img alt="ofGraphicsWindow" src="ofGraphicsWindow.jpg" /><br />
 </p>
-<p><strong>Notes: Run Log</strong></p>
-<p>When the Xcode project launches the app it has another window running behind it called the <em>"Run Log"</em>. This is a console that will give you <strong>feedback about your app</strong> while it is running.</p>
-<p>When the app launches the first thing that is printed to the Run Log is<br />
-</p>
+<p><strong>注：実行ログ</strong></p>
+<p>Xcodeプロジェクトがアプリケーションを起動するとき、_"実行ログ"_と呼ばれるウィンドウが背後で実行されます。これは、実行中に<strong>アプリケーションからのフィードバック</strong>を知らせるためのコンソールです。</p>
+<p>アプリケーションが起動したとき、実行ログはまず最初に以下の出力をします。</p>
 <p><strong>[Session started at 2007-02-25 15:34:07 +0100.]</strong></p>
-<p>When the app exits it will print something like this<br />
-</p>
+<p>アプリケーションを閉じると、以下のような文字が表示されるでしょう。</p>
 <p><strong>openFrameworks has exited with status 0.</strong></p>
-<p>The useful thing about the Run Log is that you can <strong>print</strong> out to it <strong>while your app is running</strong> with <em>"ofLog"</em> . Also if there are openFrameworks related messages or errors they will be printed here as well.</p>
+<p>実行ログの便利な点は、<strong>アプリケーションを実行しながら</strong>_"ofLog"_コマンドを使用して出力ができるところです。また、もしopenFrameworksに関連するメッセージやエラーがあれば、実行ログに出力されるでしょう。</p>
 <p><img alt="RunLog" src="RunLog.jpg" /><br />
 </p>
-<p><strong>Notes: Location of your app</strong></p>
-<p>The application that you are compiling and running with Xcode is located in the <em>"bin/"</em> folder of each project directory. You can always <strong>run the application directly</strong> by double clicking it. Everything will be the same as when you launch it with Xcode except you won't see the Run Log output.</p>
+<p><strong>注：アプリケーションの場所</strong></p>
+<p>Xcodeでコンパイルして実行するアプリケーションは、それぞれのプロジェクトのディレクトリ内の_"bin/"_フォルダに入っています。ダブクリックすればいつでも<strong>アプリケーションを直接起動</strong>することが可能です。実行ログからの出力を見ることができないことを除けば、Xcodeから起動することと違いはありません。</p>
 <p><img alt="buildLocation" src="buildLocation.jpg" /><br />
 </p>
-<p><strong>Xcode -- Bugs and Quirks</strong></p>
-<p><strong>Spaces in main project folder name:</strong> For some reason Xcode freaks out if your main project folder (the one that contains the <em>"apps"</em> and <em>"libs"</em> folder has spaces in the name.</p>
-<p>It will give <strong>linking errors</strong> that it can't find certain libraries in the libs folder.</p>
+<p><strong>Xcode -- バグと癖</strong></p>
+<p><strong>メインプロジェクトフォルダでのスペースの使用</strong> いくつかの理由により、Xcodeは、もしメインのプロジェクトフォルダ(<em>"apps"_や</em>"libs"_を含めて)名前にスペースがあると、おかしなことになります。</p>
+<p>libsフォルダの中から正しいライブラリを見付けることができず、<strong>リンクエラー</strong>になってしまいます。</p>
 <p><img alt="badFolder" src="badFolder.jpg" /><br />
 </p>
-<p>The folder name above, with the space between 'my' and 'apps' will give you all sorts of problems. Replacing the space with a dash or concatenating the spaces, as below will keep everything happy.</p>
+<p>上記のフォルダ名では、'my'と'apps'の間にスペースがあるため、同じような問題が起こります。スペースをダッシュ「-」を使用したり、下記のようにそのまま繋ぎあわせることで、全てはうまくいきます。</p>
 <p><img alt="goodFolder" src="goodFolder.jpg" /><br />
 </p>
-<p><strong>Adding files to project: relative vs absolute path</strong> When you add source code files or libraries to your project Xcode will ask you whether you wish the path to the file to be a relative path or an absolute path.</p>
+<p><strong>ファイルをプロジェクトに追加：相対パスと絶対パス</strong> ソースコードのファイルやライブラリをプロジェクトに追加する際、Xcodeはファイルへのパスを、相対パスにするか絶対パスかを訊いてきます。</p>
 <p><img alt="addDialogRelative" src="addDialogRelative.jpg" /><br />
 </p>
-<p>As a rule for <strong>all files</strong> in your main <strong>openFrameworks folder</strong> and its sub-folders make sure you <strong>choose</strong> <em>"relative to project"</em>.If you select <strong>absolute path</strong> then everytime you move your openFrameworks folder around or onto another computer <strong>Xcode will freak out</strong> because your files will have been listed with paths that don't exist anymore.</p>
-<p>For example a path like: <em>"/User/yourname/Documents/openFrameworksProjects"</em> means that the Xcode project will <strong>only work</strong> if the openFrameworks folder is in that specific place. Obviously this is <strong>not a good thing</strong>.</p>
-<p>The <strong>default path</strong> it will give you is <strong>usually an absolute one</strong> so make sure you <strong>change it</strong> to <em>"relative to project"</em> before you click add.</p>
-<p>The <strong>only files</strong> that should have <strong>absolute paths</strong> are the <strong>System Frameworks</strong> which you will most likely not need to add.</p>
-<p><strong>Xcode 4.0 Notes:</strong></p>
-<p><strong>This is the ideal layout for your Xcode 4 project:</strong></p>
+<p>メインの<strong>openFrameworksのフォルダ</strong>内の<strong>全てのファイル</strong>とサブフォルダに関するルールは、<strong>_"relative to project (プロジェクトに相対的に)"_を選択</strong>しなければなりません。もし<strong>絶対パス</strong>を選択してしまうと、openFrameworksのフォルダを移動したり、他のコンピュータに持っていった際に、<strong>Xcodeがおかしくなります</strong>。なぜなら、パスによってリストアップしたファイルが存在しなくなってしまうからです。</p>
+<p>例えば、<em>"/User/yourname/Documents/openFrameworksProjects"</em> といったパスの指定は、openFrameworksが特定のフォルダに配置されている時しか<strong>正しく動作しません</strong>。明らかに、これは<strong>良いことではありません</strong>。</p>
+<p><strong>初期設定でのパス</strong>は、<strong>絶対パスになっていることが普通</strong>です。ですので、追加する前に_"relative to project"_ に<strong>変更する</strong>ように気をつけてください。</p>
+<p><strong>絶対パス</strong>にする<strong>唯一</strong>のファイル群は、ほとんど追加する必要は無いですが、<strong>System Frameworks</strong>です。</p>
+<p><strong>Xcode 4.0 の注意</strong></p>
+<p><strong>Xcode4のプロジェクトでの典型的なレイアウトです。</strong></p>
 <p><img alt="xc4" src="xc4.png" /><br />
 </p>
-<p>Xcode 4 has a completely redesigned interface. Here are some important differences:</p>
-<p><strong>Side bar view mode:</strong></p>
-<p>When you first open an openFrameworks project you might find the files in the sidebar aren't showing up. 
-Click the folder icon at the top of the sidebar to show the traditional file view ( you might need to expand out the list with the sidebar arrows ). </p>
+<p>Xcode 4のインターフェイスは一からデザインし直されました。いくつかの重要な違いがあります。</p>
+<p><strong>サイドバー・ビューモード</strong></p>
+<p>最初にopenFrameworksのプロジェクを開いた時は、サイドバーの中にファイルが表示されていないことに気付くでしょう。
+サイドバーの上にあるフォルダアイコンをクリックすることで、いままで通りのファイル表示になります (サイドバーの矢印をクリックしてリストを展開する必要があります)。</p>
 <p><img alt="xc4sideBarTop" src="xc4sideBarTop.png" /><br />
 </p>
 <p><img alt="xc4sidebarFileSelected" src="xc4sidebarFileSelected.png" /><br />
 </p>
-<p><strong>Run button:</strong></p>
-<p>In Xcode 4 the Run button has replaced the "Build" and "Build and Run" buttons. </p>
-<p>To compile and launch your app hit the "Run" button.</p>
+<p><strong>実行ボタン(Build button)</strong></p>
+<p>Xcode 4では、"Build"ボタンと"Build and Run"ボタンは、"Run"ボタンに変更されました。アプリケーションをコンパイルして実行するには、"Run"ボタンを押します。</p>
 <p><img alt="xc4Run" src="xc4Run.png" /><br />
 </p>
-<p><strong>Select the correct Target:</strong></p>
-<p>You might also find that your example is not running.</p>
-<p>This could be because the openFrameworks library and not the example project is set as the active target. </p>
-<p>To correct this, select the example project name from the 'Scheme' drop down. </p>
+<p><strong>正しいターゲットの選択</strong></p>
+<p>あなたは、また、実行してもサンプルが動かないことに気付いたかもしれません。</p>
+<p>これは、アクティブ・ターゲットにサンプルのプロジェクトではなくopenFrameworksのライブラリが選択されているからです。これを修正するには、'Scheme'のドロップダウンメニューから、サンプルのプロジェクトを選択するようにします。</p>
 <p><img alt="xc4changeScheme" src="xc4changeScheme.png" /><br />
 </p>
-<p><strong>Change from Debug to Release:</strong></p>
-<p>When you are done with your app you will want to create a 'Release' version of this. </p>
-<p>In Xcode 3 this is as easy as switching the Build from Debug to Release mode. </p>
-<p>In Xcode 4 by default only Debug is enabled. </p>
-<p>To switch to Release select the "Edit Schemes" from the Schemes menu.</p>
-<p>Then click the example app in the sidebar and change the Build Configuration to Release.</p>
+<p><strong>デバッグモードからリリースモードへ変更する</strong></p>
+<p>アプリケーションの開発が終わったら、リリースバージョンを生成したくなるでしょう。Xcode 3では、デバッグからリリースへビルドの切替えをするのは簡単でした。</p>
+<p>Xcode 4では初期状態ではデバッグしか使用できません。リリースへ切替えるには、Schemeメニューから'Edit Schemes'を選択します。サイドバーからサンプルのアプリケーションを選択し、ビルド設定をReleaseに変更します。</p>
 <p><img alt="xc4editSchemes1" src="xc4editSchemes1.png" /><br />
 </p>
 <p><img alt="xc4editSchemes2" src="xc4editSchemes2.png" /><br />
 </p>
-<p><strong>Errors:</strong></p>
-<p>Xcode 4 compiles code as you type so you might see red errors appear in your code before you build. </p>
-<p>This is actually quite handy and can help you spot mistakes. Also the Errors icon which was in the bottom right corner of the window has now moved to the top panel. </p>
+<p><strong>エラー</strong></p>
+<p>Xcode 4のコンパイラーは、コードをタイピングしながら、ビルドする前でも赤く表示されたエラーをみることができます。</p>
+<p>これは実際とても手軽で、すぐに間違いの場所に気付くことができます。また、画面の右下にあったエラーの表示は、パネルの上部に移動しました。</p>
 <p><img alt="xc4errors" src="xc4errors.png" /><br />
 </p>
-<p><strong>Target OS 10.6 / MacSetRect Error:</strong> </p>
-<p>If you get QuickTime MacSetRect errors on 10.7 with Xcode 4.0, this is because a part of your project is set to 10.7 SDK.</p>
-<p>Currently OF doesn't build against the 10.7 SDK because of QT 7 dependencies. </p>
-<p>To set the project back to 10.6 SDK follow these steps posted <a href="http://blog.davidpaulrosser.co.uk/2011/08/getting-openframeworks-0-07-compiling-with-osx-10-7/">from this blog</a>:</p>
+<p><strong>OS X 10.6をターゲットにする / MacSetRectエラー</strong></p>
+<p>OS X 10.7とXcode 4.0でQuickTimeのMacSetRectエラーになってしまうとしたら、プロジェクトが10.7 SKDに設定されているせいです。QuickTime 7の依存関係のせいで、現在のopenFrameworksでは10.7のSDKではビルドできません。</p>
+<p><a href="http://blog.davidpaulrosser.co.uk/2011/08/getting-openframeworks-0-07-compiling-with-osx-10-7/">このブログにポストされた方法</a>に従って、プロジェクトを10.6 SDKに戻しましょう。</p>
 <ul>
 <li>
-<p>Switch from the openFrameworks scheme to the project scheme</p>
+<p>プロジェクトのSchemeから、openFrameworksのSchemeに切り替えます。</p>
 </li>
 <li>
-<p>Click on the project on the sidebar to bring up the settings</p>
+<p>サイドバーにある"project"をクリックして、設定画面を表示します。</p>
 </li>
 <li>
-<p>Change the Base SDK to 10.6</p>
+<p>Base SDKを10.6に変更します。</p>
 </li>
 <li>
-<p>Repeat the previous line for the build target</p>
+<p>同じ操作を、ビルドターゲットについても繰り返します。</p>
 </li>
 <li>
-<p>Click on the openFrameworks folder in the sidebar</p>
+<p>サイドバーのopenFrameworksフォルダをクリックします</p>
 </li>
 <li>
-<p>Click on the project to bring up the settings</p>
+<p>"project"を選択して、設定画面を表示します。</p>
 </li>
 <li>
-<p>Change the Base SDK to 10.6 like you did before</p>
+<p>先程と同様に、Base SDKを10.6に切り替えます。</p>
 </li>
 <li>
-<p>Repeat for the build target</p>
+<p>同じ操作を、ビルドターゲットについても繰り返します。</p>
 </li>
 </ul>
-<p><strong>10.7.2 OF Issues</strong></p>
-<p>There are a few issues with OF on 10.7.2 - we will work on getting these fixed for the next release.</p>
-<p>In the meantime check <a href="http://forum.openframeworks.cc/index.php/topic,7621.0.html">these tips posted on the forum</a>.</p>
+<p><strong>OS X 10.7.2 oFの課題</strong></p>
+<p>OSX 10.7.2では、いくつかの課題があります。現在、次期リリースで修正されるよう作業中です。
+それまでは、<a href="http://forum.openframeworks.cc/index.php/topic,7621.0.html">フォーラムに投稿されたTips</a>をチェックしてください。</p>
 
             </div>
       </div>
@@ -263,13 +255,13 @@ Click the folder icon at the top of the sidebar to show the traditional file vie
 
 Last updated 
   
-Sunday, 18 March 2012 18:42:53 UTC
+Monday, 19 March 2012 05:57:30 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-9d34c5bd0e15d5822f39df23b39e910c99f61bce
+b429eec0f119d87155763e7f0056db70d81c0c5b
 ">
 
-9d34c5bd0e15d5822f39df23b39e910c99f61bce
+b429eec0f119d87155763e7f0056db70d81c0c5b
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->

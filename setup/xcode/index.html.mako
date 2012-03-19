@@ -10,7 +10,7 @@ Xcodeの癖：メインプロジェクトフォルダーの名前でのスペー
 Xcodeの癖：新規ファイルの追加<br/>
 Xcode 4.0の注意と、OSX 10.7.2について
 
-**ステップ1：Xcode3以上のバージョンをダウンロードしてインストール** 
+**ステップ1：Xcode3以上のバージョンをダウンロードしてインストール**
 
 XcodeはApple社製のOSXベースのフリーの統合開発環境(IDE)です。Appleの開発者として登録していれば、[デベロッパーセンター][0]からダウンロードできます。[デベロッパー登録](https://developer.apple.com/jp/programs/register/)は無料で、さほど大変でもありません。
 
@@ -80,168 +80,143 @@ _起動したアプリケーションを終了するには、「Esc(エスケー
 
 ![xcodeErrorShow](xcodeErrorShow.jpg)  
 
+**エラーメッセージは常に意味をなすわけではない**ということを心に留めてください。しかし、多くの場合、エラーがどこで発生したのかを知るだけで、間違いをはっきりさせるには十分です。
 
+上のコードでは、ハイライトされた行から、_"frabk.tff"_(ロードしたいフォントの名前)と_32_(フォントのサイズ)の間にコンマをつけ忘れたことを簡単に発見できます。
 
-Bear in mind that the **error message might not always make sense to you** but most of the time just showing you where the error is will be enough for you to realise your mistake.
-
-In the code above, by looking at the highlighted line it is quite easy to see that I forgot to put a coma between _"frabk.tff"_ (the font name I wanted to load) and _32_ (the size I wanted to font to be).
-
-If I put the coma back in both errors go away and the app compiles and launches nicely.
+もしコンマを挿入すれば、エラーは無くなりアプリケーションはコンパイルされて起動するでしょう。
 
 ![ofGraphicsWindow](ofGraphicsWindow.jpg)  
 
+**注：実行ログ**
 
-**Notes: Run Log**
+Xcodeプロジェクトがアプリケーションを起動するとき、_"実行ログ"_と呼ばれるウィンドウが背後で実行されます。これは、実行中に**アプリケーションからのフィードバック**を知らせるためのコンソールです。
 
-When the Xcode project launches the app it has another window running behind it called the _"Run Log"_. This is a console that will give you **feedback about your app** while it is running.
-
-When the app launches the first thing that is printed to the Run Log is  
+アプリケーションが起動したとき、実行ログはまず最初に以下の出力をします。
 
 **\[Session started at 2007-02-25 15:34:07 +0100.\]**
 
-When the app exits it will print something like this  
+アプリケーションを閉じると、以下のような文字が表示されるでしょう。
 
 **openFrameworks has exited with status 0\.**
 
-The useful thing about the Run Log is that you can **print** out to it **while your app is running** with _"ofLog"_ . Also if there are openFrameworks related messages or errors they will be printed here as well.
+実行ログの便利な点は、**アプリケーションを実行しながら**_"ofLog"_コマンドを使用して出力ができるところです。また、もしopenFrameworksに関連するメッセージやエラーがあれば、実行ログに出力されるでしょう。
 
 ![RunLog](RunLog.jpg)  
 
+**注：アプリケーションの場所**
 
-**Notes: Location of your app**
-
-The application that you are compiling and running with Xcode is located in the _"bin/"_ folder of each project directory. You can always **run the application directly** by double clicking it. Everything will be the same as when you launch it with Xcode except you won't see the Run Log output.
+Xcodeでコンパイルして実行するアプリケーションは、それぞれのプロジェクトのディレクトリ内の_"bin/"_フォルダに入っています。ダブクリックすればいつでも**アプリケーションを直接起動**することが可能です。実行ログからの出力を見ることができないことを除けば、Xcodeから起動することと違いはありません。
 
 ![buildLocation](buildLocation.jpg)  
 
 
-**Xcode -- Bugs and Quirks**
+**Xcode -- バグと癖**
 
-**Spaces in main project folder name:** For some reason Xcode freaks out if your main project folder (the one that contains the _"apps"_ and _"libs"_ folder has spaces in the name.
+**メインプロジェクトフォルダでのスペースの使用** いくつかの理由により、Xcodeは、もしメインのプロジェクトフォルダ(_"apps"_や_"libs"_を含めて)名前にスペースがあると、おかしなことになります。
 
-It will give **linking errors** that it can't find certain libraries in the libs folder.
+libsフォルダの中から正しいライブラリを見付けることができず、**リンクエラー**になってしまいます。
 
 ![badFolder](badFolder.jpg)  
 
-
-The folder name above, with the space between 'my' and 'apps' will give you all sorts of problems. Replacing the space with a dash or concatenating the spaces, as below will keep everything happy.
+上記のフォルダ名では、'my'と'apps'の間にスペースがあるため、同じような問題が起こります。スペースをダッシュ「-」を使用したり、下記のようにそのまま繋ぎあわせることで、全てはうまくいきます。
 
 ![goodFolder](goodFolder.jpg)  
 
-
-**Adding files to project: relative vs absolute path** When you add source code files or libraries to your project Xcode will ask you whether you wish the path to the file to be a relative path or an absolute path.
+**ファイルをプロジェクトに追加：相対パスと絶対パス** ソースコードのファイルやライブラリをプロジェクトに追加する際、Xcodeはファイルへのパスを、相対パスにするか絶対パスかを訊いてきます。
 
 ![addDialogRelative](addDialogRelative.jpg)  
 
+メインの**openFrameworksのフォルダ**内の**全てのファイル**とサブフォルダに関するルールは、**_"relative to project (プロジェクトに相対的に)"_を選択**しなければなりません。もし**絶対パス**を選択してしまうと、openFrameworksのフォルダを移動したり、他のコンピュータに持っていった際に、**Xcodeがおかしくなります**。なぜなら、パスによってリストアップしたファイルが存在しなくなってしまうからです。
 
-As a rule for **all files** in your main **openFrameworks folder** and its sub-folders make sure you **choose** _"relative to project"_.If you select **absolute path** then everytime you move your openFrameworks folder around or onto another computer **Xcode will freak out** because your files will have been listed with paths that don't exist anymore.
+例えば、_"/User/yourname/Documents/openFrameworksProjects"_ といったパスの指定は、openFrameworksが特定のフォルダに配置されている時しか**正しく動作しません**。明らかに、これは**良いことではありません**。
 
-For example a path like: _"/User/yourname/Documents/openFrameworksProjects"_ means that the Xcode project will **only work** if the openFrameworks folder is in that specific place. Obviously this is **not a good thing**.
+**初期設定でのパス**は、**絶対パスになっていることが普通**です。ですので、追加する前に_"relative to project"_ に**変更する**ように気をつけてください。
 
-The **default path** it will give you is **usually an absolute one** so make sure you **change it** to _"relative to project"_ before you click add.
-
-The **only files** that should have **absolute paths** are the **System Frameworks** which you will most likely not need to add.
-
+**絶対パス**にする**唯一**のファイル群は、ほとんど追加する必要は無いですが、**System Frameworks**です。
 
 
-**Xcode 4.0 Notes:**
+**Xcode 4.0 の注意**
 
-**This is the ideal layout for your Xcode 4 project:**
+**Xcode4のプロジェクトでの典型的なレイアウトです。**
 
 ![xc4](xc4.png)  
 
+Xcode 4のインターフェイスは一からデザインし直されました。いくつかの重要な違いがあります。
 
-Xcode 4 has a completely redesigned interface. Here are some important differences:
+**サイドバー・ビューモード**
 
-**Side bar view mode:**
-
-When you first open an openFrameworks project you might find the files in the sidebar aren't showing up. 
-Click the folder icon at the top of the sidebar to show the traditional file view ( you might need to expand out the list with the sidebar arrows ). 
+最初にopenFrameworksのプロジェクを開いた時は、サイドバーの中にファイルが表示されていないことに気付くでしょう。
+サイドバーの上にあるフォルダアイコンをクリックすることで、いままで通りのファイル表示になります (サイドバーの矢印をクリックしてリストを展開する必要があります)。
 
 ![xc4sideBarTop](xc4sideBarTop.png)  
 
 ![xc4sidebarFileSelected](xc4sidebarFileSelected.png)  
 
 
-**Run button:**
+**実行ボタン(Build button)**
 
-In Xcode 4 the Run button has replaced the "Build" and "Build and Run" buttons. 
-
-To compile and launch your app hit the "Run" button.
+Xcode 4では、"Build"ボタンと"Build and Run"ボタンは、"Run"ボタンに変更されました。アプリケーションをコンパイルして実行するには、"Run"ボタンを押します。
 
 ![xc4Run](xc4Run.png)  
 
 
-**Select the correct Target:**
+**正しいターゲットの選択**
 
-You might also find that your example is not running.
+あなたは、また、実行してもサンプルが動かないことに気付いたかもしれません。
 
-This could be because the openFrameworks library and not the example project is set as the active target. 
-
-To correct this, select the example project name from the 'Scheme' drop down. 
+これは、アクティブ・ターゲットにサンプルのプロジェクトではなくopenFrameworksのライブラリが選択されているからです。これを修正するには、'Scheme'のドロップダウンメニューから、サンプルのプロジェクトを選択するようにします。
 
 ![xc4changeScheme](xc4changeScheme.png)  
 
 
-**Change from Debug to Release:**
+**デバッグモードからリリースモードへ変更する**
 
-When you are done with your app you will want to create a 'Release' version of this. 
+アプリケーションの開発が終わったら、リリースバージョンを生成したくなるでしょう。Xcode 3では、デバッグからリリースへビルドの切替えをするのは簡単でした。
 
-In Xcode 3 this is as easy as switching the Build from Debug to Release mode. 
-
-In Xcode 4 by default only Debug is enabled. 
-
-To switch to Release select the "Edit Schemes" from the Schemes menu.
-
-Then click the example app in the sidebar and change the Build Configuration to Release.
+Xcode 4では初期状態ではデバッグしか使用できません。リリースへ切替えるには、Schemeメニューから'Edit Schemes'を選択します。サイドバーからサンプルのアプリケーションを選択し、ビルド設定をReleaseに変更します。
 
 ![xc4editSchemes1](xc4editSchemes1.png)  
 
 ![xc4editSchemes2](xc4editSchemes2.png)  
 
 
-**Errors:**
+**エラー**
 
-Xcode 4 compiles code as you type so you might see red errors appear in your code before you build. 
+Xcode 4のコンパイラーは、コードをタイピングしながら、ビルドする前でも赤く表示されたエラーをみることができます。
 
-This is actually quite handy and can help you spot mistakes. Also the Errors icon which was in the bottom right corner of the window has now moved to the top panel. 
+これは実際とても手軽で、すぐに間違いの場所に気付くことができます。また、画面の右下にあったエラーの表示は、パネルの上部に移動しました。
 
 ![xc4errors](xc4errors.png)  
 
 
-**Target OS 10.6 / MacSetRect Error:** 
+**OS X 10.6をターゲットにする / MacSetRectエラー**
 
-If you get QuickTime MacSetRect errors on 10.7 with Xcode 4.0, this is because a part of your project is set to 10.7 SDK.
- 
-Currently OF doesn't build against the 10.7 SDK because of QT 7 dependencies. 
+OS X 10.7とXcode 4.0でQuickTimeのMacSetRectエラーになってしまうとしたら、プロジェクトが10.7 SKDに設定されているせいです。QuickTime 7の依存関係のせいで、現在のopenFrameworksでは10.7のSDKではビルドできません。
 
-To set the project back to 10.6 SDK follow these steps posted [from this blog][2]:
+[このブログにポストされた方法][2]に従って、プロジェクトを10.6 SDKに戻しましょう。
 
-* Switch from the openFrameworks scheme to the project scheme
+* プロジェクトのSchemeから、openFrameworksのSchemeに切り替えます。
 
-* Click on the project on the sidebar to bring up the settings
+* サイドバーにある"project"をクリックして、設定画面を表示します。
 
-* Change the Base SDK to 10.6
+* Base SDKを10.6に変更します。
 
-* Repeat the previous line for the build target
+* 同じ操作を、ビルドターゲットについても繰り返します。
 
-* Click on the openFrameworks folder in the sidebar
+* サイドバーのopenFrameworksフォルダをクリックします
 
-* Click on the project to bring up the settings
+* "project"を選択して、設定画面を表示します。
 
-* Change the Base SDK to 10.6 like you did before
+* 先程と同様に、Base SDKを10.6に切り替えます。
 
-* Repeat for the build target
+* 同じ操作を、ビルドターゲットについても繰り返します。
 
 
-**10.7.2 OF Issues**
+**OS X 10.7.2 oFの課題**
 
-There are a few issues with OF on 10.7.2 - we will work on getting these fixed for the next release.
-
-In the meantime check [these tips posted on the forum][3].
-
-
-
+OSX 10.7.2では、いくつかの課題があります。現在、次期リリースで修正されるよう作業中です。
+それまでは、[フォーラムに投稿されたTips][3]をチェックしてください。
 
 [0]: http://connect.apple.com
 [1]: http://www.openframeworks.jp/download
