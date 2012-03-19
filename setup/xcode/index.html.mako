@@ -49,41 +49,37 @@ XcodeはApple社製のOSXベースのフリーの統合開発環境(IDE)です�
 
 ![ofFolderStructure](ofFolderStructure.jpg)  
 
+サンプルは_"apps"_フォルダに格納されています。サンプルのそれぞれのフォルダの中に、_"graphicsExample.xcodeproj"_ のようにXcodeのプロジェクトファイルがあります。このファイルをXcodeで開きます。
 
-The examples are located within the _"apps"_ folder. Within each example folder is the Xcode project file _"graphicsExample.xcodeproj"_. This file will open the Xcode project for that example.
-
-When the example opens in Xcode you will see a list of files in the left column and the content of the currently selected file (in this case _"testApp.cpp"_) in the right panel.
+Xcodeでサンプルを開くと、左側のコラムにファイルのリストが、右側のコラムには現在選択しているファイル(この画像の場合は_"testApp.cpp"_)が表示されます。
 
 ![xcodeLeftSide](xcodeLeftSide.jpg)  
 
-
-The first thing you will probably want to do is to compile and run the app to make sure it works. Along the top of the Xcode window you should see a button called _"Build and Go"_ this button will compile the example app and as long as there are no errors it should then launch the app successfully. If you get a ton of errors on the first compile -- try going to the Build menu and selecting "Clean All Targets" -- then try again to compile.
+おそらく最初にやってみたいことは、プログラムをコンパイルして実際に動くかどうかアプリケーションを実行することでしょう。Xcodeのウィンドウの一番上に_"Build and Go"_ というボタンがあります。このボタンは、サンプルをコンパイルして、もしエラーがない限り、アプリを起動します。もし最初のコンパイルでエラーが出る場合は、Buildメニューから、"Clean All Targets"をを選択して、再度コンパイルし直してください。
 
 ![xcodeButtons](xcodeButtons.jpg)  
 
-
 ![ofTypeWindow](ofTypeWindow.jpg)  
 
+_起動したアプリケーションを終了するには、「Esc(エスケープ)」キーを押します。_
 
-_Once the app is running -- you can terminate it by hitting the "Esc" key on your keyboard._
 
-**Notes: Warnings and Errors**
+**注：警告とエラー**
 
-While the app is compiling you'll notice a little circular **progress meter** on the bottom right corner of the Xcode window. This indicates the percentage of the files compiled.
+アプリケーションがコンパイルされている間は、Xcodeウィンドウの右下のコーナーに**プログレスメーター**と呼ばれる小さな円が表示されます。これは、ファイルのコンパイル状況をパーセントで表示します。
 
-The yellow triangle and the number next to it indicates the number of **warning messages** from the compiler. Most of the time you can ignore the warning messages but if you would like to read them click on the triangle and Xcode will open a separate window which will show them as a list.
+黄色い三角形とそれに続く数字は、コンパイラーからの**警告メッセージ**の数を示しています。大抵の場合は、警告メッセージは無視して構いません。しかし、もし警告の内容を読みたいのであれば、三角形をクリックするとXcodeが警告のリストを別ウィンドウで表示します。
 
 ![xcodeCompileProgress](xcodeCompileProgress.jpg)  
 
-
-If the compiler finds **errors** in your code or is just generally unhappy about something the compile will fail and you will see something like this in the bottom right hand corner of your Xcode window.
+もしコンパイラーがコードの中に**エラー**を発見した場合や何らかの喜ばしくないことがある場合、コンパイルは失敗し、Xcodeのウィンドウの右下に何らかの表示がされます。
 
 ![xcodeError](xcodeError.jpg)  
 
-
-As with the warning messages, to **view the errors** click on the red circle and Xcode will bring up a new window where it will list the errors and attempt to **highlight the line in the code** where the errors occurred.
+警告メッセージと同じように、**view the errors**をみるために赤い丸をクリックすると、Xcodeはエラーのリストとどこでエラーが起きたのかわかるように**コードの中をハイライト**して新しいウィンドウで表示します。
 
 ![xcodeErrorShow](xcodeErrorShow.jpg)  
+
 
 
 Bear in mind that the **error message might not always make sense to you** but most of the time just showing you where the error is will be enough for you to realise your mistake.
