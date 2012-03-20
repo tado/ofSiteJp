@@ -18,6 +18,6 @@
 
 <h2>日本語で閲覧可能なopenFrameworks情報</h2>
 
-* [「Beyon Interaction」書籍情報ページ(BNN Inc.)](http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html)
-* [「Beyond Interacion」正誤表](http://www.bnn.co.jp/books/errata/of/of_seigohyou.html)
+* [「Beyond Interaction」書籍情報ページ(BNN Inc.)](http://www.bnn.co.jp/books/title_index/web/beyond_interaction_openframewo.html)
+* [「Beyond Interaction」正誤表](http://www.bnn.co.jp/books/errata/of/of_seigohyou.html)
 
