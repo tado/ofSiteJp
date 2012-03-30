@@ -95,35 +95,35 @@
       <div id="body-wrap">
       		<div class="page-left-wide">
                 
-  <h1>code::blocks setup guide</h1>
-<p>We like codeblocks for windows development since it's light weight, and avoids some of the quirkiness of windows visual studio. here's a step by step tutorial to get up and running.</p>
-<p><strong>a) download code::blocks binary (latest release)</strong></p>
-<p><a href="http://www.codeblocks.org/downloads/26">Download Code::Blocks</a> note: download WITH mingw.   The latest version 10.05, works well. </p>
+  <h1>code::blocks セットアップガイド</h1>
+<p>わたしたちが、windows版のcodeblocksを好むのは軽いからです。また、windows visual studioのいくつかの癖を回避できます。この文書は、起動と実行までのステップ・バイ・ステップのチュートリアルです。</p>
+<p><strong>a) code::blocksの最新版のバイナリーをダウンロード</strong></p>
+<p><a href="http://www.codeblocks.org/downloads/26">Code::Blocksをダウンロード</a> 注：<strong>mingwも一緒に</strong>ダウンロードしてください。最新版は10.05で、問題なく動きます。</p>
 <p><img alt="a_download" src="codeblocks.png" /><br />
 </p>
-<p><strong>b) install</strong></p>
+<p><strong>b) インストール</strong></p>
 <p><img alt="b_install" src="http://www.openframeworks.cc/wp-content/uploads/2009/07/b_install.png" /><br />
 </p>
-<p><strong>c) you don't have to change anything</strong></p>
+<p><strong>c) 何も設定を変更する必要はありません</strong></p>
 <p><img alt="c_setup" src="http://www.openframeworks.cc/wp-content/uploads/2009/07/c_setup.png" /><br />
 </p>
-<p><strong>d) I chose not too, since code::blocks is not my primary IDE</strong></p>
+<p><strong>d) ここでもnotを選択します、code::blocksをメインのIDEにはしないからです</strong></p>
 <p><img alt="d_assoc" src="http://www.openframeworks.cc/wp-content/uploads/2009/07/d_assoc-640x378.png" /></p>
-<p><strong>e) add files to mingw</strong></p>
-<p>similar to devcpp, we will have to add a few libraries to devcpp. you can download the files :</p>
-<blockquote>
-<p><a href="http://www.openframeworks.cc/content/files/codeblocks_additions.zip">additions for codeblocks to work with OF</a></p>
-</blockquote>
-<p>in the zip there are two folders, you need to put the <strong>contents</strong> of them into the contents of folders in mingw.</p>
+<p><strong>e) mingwのファイルを追加します</strong></p>
+<p>devcppと同じように、いくつかのライブラリを追加します。ここからダウンロードできます。</p>
 <ul>
-<li>add the <em>contents</em> of the folder "<strong>add_to_codeblocks_mingw_include</strong>" into "<strong>C:\Program Files\CodeBlocks\MinGW\include</strong>" (or wherever your app\mingw\include is)</li>
-<li>add the <em>contents</em> of the folder "<strong>add_to_codeblocks_mingw_lib</strong>" into "<strong>C:\Program Files\CodeBlocks\MinGW\lib</strong>" (or wherever your app\mingw\lib is)</li>
+<li><a href="http://www.openframeworks.cc/content/files/codeblocks_additions.zip">oFのための追加ファイル</a></li>
+</ul>
+<p>zipファイルの中には2つのファイルが入っています。その<strong>中身</strong>を、mingwのフォルダの中に入れる必要があります。</p>
+<ul>
+<li><strong>add_to_codeblocks_mingw_include</strong>フォルダの中身を、<strong>C:\Program Files\CodeBlocks\MinGW\include</strong>に追加 (もしくは、アプリの中の\mingw\includeへ)</li>
+<li><strong>add_to_codeblocks_mingw_lib</strong>フォルダの中身を、<strong>C:\Program Files\CodeBlocks\MinGW\lib</strong>へ (もしくはアプリの\mingw\libへ)</li>
 </ul>
 <p><img alt="e_putInMingw" src="http://www.openframeworks.cc/wp-content/uploads/2009/07/e_putInMingw-640x446.png" /></p>
-<p>These are additional libs and header files that need to be added to the MinGW distribution that comes with codeblocks. </p>
-<p>here's a quick video which shows what this should look like:  <a href="http://vimeo.com/33985058">copying codeblocks</a></p>
-<p>note: if you have already installed dev-c++, make sure that CB picks the right mingw folder (c:/program files/cb/mingw), it has a tendancy to default to c:/mingw, where devc++ installs... <a href="http://www.openframeworks.cc/forum/viewtopic.php?f=18&amp;t=793">more info on this</a></p>
-<p><strong>As always have fun!</strong></p>
+<p>clodeblocksにはMinGWに追加する必要のある、補足的なライブラリとヘッダーがあります。</p>
+<p>どのようにするのか解説した簡単なビデオチュートリアルがあります。<a href="http://vimeo.com/33985058">copying codeblocks</a></p>
+<p>注：もし既にC++をインストールしたことがあるのなら、CBが正しくmingwフォルダを追加しているか確認してください(c:/program files/cb/mingw)。<a href="http://www.openframeworks.cc/forum/viewtopic.php?f=18&amp;t=793">より詳しい情報はこちら</a></p>
+<p><strong>楽しくやりましょう!</strong></p>
 
             </div>
       </div>
@@ -133,13 +133,13 @@
 
 Last updated 
   
-Tuesday, 20 March 2012 10:04:05 UTC
+Wednesday, 21 March 2012 09:37:52 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-632f8b92c6d484a5504f19789bd5d1d252a606d3
+4c460244d9723d083081953c52937dddfbbcecea
 ">
 
-632f8b92c6d484a5504f19789bd5d1d252a606d3
+4c460244d9723d083081953c52937dddfbbcecea
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
