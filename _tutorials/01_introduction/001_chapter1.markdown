@@ -317,12 +317,16 @@ openFrameworksは、もちろん円以外のものも描画できます。
 
 . 四角形：引数（x, y, width, height）
 　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofRect[ofRect]
+
 . 三角形：引数（x1, y1, x2, y2, x3, y3) 
 　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofTriangle[ofTriangle]
+
 . 線：引数(x1, y1, x2, y2)
 　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofLine[ofLine]
+
 . 楕円：引数(x, y, width, height)
 　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofEllipse[ofEllipse]
+
 . カーブ：引数(x0, y0, x1, y1, x2, y2, x3, y3)
 　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofCurve[ofCurve]
 　（x1,y1）から（x2, y2）へカーブを描画します。カーブはコントロールポイントである(x0, y0)と(x3, y3)によって形状が影響を受けます。
