@@ -186,34 +186,52 @@ void testApp::keyPressed(int key){
 
 }
 ~~~~
+それでは、ここで何が行われいるのか見て行きましょう。
 
-So what is going on here?
+testApp.cppは、イントロダクションで既に書いたファイルですが、
+いろんな意味でhello.cppの様なものです。
 
-In a lot of ways, testApp.cpp is like hello.cpp, the file that we wrote in the Introduction. It's a plain text file that contains `c++` source code. The difference now is that we are editing it through our IDE, so there is some really nice syntax highlighting that will hopefully make it easier to make sense of the code, and it will be a lot easier to compile and run when we want to.
+そして単なるc++ソースコードを含んだテキストファイルです。
+IDEを使用して編集することによって、コードを理解することを楽にしてくれる
+シンタックスハイライトが反映されていたり、コンパイルやプログラムを実行する時にも、
+簡単になります。
 
-On a very basic level, what you see here is a bunch of empty functions. A http://en.wikipedia.org/wiki/Function_(computer_science)[function] is a set of instructions that make up part of a larger program. Just in the snippet of code above, there are 4 functions: setup, update, draw, and keyPressed. Each of the functions is followed by a set of curly brackets ({}). What usually goes inside of these curly brackets are the instructions (assiging values to variables, loops, and calls to other functions) that make up the functions. 
+まず基本的なことですが、からっぽな関数群が見えていると思います。
 
-If you refer back to the Q&A "What is a software framework?" in the introduction, the film production company analogy is particularly useful at this point. What you are looking at in testApp.cpp is how openFrameworks has provided all of the infrastructure and logistical details. Now it's your job to define what happens. You do this by putting code into the fuctions in testApp.cpp
+ウィキペディアでは（http://en.wikipedia.org/wiki/Function_(computer_science)[function]）、
+大きなプログラムの一部を構成するものと説明されています。
 
-These functions will be called by openFrameworks at different points during the execution of your program. Let's take a look at a few of them.
+上記はコードの一部ですが、４つの関数〜setup, update, draw, keyPressed〜があります。
+各々の関数は、１つの中括弧（{}）が付いています。通常、これらの中括弧内に書かれたものが、その関数を作ります。
+（値の定義、繰り返し、その他の関数呼び出しなど）
+
+イントロダクションのQ&Aにある「ソフトウェアフレームワークとは？」でお話した、
+映画制作会社の説明が、類似していて、理解しやすいと思います。
+
+openFrameworksがその基本的基盤や論理的な詳細を
+どの様にして提供しているか？がtestApp.cppに書かれているものになります。
+
+これらの関数は、あなたのプログラム実行中に、
+それぞれ違ったタイミングでopenFrameworksによって呼び出されます。
+
+それでは、いくつかの関数を見ていきましょう。
 
 #### setup
-
-This function is called (ie: any code that you've put inside the curly brackets runs) at the very beginning of the life of your application, before your program window opens. So, let's say, for instance, you wanted to set the size of the window. You probably want this to happen before the window actually opens, so setup would be a good place for that.
+この関数は、アプリケーションライフサイクルの１番最初（ウィンドウがオープンされる前）に呼び出されるものです。
+たとえば、ウィンドウサイズをセットしたい場合を考えると、ウィンドウが実際に開かれる（表示される）よりも前に行いたいですよね？その様な用途ととして、このsetup関数は適切なものになると思います。
 	
 #### update, draw
-
-After the setup function runs, the update and draw functions begin a loop that continues until your program ends. So, after setup() runs, update() runs, then draw(), then update(), then draw(), etc. and by default, this happens as fast as your computer can handle. update() is typically used for updating the state of your program (ie: changing the value of variables), while draw() is used to actually draw things into your window.
+setup関数が実行された後、update関数とdraw関数はアプリケーションが終了するまでループします。つまり、setup()関数が実行された後、update()関数が実行されdraw()関数が実行され…update()関数ー＞draw()関数という様になります。これらの処理は基本的にはコンピュータが対応出来る範囲の速度で実行されます。
+典型的にupdate()関数は、プログラムの状態をアップデートする為に使用され（例えば、変数値の変更）、その一方draw()関数でウィンドウ内で実際に描画を行う為に使用します。
 
 #### keyPressed, keyReleased, mouseMoved, mouseDragged, mousePressed
+上述した３つの関数とは違い、これらの関数は、ユーザが何かを行った時にのみ呼び出されます。想像できますか？
+説明は、ここまでにして、実際にコードを見てみましょう。
 
-Unlike the previous three functions, these functions are called only when a user does something. Can you guess what?
-	
-But enough with the reading. Let's see these things in action.
 
 ### Making a Mark
-
-We will start by drawing a simple circle in our gray window using the ofCircle function. Type `ofCircle(200, 200, 60);` on the blank line inside the draw() function so that your draw function looke like this:
+ofCircle関数を使用して、灰色のウィンドウ内にシンプルな円を描画してみる事からスタートしてみようと思います。
+draw()関数内に`ofCircle(200, 200, 60);` と入力してください。以下の様になります。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -221,31 +239,36 @@ void testApp::draw(){
 }
 ~~~~
 
-NOTE: Notice the semicolon at the end of the line. All function calls must end with a semicolon. In addition, function names are always case sensitive, so OfSetColor will not work, nor OFsetcolor, etc. only ofSetColor.
+**注意**：各行の最後にセミコロンが存在している事に注意してください。すべての関数呼び出しはセミコロンで終わる必要があります。また、関数名はセンシティブです。OfSetColor, OFsetcolorとタイプしても実行されません。ofSetColorとタイプする必要があります。
 
-Now run your program. You should see something like:
+では、プログラムを実行してください。以下の様に表示されるはずです。
 
 ![A Plain White Circle](images/MyFirstProject01.png)
+おめでとう！ 今、あなたはスクリーン上に“何か”を表示できました！これからは、全て楽になっていきいますよ。
+でも、私たちは何を今行ったのでしょう？
 
-Congratulations!  You just made something appear on the screen! It's all downhill from here.
+[ofCircle](http://openframeworks.jp/documentation/graphics/ofGraphics.html#ofCircle)は、openFrameworksで定義された関数です（それ故、'of'というプレフィックスが付いているのです）。
+ofCircleは、好きなだけdraw関数内で呼び出す事が可能です。ofCircleに続く括弧内の数字はパラメータと呼ばれています。http://en.wikipedia.org/wiki/Parameter_(computer_programming)[arguments].
+これらの値が、関数が何を行うのかを正確に示しています。
+「円を描きたい。でも何処に？どのくらいの大きさで？」という疑問の答えになっているということです。
 
-But what did we just do? 
+関数は幾つもの値を持つ事ができます。これらの値は、カンマで区切られています。ofCircleは３つの値を受け取ります。
+x座標、y座標そして半径の３つです。
 
-[ofCircle](http://openframeworks.jp/documentation/graphics/ofGraphics.html#ofCircle) is a function that comes with openFrameworks (hence the 'of' prefix). You can invoke the ofCircle function inside your draw function as many times as you'd like. The numbers inside of the parenthesis after 'ofCircle' are called http://en.wikipedia.org/wiki/Parameter_(computer_programming)[arguments]. They determine exactly what the function does. They answer the questions: "okay, you want to draw a circle, but where? and how big?" Functions can take any number of arguments, always separated by commas, but ofCircle takes 3: an x coordinate, a y coordinate, and a radius. There are a few things you need to know to make sense of these arguments:
+これらの値について理解する為に必要な事がいくつかあります。
 
-* All measurements in openFrameworks are in pixels. By saying that our circle has a radius of 60, that means that it will take up PI*60^2^ pixels total.
-* This may seem obvious, but the coordinates refer to the center of the circle. Other shapes (such as rectangles) use the upper left corner.
-* The "origin" of the coordinate system is in the upper left of the window. So, our circle appears 200 pixels from the left side of the screen, and 300 pixels from the top.
+* openFrameworks使用される寸法値はピクセル単位です。先ほど作成した円の半径は60となっていますが、これは円内にトーラルPI*60^2^ピクセル数存在している事を意味しています。
+* これは明確な感じがしますが、座標値（x,y）は円の中心を示しています。他のシェイプ（例えば四角形）は、左上を起点としています。
+* 座標系の起点はウィンドウの左上となっています。その為に、私たちが作った円は、左端から200ピクセル、上から300ピクセルの位置に表示されます。
 
-NOTE: The order of the arguments is important. The first argument to ofCircle will always mean "x coordinate" and the third will always mean "radius". 
+**注意**：パラメータの順番は重要です。ofCircleの最初の値は、いつも"x座標"を意味しますし、３番目の値はいつも"半径"を意味します。
 
-NOTE: There are some functions (such as http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofFill[ofFill], which simply tells oF to fill shapes that are drawn) that have 0 arguments, but you still have to put parenthesis after them. 
+**注意**：パラメータを１つも持たない関数が存在しますが、括弧は必要です。（例：ofFill:http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofFill[ofFill]）
 
-If you hadn't just read about it here, you could have found information about ofCircle on the http://www.openframeworks.cc/documentation/[openFrameworks documentation page], which you will be using more as we move on.
+もしかするとofCircleについての情報をhttp://www.openframeworks.cc/documentation/[openFrameworks documentation page]で得ているかもしれません。この[openFrameworks documentation page]は、これから参照する事が多くなると思います。
 
-### Adding some Color
-
-Your circle is great, but kind of boring. What if we want to introduce some color to our application? To do that, we need the the http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor] function. Try adding `ofSetColor(255, 0, 255);` right above the ofCircle line, so that your draw function looks like this:
+### 色を追加する
+円を描画しましたが、少々つまらないので色について考えてみましょう。それには、ofSetColor：http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor]が必要になります。`ofSetColor(255, 0, 255);`をofCircleの直前に追加してみてください。以下の様なコードになります。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -254,18 +277,15 @@ void testApp::draw(){
 }
 ~~~~
 
+では、アプリケーションを実行してみてください。
+![A Plain White Circle](images/MyFirstProject02.png)
 
-Now try running your application. 
+ofCircleと同じく、ofSetColorも３つの値を必要としています。ただ、値の意味は全く違います。ドキュメントページ：http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor]を見てみると、パラメータ値が赤、緑、青を示している事に気づくと思います。これらの値は、それぞれ0〜255の範囲になっています。例えば、`ofSetColor(255, 0, 255);`というのは、「赤100%, 緑0%, 青100%」の色で、全てのを描画する」という事になります。
 
-image:images/MyFirstProject02.png["A purple circle", width="500"]
+TIP: 値を変更して色が変化するのを試してみましょう。
 
-Similar to ofCircle, the ofSetColor function takes 3 arguments, but the numbers have very different meanings. If you look at the documentation for http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor], you'll notice that they arguments actually represent the red, green, and blue values for the color that you want to use, on a scale of 0-255. So when we typed `ofSetColor(255, 0, 255);`, we were saying "until further notice, draw everything with 100% red, 0 green, and 100% blue."  
-
-TIP: Try changing the values to get different color variations.
-
-This last point is important: when we call "ofSetColor", it's like picking a crayon out of a box. Everything that gets drawn after that (below that line of code) will be drawn in that color until we call ofSetColor again. So if we want to draw another circle on the screen, we could simply call the ofCircle function again:
-
-
+もう１点、重要な事があります。ofSetColorを呼びだす事は、クレヨンを箱の中から選んでいるのと同じ様な事です。
+ofSetColorをコールした後に描かれるものは、再度ofSetColorをコールするまで、色は変更されません。また、他の円を描画したい場合は、下のコードの様に、単にofCircoleを再びコールすれば可能です。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -276,8 +296,7 @@ void testApp::draw(){
 }
 ~~~~
 
-
-But if we wanted that circle to be a different color, we would have to call ofSetColor again:
+しかし、違う色で円を描画したい場合は、ofSetColorを再びコールする必要があります。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -289,23 +308,33 @@ void testApp::draw(){
 }
 ~~~~
 
-image:images/MyFirstProject03.png["Two Colorful Circles", width="500"]
+![Two Colorful Circles](images/MyFirstProject03.png)
 
-
-All The Shapes You Can Handle
+使用できる図形
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Of course, oF can draw more than circles. 
+openFrameworksは、もちろん円以外のものも描画できます。
 
-. http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofRect[ofRect] draws a rectangle. arguments are (x, y, width, height) 
-. http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofTriangle[ofTriangle] draws a triangle. arguments are the coordinates of the three points: (x1, y1, x2, y2, x3, y3)
-. http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofLine[ofLine] draws a line. arguments are the start coordinate and the end coordinate (x1, y1, x2, y2)
-. http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofEllipse[ofEllipse] arguments are: (x, y, width, height)
-. http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofCurve[ofCurve] Draws a curve from point (x1, y1) to point (x2, y2). The curve is shaped by the two control points (x0,y0) and (x3,y3).
+. 四角形：引数（x, y, width, height）
+　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofRect[ofRect]
 
-NOTE: Control points can be tricky. If you've used the pen tool in photoshop or illustrator, you probably understand them. If not, check out http://www.actionscript.org/resources/articles/172/1/Understanding-curves-and-control-point-placement/Page1.html[this tutorial]. It's about ActionScript, but it gives a great overiew of the concept of curves and control points.
+. 三角形：引数（x1, y1, x2, y2, x3, y3) 
+　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofTriangle[ofTriangle]
 
-TIP:  Try making 3 different projects in your "MyFirstWorkspace" workspace. In each one, draw a different shape in a different location using a different color.
+. 線：引数(x1, y1, x2, y2)
+　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofLine[ofLine]
+
+. 楕円：引数(x, y, width, height)
+　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofEllipse[ofEllipse]
+
+. カーブ：引数(x0, y0, x1, y1, x2, y2, x3, y3)
+　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofCurve[ofCurve]
+　（x1,y1）から（x2, y2）へカーブを描画します。カーブはコントロールポイントである(x0, y0)と(x3, y3)によって形状が影響を受けます。
+
+**注意**：コントロールポイントはトリッキーです。photoshopやillustratorを使用した事のある人であれば理解できるでしょう。もし使用した事がない人は、http://www.actionscript.org/resources/articles/172/1/Understanding-curves-and-control-point-placement/Page1.html[this tutorial].をチェックしてみてください。こちらはアクションスクリプトで書かれていますが、カーブとコントロールポイントについてのコンセプトについて詳しい説明が掲載されています。
+
+TIP: “MyFirstWorkspace”ワークスペース内に３つのプロジェクトを作成し、それぞれで、違う「形」を、いろいろな色や場所に描画してみましょう。
+
 
 Adding Movement
 ~~~~~~~~~~~~~~~
