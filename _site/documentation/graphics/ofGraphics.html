@@ -451,7 +451,11 @@
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the background color. It takes as input r,g,b (0-255). The background is cleared automatically, just before the draw() command, so if the background color is not changing, you could call this inside of setup() (once, at the start of the application). If the background color is changing, you can call this inside of update().</p>
+  <!--
+Sets the background color. It takes as input r,g,b (0-255). The background is cleared automatically, just before the draw() command, so if the background color is not changing, you could call this inside of setup() (once, at the start of the application). If the background color is changing, you can call this inside of update().
+-->
+
+<p>背景色を設定します。入力にはr、g、bの値 (0-255)を使います。背景はdraw()が実行される直前に自動的に塗りつぶされるので、背景色をずっと変更しない場合はこの命令をsetup()の中で呼び出します（アプリケーションの開始時に１度だけ呼び出します）。背景色を変化させる場合は、この命令はupdate()の中で呼び出します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -469,10 +473,15 @@
 	<div class="documentation_detail_description">
 		
 		
-  <p>Gets the background color.
-eg:</p>
+  <!--
+Gets the background color.
+eg:
+-->
+
+<p>背景色を取得します。<br />
+例：</p>
 <pre><code class="cpp">float * bgColor = ofBgColorPtr();
-//lets get the individual values!
+//個別の値を取り出す!
 float r = bgColor[0];
 float g = bgColor[1];
 float b = bgColor[2];
@@ -495,7 +504,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the background clearing function to be auto (default) or not. If non-auto, then background clearing will not occur per frame (at the start of draw) but rather, whenever ofBackground is called.</p>
+  <!--
+Sets the background clearing function to be auto (default) or not. If non-auto, then background clearing will not occur per frame (at the start of draw) but rather, whenever ofBackground is called.
+-->
+
+<p>背景を自動的に塗り潰しするか（初期設定）自動的に塗り潰しをしないかを設定します。自動的に塗り潰さないように設定した場合はフレーム更新のたび(drawの一番最初）に塗り潰されないので、ofBackgroundが呼び出された時に塗り潰しが行われます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -513,7 +526,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Tells you if background clearing is set to be automatic or manual</p>
+  <!--
+Tells you if background clearing is set to be automatic or manual
+-->
+
+<p>背景の塗り潰しが自動に設定されているか手動に設定されているかを知らせます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -531,7 +548,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the resolution for the ofCircle command. By default, the circle is 22 points, but if you need to draw larger circles, you can adjust the resolution using this command. all circles are cached in opengl using a display list for optimization purposes.</p>
+  <!--
+Sets the resolution for the ofCircle command. By default, the circle is 22 points, but if you need to draw larger circles, you can adjust the resolution using this command. all circles are cached in opengl using a display list for optimization purposes.
+-->
+
+<p>ofCircle命令で描く円の解像度を設定します。デフォルトでは円は22個の頂点によって描画されますが、より大きな円を描く必要があればこの命令で解像度を調整することができます。すべての円は最適化のためにディスプレイリストを使ってOpenGLの中にキャッシュされます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -549,7 +570,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the mode for drawing rectangles, if they are corner aligned, or drawn so that the x,y position is the center of the rectangle. possible options are OF_RECTMODE_CENTER and OF_RECTMODE_CORNER.</p>
+  <!--
+Sets the mode for drawing rectangles, if they are corner aligned, or drawn so that the x,y position is the center of the rectangle. possible options are OF_RECTMODE_CENTER and OF_RECTMODE_CORNER.
+-->
+
+<p>四角形を描画するときの座標指定モードを、左上角か中心のどちらのx,y座標を指定するかを設定します。オプションはOF_RECTMODE_CENTERとOF_RECTMODE_CORNERが選択できます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -567,7 +592,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Tells you if rect drawing mode is set to drawn from the center or drawn from the top left corner.</p>
+  <!--
+Tells you if rect drawing mode is set to drawn from the center or drawn from the top left corner.
+-->
+
+<p>四角形を描画するときの座標指定モードが、中央からか左上角からか、どちらに設定されているかを知らせます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -585,7 +614,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws an rectangle from point x,y with a given width and height. </p>
+  <!--
+Draws an rectangle from point x,y with a given width and height. 
+-->
+
+<p>x、y座標に指定された幅と高さで、四角形を描画します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -603,7 +636,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws a triangle, with the three points: (x1,y1),(x2, y2),(x3, y3). </p>
+  <!--
+Draws a triangle, with the three points: (x1,y1),(x2, y2),(x3, y3). 
+-->
+
+<p>３つの点を結ぶ三角形を描画します：　(x1,　y1),(x2, y2),(x3, y3). </p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -621,7 +658,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws a circle, centered at x,y, with a given radius.</p>
+  <!--
+Draws a circle, centered at x,y, with a given radius.
+-->
+
+<p>x,yを中心として、指定された半径の円を描画します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -639,7 +680,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws an ellipse from point (x,y) with a given width (w) and height (h).</p>
+  <!--
+Draws an ellipse from point (x,y) with a given width (w) and height (h).
+-->
+
+<p>点(x,y)に指定された高さ(w)と幅(h)で楕円を描画します。 </p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -657,7 +702,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws a line between two points: (x1,y1),(x2,y2). </p>
+  <!--
+Draws a line between two points: (x1,y1),(x2,y2). 
+-->
+
+<p>２点を結ぶ直線を描画します。： (x1,y1),(x2,y2)</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -675,7 +724,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws a curve from point (x1, y1) to point (x2, y2). The curve is shaped by the two control points (x0,y0) and (x3,y3).</p>
+  <!--
+Draws a curve from point (x1, y1) to point (x2, y2). The curve is shaped by the two control points (x0,y0) and (x3,y3).
+-->
+
+<p>点(X1, y1)から点(x2, y2)までの曲線を描画します。点(x0, y0)と点(x3, y3)の２つの制御点によって曲線が形成されます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -693,7 +746,11 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws a bezier curve from point (x0, y0) to point (x3, y3). The curve is shaped by the two control points (x1,y1) and (x2,y2) in a way where they are the respective tangents for the line at either ends.</p>
+  <!--
+Draws a bezier curve from point (x0, y0) to point (x3, y3). The curve is shaped by the two control points (x1,y1) and (x2,y2) in a way where they are the respective tangents for the line at either ends.
+-->
+
+<p>点（x0、y0）から点（x3、y3）までベジエ曲線を描画します。ベジェ曲線は点(x1,y1)と点(x2,y2)の２つの制御点と両端の点とのそれぞれの接点を通る方法によって形成されます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -711,8 +768,12 @@ float a = bgColor[3];
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the drawing behavior for ovelapping parts of the same polygon. Possible modes are:
-OF_POLY_WINDING_ODD -
+  <!--
+Sets the drawing behavior for ovelapping parts of the same polygon. Possible modes are:
+-->
+
+<p>同一のポリゴンで重なりあう部分をどのように描画するかを設定します。次のモードが設定可能です:</p>
+<p>OF_POLY_WINDING_ODD -
 OF_POLY_WINDING_NONZERO -
 OF_POLY_WINDING_POSITIVE -
 OF_POLY_WINDING_NEGATIVE -
@@ -734,8 +795,12 @@ OF_POLY_WINDING_ABS_GEQ_TWO -</p>
 	<div class="documentation_detail_description">
 		
 		
-  <p>Call this to start drawing a new shape. Needs to be followed by a list of vertex points and lastly a call to ofEndShape().</p>
-<pre><code class="cpp">//draws a star
+  <!--
+Call this to start drawing a new shape. Needs to be followed by a list of vertex points and lastly a call to ofEndShape().
+-->
+
+<p>新しい形状の描画を開始するために呼び出します。この命令に続いて頂点を列挙して、最後にofEndShape()を呼び出します。</p>
+<pre><code class="cpp">//星型を描画
 ofSetPolyMode(OF_POLY_WINDING_NONZERO);
 ofBeginShape();
   ofVertex(400,135);
@@ -762,7 +827,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Specifies a single point of a shape. To be called between ofBeginShape() and ofEndShape(). </p>
+  <!--
+Specifies a single point of a shape. To be called between ofBeginShape() and ofEndShape(). 
+-->
+
+<p>描画する形状の中の１つの点を定義します。ofBeginShape()とofEndShape()の間において呼び出されます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -780,7 +849,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Specifies a single point of a shape. The difference from ofVertex is that the line describing the edge of the shape between two points will be a curve as opposed to a straight line. The curve is automatically generated using the catmull rom forumla. To be called between ofBeginShape() and ofEndShape().</p>
+  <!--
+Specifies a single point of a shape. The difference from ofVertex is that the line describing the edge of the shape between two points will be a curve as opposed to a straight line. The curve is automatically generated using the catmull rom forumla. To be called between ofBeginShape() and ofEndShape().
+-->
+
+<p>描画する形状の中の１つの点を定義します。ofVertexとの違いは形状の輪郭線が直線のかわりに曲線になることです。曲線はCatmull-Rom式によって自動的に生成されます。ofBeginShape()とofEndShape()の間において呼び出されます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -798,7 +871,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Describes a bezier curve through three points of a shape. To be called between ofBeginShape() and ofEndShape(). </p>
+  <!--
+Describes a bezier curve through three points of a shape. To be called between ofBeginShape() and ofEndShape(). 
+-->
+
+<p>３点を用いてベジェ曲線の頂点を記述します。ofBeginShape()とofEndShape()の間において呼び出されます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -816,7 +893,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Allows you to draw multiple contours within one shape. Call this between ofBeginShape() and ofEndShape() to create a new contour for your shape. If you set the optional argument 'bClose' to true then the previous contour will be automatically closed. 'bClose' is set to false by default.</p>
+  <!--
+Allows you to draw multiple contours within one shape. Call this between ofBeginShape() and ofEndShape() to create a new contour for your shape. If you set the optional argument 'bClose' to true then the previous contour will be automatically closed. 'bClose' is set to false by default.
+-->
+
+<p>一つの形状の中で、複数の輪郭線を描画できるようにします。形状の中に新しい輪郭線を作るためには、この命令をofBeginShape()とofEndShape()の間において呼び出します。オプション引数の'bCLose'を使用した場合、trueにすると一つ前の輪郭が自動的に閉じられます。bCloseは初期設定ではfalseになっています。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -834,7 +915,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>This tells the program that your shape is finished and that it should now draw it to the screen. If you set the optional 'bClose' argument to true it will automatically close your shape for you.'bClose' is set to false by default. This function must be called otherwise you will not see your shape.</p>
+  <!--
+This tells the program that your shape is finished and that it should now draw it to the screen. If you set the optional 'bClose' argument to true it will automatically close your shape for you.'bClose' is set to false by default. This function must be called otherwise you will not see your shape.
+-->
+
+<p>形状の定義を終了して、スクリーンに描画することを知らせます。'bClose'引数をtrueに設定している場合は、自動的に形状は閉じられます。'bCLose'は初期設定であるfalseに設定されています。この命令は必ず実行しないと形状が現れません。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -852,7 +937,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draw shapes as outlines with the current draw color. </p>
+  <!--
+Draw shapes as outlines with the current draw color. 
+-->
+
+<p>形状を外枠のみ現在の描画色で描画します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -870,7 +959,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draw shapes filled with the current draw color. </p>
+  <!--
+Draw shapes filled with the current draw color. 
+-->
+
+<p>形状を現在の描画色で塗り潰して描画します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -888,7 +981,11 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the draw color with r,g,b, 0-255. For example, red (0xff0000) would be: ofSetColor(255,0,0).</p>
+  <!--
+Sets the draw color with r,g,b, 0-255. For example, red (0xff0000) would be: ofSetColor(255,0,0).
+-->
+
+<p>描画色を、r,g,b それぞれ0-255の範囲で設定します。例えば、赤色(0xff0000)はこのようになります： ofSetColor(255,0,0)</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -906,11 +1003,18 @@ ofEndShape();
 	<div class="documentation_detail_description">
 		
 		
-  <p>sets the draw color with r,g,b,a 0-255. For alpha (transparency), you must first enable transparent blending (turned off by default for performance reasons), and draw in the proper z-order (objects in the back drawn first). For example, to draw a transparent red rectangle: </p>
-<pre><code class="cpp">ofEnableAlphaBlending();    // turn on alpha blending
-ofSetColor(255,0,0,127);    // red, 50% transparent
+  <!--
+sets the draw color with r,g,b,a 0-255. For alpha (transparency), you must first enable transparent blending (turned off by default for performance reasons), and draw in the proper z-order (objects in the back drawn first). For example, to draw a transparent red rectangle:
+
+wzxhzdk:0
+
+-->
+
+<p>描画色をr,g,b,aのそれぞれ0-255の範囲で設定します。アルファ（透過）を使うには先にアルファブレンディングを有効にしておく必要があり、正しいzオーダーで描画しなくてはなりません（先に描画されたものが、後ろ側になります）。　透明度のある赤い三角形を描画する例：</p>
+<pre><code class="cpp">ofEnableAlphaBlending();    // アルファブレンディングを有効にします
+ofSetColor(255,0,0,127);    // 赤色、半透明
 ofRect(20,20,100,100);
-ofDisableAlphaBlending();   // turn it back off, if you don't need it
+ofDisableAlphaBlending();   // これ以降必要がなくなれば、ブレンディングを無効に戻します
 </code></pre>
 
 	</div>
@@ -929,10 +1033,17 @@ ofDisableAlphaBlending();   // turn it back off, if you don't need it
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the draw color with r,g,b, passed in as a hex. Hex is a conventient way to write colors. Some examples:</p>
-<pre><code class="cpp">ofSetColor(0xffffff);  // white  (255,255,255)
-ofSetColor(0x000000);  // black  (0,0,0);
-ofSetColor(0x00ff00);  // green  (0,255,0);
+  <!--
+Sets the draw color with r,g,b, passed in as a hex. Hex is a conventient way to write colors. Some examples:
+
+wzxhzdk:0
+
+-->
+
+<p>r、g、bを１６進数を使って描画色を設定します。１６進数は色を表現するのに便利な方法です。いくつかの例を示します：</p>
+<pre><code class="cpp">ofSetColor(0xffffff);  // 白  (255,255,255)
+ofSetColor(0x000000);  // 黒  (0,0,0);
+ofSetColor(0x00ff00);  // 緑  (0,255,0);
 </code></pre>
 
 	</div>
@@ -951,7 +1062,11 @@ ofSetColor(0x00ff00);  // green  (0,255,0);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Turns on alpha blending, which is off by default for performance purposes. It simply wraps opengl commands that enable blending, and turn on a common blend mode.</p>
+  <!--
+Turns on alpha blending, which is off by default for performance purposes. It simply wraps opengl commands that enable blending, and turn on a common blend mode.
+-->
+
+<p>アルファ合成を有効にします。処理速度を考慮して、初期状態では無効になっています。単純にOpenGLの合成命令をラップしており、通常の合成モードを有効化します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -969,7 +1084,11 @@ ofSetColor(0x00ff00);  // green  (0,255,0);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Turns off alpha blending. </p>
+  <!--
+Turns off alpha blending. 
+-->
+
+<p>アルファ合成を無効にします。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -987,7 +1106,11 @@ ofSetColor(0x00ff00);  // green  (0,255,0);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Turns on smoothing. Currently, this only works for lines. You can draw a filled object, and then draw the outline with smoothing enabled to get smoothing effects on filled shapes.</p>
+  <!--
+Turns on smoothing. Currently, this only works for lines. You can draw a filled object, and then draw the outline with smoothing enabled to get smoothing effects on filled shapes.
+-->
+
+<p>スムージングを有効にします。現在のところ線の描画にのみ効果があります。塗りつぶされた形状を描き、輪郭のスムージングを有効にして、塗りつぶした形状を平滑化して描くことができます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1005,7 +1128,11 @@ ofSetColor(0x00ff00);  // green  (0,255,0);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Turns off smoothing. Currently, this only works for lines. You can draw a filled object, and then draw the outline with smoothing enabled to get smoothing effects on filled shapes.</p>
+  <!--
+Turns off smoothing. Currently, this only works for lines. You can draw a filled object, and then draw the outline with smoothing enabled to get smoothing effects on filled shapes.
+-->
+
+<p>スムージングを無効にします。現在のところ線の描画にのみ効果があります。塗りつぶされた形状を描き、輪郭のスムージングを有効にして、塗りつぶした形状を平滑化して描くことができます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1023,22 +1150,38 @@ ofSetColor(0x00ff00);  // green  (0,255,0);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Draws a bitmapped string, on screen, at point (x,y). For example, you can write some text on screen like this:</p>
+  <!--
+Draws a bitmapped string, on screen, at point (x,y). For example, you can write some text on screen like this:
+-->
+
+<p>スクリーン上の点(x,y)の位置に、ビットマップで文字列を描画します。例えばこのようにして画面にテキストを書くことができます：</p>
 <pre><code class="cpp">ofDrawBitmapString(&quot;hi!!&quot;, 100,100);
 </code></pre>
 
-<p>Your strings can even be multiline:</p>
+<!--
+Your strings can even be multiline:
+-->
+
+<p>複数行の文字列にすることもできます。</p>
 <pre><code class="cpp">ofDrawBitmapString(&quot;a test
 of multiline
 text&quot;, 100,100);
 </code></pre>
 
-<p>you can also using dynamically generated strings. For example, to print the frame rate:</p>
+<!--
+you can also using dynamically generated strings. For example, to print the frame rate:
+-->
+
+<p>動的に生成された文字列も扱うことができます。例えば、フレームレートを表示するには：</p>
 <pre><code class="cpp">string fpsStr = &quot;frame rate: &quot;+ofToString(ofGetFrameRate(), 2);
 ofDrawBitmapString(fpsStr, 100,100);
 </code></pre>
 
-<p>Please note, ofDrawBitmapString wraps a glut function that uses glDrawPixels. On some graphics cards, you may discover that glDrawPixels is slow (or even, very slow). If so, you might want to invsetigate using ofTrueTypeFont with a small typeface, non-anti-aliased, as a suitable alternative.</p>
+<!--
+Please note, ofDrawBitmapString wraps a glut function that uses glDrawPixels. On some graphics cards, you may discover that glDrawPixels is slow (or even, very slow). If so, you might want to invsetigate using ofTrueTypeFont with a small typeface, non-anti-aliased, as a suitable alternative.
+-->
+
+<p>ofDrawBitMapStringはglDrawPixelsを使うglut関数をラップしていることに注意してください。いくつかのグラフィックカードではglDrawPixelsは遅い（もしくは、大変遅い）ということに気づくでしょう。そのような場合適切な選択肢として、ofTrueTypeFontで、アンチエイリアスされない、小さいタイプフェイスを使うことで改善できるかもしれません。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1056,9 +1199,15 @@ ofDrawBitmapString(fpsStr, 100,100);
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofRotate produces a rotation of angle "degrees" around the vector (vecX,vecY,vecZ).
+  <!--
+ofRotate produces a rotation of angle "degrees" around the vector (vecX,vecY,vecZ).
 "degrees"specifies the angle of rotation, in degrees. vecX, vecY, vecZ specify the x,   y, and z coordinates of a vector, respectively.
-All graphics drawn after ofRotate is called are rotated.  Use ofPushMatrix and ofPopMatrix to save and restore the unrotated coordinate system.</p>
+All graphics drawn after ofRotate is called are rotated.  Use ofPushMatrix and ofPopMatrix to save and restore the unrotated coordinate system.
+-->
+
+<p>ofRotateはベクトル(vecX,vecY,vecZ)に対して"degree"度の回転を行います。
+"degrees"は回転を角度で設定します。vecX、vecY、vecZは、x、y、zそれぞれのベクトルの座標を指定します。<br />
+ofRotateの呼び出しよりも後ではすべてのグラフィックが回転して描画されます。元の回転していない座標状態を保存しておいて元に戻すには、ofPushMatrixとofPopMatrixを使用します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1076,7 +1225,12 @@ All graphics drawn after ofRotate is called are rotated.  Use ofPushMatrix and o
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofRotateX produces a rotation of angle "degrees" around the X-axis of our coordinate system represented by the vector (1,0,0)."degrees"specifies the angle of rotation, in degrees.</p>
+  <!--
+ofRotateX produces a rotation of angle "degrees" around the X-axis of our coordinate system represented by the vector (1,0,0)."degrees"specifies the angle of rotation, in degrees.
+-->
+
+<p>ofRotateXは、ベクトル(1,0,0)で表現される座標系のX軸に対して"degrees"度の回転を行います。
+"degrees"は度単位の回転角度を指定します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1094,8 +1248,13 @@ All graphics drawn after ofRotate is called are rotated.  Use ofPushMatrix and o
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofRotateY produces a rotation of angle "degrees" around the Y-axis of our coordinate system represented by the vector (0,1,0).
-"degrees"specifies the angle of rotation, in degrees.</p>
+  <!--
+ofRotateY produces a rotation of angle "degrees" around the Y-axis of our coordinate system represented by the vector (0,1,0).
+"degrees"specifies the angle of rotation, in degrees.
+-->
+
+<p>ofRotateYは、ベクトル(0,1,0)で表現される座標系のY軸に対して"degrees"度の回転を行います。
+"degrees"は度単位の回転角度を指定します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1113,8 +1272,13 @@ All graphics drawn after ofRotate is called are rotated.  Use ofPushMatrix and o
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofRotateZ produces a rotation of angle "degrees" around the Z-axis of our coordinate system represented by the vector (0,0,1).
-"degrees"specifies the angle of rotation, in degrees.</p>
+  <!--
+ofRotateZ produces a rotation of angle "degrees" around the Z-axis of our coordinate system represented by the vector (0,0,1).
+"degrees"specifies the angle of rotation, in degrees.
+-->
+
+<p>ofRotateZは、ベクトル(0,0,1)で表現される座標系のZ軸に対して"degrees"度の回転を行います。
+"degrees"は度単位の回転角度を指定します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1132,8 +1296,18 @@ All graphics drawn after ofRotate is called are rotated.  Use ofPushMatrix and o
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofPushStyle saves the current style settings for the ofGraphics after its call. Usage of ofPushStyle and ofPopStyle allow users to have more control of certain graphics elements. All the style that applies to certain elements is controled using ofStyle class. See ofStyle type.
-In the following example the properties of being red and filled only applies to the ellipse:</p>
+  <!--
+ofPushStyle saves the current style settings for the ofGraphics after its call. Usage of ofPushStyle and ofPopStyle allow users to have more control of certain graphics elements. All the style that applies to certain elements is controled using ofStyle class. See ofStyle type.
+In the following example the properties of being red and filled only applies to the ellipse:
+
+wzxhzdk:0
+
+-->
+
+<p>ofPushStyleが呼び出されると、現在のofGraphics設定の現在のスタイル設定が保存されます。ofPushStyleとofPopStyleを使うことで、グラフィックのより正確な制御が行えます。
+ある要素に当てはまるスタイルはすべてofStyleクラスを使用してコントロールされます。
+ofStyleを参照してください。
+次の例では赤い塗りつぶしは楕円にのみ適用されます。</p>
 <pre><code class="cpp">void testApp::draw(){
     ofCircle(10,10,5);
     ofPushStyle();
@@ -1160,7 +1334,11 @@ In the following example the properties of being red and filled only applies to 
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofPopStyle() restores the prior style settings. It needs to be called after ofPushStyle. See ofPushStyle for more info.</p>
+  <!--
+ofPopStyle() restores the prior style settings. It needs to be called after ofPushStyle. See ofPushStyle for more info.
+-->
+
+<p>ofPopStyle（）は以前のスタイルの設定を復元します。この命令はofPushStyleよりも後に呼び出される必要があります。詳細はofPushStyleを参照してください。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1178,7 +1356,11 @@ In the following example the properties of being red and filled only applies to 
 	<div class="documentation_detail_description">
 		
 		
-  <p>We use ofSetStyle to set the current style of the ofGraphics. Parameter style contains information of the graphics style such as ofColor, ofFill, polyMode and others. See ofStyle for more details. </p>
+  <!--
+We use ofSetStyle to set the current style of the ofGraphics. Parameter style contains information of the graphics style such as ofColor, ofFill, polyMode and others. See ofStyle for more details. 
+-->
+
+<p>ofGraphicsの現在のスタイルを設定するために、ofSetStyleを使用します。スタイル設定のパラメーターは、ofColor、ofFill、polyModeおよび他のグラフィックスタイルの情報が含まれています。詳細については、ofStyleを参照してください。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1214,7 +1396,11 @@ In the following example the properties of being red and filled only applies to 
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofSetLineWidth sets the width of the ofLines called after.</p>
+  <!--
+ofSetLineWidth sets the width of the ofLines called after.
+-->
+
+<p>これより後で呼び出されるofLinesの、線の幅を設定します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1232,8 +1418,12 @@ In the following example the properties of being red and filled only applies to 
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofPushMatrix saves the current coordinate system allowing users to develop specific movements in some graphic objects. ofPopMatrix needs to be called after.
-In the following example we only rotate the square.</p>
+  <!--
+ofPushMatrix saves the current coordinate system allowing users to develop specific movements in some graphic objects. ofPopMatrix needs to be called after.
+In the following example we only rotate the square.
+-->
+
+<p>ofPushMatrixは現在の座標系を保存することで、グラフィックオブジェクトを移動して開発できるようにします。ofPopMatrixはこの命令よりも後で呼び出される必要があります。次の例は正方形の回転のみをしています。</p>
 <pre><code class="cpp">void testApp::draw(){
     ofCircle(10, 10, 5);
     ofPushMatrix();
@@ -1259,7 +1449,11 @@ In the following example we only rotate the square.</p>
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofPopMatrix() restores the prior coordinate system. See ofPushMatrix for more info.</p>
+  <!--
+ofPopMatrix() restores the prior coordinate system. See ofPushMatrix for more info.
+-->
+
+<p>ofPopMatrix()は以前の座標系を復元します。詳細についてはofPushMatrixを参照してください。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1277,8 +1471,13 @@ In the following example we only rotate the square.</p>
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofTranslate produces a translation by (x,y,z) vector of our coordinate system. The call of ofTranslate modifies graphics positions.
-Use ofPushMatrix and ofPopMatrix to save and restore the untranslated coordinate system.</p>
+  <!--
+ofTranslate produces a translation by (x,y,z) vector of our coordinate system. The call of ofTranslate modifies graphics positions.
+Use ofPushMatrix and ofPopMatrix to save and restore the untranslated coordinate system.
+-->
+
+<p>ofTranslateは座標系の（x、y、z）ベクトルによる変換を行います。 ofTranslateの呼び出しは、グラフィックの位置を変更します。
+ofPushMatrixとofPopMatrixを使って変換前の座標系を保存して、復元します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -1296,15 +1495,24 @@ Use ofPushMatrix and ofPopMatrix to save and restore the untranslated coordinate
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofScale produces a nonuniform scaling along the x, y, and z axes. The three parameters xAmnt, yAmnt and zAmnt indicate the desired scale factor along each of the three axes.
-e.g:</p>
+  <!--
+ofScale produces a nonuniform scaling along the x, y, and z axes. The three parameters xAmnt, yAmnt and zAmnt indicate the desired scale factor along each of the three axes.
+e.g:
+
+wzxhzdk:0
+
+Rectangle width will be now 20px!
+-->
+
+<p>ofScaleはx、y、およびz軸に沿って均一ではない拡大縮小を行います。 3つのパラメータxAmnt、yAmntとzAmntは、3つの軸それぞれに沿って拡大縮小したい係数を示します。
+例:</p>
 <pre><code class="cpp">void testApp::draw(){
     ofScale(0.5,1,1);
     ofRect(10,10,40,40);    
 }
 </code></pre>
 
-<p>Rectangle width will be now 20px!</p>
+<p>これで四角形の幅は20pxになりました！</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -2619,13 +2827,13 @@ e.g:</p>
 
 Last updated 
   
-Sunday, 01 April 2012 10:40:48 UTC
+Saturday, 14 April 2012 21:55:49 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-b89ae81e00d2c25f071441cf82bac75eddf2a519
+ef48aacfd77ea4b91aedb73b130405f9c0acd246
 ">
 
-b89ae81e00d2c25f071441cf82bac75eddf2a519
+ef48aacfd77ea4b91aedb73b130405f9c0acd246
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
