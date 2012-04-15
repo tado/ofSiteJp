@@ -336,18 +336,21 @@ openFrameworksは、もちろん円以外のものも描画できます。
 TIP: “MyFirstWorkspace”ワークスペース内に３つのプロジェクトを作成し、それぞれで、違う「形」を、いろいろな色や場所に描画してみましょう。
 
 
-Adding Movement
+動きを加える
 ~~~~~~~~~~~~~~~
+静的な図形を描く事も面白いですが、その図形をスクリーン上で動かしてみる事はどうでしょう？
 
-Drawing static shapes is great, but what if we want our shapes to move around the screen?
+draw()関数は上述した様に、プログラム実行後、繰り返し呼ばれます。openFrameworksがアニメーションを表現する方法に直結している事な為、とても重要です。Flash等の"ステージ"に何かオブジェクトを置いて必要な時に位置を変更する様なアプリケーションを使用しているユーザにとっては、少々直感的でないかもしれません。
 
-We mentioned earlier that the draw() function is called repeatedly after the program is started. This is very important because it is how we achieve animation in openFrameworks. It might be a little unintuitive if you are used to  Flash or even something like stop-frame animation, where you can add something to a "stage" and then reposition it as needed. This is *not* how openFrameworks (or most computer animation) works. Actually, openFrameworks is more like traditional (we're talking old-school Disney/Bambi) animation, where we must redraw the frame completely every single "frame". In the parlance of openFrameworks, every time the draw() function is called is one "frame". So, in actuality, when you run the program above and see your purple circle, what you are actually looking at is the circle being drawn, then cleared (a single frame), and then drawn, then cleared, repeatedly. It's just happening so fast that it appears to stay where it is.
+openFrameworks（もしくは、ほとんどのコンピュータアニメーション）での仕組みは違います。openFrameworksは、よりトラディショナル（私たちは保守的なディズニー/バンビを話しています。）なアニメーションです。毎フレーム時、全てのフレームを再描画する必要があるのです。
 
-In the example above, when we draw our circle, we use two numbers to tell the ofCircle function where to draw the circle within the window. So it follows that, if we want the circle to appear to move, we need to change these numbers over time. Perhaps the first time draw() happens, the circle is drawn at (200, 300), but in the next time, we want it to be one pixel to the right (201, 300), and then another pixel to the right (202, 300), and so on. 
+openFrameworksでは毎回draw()関数が実行される時が"１フレーム"となります。上記のプログラムを実行すると紫色の円が描画されますが、実際は「円が描画され、そしてクリアされる」という事を１フレームとして繰り返し実行されています。ただ、非常に高速に繰り返されているので、ただ表示されている様に見えているのです。
 
-In `c++`, and in programming in general, whenever you have a value that you want to change, you create a "variable". Variables come in different shapes and sizes depending on what they represent, such as decimal numbers, whole numbers, a letter, or a bunch of letters. In this case, we want to create variables that can stand in for coordinates in our ofCircle function, so we will use 2 *int*s.
+上記のサンプルでは、円を描画する時にウィンドウ内のどこに円を描くかをofCircle関数に伝えるために２つの数値を使いました。したがって円を動かしたい場合は、これらの数値を時間とともに変更していく必要があります。たぶん、最初の描画時が、(200, 300)の位置であったとすれば、次は１ピクセル右に…(201, 300)、そして、もう１ピクセル右へ(202, 300)という感じで。
 
-Put this at the top of your testApp.cpp, right under the `#include` line, so that your file starts like this:
+`c++`で、普段プログラミングを行う時、値を変更したい場合はいつも変数を宣言（作成）します。変数は、その時々で異なる形と大きさを持ちます。10進数、整数、文字、または文字列などです。今回はofCircle関数において座標を表現する為に２つの*int* 型を使用してみましょう。
+
+下記の様な２行をtestApp.cppの一番上にある`#include“`の真下に書いてください。
 
 ~~~~{.cpp}
 #include "testApp.h"
@@ -356,8 +359,11 @@ int myCircleX;
 int myCircleY;
 ~~~~
 
-In those 2 new lines of code, we "declared" 2 new variables: one called 'myCircleX' and one called 'myCircleY'. You could actually name them whatever you want (within reason), but it's a good idea to name them something that is related to how they will be used. We also said that these variables will be used to hold whole-number integer values, or *int*s. Declaring a variable is an important and necessary step. It's like telling your application "okay, I'm going to need to store a number that might change."
+これで２つの変数を"宣言"した事になります。１つは'myCircleX'で、もう１つは、'myCircleY'ですね。実際、あなたが好きな名前で宣言する事も出来ますが、変数名を決める時は、それがどのように使用されるか？どんなものに関連しているか？を考えて決める方が良い方法です。
+また、これらの変数は整数値を保存する為にも使用します。
+変数を宣言する事は重要で且つ必要なステップです。「よし！、変更できる数値を保存する事が必要だ！」
 
+次に必要な事は、これらの変数に初期値を与える事です。
 The next thing we need to do is give those variables a starting value. We know that the endgame here is to have these variables change over time. But before we can change them, we need to give them an initial value. In other words, before our circle starts moving, where will it appear? 
 
 In a previous section, we learned that the setup() function gets called once when the application launches, and then never called again. This sounds like it could be useful for giving our variables some initial values. So in your setup() function, add the following lines.
