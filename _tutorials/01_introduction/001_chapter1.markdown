@@ -336,8 +336,8 @@ openFrameworksは、もちろん円以外のものも描画できます。
 TIP: “MyFirstWorkspace”ワークスペース内に３つのプロジェクトを作成し、それぞれで、違う「形」を、いろいろな色や場所に描画してみましょう。
 
 
-動きを加える
-~~~~~~~~~~~~~~~
+####動きを加える
+
 静的な図形を描く事も面白いですが、その図形をスクリーン上で動かしてみる事はどうでしょう？
 
 draw()関数は上述した様に、プログラム実行後、繰り返し呼ばれます。openFrameworksがアニメーションを表現する方法に直結している事な為、とても重要です。Flash等の"ステージ"に何かオブジェクトを置いて必要な時に位置を変更する様なアプリケーションを使用しているユーザにとっては、少々直感的でないかもしれません。
@@ -363,10 +363,10 @@ int myCircleY;
 また、これらの変数は整数値を保存する為にも使用します。
 変数を宣言する事は重要で且つ必要なステップです。「よし！、変更できる数値を保存する事が必要だ！」
 
-次に必要な事は、これらの変数に初期値を与える事です。
-The next thing we need to do is give those variables a starting value. We know that the endgame here is to have these variables change over time. But before we can change them, we need to give them an initial value. In other words, before our circle starts moving, where will it appear? 
+次に必要な事は、これらの変数に初期値を与える事です。ここでの最終的に行う事は、これらの変数値を時間とともに変更する事です。ただし値を変更する前に変数に初期値を与えておく必要があります。これは上記で作成した円を動かす前に、最初に何処に表示するか？という事になります。
 
-In a previous section, we learned that the setup() function gets called once when the application launches, and then never called again. This sounds like it could be useful for giving our variables some initial values. So in your setup() function, add the following lines.
+前章でsetup()関数はアプリケーションが起動した時に１度だけ呼び出され、２度と呼び出されないと学びました。初期値を設定する関数としてsetup()関数が役に立つようなので、次のコードを加えてください。
+
 
 ~~~~{.cpp}
 void testApp::setup(){
@@ -375,9 +375,9 @@ void testApp::setup(){
 }
 ~~~~
 
-Perfect!  So, to recap, we now have 2 variables, 'myCircleX', and 'myCircleY', and we have just "initialized" them, or populated with an "initial" value. Notice that, just like any mathmatical equation, we use the equals sign (=) to assign the number 300 to 'myCircleX'. In `c++` parlance, the equals sign is known as the "assignment operator", because it's used to assign a value to a variable. The "assignment" always flows from right to left; that is, the value that is being assigned is on the right and thing that is receiving the assignment is on the left.
+これでOKです！ 簡単に説明すると、２つの変数'myCircleX'と'myCircleY'を「初期化」もしくは「初期値を代入」した事になります。数学方程式の様に、300という値を'myCircleX'へ割り当てるためにイコール文字 '='を使います。`c++`では、イコール'='は、値を代入する為に使われているため、"代入演算子"として知られています。"演算子"は、いつも右から左へ流れます。代入される値は右辺に配置し、右辺に配置された値を受ける変数は左辺に配置します。
 
-Now we can edit our ofCircle call a bit :
+それでは、ofCircle関数を少々編集してみましょう。：
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -386,11 +386,10 @@ void testApp::draw(){
 }
 ~~~~
 
-Notice that we are still passing 3 arguments to the ofCircle function. But now, instead of the old "hard-coded" (200, 300) values that we can't change, we are letting the variables that we made stand in.
+３つの変数をofCircle関数に与えている事自体はかわっていませんが、(200, 300)と"ハードコーディング"していた為に変更できなかったものが変更可能な変数になりました。
 
-If you run your app now, you shouldn't notice any change. That's because we haven't gotten around to changing the variables yet. So let's do it.
-
-Let's edit our draw function a little so that it looks like this:
+この状態でアプリケーションを起動したとしても、何も変化していません。まだ何も値を変更する事を行っていない為です。
+では、下記の様にdraw()関数を少々変更してみてください。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -401,7 +400,8 @@ void testApp::draw(){
 }
 ~~~~
 
-In this new line, we are using the "assignment operator" again, just like in the setup function. In English, that line would say "take the value of myCircleX plus one, and assign that to myCircleX". In other words, we are incrementing myCircleX by 1. `c++` provides a shortcut for the common task of incrementing a variable: `myCircleX++;`  This is extremely common, so let's actually change our code to use this handy shortcut:
+追加した新しい行で、setup()関数内で使用しているのと同じ様に、再び“代入演算子”を使用しています。この追加した行を言葉で説明すると「myCircleXに１を加え、その値をmyCircleXに代入せよ」となります。別の言い方をすると、「私たちが
+myCircleXを増加させている」と言えます。`c++`は、値を増加させるための共通ショートカットとして`myCircleX++;`という表現を割り当てる事が出来るようになっています。これは非常によく使われる共通なものです。では、このショートカットを使って、コードを書き換えてみましょう。
 
 ....
 myCircleX = myCircleX + 1;
@@ -411,9 +411,9 @@ becomes
 myCircleX++;
 ....
 
-If you run your program now, you should see your circle move off the screen to the right!  Animation!
+アプリケーションを動かしてみてください。円が画面の右の方へ動いれいるはずです！
 
-There is just one thing we need to fix before moving on to more pressing aesthetic concerns. If you read back through the descriptions of what the update() and draw() functions are supposed to be used for, you'll notice that the draw function is for drawing (so far, so good), but the update() function is where we are supposed to take care of updating variables. There are some very good reasons for this that we will get into later, but for now, let's move the line we just wrote to the update function. So, your update and draw functions should look like this:
+より魅力的な動きにする前にもう１つ必要な事があります。update()関数とdraw()関数についての説明を再度読んでみると、draw()関数は、描画する為（今のところ、十分なのですが）という事に気づくと思います。しかしupdate()関数は、変数を更新する関数である事にも気づくと思います。この理由については後述致しますが、追加した新しい行を、update()関数に移動してみましょう。
 
 ~~~~{.cpp}
 void testApp::update(){
@@ -426,19 +426,23 @@ void testApp::draw(){
 }
 ~~~~
 
-You shouldn't notice any difference in terms of functionality, but it's a good habit to get into.
+機能的な観点で違いを理解しなくとも、この習慣に慣れる事は良いことです。
 
-Framerate
 
-One thing you may notice about your awesome moving circle is that it starts off kind of slow and then speeds away. This is actually caused by the framerate of your application, which is slow at first while the application fires up, but then gets super fast. As mentioned before, framerate refers to the rate at which the draw/update loop executes. Add this little line of code to the bottom of your draw() function to be able to see your framerate in the upper left corner of your window:
+####フレームレート
+
+「円の動き」について、最初はある意味スローだったスピードが速くなる事に気づく事があるかもしれません。アプリケーションが起動した直後はスロースピードであったのに、すごく速くなってしまう…これはアプリケーションのフレームレートに因るものです。既にお話してはいますが、フレームレートはdraw()関数／update()関数ループ処理の速度を示します。
+
+下記の１行をdraw()関数の最後に挿入してみてください。アプリケーションウィンドウの左上にフレームレート値を見る事が出来るようになります。
 
 ....
 ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
 ....
 
-Most likely, it says something very close to 1000fps. That means that your circle is being drawn close to one thousand times per second. If you were to fire up tons of other applications on your computer and start rendering a huge video in FinalCut, you'd notice this framerate drop. The fact is that your application is simply trying to run as fast as it possibly can.
+1000fpsに近い値になるかと思います。1秒間に約1000回、円が描画されているという事です。もし他のアプリケーションを沢山起動し、FinalCutで巨大なビデオのレンダリングを始めたとすると、フレームレート値が落ちていることに気付く事になるでしょう。アプリケーションは、単純にコンピュータが実行できる可能な速さで動こうとします。
 
-In the interest of having a smoother, more predictable kind of animation, we will lower the framerate to something more reasonable, like 60. In order to do this, we will put a new line into our setup() function.
+スムーズに動かし、そしてより予測可能な観点として、フレームレートを適正な値…60くらいにセットしてみましょう。
+その為に、setup()関数に、以下の１行を配置しましょう。
 
 ~~~~{.cpp}
 void testApp::setup(){
@@ -449,7 +453,9 @@ void testApp::setup(){
 }
 ~~~~
 
-Add that and then run your program. You will notice that the circle moves considerably slower. Using this function is *not* a guarantee of 60 frames per second, but it is a guarantee that your framerate will be any higher than that. And unless you have a really old computer, or your processor is already extremely taxed by some other program, it should have no problem running consistently at 60fps while doing something a simple as drawing a moving circle.
+プログラムを起動してみてください。大分、円の動くスピートが遅くなったと思います。
+上記で追加した関数は、「１秒間に60フレーム」という事を必ずしも保証しませんが、最低60フレームという事は保証されます。すごく古いコンピュータを使用している、もしくは他のプログラムによってプロセッサに極めて負荷がかかっていなければ、円を動かすようなシンプルな事に対しては、一貫して60fpsで動作するのに問題は起こりません。
+
 
 TIP: SAT word problem #1: If we know that the update loop is happening (at most) 60 times/second, and we are incrementing the x coordinate of the circle by 1 pixel every time update is called, how long will it take for the circle to move 240px?
 
