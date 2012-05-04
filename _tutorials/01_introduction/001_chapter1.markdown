@@ -336,7 +336,7 @@ openFrameworksは、もちろん円以外のものも描画できます。
 TIP: “MyFirstWorkspace”ワークスペース内に３つのプロジェクトを作成し、それぞれで、違う「形」を、いろいろな色や場所に描画してみましょう。
 
 
-####動きを加える
+###動きを加える
 
 静的な図形を描く事も面白いですが、その図形をスクリーン上で動かしてみる事はどうでしょう？
 
@@ -403,15 +403,12 @@ void testApp::draw(){
 追加した新しい行で、setup()関数内で使用しているのと同じ様に、再び“代入演算子”を使用しています。この追加した行を言葉で説明すると「myCircleXに１を加え、その値をmyCircleXに代入せよ」となります。別の言い方をすると、「私たちが
 myCircleXを増加させている」と言えます。`c++`は、値を増加させるための共通ショートカットとして`myCircleX++;`という表現を割り当てる事が出来るようになっています。これは非常によく使われる共通なものです。では、このショートカットを使って、コードを書き換えてみましょう。
 
-....
 myCircleX = myCircleX + 1;
-....
-becomes
-....
+は、
 myCircleX++;
-....
+となります。
 
-アプリケーションを動かしてみてください。円が画面の右の方へ動いれいるはずです！
+アプリケーションを動かしてみてください。円が画面の右の方へ動いているはずです！
 
 より魅力的な動きにする前にもう１つ必要な事があります。update()関数とdraw()関数についての説明を再度読んでみると、draw()関数は、描画する為（今のところ、十分なのですが）という事に気づくと思います。しかしupdate()関数は、変数を更新する関数である事にも気づくと思います。この理由については後述致しますが、追加した新しい行を、update()関数に移動してみましょう。
 
@@ -429,15 +426,14 @@ void testApp::draw(){
 機能的な観点で違いを理解しなくとも、この習慣に慣れる事は良いことです。
 
 
-####フレームレート
-
+###フレームレート
 「円の動き」について、最初はある意味スローだったスピードが速くなる事に気づく事があるかもしれません。アプリケーションが起動した直後はスロースピードであったのに、すごく速くなってしまう…これはアプリケーションのフレームレートに因るものです。既にお話してはいますが、フレームレートはdraw()関数／update()関数ループ処理の速度を示します。
 
 下記の１行をdraw()関数の最後に挿入してみてください。アプリケーションウィンドウの左上にフレームレート値を見る事が出来るようになります。
 
-....
+~~~~{.cpp}
 ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
-....
+~~~~
 
 1000fpsに近い値になるかと思います。1秒間に約1000回、円が描画されているという事です。もし他のアプリケーションを沢山起動し、FinalCutで巨大なビデオのレンダリングを始めたとすると、フレームレート値が落ちていることに気付く事になるでしょう。アプリケーションは、単純にコンピュータが実行できる可能な速さで動こうとします。
 
@@ -456,29 +452,26 @@ void testApp::setup(){
 プログラムを起動してみてください。大分、円の動くスピートが遅くなったと思います。
 上記で追加した関数は、「１秒間に60フレーム」という事を必ずしも保証しませんが、最低60フレームという事は保証されます。すごく古いコンピュータを使用している、もしくは他のプログラムによってプロセッサに極めて負荷がかかっていなければ、円を動かすようなシンプルな事に対しては、一貫して60fpsで動作するのに問題は起こりません。
 
+**[TIP]** 毎秒60回update()関数が実行される毎に、円のx座標を1ピクセル増やしていますが、240ピクセル円を動かすには、何秒必要か考えてみてください。
 
-TIP: SAT word problem #1: If we know that the update loop is happening (at most) 60 times/second, and we are incrementing the x coordinate of the circle by 1 pixel every time update is called, how long will it take for the circle to move 240px?
+**[TIP]** 動きが遅い！
+フレームレートをコントロール出来るようになりましたが、60ピクセル／秒では、とても遅く思われるかもしれません。これを解消するにはフレームレート値を増やす方法がありますが、60fpsは非常に良い値なので、代りに円自身の動くスピードを変更してみましょう。毎1ピクセル増やしているところを、4ピクセルに変更してみます。ショートカットを使用してupdate()関数を以下の様に変更しましょう。
 
-[TIP]
-.Too bloody slow
-=====================================================================
-It's true that we now have a good handle on the framerate, but 60px/second turns out to be really slow. To fix this problem, we *could* increase the framerate, but 60fps is a pretty good framerate. so instead, let's change the speed of the circle itself:  instead of just incrementing the x coordinate by 1 pixel every time, let's increment it by 4. Using the same "incrementing" shortcut, we can change our update() function like this:
 
 ~~~~{.cpp}
 void testApp::update(){
     myCircleX+=4;
 }
 ~~~~
-=====================================================================
 
-The Pacman Effect
-~~~~~~~~~~~~~~~~~
 
-Let's have one final adventure with our purple circle before saying goodbye. Our application is still a litlte dissapointing because once our circle leaves the screen on the right, it's gone forever. Let's fix that problem by making the circle re-appear on the left side after leaving on the right: the Pacman Effect.
+###パックマン エフェクト
+それでは、「紫の円」に最後のエフェクトを付けてみましょう。ここまでで作成してきたアプリケーションでは、単に円がスクリーンの右へ移動し、結果的にスクリーンから消えてしまいます。そこで「スクリーン右側へ到達したら、スクリーン左側から再度出現させる」という修正を行ってみましょう。ちなみに、ここでは、これを**パックマン　エフェクト**と呼びます。
 
-Before we write any code, let's think about what this is going to mean in terms of the variables that we have. In the current state, we have myCircleX acting as the x coordinate for our circle, and it is being incrementing by 1 (or 4, if you followed the tip above) every frame. By default, an openFrameworks window is 1024x768. So, one way we could achieve the Pacman Effect is to reset myCircleX back to 300 once it goes beyond 1024. 
+コードを修正する前に、今のコード内に存在する変数という観点について考えてみましょう。現状、"myCircleX"は円のx座標を表現しており、毎フレームで1ピクセル（上述のtipを反映していれば4ピクセル）づつ増加しています。openFrameworksのデフォルトウィンドウサイズは1024x768ピクセルなのでパックマンエフェクトを実現する１つの方法としては、"myCircleX"が1024を超えたら、300にリセットする事で可能です。
 
-How can we do this? We know that we are supposed to do any variable updating in the update() function, so let's start there. We also know that we *only* want to reset myCircleX *if* it has gone above 1024. So for that, we use the 'if' statement.
+では、どの様にすれば良いでしょうか？変数値を更新するには、update()関数で行うべき事を私たちは既に学んでいますね。
+そして、**もし** 「“myCircleX”が1024より大きくなったら300に値をリセットする」としたい為、**if** 構文を使用します。
 
 ~~~~{.cpp}
 void testApp::update(){
@@ -489,19 +482,20 @@ void testApp::update(){
     }
 }
 ~~~~
-This code says:
 
-- increment myCircleX by one. 
-- test if myCircleX is greater than 1024
-- *only* if that test turns out to be true, set myCircleX back to 300;
+このコードを説明すると、
+
+- myCircleX を１増加します。
+- myCircleXが1024を超えているか？テスト（確認）します。
+- テスト結果が**真**の場合のみ、myCircleXを300にセットします。
 
 
-Adding Interaction
+インタラクション（相互作用）の追加
 ------------------
 
-Now that you are a master of animation, it's time to get the user involved. For this section, we will be focusing on keyboard and mouse interaction. 
-
-So far, we've been focusing on 3 functions: setup(), update(), and draw(). For interaction, we will start with 2 of the other functions in your testApp.cpp file:
+アニメーションについては、マスターしました！　では次に、ユーザの行動を取り込んでみましょう。このセクションではキーボードとマウスのインタラクションに注目してみます。
+ 
+これまで、setup()、update()、draw()の３つの関数について見てきました。インタラクションを追加するにあたり、testApp.cpp内の以下２つの関数について見て行きます。
 
 ~~~~{.cpp}
 void testApp::keyPressed(int key){
@@ -513,35 +507,35 @@ void testApp::keyReleased(int key){
 }
 ~~~~
 
-Going back to the producer metaphor can help us understand how these functions work. openFrameworks has done the hard work of setting up your app to know when the user has done some keyboard business. Now, all you have to do is put code into these functions that you want to execute when a particular event occurs: 
+openFrameworksはユーザがキーボードを使用して何かを行った時に作成したアプリケーションにそれを知らせる為の仕組みを既に持っています。あなたが行うべき事はイベントが起きた時に実行させたい関数を用意する事のみです。
 
-- user physically presses down on a key
-- user physically releases the key
+- ユーザーが物理的にキーを押した
+- ユーザが物理的に押していたキーを離した
 
-This might be a little unintuitive if you are accustomed to thinking about typing a letter as a single action: "I just typed the letter 'o'". But in fact, they are 2 distinct actions, or "events", and eventually you might find it handy to be able to distinguish between them.
+もし、あなたが「文字をタイプする」という事に対して、それは１つのアクションだと普段から考えている場合は、少々分かり難らいかもしれません。「私は、"O"という文字をタイプした！」という感じです。しかし、本来は２つのアクション（もしくは"イベント"）で構成されています。この違いについては簡単に理解する事になると思います。
 
-Create a new project in "MyFirstWorkspace" called "KeyboardInteraction". If you need to, go back to "Creating your First Project" to see how.
+"KeyboardInteraction"プロジェクトを“MyFirstWorkspace”ワークスペース内に作成します。もし作成方法を忘れていたら、“初めてのプロジェクト作成”に戻ってください。
 
-image:images/KeyboardInteraction01.png["Keyboard Interaction Project"]
+![Keyboard Interaction Project](images/KeyboardInteraction01.png)
 
-Introducing, cout!
-~~~~~~~~~~~~~~~~~~
 
-The easiest way to quickly see how these functions work is to print a message to the console. Remember when we printed "Hello, World!" to the console in the introduction? We did that using a `c++` thing called http://www.cplusplus.com/reference/iostream/cout/["cout"] (pronounced 'c out'). The syntax for using it is a bit weird because it's not technically a function (it's actually an object, which we will talk more about in later chapters), but if you can get beyond the syntax, it's actually very useful for debugging. 
+###coutコマンド
+これらの関数が、どの様に動いているかを確認する為の一番速い方法はコンソールにメッセージを表示する事です。コンソールに"Hello, World!"と表示した事を覚えていますか？ `c++`の関数である[cout](http://www.cplusplus.com/reference/iostream/cout/["cout"])を使用しました。(c out と発音します。)
+このcoutの構文が関数と同じ様なものでないので、使用する時に少々奇妙に感じるかもしれません(coutコマンドは、実際にはオブジェクトですが、これについては別の章で説明します)。　しかしデバッグするには、非常に便利なコマンドです。
 
-But first: you may be asking yourself: how will we see text output? We are dealing with a GUI interface now. Luckily, XCode provdes a window where we can see anything text that your program outputs (also known as http://www.cplusplus.com/reference/clibrary/cstdio/stdout/[stdout]).
+プログラムが出力したテキストの確認についてですが、XCodeはそれを閲覧できるウィンドウを備えています。[stdout](http://www.cplusplus.com/reference/clibrary/cstdio/stdout/[stdout])
+View->Debug Area->Activate Consoleもしくは、apple+shift+Cを押してみましょう。
 
-So start by going to View->Debug Area->Activate Console, or press apple+shift+C
+![Activate Console](images/activate-console.png)
 
-image:images/activate-console.png["Activate Console"]
 
-NOTE: For XCode 3 users, use the key command Shift-Cmd-R. There's also a preference in XCode to bring up the console after each launch - Xcode->Preferences->Debugging->On Start Show Console.
+**注意**
+XCode3を使用している方。Shift-Cmd-Rを使用してください。もしくはXCode設定で、Xcode->Preferences->Dubuggingの画面で、Start Show Consoleをオンにしましょう。
 
-You should see a panel like this appear at the bottom of your XCode window
+XCodeの下方に下記の様なパネルが表示されます。
+![Debug Area](images/debug-area.png)
 
-image:images/debug-area.png["Debug Area"]
-
-Excellent! Your output will appear in the pane on the right. Now we will add some code to our key functions that will print stuff to the console:
+では下記の様に２つのキー関数にコードを追加し、コンソールに表示してみましょう。
 
 ~~~~{.cpp}
 void testApp::keyPressed(int key){
@@ -553,13 +547,12 @@ void testApp::keyReleased(int key){
 }
 ~~~~
 
-As I mentioned before, the syntax for cout is a little strange and, frankly, way beyond the scope of this chapter. In `c++` parlance, cout represents the "standard output stream", and without worrying too much about what that means, "stream" is a nice way to think about it. If you look at the line of code within 'keyPressed', it appears that there is a "stream" of data flowing into the "cout". First we send in the string "keyPressed " down the stream, then we send in a variable: key. Finally, we send http://www.cplusplus.com/reference/iostream/manipulators/endl/[endl] down the stream. endl simply tells the console to go to the next line. 
+上述した様に、cout関数の構文は、この章においては、少々奇妙に感じられると思います。`c++`では、coutは"標準出力ストリーム"と表現されています。“ストリーム”の意味については、特に気にする必要はありませんが、'keyPressed'内で使用しているcoutの行を見ると、coutが扱っているデータの"流れ"が存在していると見る事が出来ます。最初に、"keyPressed"という文字列を"流れ"に送り、そしてkey変数を送っています。最後に、[endl](http://www.cplusplus.com/reference/iostream/manipulators/endl/[endl])を呼び出しています。
 
-The 'key' variable represents the key that was pressed or released. More about this in a bit.
+'key'変数は、押された／離された「キー」を表しています。
+それでは、アプリケーションを起動して、キーをタイプしてみましょう。試しに、“qwerty”とタイプしてみるとコンソール上では下記の様に表示されると思います。
 
-Let's give it a try. Launch your program and type some keys. I will type "qwerty". You should see something like this in the console:
-
-...................................
+~~~~{.cpp}
 GNU gdb 6.3.50-20050815 (Apple version gdb-1708) (Thu Nov  3 21:59:02 UTC 2011)
 Copyright 2004 Free Software Foundation, Inc.
 GDB is free software, covered by the GNU General Public License, and you are
@@ -580,28 +573,26 @@ keyPressed 116
 keyReleased 116
 keyPressed 121
 keyReleased 121
-...................................
+~~~~
 
-Don't worry about the crap at the beginning -- that's added by the debugger.
+前半部分の数行については、気にしないでください。デバッガによって追加されたものです。
 
-The fact that the 'key' is supplied as an 'int' may seem a bit strange. Perhaps you were expecting a string or a char? In fact, what this number represents is the http://www.asciitable.com/[ASCII code] for the key pressed. Check out this table:
+'key'変数によって供給されているものは、実際には'int'型の値となっています。もしかしたら、あなたはstringもしくはchar型を想像したのではないでしょうか。実は、このint型の番号は、押されたキーの[ASCII](http://www.asciitable.com/[ASCII code])コードを示しています。
 
-image:images/ascii_table.jpg["ASCII Table"]
+![ASCII Table](images/ascii_table.jpg)
 
-On the right of each column in red, you will see a key on your keyboard. Under the corresponding "Dec" (decimal=base 10) column, you will see the number that you will receive in the key functions. 
+キーボード上で見る事が出来るものが赤色の列にあります。"Dec"列（10進数）にある番号は、key関数で取得する番号が書かれています。
 
-[TIP]
-=====================================================================
-You can actually use something called http://www.cplusplus.com/doc/tutorial/typecasting/[type casting] to turn the int into a 'char', or letter. Simply put "(char)" before the "key" variable so that your cout statement looks like this:
+**[TIP]**
+[type casting](http://www.cplusplus.com/doc/tutorial/typecasting/[type casting])という方法でint型からchar型あるいは文字に変換する事が可能です。"（char）"をkey変数の直前に置きます。
 ~~~~{.cpp}
 cout << "keyPressed " << (char)key << endl;
 ~~~~
-More about type casting later in this chapter!
-=====================================================================
+type casting については後述します。
 
-Fantastic. But presumably we want to do more with the key presses than print to the console. Let's use the keys to move a ball around on the screen.
+コンソールに表示する事までは出来ましたが、キーを押す事によるインタラクションについて、もう少し進めてみたいと思います。
 
-Start by adding two variables to your testApp and using them to draw a circle, just like we did in the Adding Movement section:
+「動きを加える」で行った様に、testAppに２つの変数を追加し円を描画する事から始めます。
 
 ~~~~{.cpp}
 #include "testApp.h"
@@ -624,9 +615,10 @@ void testApp::draw(){
 }
 ~~~~
 
-In the Adding Movement section, we used variables so that we could have the circle move by itself. The difference this time is that we want the ball to move in response to our keyboard input. This means that we need to modify the values of the variables depending on which keys are pressed rather than incrementing it automatically every frame. So it follows that we need to change the value of myCircleX and myCircleY in mousePressed() (or mouseReleased() -- it's up to you!) instead of update().
+「動きを加える」のところで、変数を利用する事で円そのものを動かしました。これから行う事との違いは、ボールの動きをキーボードの入力によって作るところです。毎フレームごとに自動的に変数値を増加していたところをキーの入力によって変更する必要があるということです。具体的にはupdate()関数で更新する代りに、mousePressed()関数内（もしくはmouseReleased()関数でも良いでしょう）で、myCircleXとmyCircleY変数値を変更する必要があります。
 
-Let's use a typical computer game keyboard scheme: say we want the ball to move up when we press 'w', to the left when we press 'a', down when we press 's', and right when we press 'd'. We could start by looking up the ASCII values and finding that the values are 119, 97, 115, and 100, respectively. Next, we think about what "up", "down", "left" and "right" mean in terms of our variables: myCircleX and myCircleY. What we end up with is:
+それでは、典型的なゲームのキー・スキームに習って、「wを押した時は上へ」「aを押した時は左へ」「sを押した時は右へ」「dを押した時は下へ」動くようにしてみましょう。
+ASCIIコード値表を参照してみると、それぞれの文字が119, 97, 115, 100の値である事がわかります。次に、どの値が「上」「下」「左」「右」であるのかについて考え、変数myCircleXとmyCircleYをどの様に変更していけば良いか？と考えてみると、以下の様なコードになります。
 
 ~~~~{.cpp}
 void testApp::keyPressed(int key){
@@ -641,15 +633,17 @@ void testApp::keyPressed(int key){
 }
 ~~~~
 
-As we discovered, any time any key is pressed, the keyPressed() function is called. However, we want to be more selective than that. We want to be able to make certain things happen when the 'w' key is pressed, and other things happen when the 'a' key is pressed, etc. So, we need to add some http://www.cprogramming.com/tutorial/lesson2.html[if statements]. When the keyPressed function is called, the first thing that happens is we test if 'key' is equal to 119. 
+上記で分かる通り、キーを押した時にkeyPressed()関数が呼び出されます。そして、どのキーが押されたのかを判断したいので[if構文](http://www.cprogramming.com/tutorial/lesson2.html)を使用しています。ここではkeyPressed関数が呼ばれた時、最初に押されたキーのASCIIコードが119なのかをテストしています。
 
-Notice the double equals sign. This signifies that we are performing a comparison rather than an assignment. In other words, we don't want to assign the value 119 to the variable 'key', we want to test whether key is equal to 119. If this turns out to be true, than the code inside the curly brackets immediately following the if() is executed.
 
-Your challenge is to complete the function to respond to the 's' and 'd' keys.
+**注意**
+ダブルイコールは、サインです。「代入」というよりもむしろ、「比較」を意味しています。119という数字を代入するのではなく、変数keyが119なのかどうかをテストするためにダブルイコールを使用します。結果がtrue（真）であれば、その直後の中括弧内のコードが実行されます。
 
-[TIP]
-=====================================================================
-This also works!
+sキーとdキーについての処理も追加してみてください。
+
+**[TIP]**
+以下のコードも同様に動作します。
+
 ~~~~{.cpp}
 if(key=='w')
 {
@@ -660,13 +654,10 @@ if(key=='a')
 	myCircleX--;
 }
 ~~~~
-=====================================================================
 
 
-Mighty Mouse
-------------
-
-Keyboard interaction is great, but what about the mouse? You might have noticed the following functions hanging out in testApp also:
+###強力なマウス
+キーボードによるインタラクションについて説明してきましたが、マウスではどうでしょうか。次の関数に気付いている人も多いかもしれませんね。
 
 ~~~~{.cpp}
 void testApp::mouseMoved(int x, int y ){
@@ -686,11 +677,11 @@ void testApp::mouseReleased(int x, int y, int button){
 }
 ~~~~
 
-Create a new project called MouseInteraction so we can play with them.
+マウスによるインタラクションを試すために、MouseInteractionプロジェクトを新たに作成してください。
 
-image:images/MouseInteraction01.png["Mouse Interaction Project"]
+!["Mouse Interaction Project"](images//MouseInteraction01.png)
 
-Let's do the same thing with the mouse functions that we did with the key functions. Add the following to your project:
+key関数と同じ様にmouse関数にも以下のコードを追加してみましょう。
 
 ~~~~{.cpp}
 void testApp::mouseMoved(int x, int y){
@@ -710,11 +701,10 @@ void testApp::mouseReleased(int x, int y, int button){
 }
 ~~~~
 
-The 'x' and 'y' variables in the cout statement represent the location of the mouse click -- very handy information to have.
+cout構文内のxとyは、マウスをクリックした箇所の座標を表しています。
+プログラムを実行して下記の様に表示されるか確認してください。
 
-Run the program and you should see something like this:
-
-...................................
+~~~~{.cpp}
 mouseMoved: 627, 500
 mouseMoved: 619, 500
 mouseMoved: 610, 500
@@ -745,10 +735,11 @@ mouseDragged: 433, 377 button: 0
 mouseReleased: 433, 377 button: 0
 mouseMoved: 434, 370
 mouseMoved: 433, 367
-...................................
+~~~~
 
-There are a few important things to notice about this output. First, you will probably see a ton of "mouseMoved" messages. Indeed, this function is called whenever the mouse is moved so much as a single pixel, so be aware of this when adding code to mouseMoved. Next, notice that you see a "mousePressed" before every "mouseDragged" event, and then a bunch of "mouseDragged" messages, and then "mouseReleased" before it switches back to "mouseMoved".
+いくつか重要な事があります。まず“mouseMoved”メッセージが沢山表示されているかと思います。実際に、この関数は1ピクセル単位でマウスが動くたびに呼び出されますので、コードを追加する時には注意しましょう。次に、"mouseDragged"の前に必ず"mousePressed"がある事に気付くと思います。そして、“mouseMoved”へ戻る前に、沢山の"mouseDragged"が表示され、“mouseReleased”が表示されています。
 
+###インタラクション・グラフィックス
 Interacting With Graphics
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
