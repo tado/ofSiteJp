@@ -10,7 +10,11 @@
     <title>openFrameworks.jp</title>
     <link>http://openFrameworks.jp/blog</link>
     <description>Your Blog's short description</description>
+<<<<<<< HEAD
     <pubDate>Sat, 21 Apr 2012 20:44:41 GMT</pubDate>
+=======
+    <pubDate>Fri, 04 May 2012 20:22:07 GMT</pubDate>
+>>>>>>> d84ee67e52f450b5e7946b6e556499a6cd83f64a
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
