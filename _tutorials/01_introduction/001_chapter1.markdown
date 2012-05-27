@@ -244,6 +244,7 @@ void testApp::draw(){
 では、プログラムを実行してください。以下の様に表示されるはずです。
 
 ![A Plain White Circle](images/MyFirstProject01.png)
+
 おめでとう！ 今、あなたはスクリーン上に“何か”を表示できました！これからは、全て楽になっていきいますよ。
 でも、私たちは何を今行ったのでしょう？
 
@@ -278,6 +279,7 @@ void testApp::draw(){
 ~~~~
 
 では、アプリケーションを実行してみてください。
+
 ![A Plain White Circle](images/MyFirstProject02.png)
 
 ofCircleと同じく、ofSetColorも３つの値を必要としています。ただ、値の意味は全く違います。ドキュメントページ：http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor]を見てみると、パラメータ値が赤、緑、青を示している事に気づくと思います。これらの値は、それぞれ0〜255の範囲になっています。例えば、`ofSetColor(255, 0, 255);`というのは、「赤100%, 緑0%, 青100%」の色で、全てのを描画する」という事になります。
@@ -466,7 +468,7 @@ void testApp::update(){
 
 
 ###パックマン エフェクト
-それでは、「紫の円」に最後のエフェクトを付けてみましょう。ここまでで作成してきたアプリケーションでは、単に円がスクリーンの右へ移動し、結果的にスクリーンから消えてしまいます。そこで「スクリーン右側へ到達したら、スクリーン左側から再度出現させる」という修正を行ってみましょう。ちなみに、ここでは、これを**パックマン　エフェクト**と呼びます。
+それでは、「紫の円」に最後のエフェクトを付けてみましょう。ここまでで作成してきたアプリケーションでは、単に円がスクリーンの右へ移動し、結果的にスクリーンから消えてしまいます。そこで「スクリーン右側へ到達したら、スクリーン左側から再度出現させる」という修正を行ってみましょう。ちなみに、ここでは、これを**パックマン エフェクト**と呼びます。
 
 コードを修正する前に、今のコード内に存在する変数という観点について考えてみましょう。現状、"myCircleX"は円のx座標を表現しており、毎フレームで1ピクセル（上述のtipを反映していれば4ピクセル）づつ増加しています。openFrameworksのデフォルトウィンドウサイズは1024x768ピクセルなのでパックマンエフェクトを実現する１つの方法としては、"myCircleX"が1024を超えたら、300にリセットする事で可能です。
 
@@ -740,12 +742,9 @@ mouseMoved: 433, 367
 いくつか重要な事があります。まず“mouseMoved”メッセージが沢山表示されているかと思います。実際に、この関数は1ピクセル単位でマウスが動くたびに呼び出されますので、コードを追加する時には注意しましょう。次に、"mouseDragged"の前に必ず"mousePressed"がある事に気付くと思います。そして、“mouseMoved”へ戻る前に、沢山の"mouseDragged"が表示され、“mouseReleased”が表示されています。
 
 ###インタラクション・グラフィックス
-Interacting With Graphics
-~~~~~~~~~~~~~~~~~~~~~~~~~
+マウスを使用した時に「何か」を起こす方法が分かりました。しかしコンソールに表示するのには難しい事です。インタラクションを採用したGUIアプリケーションでは、様々なマウスの使い方があります。単純なクリック、ダブルクリック、ドラック、マウスオーバ、ジェスチャー、etc.　これらのうち、基本的なもののうちの１つは「どこかで何かをクリックしたら、何かが起こる」です。では、これを実現する方法を見て行きましょう。
 
-So now we know how to make something happen when the user does any mouse business. But printing to the console is hardly the kind of interaction we want. When it comes to interacting with GUI applications, the mouse is used in a variety of ways: simple clicking, double-clicking, dragging, hovering, gestures, etc. One very basic interaction is "user clicks on something, something happens." Let's see how we might accomplish this.
-
-Suppose, for instance, that we wanted our trusty circle to expand whenever the user clicks on it. Let's start by setting up a new project called MouseInteraction2. It will start out very similar to our 'MouseInteraction' project:
+例として、円上でクリックした時に円を拡大してみます。まず、新しいプロジェクトMouseInteraction2プロジェクトを作成して、始めましょう。
 
 ~~~~{.cpp}
 int myCircleX=200;
@@ -764,9 +763,9 @@ void testApp::draw(){
 }
 ~~~~
 
-As you can see, we have added a new variable called 'myCircleRadius'. It should be clear that, if we want the circle to grow, all we have to do is increase myCircleRadius. The trick will be to determine when this should happen.
+上記のコードを見ると、'myCircleRadius'という新しい変数が追加されています。円を大きくしたい時に'myCircleRadius'変数値を増加させれば良いわけです。
 
-It's clear that it has something to do with the mousePressed function that we just discovered above. We know that mousePressed is called every time the user clicks the mouse, so if we simply drop 'myCircleRadius++;' into the mousePressed function, we would be half way there. Try this out.
+マウスクリック時に円を大きくしたいので、mousePressed関数が関連している事になります。マウスをクリックする度に、mousePressed関数が呼び出される事は既に分かっているので、単に'myCircleRadius++'というコードをmousePressed関数に追加します。
 
 ~~~~{.cpp}
 void testApp::mousePressed(int x, int y, int button){
@@ -774,20 +773,20 @@ void testApp::mousePressed(int x, int y, int button){
 }
 ~~~~
 
-You should find that the circle grows every time you click the mouse, regardless of whether or not your clicked inside the circle. But our challenge is to only grow the circle when the use clicks *inside* of it. So how might we go about this?
+アプリケーションを実行してみましょう。マウスをクリックすると円が大きくなっていく事が確認出来ると思います。しかし、円の外側でクリックしても大きくなっています。どうすれば*円内*でクリックした時にのみ、作用する様にする事が出来るのでしょうか？
 
-Well, luckily we are dealing with a circle, which will make it significantly easier. Because if we can determine the distance between the center of the circle and the location of the mouse click, we can compare this distance to the radius, and if it is less than the radius, then the click was inside the circle. Take a look at the diagrams:
+円の中心とマウスクリックした座標間の距離を測り、この値が円の半径よりも小さい時が円内であると判断できます。
 
-image:images/hit-test-01.png["Hit Test 1"]
+!["Hit Test 1"](images//hit-test-01.png)
 
-We know that the radius of the circle = 300, and we know that the mouse click is 230 pixels away from the center of the circle. So, was the mouse click inside the circle?
+半径が100として、マウスクリックした座標が円の中心から230ピクセル離れています。この場合、マウスクリックした場所は、円の内部でしょうか？
 
-image:images/hit-test-02.png["Hit Test 2"]
+!["Hit Test 2"](images//hit-test-02.png)
 
-In this case, we know that the mouse click was 90 pixels from the center of the circle, so the click was clearly inside the circle.
+このケースでは円の中心から90ピクセル離れているので、円の内部でクリックしているのは明らかです。
 
-So how do we measure this distance? openFrameworks provides a function called 
-ofDist([x1], [y1], [x2], [y2]) that will save us from doing any basic trigonometry. All we have to do is give it our two coordinates. 
+では距離を計算するには、どうすれば良いでしょう？　openFrameworksでは、ofDist([x1], [y1], [x2], [y2])という関数が用意されています。
+これを使います。
 
 ~~~~{.cpp}
 void testApp::mousePressed(int x, int y, int button){
@@ -798,9 +797,9 @@ void testApp::mousePressed(int x, int y, int button){
 }
 ~~~~
 
-The 'cout' will allow us to check what kind of values we are getting from ofDist. Run your program now. Click around the screen and see what kind of values get printed in your console.
+'cout'では、ofDist関数から取得した値を確認するとこを行えます。　アプリケーションを起動してみましょう。マウスクリックした時に、どのような値がコンソールで表示されているか確認してみてください。
 
-So the only thing left to do is compare 'myCircleRadius' to 'distance', and we can do this using a simple if statement.
+最後に距離と半径を比較し、距離が半径より小さい場合のみ'myCircleRadius'変数値を増加するコードを追加します。
 
 ~~~~{.cpp}
 void testApp::mousePressed(int x, int y, int button){
@@ -812,31 +811,29 @@ void testApp::mousePressed(int x, int y, int button){
 }
 ~~~~
 
-This code says "first calculate the distance btween the center of the circle and the mouse click. Then compare 'distance' to 'myCircleRadius'. If (and only if) distance is LESS THAN myCircleRadius, increment myCircleRadius by 1."
+あらためて、コードの内容をまとめますと、
+「円の中心とマウスクリックした座標の距離をまず計算し、'myCircleRadius'値と比較。もし距離がmyCircleRadiusよりも小さかったらmyCircleRadiusを１増加」という事になります。
 
-Et voila!  You are interacting with graphics!
 
-Technical Topics
+テクニカル・トピック
 ----------------
+ここまでの例で、私たちは一番基本的な制御構造について見てきました。ifステートメント[if statement](http://www.cprogramming.com/tutorial/lesson2.html)の様な制御構造は自分で定義した基準に基づいてプログラムのフローを変更する事が可能です。制御構造はopenFrameworksの"もの"ではなく、`c++`の機能です。そこで、幾つか`c++`の基本を見てみましょう。
 
-In the example above, we looked at one of the most basic control structures: the http://www.cprogramming.com/tutorial/lesson2.html[if statement]. Control structures like the if statement allow you to alter the flow of your program based on criteria that you define. Control structures are not an openFrameworks "thing", but rather a feature of the `c++` language. Let's take a moment to review a few basics of the `c++` language.
+###変数
+「動きを加える」のところで、プログラムの方向性を変更する為に存在する変数について紹介しました。
+２つの整数（integerもしくは*int*）を使用しました。　ー 'int myCircleX'と'int myCircleY'ー　円の位置を定義したものでした。int型として変数を定義した時、あなたはコンピュータに対し「この変数に全範囲の整数を代入する予定です。」と伝えている事になります。円をピクセル単位で動かしたサンプルプログラムに置いては、少数（数学的な）で心配する所はありません。
 
-Variables
-~~~~~~~~~
+しかし、少数やその他の型を持つデータを保存する変数を持つ必要がある場合は注意する必要があります。
+例えば、文字、文字列やメモリの場所などです。シチュエーションに寄って変数の型を使い分ける必要があります。[ここ](http://www.cplusplus.com/doc/tutorial/variables/)に幾つかのリストがあります。
 
-In the "Adding Movement" section, we introduced the idea of using variables to represent values that change over the course of your program. We used 2 integers, or *int*s - 'int myCircleX' and 'int myCircleY' - to represent the location of a circle. When you declare a variable as an 'int', you are telling the computer "I only intend to put whole numbers into this variable."  This made sense in our example because we were moving a circle by a single pixel, so we didn't need to worry about fractions. 
+!["Variable Types"](images//variable-types.png)
 
-But there will be times when you do need to have a variable that can hold a fraction, or something completely different, such as letters, words, even a location in memory. There are variable types for each of these situations. Here is a short list of some of them from http://www.cplusplus.com/doc/tutorial/variables/[cplusplus.com]
+この表の様に、基本的なinteger型の変数はメモリに4バイトの空間を必要とします。メモリは有限なので使用できる大きさに制限があります（といっても、とても大きいですが！）。すなわち-2,147,483,648から 2,147,483,647です。もしこれ以上の数値を扱いたい場合はintegerではなく、long int型を使用しなければなりません。図には反していますが、long int型は、上限9,223,372,036,854,775,807で、下限-9,223,372,036,854,775,808となっています。
 
-image:images/variable-types.png["Variable Types"]
+変数を取り扱う時、変数の型を区別する事は直感的だろうと思います。数は、数ですよね？　少数と整数を区別するのは、なぜでしょう？　メモリにどのくらいの量の値を保存しなければいけないのか？という事に関連しています。プログラム（アプリケーション）がより効果的に動作する為に、プログラマには最終的に必要な変数が、どのくらいの精度で、且つどのくらいの範囲で必要なのかをコンピュータに知らせる責任があるのです。
 
-So, as you can see, our basic integer takes up 4 bytes in memory. This is a finite amount of memory, and therefore there is limited (but pretty huge!) range of values that it can hold: namely, -2,147,483,648 to 2,147,483,647. If you need to store higher (or lower) numbers, you'd have to use a 'long int', which (contrary to the diagram) can go up to 9,223,372,036,854,775,807 and down to -9,223,372,036,854,775,808. 
-
-It may be unintuitive to make such distinctions when dealing with variables. A number is a number, right? Why differentiate between a decimal number and a whole number? The reason has to do with how values are stored in your computer's memory. Ultimately, by giving the programmer the responsibility of declaring what range and precision their variables need, the program can run that much more efficiently.
-
-[TIP]
-=====================================================================
-Compile and run this program to see information about how your computer treats different kinds of variables.
+**[TIP]**
+以下のプログラムをコンパイルして動かしてみてください。コンピュータがいろいろな種類の変数を扱っているかについて見る事が出来ます。
 
 ~~~~{.cpp}
 #include <iostream>
