@@ -859,14 +859,10 @@ int main ()
 ~~~~
 =====================================================================
 
-There is one important kind of variable that is not covered in this chart: 'string'. A string can hold a sequence of characters. ... more to come ...
+###ループ
+ループはプログラマにとって重要なものの１つでしょう。ループは間違いなくコンピュータを使用する主要な利点です。どのくらい素早く処理を繰り返す事が出来るか？が、そのコンピュータの性能を示します。ループには幾つかの種類があります。これらを理解する事はとても重要な事です。
 
-Loops
-~~~~~
-
-Loops are perhaps one of the most important things to be comfortable with as a programmer. They are, arguably, the main advantage of using a computer: doing something over and over again very rapidly is the definition of what a computer is good at. There are a few different kinds of loops, and it is important to be familiar with all of them.
-
-Suppose you want to a circle every 20 pixels across your window. One option would be to copy and paste ofCircle commands like this:
+例えば20ピクセル毎に間隔をあけて円を描画したいとします。１つの方法としては、ofCircleコマンドをコピー＆ペーストしていく方法があるでしょう。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -881,7 +877,7 @@ void testApp::draw(){
 }
 ~~~~
 
-That would be over 50 lines of code - ugh. And what if you decided you wanted them every 30 pixels instead of every 20 pixels?  You'd have to go back and edit each line of code. And what if the size of your window changed?  This is clearly unacceptable. Consider this code:
+この方法で50行以上コピー＆ペーストする事になったとします。そして、もし20ピクセル毎ではなく、30ピクセル毎に修正したくなったとしたら、どうでしょう？　１行ずつコードを修正していかなければならなくなります。　そして更にウィンドウの大きさを変更しないといけなくなったら？どうでしょう。　コードの修正が大変になるのは明らかです。　では、以下のコードを見てみましょう。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -899,20 +895,21 @@ void testApp::draw(){
 }
 ~~~~
 
-In some ways, this is even worse. We've turned one line of code per circle into 2 lines of code per circle. However, there is one very important difference: in this case, the 2 lines are identical every time. We have "abstracted" the task -- that is, we have taken out the specifics and made it into a more general form. 
+１行で円を描画していたところを２行にしているという意味で、更に悪いコードになっています。しかし、１点重要な違いが見られます。このケースでは、２行を共通化しています。つまりタスク（円を描画する）を「抽象化」しているのです。
 
-So now, all that's left to do is to tell the computer to do those 2 lines of code a bunch of times instead of us pasting it in ourselves. This is where loops come in.
+ではコンピュータに、この２行のコードを私たちが何度もコピー＆ペーストする換わりに行ってもらいましょう。それがループです！
 
-do...while loop
-^^^^^^^^^^^^^^^
 
-All loops basically take the same form:
+###do...while
 
-. Set up some initial values (initialization)
-. Execute the body of the loop 
-. Decide whether to go back to step 2 or exit the loop
+「ループ」は基本的に同じ形を取ります。
 
-The simplest loop is the do/while loop. As the name suggests, this loop allows you to ask the computer to "do" something "while" a condition is met. Using a do/while loop, we can easily draw 51 circles
+* 初期値を設定
+* ループさせたい処理を実行
+* ステップ２に戻るか、ループを終了するかを決定
+
+
+最もシンプルなループは、do/whileループです。名前が示す様に、このループでは、コンピュータに「何かを行う」事を「ある条件に達する」まで要求する事が出来ます。　このループを使うことで51個の円簡単に描画できます。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -926,35 +923,27 @@ void testApp::draw(){
 }
 ~~~~
 
-So what just happened?  Let's go through the code step by step as if we were the computer. I apologize that this is the most tedious thing you will ever read, but hopefully it will illustrate what is going on in the loop.
+では実際に何が行われているのでしょうか？　コンピュータになったつもりで１行ずつコードをみてみましょう。
 
-. Initialize a variable called i and set it equal to 0
-. Initialize a variable called x and set it equal to 20
-. Draw a circle at (20, 30) with a radius of 10
-. Increment x by 20 (it now equals 40)
-. Increment i by 1 (it now equals 1)
-. Is 1 less than 51?  
-.. Yes!  Go back to the beginning of the loop
-. Draw a circle at (40, 30) with a radius of 10
-. Increment x by 20 (it now equals 60)
-. Increment i by 1 (it now equals 2)
-. Is 2 less than 51?  
-.. Yes!  Go back to the beginning of the loop
-. Draw a circle at (60, 30) with a radius of 10
-. Increment x by 20 (it now equals 80)
-. Increment i by 1 (it now equals 3)
-. Is 3 less than 51? 
-.. Yes!  Go back to the beginning of the loop
-. [REPEAT 46 TIMES UNTIL i=50 and x=1000]
-. Draw a circle at (1000, 30) with a radius of 10
-. Increment x by 20 (it now equals 1020)
-. Increment i by 1 (it now equals 51)
-. Is 51 less than 51? 
-.. NO!  Exit out of loop and continue on to whatever comes next
+* 変数iを宣言し、初期値を0に設定します。
+* 変数xを宣言し、初期値を20に設定します。
+* 円を(20, 30)の位置に半径10で描画します。
+* xに20を加えます（=40）。
+* iに１を加えます（=1）。
+* i(=1)が51より小さいか？を確認します。 ..51より小さいのでループの最初に戻ります。
+* 円を(40, 30)の位置に半径10で描画します。
+* xに20を加えます（=60）。
+* iに１を加えます（=2）。
+* i(=2)が51より小さいか？を確認します。 ..51より小さいのでループの最初に戻ります。
+* ..変数iが50（x = 1000）になるまで繰り返します。（残り47回）
+* 円を(1000, 30)の位置に半径10で描画します。
+* xに20を加えます（=1020）。
+* iに１を加えます（=51）。
+* i(=51)が51より小さいか？を確認します。 ..51より小さくないのでループ処理を終了します。
 
-[TIP]
-=====================================================================
-We could actually make this even a bit more efficient and make the 'x' variable to double duty like this:
+**[TIP]**
+下記コードの様に、変数xに２つの義務を持たせる事も出来ます。
+
 ~~~~{.cpp}
 int x = 20;
 do {
@@ -962,13 +951,11 @@ do {
 	x+=20;
 } while(x < ofGetWidth());
 ~~~~
-This has the added advantage of being immune to changes in window size. Try making the window bigger and smaller -- the circles will always be drawn to the end of the window.
-=====================================================================
 
-while loop
-^^^^^^^^^^
+ウィンドウサイズを変更した時の事を考慮したコードです。ウィンドウを大きくしたり小さくしたりしてみてください。円はウィンドウの大きさに応じて描画されます。
 
-In a while loop, the 'while' part is simply moved up to the top of the loop. So if we want to draw a string of circles with a while loop, it would look like this:
+###while loop
+whileループでは、whileの位置が単にループの上部に移動しただけです。以下の様なコードになります。
 
 ~~~~{.cpp}
 int i = 0;
@@ -981,7 +968,7 @@ while(i < 51)
 }
 ~~~~
 
-The only difference between a do...while loop and a while loop is that the the condition happens first, before the loop body runs. For example, suppose we edited our do...while loop like this:
+do..whileループとwhileループの違いは、条件判断が行われるタイミングが最初に行われるというところです。例えば、do..whileループを以下の様に修正したとしましょう。
 
 ~~~~{.cpp}
 int x = 10;
@@ -991,7 +978,10 @@ do {
 } while( x < mouseX );
 ~~~~
 
-Notice how we've changed the condition so that the circles will be drawn until 'x' is less than the x position of the mouse. Run this code and see what happens. Notice, in particular, that there is always 1 circle on the screen regardless of how far to the left the mouse goes. Now transform that into a while loop:
+変数xマウスのx座標より小さい場合にのみ円が描画される事に気ずくと思います。
+特に、気にしていただきたい事は、マウス位置がどんなに左にあったとしても最低１つの円が描画されているところです。
+
+では、次の様にwhileループを使ったコードに修正してみましょう。
 
 ~~~~{.cpp}
 int x = 10;
@@ -1002,12 +992,13 @@ while( x < mouseX )
 }
 ~~~~
 
-Now, if you move your mouse beyond the left side of the window, nothing at all is drawn. This is because before the body of the loop is executed (namely the ofCircle draw command), the test is done. So if mouseX is less than x, no circles are drawn at all.
+さて、マウスをウィンドウの左側を超えところに移動してみますと、何も描画されません。理由は、ループ内の処理（ofCircleコマンド）が実行されるよりも前に、条件判断がされた為です。つまりmouseXが変数xより小さい場合は、円は全く描画されません。
 
-for loop
-^^^^^^^^
+###forループ
 
-We've saved the best for last. The for loop is probably the one that you will use the most. This might be because it combines all 3 parts of a loop (initialization, condition, and incrementing) into one compact syntax. Let's draw the same circles using a for loop:
+forループはおそらく最も私たちが使用するループになります。
+なぜなら３つのパート（初期化、条件、変数値の増加）が１つに集約されている事が大きな理由です。
+では、forループを使用して円を同様に描画してみましょう。
 
 ~~~~{.cpp}
 int x = 20;
@@ -1018,13 +1009,11 @@ for(int i=0; i<51; i++)
 }
 ~~~~
 
-The syntax of the for loop can be a little daunting at first, but let's take it apart piece by piece. The first part is initialization: "int i=0;"  Pretty straightforward: we now have an integer called i that we have set to 0. The next part is the condition: "i<51". In other words, we want the loop to continue so long as i is less than 51. And lastly,  the increment: "i++". After every iteration of the loop, we will increment i by 1.
+慣れるまでforループの構文が少々手強いかもしれませんが、１つ１つ見て行きましょう。
+まず最初のパート"int i=0;"ですが、これはとても簡単ですね。整数型の変数iを宣言しiの初期値として0をセットしています。次のパートで"i<51"は条件判断を行っています。変数iの値が51よりも小さいうちはループを継続したいという事をコンピュータに伝えています。最後のパート“i++”は変数値の増加パートです。毎ループ処理の後に変数iに1足しています。
 
-We saw each of these things in the other kind of loops. THe only difference here is that they are all smushed into one line. 
 
-
-Arrays
-~~~~~~
+###配列
 
 Another strength of computers is that they are encyclopedic: that is, they can keep track of a huge number of things at a time. Suppose we want to draw six thousand moving particles?  We know from the loop section that it is trivial to do something over and over again, but so far, we have only used loops to achieve a relatively consistent pattern. If we want do draw tons of particles, each with their own position, things get a little more complicated.
 
