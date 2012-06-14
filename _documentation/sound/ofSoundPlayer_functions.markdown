@@ -29,7 +29,7 @@ _description: _
 
 Sets the volume of all ofSoundPlayer objects to the volume (vol) specified. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume.
 
-
+全ての ofSoundPlayer オブジェクトのボリュームを設定します。0.0 - 1.0 の範囲です。0.0 は無音で、1.0 はフルボリュームです。
 
 
 
@@ -57,7 +57,7 @@ _description: _
 
 Stops all sounds being played by all ofSoundPlayer objects.
 
-
+全ての再生中の ofSoundPlayer オブジェクトを停止します。
 
 
 
