@@ -1,4 +1,7 @@
-_site
 *.pyc
-.svn
+*~
+_site/*
+\#*
+.#*
+*.pyc
 .DS_Store
