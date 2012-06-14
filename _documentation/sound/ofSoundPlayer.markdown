@@ -5,7 +5,7 @@
 
 The ofSoundPlayer class wraps one of several underlying audio utility libraries, depending on your OS and your configuration that can be Fmod, Quicktime, or OpenAL. The ofSoundPlayer is primarily to allow you to load sound files and control and manipulate their playback and properties, if you want more low level access to sound data and to your sound card then you should take a look at the ofSoundStream class. 
 
-ofSoundPlayer クラスは OS や設定に依存する部分を Fmod や Quicktime、OpenAL など幾つかのオーディオユーティリティーライブラリをラップしています。ofSoundPlayer は主にサウンドファイルのロードや操作、プレイバックや値の取得が提供されます。もしサウンドデータやサウンドカードによりローレベルでアクセスしたい場合は、そのときは ofSoundStream クラスを参照するとよいでしょう。
+ofSoundPlayer クラスは OS や設定に依存する部分を Fmod や Quicktime、OpenAL など幾つかのオーディオユーティリティーライブラリでラップしています。ofSoundPlayer は主にサウンドファイルのロードや操作、プレイバックや値の取得が提供されます。もしサウンドデータやサウンドカードによりローレベルでアクセスしたい場合は、そのときは ofSoundStream クラスを参照するとよいでしょう。
 
 
 
