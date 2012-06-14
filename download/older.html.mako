@@ -1,9 +1,24 @@
 <%inherit file="/_templates/markdown.mako" />
 
-older releases
+過去のリリース
 =========
 
-as we update and change OF, you can download older versions of the framework here. As we start to have multiple version of OF, please try to be clear on the discussion forum as to which version you are using.
+
+OFを更新して変更するとともに古くなったバージョンをここでダウンロードすることができます。いくつものバージョンが存在するため、フォーラムでの議論ではどのバージョンを使っているのかを明らかにするようにしてください。
+
+--------------------------------
+
+**pre release v0.07** 
+
+windows: [code blocks][1] | [visual studio 2010][2] 
+
+mac [x-code (10.6-10.7)][3]
+
+linux: [code blocks][4] | [(64 bit) code blocks][5]
+
+iphone: [iPhone][6]
+
+android: [Android][7]
 
 --------------------------------
 
@@ -99,6 +114,13 @@ changes: [changelog for 0.04][67]
 
 [preRelease 0.01][70]
 
+[1]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_win_cb.zip
+[2]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_vs2010.zip
+[3]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_osx.zip
+[4]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_linux.tar.gz
+[5]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_linux64.tar.gz
+[6]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_iphone.zip
+[7]: http://www.openframeworks.cc/versions/preRelease_v0.07/of_preRelease_v007_android.tar.gz
 [12]: http://www.openframeworks.cc/versions/preRelease_v0.062/of_preRelease_v0062_win_cb_FAT.zip
 [13]: http://www.openframeworks.cc/versions/preRelease_v0.062/of_preRelease_v0062_vs2010_FAT.zip
 [14]: http://www.openframeworks.cc/versions/preRelease_v0.062/of_preRelease_v0062_vs2008_FAT.zip
