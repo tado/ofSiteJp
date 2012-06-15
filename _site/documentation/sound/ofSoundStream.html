@@ -448,12 +448,14 @@
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets up the audio, with nOutputs channels of audio out, nInputs channels of audio in. You also must pass in a pointer to the ofSimpleApp, so you can just use the word "this". For example, for 2 channel output, call in the setup function:</p>
+  <p>Sets up the audio, with nOutputs channels of audio out, nInputs channels of audio in. You also must pass in a pointer to the ofSimpleApp, so you can just use the word "this". For example, for 2 channel output, call in the setup function:
+nOutputs でオーディオアウトのチャンネル、nInput でオーディオインのチャンネルというように、オーディオを設定を行います。そしてまたただの "this" というような単語を使った ofSimpleApp のポインタを渡す事必要があります。2 channel アウトプットする場合はこのような設定関数を呼び出します。</p>
 <pre><code class="cpp">
 ofSoundStreamSetup(2,0,this);
 </code></pre>
 
-<p>In this simplified call, the bufferSize, sampleRate, and number of buffers (for latency) are all set to defaults.</p>
+<p>In this simplified call, the bufferSize, sampleRate, and number of buffers (for latency) are all set to defaults.
+これを任意で呼び出す事で、バッファサイズ (bufferSize)、サンプルレート (sampleRate)、バッファ値 (レイテンシーのための) を全てデフォルトに設定されます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -471,7 +473,8 @@ ofSoundStreamSetup(2,0,this);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets up the audio, but allows you to control more precise details of the audio system.</p>
+  <p>Sets up the audio, but allows you to control more precise details of the audio system.
+オーディオを設定し、さらにもっとこ細かいオーディオシステムの詳細を設定することができます。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -489,7 +492,8 @@ ofSoundStreamSetup(2,0,this);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Stops (pauses) the audio stream. </p>
+  <p>Stops (pauses) the audio stream. 
+オーディオストリームを停止（一時停止）します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -507,7 +511,8 @@ ofSoundStreamSetup(2,0,this);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Starts (un-pauses) the audio stream. The stream starts automatically with ofSoundStreamSetup, so you only need to call this if the stream has been stopped.</p>
+  <p>Starts (un-pauses) the audio stream. The stream starts automatically with ofSoundStreamSetup, so you only need to call this if the stream has been stopped.
+オーディオストリームを再生（再開）します。ストリームは ofSoundStreamSetup により自動的に開始されるので、ストリームが停止されたときだけ呼び出す必要があります。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -580,13 +585,13 @@ ofSoundStreamSetup(2,0,this);
 
 Last updated 
   
-Thursday, 14 June 2012 20:44:56 UTC
+Friday, 15 June 2012 00:03:29 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-533109d829905cfb24a341497cd9278e9cd3b55a
+1508e3a65daec3cc4835946d1bf1f0f1bae77511
 ">
 
-533109d829905cfb24a341497cd9278e9cd3b55a
+1508e3a65daec3cc4835946d1bf1f0f1bae77511
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
