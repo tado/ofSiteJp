@@ -104,7 +104,8 @@
               <h1>ofSoundPlayer</h1>
               <p>
               
-  <p>The ofSoundPlayer class wraps one of several underlying audio utility libraries, depending on your OS and your configuration that can be Fmod, Quicktime, or OpenAL. The ofSoundPlayer is primarily to allow you to load sound files and control and manipulate their playback and properties, if you want more low level access to sound data and to your sound card then you should take a look at the ofSoundStream class. </p>
+  <!--The ofSoundPlayer class wraps one of several underlying audio utility libraries, depending on your OS and your configuration that can be Fmod, Quicktime, or OpenAL. The ofSoundPlayer is primarily to allow you to load sound files and control and manipulate their playback and properties, if you want more low level access to sound data and to your sound card then you should take a look at the ofSoundStream class. -->
+
 <p>ofSoundPlayer クラスは OS や設定に依存する部分を Fmod や Quicktime、OpenAL など幾つかのオーディオユーティリティーライブラリでラップしています。ofSoundPlayer は主にサウンドファイルのロードや操作、プレイバックや値の取得が提供されます。もしサウンドデータやサウンドカードによりローレベルでアクセスしたい場合は、そのときは ofSoundStream クラスを参照するとよいでしょう。</p>
 
               </p>
@@ -236,17 +237,20 @@
 	<div class="documentation_detail_description">
 		
 		
-  <p>Loads a sound file given by fileName. Sound files can be in .wav, .aif, .mp3, .mp2, .ogg or .raw format. The program will look for the file relative to the data/ folder. If you set the optional 'bool stream' argument to true the file will be streamed from disk instead of being completely loaded into memory. It makes a lot of sense to stream files if you are dynamically loading large sound files into your program, which would normally cause the program to freeze for a short time as the whole sound is read into memory. </p>
+  <!--Loads a sound file given by fileName. Sound files can be in .wav, .aif, .mp3, .mp2, .ogg or .raw format. The program will look for the file relative to the data/ folder. If you set the optional 'bool stream' argument to true the file will be streamed from disk instead of being completely loaded into memory. It makes a lot of sense to stream files if you are dynamically loading large sound files into your program, which would normally cause the program to freeze for a short time as the whole sound is read into memory. -->
+
 <p>fileName で指定したサウンドファイルをロードします。サウンドファイルは .wav, .aif, .mp3, mp2, .ogg, .raw フォーマットが使えます。オプションの 'bool stream' 引数に true をセットすると、メモリに完全にロードしてからではなく、ディスクからストリームされるようになります。一般的にはダイナミックに大きなサウンドファイル全体をメモリに読み込むと少しの時間プログラムがフリーズする原因になるので、ファイルをストリームするのは大変有効です。</p>
 <p>Examples:</p>
-<p>Load a Sound
-サウンドをロードする</p>
+<!--Load a Sound-->
+
+<p>サウンドをロードする</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
 mySound.loadSound(&quot;beat.mp3&quot;);
 </code></pre>
 
-<p>Load a Sound with Folder Path
-フォルダパスを指定してサウンドをロードする</p>
+<!--Load a Sound with Folder Path-->
+
+<p>フォルダパスを指定してサウンドをロードする</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
 mySound.loadSound(&quot;sounds/beat.mp3&quot;);
 </code></pre>
@@ -267,7 +271,8 @@ mySound.loadSound(&quot;sounds/beat.mp3&quot;);
 	<div class="documentation_detail_description">
 		
 		
-  <p>Stops and unloads the current sound.</p>
+  <!--Stops and unloads the current sound.-->
+
 <p>現在のサウンドを停止してアンロードします。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -292,7 +297,8 @@ mySound.unloadSound(); //Stops sound from playing, unloads &quot;beat.mp3&quot;
 	<div class="documentation_detail_description">
 		
 		
-  <p>Plays the sound. If setMultiPlay() has been set to true each play() command will spawn a new copy of the sound on a new channel, letting the existing sounds continue until they are finished. If setMultiPlay() is set to false it will restart the playback of the song.</p>
+  <!--Plays the sound. If setMultiPlay() has been set to true each play() command will spawn a new copy of the sound on a new channel, letting the existing sounds continue until they are finished. If setMultiPlay() is set to false it will restart the playback of the song.-->
+
 <p>サウンドを再生します。setMultiPlay() が true にセットされていると、各 play() コマンドでは新しいサウンドチャンネルにコピーされ、それらが終了するまで既存のサウンドは継続して残しておかれます。setMultiPlayer() が false にセットされている場合は、曲の再生はリスタートされます。</p>
 <p>Examples:</p>
 <p>Normal Playback:</p>
@@ -307,8 +313,7 @@ mySound.play(); //Restarts and plays sound
 mySound.setMultiPlay(true);
 mySound.load(&quot;beat.mp3&quot;);
 mySound.play(); //Plays sound
-mySound.play(); //Adds new copy of sound to channel and plays over currently playing sound
-                // 新しいサウンドチャンネルにコピーされ、現在再生中の音に重なって再生されます
+mySound.play(); // 新しいサウンドチャンネルにコピーされ、現在再生中の音に重なって再生されます
 </code></pre>
 
 	</div>
@@ -327,7 +332,8 @@ mySound.play(); //Adds new copy of sound to channel and plays over currently pla
 	<div class="documentation_detail_description">
 		
 		
-  <p>Stops the sound currently playing. </p>
+  <!--Stops the sound currently playing. -->
+
 <p>現在再生しているサウンドを停止します。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -352,7 +358,8 @@ mySound.stop(); //Ends playback, stops audio
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the volume (vol) of the sound. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume. </p>
+  <!--Sets the volume (vol) of the sound. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume. -->
+
 <p>サウンドの音量 (vol) を設定します。0.0 - 1.0 の範囲です。0.0 は無音で 1.0 がフルボリュームです。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -377,7 +384,9 @@ mySound.setVolume(0.1f); //Sets volume at 10% of maximum
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the pan position (pct) of the sound. 0.0 - 1.0 range. 0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. </p>
+  <!--Sets the pan position (pct) of the sound. 0.0 - 1.0 range. 0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. 
+-->
+
 <p>サウンドのパン位置を設定します。0.0 - 1.0 の範囲です。 0.5 がセンター位置で、0.0 が完全に左位置、1.0 が完全に右位置にパンを振った状態になります。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -404,7 +413,8 @@ mySound.pan(0.5f); //Back to center
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the playback speed (spd) of the sound. 1.0 is the normal speed. 2.0 is double the normal speed etc. </p>
+  <!--Sets the playback speed (spd) of the sound. 1.0 is the normal speed. 2.0 is double the normal speed etc. -->
+
 <p>サウンドの再生速度 (spd) を設定します。1.0 が通常速度で、2.0 がノーマル速度の倍です。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -431,7 +441,8 @@ mySound.setSpeed(1.0f); //Normal again
 	<div class="documentation_detail_description">
 		
 		
-  <p>Pauses and un-pauses the playback of the sound. </p>
+  <!--Pauses and un-pauses the playback of the sound. -->
+
 <p>サウンドの再生を一時停止／再開します。</p>
 <p>Example</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -457,7 +468,8 @@ mySound.setPaused(false); //Sound is unpaused, playback continues
 	<div class="documentation_detail_description">
 		
 		
-  <p>Loops the sound if set to true. Does not loop the sound if set to false. Default is false.</p>
+  <!--Loops the sound if set to true. Does not loop the sound if set to false. Default is false.-->
+
 <p>true を設定すると、サウンドをループさせます。false に設定すると、サウンドはループしません。デフォルトは false です。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -482,7 +494,8 @@ mySound.play();
 	<div class="documentation_detail_description">
 		
 		
-  <p>Allows a sound to be played multiple times at once. When set to true the play() function will start playing the sound on a new channel, letting the old channels continue until they are done playing. When set to false the play() function will stop the channel before playing the sound.</p>
+  <!--Allows a sound to be played multiple times at once. When set to true the play() function will start playing the sound on a new channel, letting the old channels continue until they are done playing. When set to false the play() function will stop the channel before playing the sound.-->
+
 <p>サウンドが複数回再生することができるよう許可します。true に設定しているとき、 play() 関数は新しいサウンドチャンネルでサウンドが再生され、それらが再生完了するまでは古いチャンネルは継続して残されます。false に設定しているとき、play() 関数は以前に再生されていた音は停止されます。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -508,7 +521,8 @@ mySound.play(); //Adds new copy of sound to channel and plays over currently pla
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the playback-head to the position (pct) specified. 0.0 - 1.0 range. 0.0 is the beginning of the sound file and 1.0 is the end.</p>
+  <!--Sets the playback-head to the position (pct) specified. 0.0 - 1.0 range. 0.0 is the beginning of the sound file and 1.0 is the end.-->
+
 <p>任意の再生ヘッド位置 (pct) を設定します。0.0 - 1.0 の範囲です。0.0 はサウンドファイルの始まりで、1.0 はその終わりです。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -534,7 +548,8 @@ mySound.setPosition(0.0f); //Moves the playhead back to the beginning of the sou
 	<div class="documentation_detail_description">
 		
 		
-  <p>0.0 is the beginning of the sound file and 1.0 is the end.</p>
+  <!--0.0 is the beginning of the sound file and 1.0 is the end.-->
+
 <p>0.0 はサウンドファイルの始まりで、1.0 は終わりです。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -543,8 +558,9 @@ mySound.play();
 mySound.getPosition(); //Returns the current position as a percent 0.0-1.0
 </code></pre>
 
-<p>Returns the current position of the playback-head in the sound. 0.0 - 1.0
-range.</p>
+<!--Returns the current position of the playback-head in the sound. 0.0 - 1.0
+range.-->
+
 <p>現在のサウンドの再生ヘッド位置を返します。0.0 - 1.0 の範囲です。</p>
 
 	</div>
@@ -571,7 +587,8 @@ mySound.play();
 mySound.getIsPlaying(); //Returns true
 </code></pre>
 
-<p>Returns true if sound is currently playing, otherwise returns false.</p>
+<!--Returns true if sound is currently playing, otherwise returns false.-->
+
 <p>現在再生中ならば true、そうでなければ false を返します。</p>
 
 	</div>
@@ -614,7 +631,8 @@ mySound.getSpeed(); //Returns 2.0f
 	<div class="documentation_detail_description">
 		
 		
-  <p>0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. Default is 0.5</p>
+  <!--0.5 is center pan, 0.0 is full left pan and 1.0 is full right pan. Default is 0.5-->
+
 <p>0.5 はセンター位置で、0.0 は完全に左位置、1.0 は完全に右位置にパンが振っている状態です。デフォルトは 0.5 です。</p>
 <p>Example:</p>
 <pre><code class="cpp">ofSoundPlayer mySound;
@@ -625,7 +643,8 @@ mySound.setPan(0.2f);
 mySound.getPan();//Returns 0.2
 </code></pre>
 
-<p>Returns the pan position of the sound. 0.0 - 1.0 range.</p>
+<!--Returns the pan position of the sound. 0.0 - 1.0 range.-->
+
 <p>サウンドのパン位置を返します。0.0 - 1.0 の範囲です。</p>
 
 	</div>
@@ -644,7 +663,10 @@ mySound.getPan();//Returns 0.2
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofSoundPlayer actually wraps a dynamic instance of a sound player, that is, it contains an interface to the sound engine being used to load and playback sounds. If you want to set the interface that your system uses, you can pass an ofPtr to an ofSoundPlayer into the ofSoundPlayer and have the ofSoundPlayer manipulate that one instead.</p>
+  <!--
+ofSoundPlayer actually wraps a dynamic instance of a sound player, that is, it contains an interface to the sound engine being used to load and playback sounds. If you want to set the interface that your system uses, you can pass an ofPtr to an ofSoundPlayer into the ofSoundPlayer and have the ofSoundPlayer manipulate that one instead.
+-->
+
 <p>ofSoundPlayer は実はサウンドプレイヤーのインスタンスを動的にラップでき、サウンドエンジンがサウンドを読み込み再生するのに使う事ができるインターフェースを含んでいます。お使いのシステムが使っているものにインターフェースを設定したい場合は、ofSoundPlayer の ofPtr を of SoundPlayer インスタンスに渡せば、ofSoundPlayer として操作できます。</p>
 <pre><code class="cpp">ofPtr&lt;ofBaseSoundPlayer&gt; soundPtr(new ofOpenALSoundPlayer());
 player.setPlayer(soundPtr);
@@ -666,7 +688,8 @@ player.setPlayer(soundPtr);
 	<div class="documentation_detail_description">
 		
 		
-  <p>ofSoundPlayer actually wraps a dynamic instance of a specific sound player for a specific engine, that is, it contains an interface to the sound engine being used to load and playback sounds. This allows you access to the pointer that contains the specific interface.</p>
+  <!--ofSoundPlayer actually wraps a dynamic instance of a specific sound player for a specific engine, that is, it contains an interface to the sound engine being used to load and playback sounds. This allows you access to the pointer that contains the specific interface.-->
+
 <p>ofSoundPlayer は実は、任意のエンジンのために任意のサウンドプレイヤーのダイナミックなインスタンスをラップする事ができ、サウンドエンジンがサウンドを読み込み再生するに使う事が出来るインターフェースを含めます。これは任意のインターフェースをもったポインタでアクセスする事が出来ます。</p>
 
 	</div>
@@ -685,7 +708,9 @@ player.setPlayer(soundPtr);
 	<div class="documentation_detail_description">
 		
 		
-  <p>This sets the position of the sound currently playing in milliseconds.</p>
+  <!--
+This sets the position of the sound currently playing in milliseconds.-->
+
 <p>再生中のサウンド位置をミリ秒で設定できます。</p>
 
 	</div>
@@ -704,7 +729,10 @@ player.setPlayer(soundPtr);
 	<div class="documentation_detail_description">
 		
 		
-  <p>This returns the milliseconds of the sound or file currently playing in milliseconds.</p>
+  <!--
+This returns the milliseconds of the sound or file currently playing in milliseconds.
+-->
+
 <p>現在の再生中のサウンドまたはファイルの再生位置をミリ秒で返します。</p>
 
 	</div>
@@ -723,9 +751,9 @@ player.setPlayer(soundPtr);
   <p>bool ofSoundPlayer::isStreaming</p>
 </h2>
 	<div class="documentation_detail_description">
-		
+		<!--
 This boolean variable tells if the sound we are using is streaming or not.
-
+-->
 サウンドがストリーミングを使っているかどうかを boolean 値で示します。
 
 
@@ -742,8 +770,8 @@ This boolean variable tells if the sound we are using is streaming or not.
 </h2>
 	<div class="documentation_detail_description">
 		
-Allows a sound to be played multiple times at once. See setMultiPlay(bool bMp) function for more info.
-
+<!--Allows a sound to be played multiple times at once. See setMultiPlay(bool bMp) function for more info.
+-->
 複数回再生することができるかを許可します。詳しい情報は setMultiPlay(bool bMp) 関数を参照してください。
 
 
@@ -760,7 +788,7 @@ Allows a sound to be played multiple times at once. See setMultiPlay(bool bMp) f
 </h2>
 	<div class="documentation_detail_description">
 		
-bLoop variable controls if we are playing the sound as a loop.
+<!--bLoop variable controls if we are playing the sound as a loop.-->
 
 bLoop 値はループサウンドとして再生しているかをコントロールします。
 
@@ -778,7 +806,7 @@ bLoop 値はループサウンドとして再生しているかをコントロ�
 </h2>
 	<div class="documentation_detail_description">
 		
-bLoadedOk is a boolean variable containing true if the sound was successfully loaded.  
+<!--bLoadedOk is a boolean variable containing true if the sound was successfully loaded.  -->
 
 サウンドの読み込みが成功していた場合、bLoadedOk は論理値で true になります。
 
@@ -796,7 +824,7 @@ bLoadedOk is a boolean variable containing true if the sound was successfully lo
 </h2>
 	<div class="documentation_detail_description">
 		
-bPaused contain true if we pause the sound.
+<!--bPaused contain true if we pause the sound.-->
 
 サウンドをポーズしたときは bPaused は true になります。
 
@@ -814,7 +842,7 @@ bPaused contain true if we pause the sound.
 </h2>
 	<div class="documentation_detail_description">
 		
-Contains the pan position of the sound. Going from 0 to 1.
+<!--Contains the pan position of the sound. Going from 0 to 1.-->
 
 サウンドのパン位置です。0 から 1 を値をとります。
 
@@ -832,7 +860,7 @@ Contains the pan position of the sound. Going from 0 to 1.
 </h2>
 	<div class="documentation_detail_description">
 		
-Contains the value of the volume of our sound.
+<!--Contains the value of the volume of our sound.-->
 
 サウンドのボリューム値です。
 
@@ -850,7 +878,7 @@ Contains the value of the volume of our sound.
 </h2>
 	<div class="documentation_detail_description">
 		
-Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double the normal speed, -1 is backwards etc. 
+<!--Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double the normal speed, -1 is backwards etc. -->
 
 サウンドの再生速度です。1.0 は通常の速度です。2.0 は通常の速度の倍で、-1 は巻き戻しなどになります。
 
@@ -887,8 +915,9 @@ Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double
 	<div class="documentation_detail_description">
 		
 		
-  <p>Sets the volume of all ofSoundPlayer objects to the volume (vol) specified. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume.
-全ての ofSoundPlayer オブジェクトのボリュームを設定します。0.0 - 1.0 の範囲です。0.0 は無音で、1.0 はフルボリュームです。</p>
+  <!--Sets the volume of all ofSoundPlayer objects to the volume (vol) specified. 0.0 - 1.0 range. 0.0 is silent and 1.0 is full volume.-->
+
+<p>全ての ofSoundPlayer オブジェクトのボリュームを設定します。0.0 - 1.0 の範囲です。0.0 は無音で、1.0 はフルボリュームです。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -906,8 +935,10 @@ Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double
 	<div class="documentation_detail_description">
 		
 		
-  <p>Stops all sounds being played by all ofSoundPlayer objects.
-全ての再生中の ofSoundPlayer オブジェクトを停止します。</p>
+  <!--Stops all sounds being played by all ofSoundPlayer objects.
+-->
+
+<p>全ての再生中の ofSoundPlayer オブジェクトを停止します。</p>
 
 	</div>
 	<div class="documentation_detail_wide_col_nav"><a href="#top">&uarr;</a></div>
@@ -944,13 +975,13 @@ Contains the playback speed of the sound. 1.0 is the normal speed. 2.0 is double
 
 Last updated 
   
-Friday, 15 June 2012 00:15:57 UTC
+Friday, 15 June 2012 00:47:19 UTC
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/openframeworks/ofSite/commit/
 
-522a1f0b5128c3aeff714248cb00745571843e9a
+e7a24ead498cef8180e235c02b0a4416752614b4
 ">
 
-522a1f0b5128c3aeff714248cb00745571843e9a
+e7a24ead498cef8180e235c02b0a4416752614b4
 </a>
 
 <!--br/>RSS feeds for <a href="/blog/feed">Entries</a-->
