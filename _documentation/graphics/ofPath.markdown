@@ -3,7 +3,8 @@
 
 ##Description
 
-ofPath is a way to create a path or multiple paths consisting of points. It allows you to combine multiple paths consisting of points into a single vector data object that can be drawn to the screen, manipulated point by point, or manipulated with it's child subpaths. It is better at representing and manipulating complex shapes than the [ofPolyline](ofPolyline.htm) and more easily represents multiple child lines or shapes as either ofSubPath or ofPolyline instances. By default ofPath uses ofSubPath instances. Closing the path automatically creates a new path:
+ofPathクラスは、一点のパス、又は複数点から成るパスを定義します。複数点から成るパスをひとつのベクターデータオブジェクトとして連結させて、画面への描画、パスの操作、サブパスの操作等が行えます。
+ofPolylineに比べて複雑な図形を扱う事に優れ、またofPolyline, ofSubPathのインスタンスに比べて入り組んだ親子関係を持った線や図形の管理を簡単に行う事が出来ます。ofPathは、デフォルトでofSubPathインスタンスを使用します。パスを閉じる時、自動的に新しいパスを追加します。
 
 
 ~~~~{.cpp}
@@ -14,7 +15,7 @@ for( int i = 0; i < 5; i++) {
 ~~~~
 
 
-To use ofPolyline instances, simply set the mode to POLYLINES
+ofPolylineのインスタンスを使用するには、POLYLINESモードをセットします。
 
 ~~~~{.cpp}
 path.setMode(POLYLINES);
@@ -52,7 +53,7 @@ _advanced: False_
 _description: _
 
 
-Creates a new ofPath instance.
+新しいofPathクラスのインスタンスを生成します。
 
 
 
@@ -80,7 +81,7 @@ _advanced: False_
 _description: _
 
 
-Removes all subpaths from the ofPath instance.
+ofPathのインスタンスから、全てのサブパスを消去します。
 
 
 
@@ -109,7 +110,10 @@ _description: _
 
 
 
-Creates a new subpath, either an ofPolyline instance or an ofSubPath instance. All points added after a call to ofSubPath will be done in the newly created subpath. Calling close() automatically calls create newSubPath(), ensuring that the closed path doesn't have new points added to it.
+ofPolylineか、ofSubPathどちらかの任意の新しいインスタンスを生成します。
+ofSubPathへの呼び出し後に追加された全てのパスは、新しいサブパスが生成された時に完成します。
+close() メソッドを呼ぶと、自動的に newSubPath() が呼び出されます。
+既に閉じられているパスへはポイントの追加を行いません。
 
 
 
@@ -137,8 +141,8 @@ _description: _
 
 
 
-Closes the current subpath and creates a new subpath, either an ofPolyline or ofSubPath by calling newSubPath(), ensuring that the closed path doesn't have new points added to it.
-
+現在のサブパスを閉じ、newSubPath() を呼んで ofPolyline, ofSubPath どちらか任意の新しいサブパスを生成します。
+既に閉じられているパスへはポイントの追加を行いません。
 
 
 
@@ -165,8 +169,7 @@ _advanced: False_
 _description: _
 
 
-Draws a straight line from the current drawing position to the location indicated by p.
-
+現在の描画位置から、p の位置までの直線を描画します。
 
 
 
@@ -193,7 +196,7 @@ _advanced: False_
 _description: _
 
 
-Draws a straight line from the current drawing position to the location indicated by x,y.
+現在の描画位置から、x, y の位置までの直線を描画します。
 
 
 
@@ -222,7 +225,7 @@ _description: _
 
 
 
-Draws a straight line from the current drawing position to the location indicated by x,y,z.
+現在の描画位置から、x, y, z の位置までの直線を描画します。
 
 
 
@@ -249,7 +252,8 @@ _advanced: False_
 _description: _
 
 
-Moves the drawing position to p. This means that a subsequent calls to, for instance, lineTo() or curveTo() will connect the location p to the new location.
+p の位置へ、描画位置を移動します。
+lineTo(), curveTo() 等を連続して呼んだ場合、描画位置 p から、新しい描画位置へ移動します。
 
 
 
@@ -278,7 +282,8 @@ _description: _
 
 
 
-Moves the drawing position to x,y.z. This means that a subsequent calls to, for instance, lineTo() or curveTo() will connect the location x,y,z to the new location.
+p の位置へ、描画位置を移動します。
+lineTo(), curveTo() 等を連続して呼んだ場合、描画位置 x, y, z から、新しい描画位置へ移動します。
 
 
 
@@ -306,7 +311,7 @@ _description: _
 
 
 
-Draws a curve to p from the current drawing position.
+現在の描画位置から p への曲線を描画します。
 
 
 
@@ -333,7 +338,9 @@ _advanced: False_
 _description: _
 
 
-Draws a curve to x,y from the current drawing position. To draw a small rose curves at the mouse position:
+
+現在の描画位置から x, y への曲線を描画します。
+マウス座標位置に小さなバラ曲線（正葉曲線）を描画するサンプルコード:
 
 ~~~~{.cpp}
 float scale = ofDist(mouseX, mouseY, px, py);
@@ -346,7 +353,7 @@ for( float theta = 0; theta < TWO_PI; theta += 0.1)
 
 px = mouseX;
 py = mouseY;
-$$/code
+~~~~
 
 
 
@@ -373,8 +380,7 @@ _advanced: False_
 _description: _
 
 
-Draws a curve to x,y,z from the current drawing position.
-
+現在の描画位置から x, y、z への曲線を描画します。
 
 
 
@@ -401,14 +407,15 @@ _advanced: False_
 _description: _
 
 
-Creates a cubic bezier line from the current drawing point with the 2 control points indicated by ofPoint cp1 and cp2, that ends at ofPoint to. For instance, the following:
+現在の描画位置から p へ、ofPoint cp1, cp2のコントロールポイントを使った三次ベジェ曲線を描画します。
+サンプルコード:
 ~~~~{.cpp}
 line.addVertex(ofPoint(200, 400));
 line.bezierTo(100, 100, 800, 100, 700, 400);
 ~~~~
-Creates this:
-![polyline bezier](/bezier.png)
-The control points are shown in yellow.
+このコードの実行結果:
+![polyline bezier](bezier.png)
+黄色の点がコントロールポイントです。
 
 
 
@@ -437,8 +444,7 @@ _description: _
 
 
 
-Creates a cubic bezier line from the current drawing point with the 2 control points indicated by the coordinates cx1, cy1 and cx2, cy2, that ends at the coordinates x, y.
-
+現在の描画位置から x, y へ、座標cx1, cy1, 座標cx2, cy2 のコントロールポイントを使った三次ベジェ曲線を描画します。
 
 
 
@@ -466,8 +472,10 @@ _advanced: False_
 _description: _
 
 
-Creates a cubic bezier line in 3D space from the current drawing point with the 2 control points indicated by the coordinates cx1, cy1, cz1 and cx2, cy2, cz2, that ends at the coordinates x, y, z.
+現在の描画位置から x, y, z へ、座標cx1, cy1, cz1, 座標cx2, cy2, cz2 のコントロールポイントを使った三次ベジェ曲線を描画します。
+
 ~~~~{.cpp}
+
 float cx = ofGetWidth()/2;
 float cy = 200;
 float step = TWO_PI / 60;
@@ -510,9 +518,8 @@ _advanced: False_
 _description: _
 
 
-
-Creates a quadratic bezier line in 3D space from the current drawing point with the beginning indicated by the coordinates cx1, cy1, cz1, the control point at cx2, cy2, cz2, and that ends at the coordinates x, y, z.
-![polyline curves](/curves.png)
+現在の描画位置から、開始位置 cp1, コントロールポイント cp2, 終了位置 p の二次ベジェ曲線を3D空間に描画します。
+![polyline curves](curves.png)
 
 
 
@@ -540,8 +547,7 @@ _advanced: False_
 _description: _
 
 
-Creates a quadratic bezier line in 2D space from the current drawing point with the beginning indicated by the point p1, the control point at p2, and that ends at the point p3.
-
+現在の描画位置から、開始位置座標cx1, cy1, コントロールポイント座標 cx2, cy2, 終了位置座標 x, y の二次ベジェ曲線を2D空間に描画します。
 
 
 
@@ -570,9 +576,8 @@ _description: _
 
 
 
-Creates a quadratic bezier line in 3D space from the current drawing point with the beginning indicated by the coordinates cx1, cy1, the control point at cx2, cy2, and that ends at the coordinates x, y.
 
-
+現在の描画位置から、開始位置座標cx1, cy1, cz1 コントロールポイント座標 cx2, cy2, cz2 終了位置座標 x, y, z の二次ベジェ曲線を3D空間に描画します。
 
 
 
@@ -601,14 +606,16 @@ _description: _
 
 
 
-
-Creates an arc at centre, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd. To draw a circle with a radius of 50 pixels at 100, 100:
+centre の位置に円弧を描画します。radiusX, radiusY の半径と、円弧開始アングル、円弧終了アングルを指定出来ます。
+座標 100, 100 の位置に半径50pxの円弧を描くサンプルコード:
 
 ~~~~{.cpp}
 path.arc( 100, 100, 50, 50, 0, 360);
-$$/code
+~~~~
 
-Note that angleBegin needs to be larger than angleEnd, i.e. 0, 180 is ok, while 180,0 is not.
+angleEnd は angleBegin より大きい数字である必要があります。
+例えば、0, 180 はOKです。180, 0 は正しくありません。
+
 
 
 <!----------------------------------------------------------------------------->
@@ -634,16 +641,18 @@ _advanced: False_
 _description: _
 
 
-Creates an arc at x,y, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd. To draws a shape with a radius of 200 pixels at 300, 300:
+座標 x, y の位置に円弧を描画します。radiusX, radiusY の半径と、円弧開始アングル、円弧終了アングルを指定出来ます。
+座標 300, 300 の位置に半径200pxの円弧を描くサンプルコード:
 
 ~~~~{.cpp}
 path.moveTo(300, 300);
 path.arc( 300, 300, 200, 200, 0, 271); // note 271, not 270 for precision
-$$/code
+~~~~
 
-![ofPath arc](/ofPath_arc.png)
+![ofPath arc](ofPath_arc.png)
 
-Note that angleBegin needs to be larger than angleEnd, i.e. 0, 180 is ok, while 180,0 is not.
+angleEnd は angleBegin より大きい数字である必要があります。
+例えば、0, 180 はOKです。180, 0 は正しくありません。
 
 
 <!----------------------------------------------------------------------------->
@@ -669,8 +678,7 @@ _advanced: False_
 _description: _
 
 
-Creates an arc at x,y,z, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd.
-
+座標 x, y, z の位置に円弧を描画します。radiusX, radiusY の半径と、円弧開始アングル、円弧終了アングルを指定出来ます。
 
 
 
@@ -696,8 +704,10 @@ _advanced: False_
 
 _description: _
 
-
-This sets the way that the points in the sub paths are connected. OpenGL can only render convex polygons which means that any shape that isn't convex, i.e. that has points which are concave, going inwards, need to be tessellated into triangles so that OpenGL can render them. If you're using filled shapes with your ofPath this is done automatically for you. The possible options you can pass in are:
+サブパス内各ポイントの繋がり方を指定します。
+OpenGLは凸ポリゴンのみをレンダリング出来ます。それ以外（凹ポリゴン等）はテセレーションしてからでなければ描画が出来ません。
+もしofPathのインスタンスがfilledであれば、この処理は自動的に行われます。
+指定可能なオプションは以下の通りです。
 
 OF_POLY_WINDING_ODD
 OF_POLY_WINDING_NONZERO
@@ -705,9 +715,9 @@ OF_POLY_WINDING_POSITIVE
 OF_POLY_WINDING_NEGATIVE
 OF_POLY_WINDING_ABS_GEQ_TWO
 
-![ofPath winding modes](/windingModes.gif)
+![ofPath winding modes](winding_modes.gif)
 
-So adding the following points:
+サンプルコード:
 
 ~~~~{.cpp}
 void testApp::setup(){
@@ -767,9 +777,9 @@ void testApp::keyPressed(int key){
 	path2.setPolyWindingMode((ofPolyWindingMode) mode);
 
 }
-$$/code
+~~~~
 
-we can see non zero and positive handle the winding differently:
+non zeroとpositiveでは、挙動が違う事が確認出来ます。
 
 ![ofPath winding](path_winding.png)
 
@@ -798,8 +808,7 @@ _advanced: False_
 _description: _
 
 
-Sets whether the path should be drawn as wireframes or filled.
-
+パスがワイヤーフレームとして描画されるか、塗りつぶして描画されるかを指定します。
 
 
 
@@ -826,8 +835,8 @@ _advanced: False_
 _description: _
 
 
-Sets the stroke width of the line if the ofPath is to be drawn not in wireframe.
-
+描画線の幅を指定します。
+ofPathがワイヤーフレームとして描画される場合以外の時に有効です。
 
 
 
@@ -854,8 +863,9 @@ _advanced: False_
 _description: _
 
 
-This sets the color of the path. This affects both the line if the path is drawn as wireframe and the fill if the path is drawn with fill. All subpaths are affeted.
-
+パスの色を指定します。
+パスがワイヤーフレームとして描画される場合の描画線色、塗りつぶしとして描画される場合の塗りつぶし色、両方に適用されます。
+ofPathインスタンス内全てのサブパスに対して色指定が行われます。
 
 
 
@@ -883,7 +893,9 @@ _description: _
 
 
 
-This sets the color of the path. This affects both the line if the path is drawn as wireframe and the fill if the path is drawn with fill. All subpaths are affeted.
+パスの色を指定します。
+パスがワイヤーフレームとして描画される場合の描画線色、塗りつぶしとして描画される場合の塗りつぶし色、両方に適用されます。
+ofPathインスタンス内全てのサブパスに対して色指定が行われます。
 
 
 
@@ -910,8 +922,8 @@ _advanced: False_
 _description: _
 
 
-This sets the fill color of the path. This has no affect if the path is drawn as wireframe.
-
+パスの塗りつぶし色を指定します。
+パスがワイヤーフレームとして描画される場合には、何も効果はありません。
 
 
 
@@ -939,7 +951,8 @@ _description: _
 
 
 
-This sets the fill color of the path. This has no affect if the path is drawn as wireframe.
+パスの塗りつぶし色を指定します。
+パスがワイヤーフレームとして描画される場合には、何も効果はありません。
 
 
 
@@ -967,7 +980,8 @@ _description: _
 
 
 
-This sets the stroke color of the path. This has no affect if the path is drawn filled.
+パスの描画線色を指定します。
+パスが塗りつぶしとして描画される場合には、何も効果はありません。
 
 
 
@@ -993,9 +1007,9 @@ _advanced: False_
 
 _description: _
 
-This sets the stroke color of the path. This has no affect if the path is drawn filled.
 
-
+パスの描画線色を指定します。
+パスが塗りつぶしとして描画される場合には、何も効果はありません。
 
 
 
@@ -1022,7 +1036,7 @@ _advanced: False_
 _description: _
 
 
-Returns the poly winding mode currently in use.
+現在のpoly winding modeを返します。
 
 
 
@@ -1051,8 +1065,8 @@ _description: _
 
 
 
+パスの塗りつぶしが有効か無効かを返します。
 
-Whether the path is using a fill or not.
 
 
 <!----------------------------------------------------------------------------->
@@ -1079,7 +1093,7 @@ _description: _
 
 
 
-Returns the ofColor that the ofPath is using.
+ofPathが使用している塗り描画色を返します。
 
 
 
@@ -1106,7 +1120,7 @@ _advanced: False_
 _description: _
 
 
-Returns the stroke color that the ofPath is using.
+ofPathが使用している線描画色を返します。
 
 
 
@@ -1135,7 +1149,7 @@ _description: _
 
 
 
-Returns the stroke width.
+描画線の幅を返します。
 
 
 
@@ -1191,7 +1205,8 @@ _description: _
 
 
 
-Draws the path at x,y. Calling draw() also calls tessllate().
+座標 x, y の位置にパスを描画します。
+draw() メソッドを呼ぶと、同時にtessllate() も呼ばれます。
 
 
 
@@ -1218,8 +1233,8 @@ _advanced: False_
 _description: _
 
 
-Draws the path at 0,0. Calling draw() also calls tessllate().
-
+座標 0, 0 の位置にパスを描画します。
+draw() メソッドを呼ぶと、同時にtessllate() も呼ばれます。
 
 
 
@@ -1246,8 +1261,9 @@ _advanced: False_
 _description: _
 
 
-This returns a vector of ofSubPath instances that you can walk to inspect their properties. If you've set your ofPath instance to use ofPolylines then this method does nothing.
 
+ofSubPathインスタンスのベクターデータを返します。
+ofPathインスタンス内でofPolylinesを使用している場合は、何も返しません。
 
 
 
@@ -1273,8 +1289,8 @@ _advanced: False_
 
 _description: _
 
-This returns an ofPolyline representing the outline of an ofPath.
 
+ofPathの外形をofPolylineで返します。
 
 
 
@@ -1666,8 +1682,8 @@ _advanced: False_
 _description: _
 
 
-Changes the size of either the ofPolyline or ofSubPath instances that the ofPath contains. These changes are non-reversible, so for instance scaling by 0,0 zeroes out all data.
-
+ofPathが保持しているofPolyline, ofSubPath のサイズを変更します。
+この変更は、可逆ではありません。つまり、scale(0, 0) を実行するとパスデータは消失します。
 
 
 
