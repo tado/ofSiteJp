@@ -1,29 +1,30 @@
 ---
 date: 2012/02/28
-title: ofTutorials - Chapter 1 - 最初の一歩 (翻訳中, under translation)
+title: ofTutorials - Chapter 1 - 最初の一歩
 summary: この章は、openFrameworksの基礎、プロジェクトを作成する正しい方法、ウィンドウサイズの設定、描画の基礎、などを始めるための助けとなるでしょう。
 author: Jeff Crouse
 author_site: http://www.jeffcrouse.info/
 ---
 
 ## openFrameworksディレクトリ構成
-今このページを閲覧している方々は、http://www.openframeworks.cc/download/ にてopenFrameworksアーカイブファイルをダウンロードし終わり、この適切なセットアップガイドのページにたどり着いているのかと思います。
+今このページを閲覧している皆様は[http://www.openframeworks.cc/download/]([http://www.openframeworks.cc/download/) のページでopenFrameworksアーカイブファイルをダウンロードし終わり、このセットアップガイドのページにたどり着いているものと思います。
 
-まず最初にダウンロードしたopenFrameworksのアーカイブファイルを解凍し、解凍後に出来たフォルダを、簡単にアクセス出来る場所に配置する事から行いましょう。　個人的には、下記の様に書類フォルダに配置し、そのショートカットをサイドバーに作成する事が好きです。
+まず最初にダウンロードしたopenFrameworksのアーカイブファイルを解凍し、解凍後に出来たフォルダを簡単にアクセス出来る場所に配置する事から行いましょう。  
+個人的には下記の様に書類フォルダに配置し、そのショートカットをサイドバーに作成する方法を好んでいます。<br /><br />
 
 ![Shortcut](images/shortcut.png)
 
-配置場所に関係なく、フォルダを開くと基本的に下記に示す様なフォルダ構成を見る事が出来るはずです。
+配置場所に関係なく、フォルダを開くと基本的に下記に示す様なフォルダ構成になっていると思います。
 
 ![addons, apps, and libs folders](images/structure1.png)
 
-では、これらのフォルダはどんなものなのでしょう？
+では、これらのフォルダがどんなものなのかを簡単に説明します。
 
 #### addons
 openFrameworks "core"は、最も重要な機能のみを含んでいます。addonsフォルダに追加されるものは、断片的な機能を持ったアプリケーションになります。例えば、XMLファイルを解析するようなものであったり、3Dモデルデータをロードしたり、openCVライブラリを利用したものであったりします。
 
 #### apps
-このフォルダが、あなたが作るアプリケーションを配置する場所となります。作業時間のほとんどを費やす場所でもありますね。既に２つのフォルダ… appsフォルダとaddonExamplesフォルダが存在していると思います。
+このフォルダが、あなたが作るアプリケーションを配置する場所となります。作業時間のほとんどを費やす場所でもあります。既に２つのフォルダ… appsフォルダとaddonExamplesフォルダが存在していると思います。
 
 #### libs
 oF coreと同レベルでopenFrameworksが使用する全てのライブラリがこのフォルダに含まれています。
@@ -31,7 +32,7 @@ oF coreと同レベルでopenFrameworksが使用する全てのライブラリ�
 **注意**：このドキュメントを読んでいれば、CodeForArtフォルダもaddons, apps, libsフォルダと同階層に持つ事になるでしょう。
 
 ## サンプルプログラムを試してみよう
-appsフォルダにはexamplesフォルダとaddonsExamplesフォルダの２つのサブフォルダが存在します。両フォルダ内には、openFrameworksが出来る事を説明している、いくつかのopenFrameworksプロジェクトが入っています。まず、アプリケーション開発に入る前に、これら全てのサンプルアプリケーションを動かしてみる事が、よい試みとなるでしょう。ただし使用しているIDEによって、若干動作させる方法が違います。
+appsフォルダにはexamplesフォルダとaddonsExamplesフォルダの２つのサブフォルダが存在します。両フォルダ内にはopenFrameworksが出来る事を説明している、いくつかのopenFrameworksプロジェクトが入っています。まず、アプリケーション開発に入る前に、これら全てのサンプルアプリケーションを動かしてみる事をお勧めします。ただし使用しているIDEによって若干動作させる方法が違います。
 
 
 ### XCode
@@ -43,9 +44,9 @@ apps/examples/graphicsExampleフォルダを開き、"graphicsExample.xcodeproj"
 
 ![graphicsExample 02](images/graphicsExample02.png)
 
-**重要：**XCodeのバージョンが何か確認してください。メニューバーから、XCode > About XCodeで確認できます。もし4.0より小さいバージョンですとwindowの見た目がかなり違うと思いますが、慌てる必要はありません。 インターフェース上、対応する機能は、簡単に見つけられるはずです。
+**重要：**XCodeのバージョンを確認してください。メニューバーから、XCode > About XCodeで確認できます。もし4.0より小さいバージョンですとwindowの見た目がかなり違うと思いますが、慌てる必要はありません。インターフェース上、対応する機能は簡単に見つけられるはずです。
 
-大きな"Run"ボタンが左上にあります。XCode3系をお使いの方ですと、"Build & Run"ボタンです。 このボタンを押すと現在選択しているアーカイブターゲットが実行されます。しかし、デフォルトではアクティブターゲットが"openFrameworks"となっていると思います。このまま"Run"ボタンを押しても何も行われません。　今、実行したいプログラムは"graphicsExample"なので、もし以下の様に"openFrameworks"が選択されていたら、
+大きな"Run"ボタンが左上にあります。XCode3系をお使いの方であれば"Build & Run"という表記のボタンです。このボタンを押すと現在選択しているアーカイブターゲットが実行されます。しかしデフォルトではアクティブターゲットが"openFrameworks"となっていると思います。このまま"Run"ボタンを押しても何も行われません。今、実行したいプログラムは"graphicsExample"なので、もし以下の様に"openFrameworks"が選択されているのであれば、
 
 ![openFrameworks library chosen](images/target-bad.png)
 
@@ -83,28 +84,27 @@ coming soon!
 coming soon!
 
 ## 初めてのプロジェクト作成
-冒頭で述べたように、openFrameworksは、うんざりするようなC++プロジェクトをセットアップする事に関しては必要ありません。しかしながらFlashやProcessingの様に、プロジェクトの作成方法として、"ファイル" > "新規作成"というようなものが存在しません。代わりにexampleプロジェクトをコピーする事で賄っています。
+冒頭で述べたように、openFrameworksは、うんざりするようなC++プロジェクトをセットアップする事に関しては必要ありません。しかしながらFlashやProcessingの様にプロジェクトの作成方法として"ファイル" > "新規作成"というようなものが存在しません。代わりにexampleプロジェクトをコピーする事で賄っています。
 
 **重要：**
-上記をふまえると、exampleプロジェクトを修正したりexpampleフォルダ内にあなたの作ったアプリケーションを配置するべきではないという事を意図しています。exampleプロジェクトは、あなた自身がこれから作ろうとするアプリケーションのスタートポイントとして配置（存在）されています。何か新しいプロジェクトを作成する時のスタートポイントとして維持しておいた方がよいでしょう。この大切さは、openFrameworksの理解が進むにつれ分かってくると思います。
+上記はexampleプロジェクトを修正したりexpampleフォルダ内にあなたの作ったアプリケーションを配置するべきではないという事を示唆しています。exampleプロジェクトは、あなた自身がこれから作ろうとするアプリケーションのスタートポイントとして配置（存在）されています。その為、何か新しいプロジェクトを作成する時のスタートポイントとして修正等行わずに維持しておいた方が良いです。この事はopenFrameworksの理解が進むにつれ分かってくると思います。
 
 初心者の多くにとっては、これらは見た目よりも、大きな障害になる可能性がありますので、まず最初にいくつか用語を決めて、説明していきます。
 
 appsフォルダを開くと、 _examples_ と _addonsExamples_ フォルダが存在しています。
-これらを*ワークスペース*と呼ぶ事にしましょう。
+これらを*ワークスペース*と呼ぶ事にします。
 
 ワークスペースの一つを開いてみると、その中に幾つかのフォルダ… _easyCamExample_, _floatingPointImageExample_, _movieGrabberExample_, _serialExample_ などがあります。これらの１つ１つが*プロジェクト*になります。各プロジェクトは、".xcodeproj"ファイルと"src"フォルダを含んでいます。*プロジェクト*は、*ワークスペース*内に存在していないといけません。そして１つのアプリケーションとしてコンパイルされます。
 
 
 ![Workspace terminology](images/workspace04.png)
 
-各*プロジェクト*を作るにあたり、各プロジェクトは*ワークスペース*内に配置しなければなりません。そして、*examples*と*addonsExamples*ワークスペース内には、他にあなたが独自に作成したものを配置する事を推奨しません。
-という事をふまえ、まずは、新しい*ワークスペース*を作ってみましょう。単に“MyFirstWorkspace”というフォルダをappsフォルダ内に作成してください。openFrameworksを使って行くうちに、多くのワークスペースを作成することになるとおもいますが、"apps"フォルダ直下に置かなければいけないという事が重要です。言い換えれば、あるワークスペースは、他のワークスペース内に配置する事は出来ないという事です。
-
+各*プロジェクト*を作るにあたり、各プロジェクトは*ワークスペース*内に配置しなければなりません。そして、*examples*と*addonsExamples*ワークスペース内には、他にあなたが独自に作成したものを配置する事を推奨しません。  
+上記を踏まえ、まずは新しい*ワークスペース*を作ってみましょう。単に“MyFirstWorkspace”というフォルダをappsフォルダ内に作成してください。openFrameworksを使って行くうちに多くのワークスペースを作成することになるとおもいますが、"apps"フォルダ直下に置かなければいけないという事が重要です。言い換えれば、あるワークスペースは他のワークスペース内に配置する事は出来ないという事です。
 
 !["My First Workspace"](images/workspace01.png)
 
-次に、"emptyExample"フォルダを"examples"ワークスペースから"MyFirstWorkspace"フォルダへコピー（移動ではないですよ！）しましょう。Macをお使いの方でしたら、文字通りemptyExampleフォルダをクリックして選択し、コマンド＋Cでコピーし、“MyFirstWorkspace”フォルダに移動して、コマンド+Vでペーストになります。結果、次の様になっていると思います。
+次に、"emptyExample"フォルダを"examples"ワークスペースから"MyFirstWorkspace"フォルダへコピー（移動ではありません！）しましょう。Macをお使いの方でしたら文字通りemptyExampleフォルダをクリックして選択しコマンド＋Cでコピーして“MyFirstWorkspace”フォルダに移動しコマンド+Vでペーストになります。結果、次の様になっていると思います。
 
 ![My First Project](images/workspace02.png)
 
@@ -112,11 +112,11 @@ appsフォルダを開くと、 _examples_ と _addonsExamples_ フォルダが�
 
 ![My First Project](images/workspace03.png)
 
-ここで一番重要な事は、XCodeプロジェクトファイルが、Rootフォルダ（色のついた上記の図を参照ください）から、*丁度*３つ下ったところに配置されている事です。新しいプロジェクトを作成した時に、明白な理由がないにも関わらず、もし何千ものエラーが出た場合は、XCodeプロジェクトファイルが正しい位置に配置されているかどうかを確認してください。
+ここで一番重要な事は、XCodeプロジェクトファイルが、Rootフォルダ（色のついた上記の図を参照ください）から、*丁度*３つ下ったところに配置されている事です。新しいプロジェクトを作成した時に、明らかな理由がないにも関わらず、何千ものエラーが出た場合はXCodeプロジェクトファイルが正しい位置に配置されているかどうかを確認してください。
 
 この理由は'lib'フォルダと関係しています。以前、openFrameworksは沢山のライブラリ群の"糊"であり、それらのライブラリ群は'lib'ディレクトリに配置されていますと説明しました。
 
-またいろいろなライブラリ群を見つけてリンクをするのはIDEの仕事という事も、知りました。そのため、IDEがあなたのプログラムをコンパイルしようとする時、"../../../lib"内からライブラリ群を探す様にセットアップされたり、また、別の言い方をすると、「フォルダを３つ戻ってlibフォルダを探す(http://support.dtsearch.com/webhelp/dtsearch/relative_paths.htm[relative] to your .xcodeproj)」とも言えます。
+またいろいろなライブラリ群を見つけてリンクをするのはIDEの仕事という事も知りました。その為IDEがあなたのプログラムをコンパイルしようとする時、"../../../lib"内からライブラリ群を探す様にセットアップされています。言い方をすると「フォルダを３つ戻ってlibフォルダを探す[relative to your .xcodeproj](http://support.dtsearch.com/webhelp/dtsearch/relative_paths.htm)」とも言えます。
 
 例えば、もしopenFrameworksプロジェクトの設定を深く掘った場合は、"../../../libs/FreeImage/include" や "../../../libs/poco/include"の様にして見つける事になるでしょう。
 
@@ -136,7 +136,7 @@ XCode4を使用している場合は、XCodeでプロジェクトを開き、左
 
 ![Renaming your Project](images/rename01.png)
 
-リネームすると、下記の様なダイアログボックスが表示されますので、"Rename"ボタンをクリックしましょう。
+リネームすると下記の様なダイアログボックスが表示されますので、"Rename"ボタンをクリックしましょう。
 
 ![Renaming your Project](images/rename02.png)
 
@@ -152,7 +152,7 @@ XCodeの"Run"ボタンをクリックすると、プログラムコードがコ�
 
 ### testApp.cpp
 
-遂に！、プログラムコードを見て行くところまできました！まず最初に、プロジェクトファイルをXCodeで開く必要がありますね。先ほどのセクションで作成した、"MyFirstWorkspace"ワークスペース内の"MyFirstProject"で作成していきましょう。プロジェクトファイルを開いたら、XCodeの一番左側にある*ナビゲーションビュー*に目を移動し、以下の様に、三角マークをクリックして開きましょう。
+まず最初に、プロジェクトファイルをXCodeで開く必要があるので、先ほどのセクションで作成した"MyFirstWorkspace"ワークスペース内の"MyFirstProject"を用いて作成していきましょう。プロジェクトファイルを開いたらXCodeの一番左側にある*ナビゲーションビュー*にマウスを移動し、以下の様に三角マークをクリックして開きましょう。
 
 ![Open up the project](images/expand01.gif)
 
@@ -160,7 +160,7 @@ XCodeの"Run"ボタンをクリックすると、プログラムコードがコ�
 * "src"の横にある三角マークをクリック
 * testApp.cppをクリック
 
-testApp.cpp は、これからのチュートリアルを行ううちに、一番見慣れていくものになるでしょう。 *エディターウィンドウ*内で、以下の様になっているはずです。
+testApp.cpp は、これからのチュートリアルを行うにあたり一番見る機会が多いものになります。 *エディターウィンドウ*内で、以下の様になっているはずです。
 
 
 ~~~~{.cpp}
@@ -198,20 +198,19 @@ IDEを使用して編集することによって、コードを理解するこ�
 
 まず基本的なことですが、からっぽな関数群が見えていると思います。
 
-ウィキペディアでは（http://en.wikipedia.org/wiki/Function_(computer_science)[function]）、
-大きなプログラムの一部を構成するものと説明されています。
+ウィキペディアでは[function](http://en.wikipedia.org/wiki/Function_(computer_science))大きなプログラムの一部を構成するものと説明されています。
 
 上記はコードの一部ですが、４つの関数〜setup, update, draw, keyPressed〜があります。
 各々の関数は、１つの中括弧（{}）が付いています。通常、これらの中括弧内に書かれたものが、その関数を作ります。
 （値の定義、繰り返し、その他の関数呼び出しなど）
 
 イントロダクションのQ&Aにある「ソフトウェアフレームワークとは？」でお話した、
-映画制作会社の説明が、類似していて、理解しやすいと思います。
+映画制作会社の説明が類似していて理解しやすいと思います。
 
 openFrameworksがその基本的基盤や論理的な詳細を
-どの様にして提供しているか？がtestApp.cppに書かれているものになります。
+どの様にして提供しているか？という事がtestApp.cppに書かれているものになります。
 
-これらの関数は、あなたのプログラム実行中に、
+これらの関数は、あなたのプログラム実行中で、
 それぞれ違ったタイミングでopenFrameworksによって呼び出されます。
 
 それでは、いくつかの関数を見ていきましょう。
@@ -229,8 +228,8 @@ setup関数が実行された後、update関数とdraw関数はアプリケー�
 説明は、ここまでにして、実際にコードを見てみましょう。
 
 
-### Making a Mark
-ofCircle関数を使用して、灰色のウィンドウ内にシンプルな円を描画してみる事からスタートしてみようと思います。
+### メイキングマーク
+ofCircle関数を使用して灰色のウィンドウ内にシンプルな円を描画してみる事からスタートしてみようと思います。
 draw()関数内に`ofCircle(200, 200, 60);` と入力してください。以下の様になります。
 
 ~~~~{.cpp}
@@ -245,31 +244,34 @@ void testApp::draw(){
 
 ![A Plain White Circle](images/MyFirstProject01.png)
 
-おめでとう！ 今、あなたはスクリーン上に“何か”を表示できました！これからは、全て楽になっていきいますよ。
+おめでとう！ 今、あなたはスクリーン上に“何か”を表示できました！
 でも、私たちは何を今行ったのでしょう？
 
 [ofCircle](http://openframeworks.jp/documentation/graphics/ofGraphics.html#ofCircle)は、openFrameworksで定義された関数です（それ故、'of'というプレフィックスが付いているのです）。
-ofCircleは、好きなだけdraw関数内で呼び出す事が可能です。ofCircleに続く括弧内の数字はパラメータと呼ばれています。http://en.wikipedia.org/wiki/Parameter_(computer_programming)[arguments].
-これらの値が、関数が何を行うのかを正確に示しています。
+ofCircleは、好きなだけdraw関数内で呼び出す事が可能です。ofCircleに続く括弧内の数字はパラメータと呼ばれています。[arguments](http://en.wikipedia.org/wiki/Parameter_(computer_programming)).
+これらの値は関数が何を行うのかを正確に示しています。
 「円を描きたい。でも何処に？どのくらいの大きさで？」という疑問の答えになっているということです。
 
-関数は幾つもの値を持つ事ができます。これらの値は、カンマで区切られています。ofCircleは３つの値を受け取ります。
+関数は幾つもの値を持つ事ができます。これらの値はカンマで区切られています。ofCircleは３つの値を受け取ります。
 x座標、y座標そして半径の３つです。
 
 これらの値について理解する為に必要な事がいくつかあります。
 
-* openFrameworks使用される寸法値はピクセル単位です。先ほど作成した円の半径は60となっていますが、これは円内にトーラルPI*60^2^ピクセル数存在している事を意味しています。
-* これは明確な感じがしますが、座標値（x,y）は円の中心を示しています。他のシェイプ（例えば四角形）は、左上を起点としています。
-* 座標系の起点はウィンドウの左上となっています。その為に、私たちが作った円は、左端から200ピクセル、上から300ピクセルの位置に表示されます。
+* openFrameworksで使用される寸法値はピクセル単位です。先ほど作成した円の半径は60となっていますが、これは円内にトータルPI*60^2^ピクセル数存在している事を意味しています。
+
+* 座標値（x,y）は円の中心を示しています。他のシェイプ（例えば四角形）は、左上を起点としています。
+
+* 座標系の起点はウィンドウの左上となっています。私たちが作った円は左端から200ピクセル上から300ピクセルの位置に表示されます。
 
 **注意**：パラメータの順番は重要です。ofCircleの最初の値は、いつも"x座標"を意味しますし、３番目の値はいつも"半径"を意味します。
 
-**注意**：パラメータを１つも持たない関数が存在しますが、括弧は必要です。（例：ofFill:http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofFill[ofFill]）
+**注意**：パラメータを１つも持たない関数が存在しますが、括弧は必要です。  
+（例：[ofFill](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofFill)）
 
-もしかするとofCircleについての情報をhttp://www.openframeworks.cc/documentation/[openFrameworks documentation page]で得ているかもしれません。この[openFrameworks documentation page]は、これから参照する事が多くなると思います。
+もしかするとofCircleについて[openFrameworks documentation page](http://www.openframeworks.cc/documentation/)のページで既に得ているかもしれません。このページは、これから参照する事が多くなると思います。
 
 ### 色を追加する
-円を描画しましたが、少々つまらないので色について考えてみましょう。それには、ofSetColor：http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor]が必要になります。`ofSetColor(255, 0, 255);`をofCircleの直前に追加してみてください。以下の様なコードになります。
+円を描画しましたが、少々つまらないので色について考えてみましょう。それには[ofSetColor](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor)が必要になります。`ofSetColor(255, 0, 255);`をofCircleの直前に追加してみてください。以下の様なコードになります。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -282,12 +284,14 @@ void testApp::draw(){
 
 ![A Plain White Circle](images/MyFirstProject02.png)
 
-ofCircleと同じく、ofSetColorも３つの値を必要としています。ただ、値の意味は全く違います。ドキュメントページ：http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor[ofSetColor]を見てみると、パラメータ値が赤、緑、青を示している事に気づくと思います。これらの値は、それぞれ0〜255の範囲になっています。例えば、`ofSetColor(255, 0, 255);`というのは、「赤100%, 緑0%, 青100%」の色で、全てのを描画する」という事になります。
+ofCircleと同じく、ofSetColorも３つの値を必要としています。ただ、値の意味は全く違います。ドキュメントページ[ofSetColor](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofSetColor)を見てみると、パラメータ値が赤、緑、青を示している事に気づくと思います。これらの値は、それぞれ0〜255の範囲になっています。例えば、`ofSetColor(255, 0, 255);`というのは「赤100%, 緑0%, 青100%」の色で全てのを描画する」という事になります。
 
-TIP: 値を変更して色が変化するのを試してみましょう。
+**TIP** 値を変更して色が変化するのを試してみましょう。  
 
-もう１点、重要な事があります。ofSetColorを呼びだす事は、クレヨンを箱の中から選んでいるのと同じ様な事です。
-ofSetColorをコールした後に描かれるものは、再度ofSetColorをコールするまで、色は変更されません。また、他の円を描画したい場合は、下のコードの様に、単にofCircoleを再びコールすれば可能です。
+  
+もう１点、重要な事があります。  
+ofSetColorを呼びだす事はクレヨンを箱の中から選んでいるのと同じ様な事です。
+ofSetColorをコールした後に描かれるものは再度ofSetColorをコールするまで色は変更されません。また、他の円を描画したい場合は下のコードの様に単にofCircoleを再びコールすれば可能です。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -298,7 +302,7 @@ void testApp::draw(){
 }
 ~~~~
 
-しかし、違う色で円を描画したい場合は、ofSetColorを再びコールする必要があります。
+しかし違う色で円を描画したい場合はofSetColorを再びコールする必要があります。
 
 ~~~~{.cpp}
 void testApp::draw(){
@@ -312,30 +316,25 @@ void testApp::draw(){
 
 ![Two Colorful Circles](images/MyFirstProject03.png)
 
-使用できる図形
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+###使用できる図形
 openFrameworksは、もちろん円以外のものも描画できます。
 
-. 四角形：引数（x, y, width, height）
-　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofRect[ofRect]
+. 四角形 [ofRect](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofRect)：引数（x, y, width, height）
 
-. 三角形：引数（x1, y1, x2, y2, x3, y3) 
-　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofTriangle[ofTriangle]
 
-. 線：引数(x1, y1, x2, y2)
-　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofLine[ofLine]
+. 三角形 [ofTriangle](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofTriangle)：引数（x1, y1, x2, y2, x3, y3) 
 
-. 楕円：引数(x, y, width, height)
-　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofEllipse[ofEllipse]
+. 線 [ofLine](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofLine)：引数(x1, y1, x2, y2)
 
-. カーブ：引数(x0, y0, x1, y1, x2, y2, x3, y3)
-　http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofCurve[ofCurve]
-　（x1,y1）から（x2, y2）へカーブを描画します。カーブはコントロールポイントである(x0, y0)と(x3, y3)によって形状が影響を受けます。
+. 楕円 [ofEllipse](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofEllipse)：引数(x, y, width, height)
 
-**注意**：コントロールポイントはトリッキーです。photoshopやillustratorを使用した事のある人であれば理解できるでしょう。もし使用した事がない人は、http://www.actionscript.org/resources/articles/172/1/Understanding-curves-and-control-point-placement/Page1.html[this tutorial].をチェックしてみてください。こちらはアクションスクリプトで書かれていますが、カーブとコントロールポイントについてのコンセプトについて詳しい説明が掲載されています。
+. カーブ [ofCurve](http://www.openframeworks.cc/documentation/graphics/ofGraphics.html#ofCurve)：引数(x0, y0, x1, y1, x2, y2, x3, y3)  
+（x1,y1）から（x2, y2）へカーブを描画します。  
+　カーブはコントロールポイントである(x0, y0)と(x3, y3)によって形状が影響を受けます。
 
-TIP: “MyFirstWorkspace”ワークスペース内に３つのプロジェクトを作成し、それぞれで、違う「形」を、いろいろな色や場所に描画してみましょう。
+**注意**：コントロールポイントはトリッキーです。photoshopやillustratorを使用した事のある人であれば理解できるでしょう。もし使用した事がない人は[this tutorial](http://www.actionscript.org/resources/articles/172/1/Understanding-curves-and-control-point-placement/Page1.html)をチェックしてみてください。こちらはアクションスクリプトで書かれていますがカーブとコントロールポイントについてのコンセプトについて詳しい説明が掲載されています。
+
+**TIP** “MyFirstWorkspace”ワークスペース内に３つのプロジェクトを作成し、それぞれで違う「形」を、いろいろな色や場所に描画してみましょう。
 
 
 ###動きを加える
@@ -346,11 +345,11 @@ draw()関数は上述した様に、プログラム実行後、繰り返し呼�
 
 openFrameworks（もしくは、ほとんどのコンピュータアニメーション）での仕組みは違います。openFrameworksは、よりトラディショナル（私たちは保守的なディズニー/バンビを話しています。）なアニメーションです。毎フレーム時、全てのフレームを再描画する必要があるのです。
 
-openFrameworksでは毎回draw()関数が実行される時が"１フレーム"となります。上記のプログラムを実行すると紫色の円が描画されますが、実際は「円が描画され、そしてクリアされる」という事を１フレームとして繰り返し実行されています。ただ、非常に高速に繰り返されているので、ただ表示されている様に見えているのです。
+openFrameworksでは毎回draw()関数が実行される時が "１フレーム"となります。上記のプログラムを実行すると紫色の円が描画されますが、実際は「円が描画され、そしてクリアされる」という事を１フレームとして繰り返し実行されています。ただ、非常に高速に繰り返されているので、単純に表示されている様に見えているのです。
 
-上記のサンプルでは、円を描画する時にウィンドウ内のどこに円を描くかをofCircle関数に伝えるために２つの数値を使いました。したがって円を動かしたい場合は、これらの数値を時間とともに変更していく必要があります。たぶん、最初の描画時が、(200, 300)の位置であったとすれば、次は１ピクセル右に…(201, 300)、そして、もう１ピクセル右へ(202, 300)という感じで。
+上記のサンプルでは円を描画する時にウィンドウ内のどこに円を描くかをofCircle関数に伝えるために２つの数値を使いました。したがって円を動かしたい場合は、これらの数値を時間と共に変更していく必要があります。例えば、最初の描画時の位置が(200, 300)であったとすれば、次は１ピクセル右に…(201, 300)、そして、もう１ピクセル右へ(202, 300)という感じで。
 
-`c++`で、普段プログラミングを行う時、値を変更したい場合はいつも変数を宣言（作成）します。変数は、その時々で異なる形と大きさを持ちます。10進数、整数、文字、または文字列などです。今回はofCircle関数において座標を表現する為に２つの*int* 型を使用してみましょう。
+`c++`で、普段プログラミングを行う時に値を変更したい場合はいつも変数を宣言（作成）します。変数は、その時々で異なる形と大きさを持ちます。10進数、整数、文字、または文字列などです。今回はofCircle関数において座標を表現する為に２つの*int* 型を使用してみましょう。
 
 下記の様な２行をtestApp.cppの一番上にある`#include“`の真下に書いてください。
 
@@ -363,9 +362,9 @@ int myCircleY;
 
 これで２つの変数を"宣言"した事になります。１つは'myCircleX'で、もう１つは、'myCircleY'ですね。実際、あなたが好きな名前で宣言する事も出来ますが、変数名を決める時は、それがどのように使用されるか？どんなものに関連しているか？を考えて決める方が良い方法です。
 また、これらの変数は整数値を保存する為にも使用します。
-変数を宣言する事は重要で且つ必要なステップです。「よし！、変更できる数値を保存する事が必要だ！」
+変数を宣言する事は重要で且つ必要なステップです。
 
-次に必要な事は、これらの変数に初期値を与える事です。ここでの最終的に行う事は、これらの変数値を時間とともに変更する事です。ただし値を変更する前に変数に初期値を与えておく必要があります。これは上記で作成した円を動かす前に、最初に何処に表示するか？という事になります。
+次に必要な事は、これらの変数に初期値を与える事です。ここで最終的に行う事は、これらの変数値を時間と共に変更する事です。ただし値を変更する前に変数に初期値を与えておく必要があります。これは上記で作成した円を動かす前に、最初に何処に表示するか？という事になります。
 
 前章でsetup()関数はアプリケーションが起動した時に１度だけ呼び出され、２度と呼び出されないと学びました。初期値を設定する関数としてsetup()関数が役に立つようなので、次のコードを加えてください。
 
@@ -388,7 +387,7 @@ void testApp::draw(){
 }
 ~~~~
 
-３つの変数をofCircle関数に与えている事自体はかわっていませんが、(200, 300)と"ハードコーディング"していた為に変更できなかったものが変更可能な変数になりました。
+３つの変数をofCircle関数に与えている事自体は変わっていませんが、(200, 300)と"ハードコーディング"していた為に変更できなかったものが変更可能な変数になりました。
 
 この状態でアプリケーションを起動したとしても、何も変化していません。まだ何も値を変更する事を行っていない為です。
 では、下記の様にdraw()関数を少々変更してみてください。
@@ -402,8 +401,8 @@ void testApp::draw(){
 }
 ~~~~
 
-追加した新しい行で、setup()関数内で使用しているのと同じ様に、再び“代入演算子”を使用しています。この追加した行を言葉で説明すると「myCircleXに１を加え、その値をmyCircleXに代入せよ」となります。別の言い方をすると、「私たちが
-myCircleXを増加させている」と言えます。`c++`は、値を増加させるための共通ショートカットとして`myCircleX++;`という表現を割り当てる事が出来るようになっています。これは非常によく使われる共通なものです。では、このショートカットを使って、コードを書き換えてみましょう。
+setup()関数内で使用しているのと同じ様に、追加した新しい行で再び“代入演算子”を使用しています。この追加した行を言葉で説明すると「myCircleXに１を加え、その値をmyCircleXに代入せよ」となります。別の言い方をすると、「私たちが
+myCircleXを増加させている」と言えます。`c++`は、値を増加させるための共通ショートカットとして`myCircleX++;`という表現を割り当てる事が出来るようになっています。これは非常によく使われる方法です。では、このショートカットを使ってコードを書き換えてみましょう。
 
 myCircleX = myCircleX + 1;
 は、
@@ -412,7 +411,8 @@ myCircleX++;
 
 アプリケーションを動かしてみてください。円が画面の右の方へ動いているはずです！
 
-より魅力的な動きにする前にもう１つ必要な事があります。update()関数とdraw()関数についての説明を再度読んでみると、draw()関数は、描画する為（今のところ、十分なのですが）という事に気づくと思います。しかしupdate()関数は、変数を更新する関数である事にも気づくと思います。この理由については後述致しますが、追加した新しい行を、update()関数に移動してみましょう。
+より魅力的な動きにする前にもう１つ必要な事があります。  
+update()関数とdraw()関数についての説明を再度読んでみると、draw()関数は描画する為の関数（今のところは十分なのですが）という事に気づくと思います。しかしupdate()関数は変数を更新する関数である事にも気づくと思います。この理由については後述致しますが、追加した新しい行をupdate()関数に移動してみましょう。
 
 ~~~~{.cpp}
 void testApp::update(){
@@ -857,7 +857,6 @@ int main ()
 	return 0;
 }
 ~~~~
-=====================================================================
 
 ###ループ
 ループはプログラマにとって重要なものの１つでしょう。ループは間違いなくコンピュータを使用する主要な利点です。どのくらい素早く処理を繰り返す事が出来るか？が、そのコンピュータの性能を示します。ループには幾つかの種類があります。これらを理解する事はとても重要な事です。
@@ -1015,10 +1014,13 @@ for(int i=0; i<51; i++)
 
 ###配列
 
-Another strength of computers is that they are encyclopedic: that is, they can keep track of a huge number of things at a time. Suppose we want to draw six thousand moving particles?  We know from the loop section that it is trivial to do something over and over again, but so far, we have only used loops to achieve a relatively consistent pattern. If we want do draw tons of particles, each with their own position, things get a little more complicated.
+もう１つのコピュータの強みは配列です。これは広い範囲の軌跡を１度に保つ事ができます。  
+例えば6,000個の動いているパーティクルを描画したいとしましょう。何かを何度も繰り返し行う事は他愛もない事だという事をループセクションで学びましたが、今まで行ってきたとこは比較的一貫したパターンについてループを使用してきました。もし、それぞれ固有の位置を持った沢山のパーティクルを描画する場合は、少々複雑になります。
 
-.50000 particles!
-image::images/Arrays01.png["Arrays!",width=500]
+
+!["50000 particles!"](images//Arrays01.png)
+
+**Figure 1.** 50000 particles! 
 
 ~~~~{.cpp}
 float circle1x;
@@ -1068,11 +1070,13 @@ void testApp::draw(){
 }
 ~~~~
 
-TIP: Notice the use of ofRandom(). This function will return a random number. It takes 2 arguments: the minimum possible value and the maximum possible value. What I am saying in this code is "give me a number between 0 and the width of the screen."
+**[TIP]**
+ofRandom()関数はランダムな数字を返します。この関数は２つの引数を取る事ができます。それは最小値および最大値です。このコードでは「0〜スクリーンの横幅までの値を返してください」と要求している事になります。  
 
-Technically this works, but we have only drawn 3 circles, and already the code is getting unwieldy. We want to draw 1000! We clearly have a bunch of variables that are used in very similar ways. Why not group, say, all of the x coordinates into a single set, and all of the y coordinates, etc.?  
+技術的な意味で正常に動きますが、３つの円のみを描画しているに過ぎませんしコードは扱いにくいものとなっています。例えば1,000個の円を描画したい！と思った場合、非常に沢山の変数を取り扱わなければいけない事は明白で、しかも同じ方法でコードを記述していく事も同様に明白です。ではグループという考え方は使えないのでしょうか？ x座標を１つのグループとして、またy座標やその他についても同じ様にグループ化出来ないでしょうか？
 
-These sets are called arrays. Check out the following code:
+この「グループ」の事を**配列**と呼んでいます。次のコードを見てみましょう。
+
 
 ~~~~{.cpp}
 float circleX[3];
@@ -1115,11 +1119,15 @@ void testApp::draw(){
 }
 ~~~~
 
-As you can see, we've replaced int circle1x, int circle2x, and int circle3x with simply int circleX[3]. Now circleX is an "array" that can hold up to 3 integers, rather than just 1. Read a little further, and you will see that, in order to assign a value to one of the ints in the array, you use the square brackets, like this: circleX[0] = 50;  
+ご覧の通り、int circle1x, int circle2x そして int circle3xをint circleX[3]に置き換えています。これにより3つの整数を、int型の値を格納する事が出来る**配列**に置き換えたのです。もうすこしコードを見てみましょう。配列に１つの値を代入する為には、ブランケット[]を使用します。例えば次の様な感じです。 
 
-Down in the draw function, you can see that we use the same syntax to use the values that we have previously assigned to a particular slot in the array.
+circleX[0] = 50;
 
-But this is still kind of a mess. One sign that you might not be utilizing loops as much as possible is if you see patterns in your code -- that is, similar sequences of code over and over again. So let's try to clean this up even more using some 'for' loops. 
+draw関数を見てみましょう。前もって代入した値を使用するのに同じ構文を使っている事が分かります。 
+
+しかし、依然としてコードは少々煩雑です。それはコード内でパターン化出来る箇所が存在しているにも関わらずループを使用していないという事…つまり、同じ様な構文を繰り返し使用しているところです。 
+
+それではforループを使用してコードを綺麗にしてみましょう。
 
 ~~~~{.cpp}
 float circleX[3];
@@ -1155,14 +1163,15 @@ void testApp::draw(){
 }
 ~~~~
 
-Now, instead of putting hard-coded numbers between the square brackets, we use the 'i' variable of our for loop.
+ブランケット[]内に直接数値をハードコーディングする換わりに、forループで使用している変数iを使います。
 
-#define
-^^^^^^^
 
-A wise person once said: the primary virtue of a programer is laziness. Suppose you wanted to change the number of circles that appear on the screen from 3 to 500. Obviously, the first step would be to change circleX[3] to circleX[500], and likewise circleY and circleRad. Oh, but that's not all. You'd still have to go through every "for" loop and change i<3 to i<50. That's a lot of work!  
+define
+----------------
+賢者がかつて、「プログラマの主な美徳は怠惰である事です」と言いました。  
+例えば円の数を３つから500個に変更したくなったとしましょう。まず最初にcircleX[3]をcircle[500]に変更する事は明白ですね。circleYとcircleRadも同様です。しかし、これだけではありません。全てのforループ構文内でi<3をi<500にする必要があります。これでは修正箇所が多くなってしまいます。
 
-It would be great if we could use a variable to keep track of how many items we have in our array! It might look something like this:
+もし配列で使用する値の個数をキープ出来る変数を使用する事が出来れば良いのですが…
 
 ~~~~{.cpp}
 int num = 500;
@@ -1171,9 +1180,9 @@ float circleY[num];
 float circleRad[num];
 ~~~~
 
-Unfortunately, this isn't possible. You can't use a variable to declare a variable. 
+ただ不幸な事に、この様に配列で使用する個数を変数を使用して宣言する事は出来ません。
+換わりに#defineという新しい方法を使用する事が出来ます。
 
-Instead, we will use a new thing called a #define (pronounced: "pound define"). Take a look at this:
 
 ~~~~{.cpp}
 #define NUM_CIRCLES 500
@@ -1219,11 +1228,12 @@ void testApp::draw(){
 }
 ~~~~
 
-At the very top, notice the line "#define NUM_CIRCLES 500". This isn't technically a line of `c++` code, but rather a message to your compiler. It tells the compiler "before you start compiling code, anywhere you see NUM_CIRCLES, replace it with 500". That's it! A #define is one of a couple messages that you can send to the compiler (or, more accurately, the preprocessor), known more broadly as http://www.cplusplus.com/doc/tutorial/preprocessor/[preprocessor directives]. We will talk more about them at a later date., but for now, all you need to know is that #define is a very simple find/replace procedure. 
+コードの一番最初に"#define NUM_CIRCLES 500"と書かれていますね。`c++`では、この行はコードと見なされませんが、コンパイラに対しては意味のあるメッセージと見なされます。「コードをコンパイルする前に、NUM_CIRCLESがコード内に存在したら、500という数字に置き換えろ」とコンピュータに伝えている事になります。たったそれだけの事です！#defineはコンパイラに対してメッセージを伝えるためのものです（もう少し正確に云うなら、プリプロセッサと言います）。[preprocessor directives](http://www.cplusplus.com/doc/tutorial/preprocessor/)　
+
+プリプロセッサについては、もう少し議論する事がありますが、今のところは、#defineは単純に置換手続きであると覚えておきましょう。
 
 
-Functions
-~~~~~~~~~
+###Functions
 
 ~~~~{.cpp}
 void drawStar(float xpos, float ypos, float radius, int npts)
