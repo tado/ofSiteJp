@@ -4,20 +4,26 @@
 ##Description
 
 
+<!--
+ofSerial provides a cross platform system for interfacing with the serial port. You can choose the port and baud rate, and then read and send data. 
+Please note that the port must be set manually in the code, so you should be clear what port your device is on.
+ For example, Arduino users should check the arduino app to see what port their device is on. Alternatively the ofSerial class can attempt to communicate with the first available device it finds.
+-->
+
+ofSerial はシリアルポート間のインターフェースのためのクロスプラットフォームシステムを提供します。
+ポートとボー率を選択することができ、それを使ってデータを読み書きします。
+使用するデバイスでどのポートが使えるかを明確にして、コードの中で直接でポートを設定することに注意してください。
+
+例えば、Arduino ユーザーが Arduino 用のアプリを作るときは、それらがどのポートを見て、どのデバイスがオンになっているかを確認してください。
+
+代わりに ofSerial クラスでは一番最初に発見した使用可能なデバイスと通信を試みるようにすることも出来ます。
 
 
 
 
-ofSerial provides a cross platform system for interfacing with the serial port. You can choose the port and baud rate, and then read and send data. Please note that the port must be set manually in the code, so you should be clear what port your device is on. For example, Arduino users should check the arduino app to see what port their device is on. Alternatively the ofSerial class can attempt to communicate with the first available device it finds.
 
 
-
-
-
-
-
-
-
+  
 
 
 
@@ -50,8 +56,10 @@ _advanced: False_
 _description: _
 
 
-
+<!--
 This initializes the serial connection, but doesn't actually open the connection to any devices. You'll need to use the setup() method before doing that.
+-->
+シリアル通信を初期化しますが、各デバイスとの通信は結びません。それをする前に setup() メソッドを使う必要があります。
 
 
 
@@ -105,15 +113,20 @@ _advanced: False_
 
 _description: _
 
+使用可能なシリアルデバイスを出力します。
+Mac と Linux では以下のようなリストになります。
+<!--
 Prints out the available serial devices:
 On mac and linux it might list something like this:
+-->
 ~~~~{.cpp}
 
 device 0 - cu.modem 
 device 1 - cu.USA19H181P1.1
 ~~~~
 
-and on a pc, like:
+PC では以下のようになります。
+<!--and on a pc, like:-->
 ~~~~{.cpp}
 
 device 0 - COM2 
@@ -146,10 +159,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Closes the connection to the serial device. 
-
-
+-->
+シリアルデバイスとの通信を切断します。
 
 
 
@@ -176,13 +189,14 @@ _advanced: False_
 
 _description: _
 
-Attempts to setup the first available device at a baud rate of 9600. 
+9600 のボー率で最初に使用可能なデバイスにセットアップを試みます。
+
+<!--Attempts to setup the first available device at a baud rate of 9600. -->
 ~~~~{.cpp}
 
 ofSerial mySerial;
 if( mySerial.setup() ){
-	printf("serial is setup!
-");	
+	printf("serial is setup!");	
 }
 ~~~~
 
@@ -213,14 +227,18 @@ _advanced: False_
 
 _description: _
 
-Opens the serial port, with the given name and baud rate. On mac and linux, it might look like:
+名前とボー率を与えて、シリアルポートを開きます。
+Mac と Linux では以下のようになるでしょう。
+<!--Opens the serial port, with the given name and baud rate. On mac and linux, it might look like:
+-->
 ~~~~{.cpp}
 
 ofSerial mySerial;
 mySerial.setup("/dev/cu.USA19H181P1.1", 9600);
 ~~~~
 
-and on a pc, like:
+PC ではこのようになるでしょう。
+<!--and on a pc, like:-->
 ~~~~{.cpp}
 
 ofSerial mySerial;
@@ -254,7 +272,10 @@ _advanced: False_
 
 _description: _
 
-Opens the serial port based on the order in which is listed and sets the baud rate. The code bellow would open the first serial device found by the system:
+ボー率順でリスト化された番号を指定してシリアルポートを開きます。
+以下のコードはシステムによって最初に発見されたシリアルデバイスを開くでしょう。
+
+<!--Opens the serial port based on the order in which is listed and sets the baud rate. The code bellow would open the first serial device found by the system:-->
 ~~~~{.cpp}
 
 ofSerial mySerial;
@@ -288,44 +309,56 @@ _advanced: False_
 
 _description: _
 
-Tries to read 'length' bytes from the connected serial device. In some cases it may read less than 'length' bytes, so for reliable reading of >1 bytes of data the return value must be checked against the number of bytes requested, and if fewer bytes than requested were read then the call must be tried again.
+接続中のシリアルデバイスから、"length" で指定したバイト数分読み込みます。
+
+ときどき、"length" のバイト数より少なく読み込む事があるので、
+1 より大きいバイトデータを確実に読み込むためには、
+返り値がリクエストしたバイト数と比較チェックして、
+もしリクエストしたバイト数より読み込んだバイト数が少なかった場合は、もう一度コールする必要があります。
+
+この関数は Serial.avaliable() が 0 より大きいバイト数があるときのみ呼び出すべきです。
+
+確実に 8 バイト読み込む方法の一例はこちらです。
+
+<!--Tries to read 'length' bytes from the connected serial device. In some cases it may read less than 'length' bytes, so for reliable reading of >1 bytes of data the return value must be checked against the number of bytes requested, and if fewer bytes than requested were read then the call must be tried again.
 
 This function should only be called when Serial.available() is reporting >0 bytes available.
 
-An example of how to reliably read 8 bytes:
+An example of how to reliably read 8 bytes:-->
 ~~~~{.cpp}
 
-// we want to read 8 bytes
+// 8 バイト読み込みたい
 int bytesRequired = 8;
 unsigned char bytes[bytesRequired];
 int bytesRemaining = bytesRequired;
-// loop until we've read everything
+
+// 全て読み込まれるまでループ
 while ( bytesRemaining > 0 )
 {
   // check for data
   if ( serial.available() > 0 )
   {
-    // try to read - note offset into the bytes[] array, this is so
-    // that we don't overwrite the bytes we already have
+    // 読み込んでみる
+    // ※既にもっているバイトには上書きしないように bytes[] 配列をオフセットすることに注意
     int bytesArrayOffset = bytesRequired - bytesRemaining;
     int result = serial.readBytes( &bytes[bytesArrayOffset],
       bytesRemaining );
 
-    // check for error code
+    // エラーコードをチェック
     if ( result == OF_SERIAL_ERROR )
     {
-      // something bad happened
-      ofLog( OF_LOG_ERROR, "unrecoverable error reading from serial" );
-      // bail out
+      // 何か悪い事が起きた
+      ofLog( OF_LOG_ERROR, "シリアルから読み込む際の修復不可能なエラー" );
+      // 脱出
       break;
     }
     else if ( result == OF_SERIAL_NO_DATA )
     {
-      // nothing was read, try again
+      // 何も読み込めなかったのでトライアゲイン
     }
     else
     {
-      // we read some data!
+      // 何か読み込めた！
       bytes_remaining -= result;
     }
   }
@@ -359,16 +392,21 @@ _advanced: False_
 
 _description: _
 
-Writes a string of bytes to the connected serial device. As with readBytes() the return code should be checked and the call to writeBytes() repeated with the remaining data until all bytes have been written.
+接続中のシリアルデバイスへバイト型文字列を書き込みます。
+readBytes() のようにで返り値をチェックし、
+writeBytes() が正しく、書き込んだかをチェックします。
+残りのデータが全て書き終わるまで writeBytes() を繰り返す必要があります。
+
+<!--Writes a string of bytes to the connected serial device. As with readBytes() the return code should be checked and the call to writeBytes() repeated with the remaining data until all bytes have been written.-->
 ~~~~{.cpp}
 
 ofSerial mySerial;
 mySerial.setup(0, 9600);
 int numSent = mySerial.writeBytes("Hello World");
-// numSent is how many bytes written; for example if numSent 
-// is 3 then "Hel" has been written and the call should be retried
-// with "lo World" to complete the write.
-$$/code
+// numSent にはどれだけ書き込まれたかが入ります。
+// 例えば numSent が 3 ならば "Hel" が書き込まれていて、
+// 書き込みを完全にするために "lo World" を含めてリトライすべきです。
+-->$$/code
 
 
 
@@ -396,8 +434,13 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Writes a single byte to the connected serial device. Check the return value to be sure the data was written.
+-->
+
+接続しているシリアルデバイスへ単一バイトを書き込みます。
+返り値で確かにデータが書き込まれたかを確認してください。
+
 ~~~~{.cpp}
 
 ofSerial mySerial;
@@ -405,7 +448,7 @@ mySerial.setup(0, 9600);
 unsigned char myByte = 225;
 bool byteWasWritten = mySerial.writeByte(myByte);
 if ( !byteWasWritten )
-  printf("byte was not written to serial port");
+  printf("シリアルポートに何もバイトが書き込まれなかった");
 ~~~~
 
 
@@ -436,7 +479,9 @@ _advanced: False_
 
 _description: _
 
-Reads and returns a single byte from the requested device. 
+要求するデバイスから単一バイトを読み込んで返します。
+
+<!--Reads and returns a single byte from the requested device. -->
 ~~~~{.cpp}
 
 ofSerial mySerial;
@@ -444,11 +489,11 @@ mySerial.setup(0, 9600);
 int myByte = 0;
 myByte = mySerial.readByte();
 if ( myByte == OF_SERIAL_NO_DATA )
-  printf("no data was read");
+  printf("読み込めませんでした");
 else if ( myByte == OF_SERIAL_ERROR )
-  printf("an error occurred");
+  printf("何かエラーが起きました");
 else
-  printf("myByte is %d", myByte);
+  printf("myByte は %d", myByte);
 ~~~~
 
 
@@ -479,7 +524,13 @@ _advanced: False_
 
 _description: _
 
+シリアルバッファの片方または両方からのデータをクリアします。
+クリアされたバッファの各データは捨てられます。
+flushIn が true だと入力データをクリアし、
+flushOut が true だと出力データをクリアします。
+<!--
 Clears data from one or both of the serial buffers. Any data in the cleared buffers is discarded. flushIn = true clears the incoming data buffer and  fluhOut = true clear the outcoming data buffer. 
+-->
 
 
 
@@ -508,17 +559,20 @@ _advanced: False_
 
 _description: _
 
+available メソッドはどれだけのバイトがシリアルポートで使用可能かを知りたいときに便利です。例えば、8 バイト待ってから読み込みたいだけならば、このようにします。
+<!--
 The available method is useful when you want to know how many bytes are available in the serial port. For instance, if you only want to read when there are 8 bytes waiting for you, you would do:
-
+-->
 
 ~~~~{.cpp}
 if(device.available() > 8) {
   device.readBytes(buffer, 8);
 }
 ~~~~
-
+<!--
 This is useful when you know how long a complete message from a device is going to be.
-
+-->
+デバイスにあるメッセージがどれぐらい長いかを知りたいときに便利です。
 
 
 <!----------------------------------------------------------------------------->
@@ -543,9 +597,9 @@ _advanced: False_
 
 _description: _
 
-Enable or disable ofSerial messages and errors being sent to the console.
-
-
+<!--Enable or disable ofSerial messages and errors being sent to the console.
+-->
+ofSerial のメッセージとエラーをコンソールに送信するかしないか。
 
 
 
@@ -572,11 +626,15 @@ _advanced: False_
 
 _description: _
 
+使用可能なシリアルデバイスをコンソールか標準出力にリストで出力します。
 
+OS X と Linux では全てのデバイスが /dev の下に tty と cu にあるように返るので、デバイスリストを元にして比較することによって、動的にデバイスに接続することができます。
 
-This lists out all the available serial devices to the console or standard output. On OSX and Linus this will return all the devices listed in /dev tty and cu, so you might want to compare it against a list of devices that you're expecting if you want to use it to dynamically connect to a device.
+<!--This lists out all the available serial devices to the console or standard output. 
 
-
+On OSX and Linus this will return all the devices listed in /dev tty and cu, so you might want to compare it against a list of devices that you're expecting
+ if you want to use it to dynamically connect to a device.
+-->
 
 <!----------------------------------------------------------------------------->
 
@@ -599,10 +657,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 This returns a vector of ofSerialDeviceInfo instances with the devicePath, deviceName, deviceID set.
-
-
+-->
+devicePath と deviceName と deviceID が含まれる ofSerialDeviceInfo インスタンスの配列を返します。
 
 
 
@@ -627,24 +685,31 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 This reads bytes from the serial buffer into the buffer pointer passed in:
+-->
+バッファポインタを渡してシリアルバッファからバイトを読み込みます。
 
 ~~~~{.cpp}
 unsigned char* buf = new unsigned char[4];
 device.readBytes(buf, 4);
-// do something with buf
-delete buf; // clean up
+// バッファに対して何かする
+delete buf;  // 掃除
 ~~~~
 
-You can also use an array like so:
+<!--You can also use an array like so:-->
+このように配列を使う事も出来ます。
 
 ~~~~{.cpp}
 unsigned char buf[4];
 device.readBytes(&buf[0], 4);
 ~~~~
-
+<!--
 Be aware that the type of your buffer can only be unsigned char. If you're trying to receieve ints or signed chars over a serial connection you'll need to do some bit manipulation to correctly interpret that values.
+-->
+unsigned char 型のバッファののみ使用可能です。
+int や signed char をシリアル通信で受け取るには、手動でビット演算をして値を変換して使用してください。
+
 
 
 <!----------------------------------------------------------------------------->
@@ -671,6 +736,8 @@ _description: _
 
 
 This writes bytes into the serial buffer from the buffer pointer passed in:
+
+バッファポインタを渡してシリアルバッファにバイトを書き込みます。
 
 ~~~~{.cpp}
 unsigned char buf[3] = {'o', 'f', '!'};
@@ -700,10 +767,11 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 drain is only available on OSX and Linux and is very similar to flush(), but blocks until all the data has been written to or read from the serial port.
-
-
+-->
+drain は OSX と Linux でのみ使用可能で、flush() にとてもよく似ていますが、
+シリアルポートからの全てのデータが読み書きされるまでブロックします。
 
 
 
@@ -756,10 +824,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 bVerbose is a boolean varible controlling verbosity on the ofSerial class. 
-
-
+-->
+bVerbose は ofSerial クラスを verbose モードにするかどうかの論理値です。
 
 
 
@@ -782,7 +850,7 @@ _advanced: False_
 
 _description: _
 
-h
+
 
 
 

@@ -3,8 +3,11 @@
 
 ##Description
 
-The ofVideoPlayer class loads in a movie file via quicktime in windows and mac  or gstreamer in linux, and offers various controls to play the movie, control the properties of the movie, and to access the pixels of a given frame.
+ofVidePlayer クラスは Windows と Mac の Quicktime または Linux の gstreamer によってムービーファイルをロードし、ムービーを再生して、ムービーのプロパティをコントロールして、フレーム毎のピクセルにアクセスするためのさまざまなコントロールを提供します。
 
+<!--
+The ofVideoPlayer class loads in a movie file via quicktime in windows and mac  or gstreamer in linux, and offers various controls to play the movie, control the properties of the movie, and to access the pixels of a given frame.
+-->
 Example:
 ~~~~{.cpp}
 ofVideoPlayer myPlayer;
@@ -65,9 +68,10 @@ _advanced: False_
 
 _description: _
 
+ムービーを再生し、ムービーが読み込まれて開始されているかの両方をチェックします。ロード済みだけども映像は開始されていない場合は、初期化済みか、再生完了後か、さもなくば再生中です。
+<!--
 Starts the movie, checking for whether the movie has been both loaded and if it has been started. If it has been loaded but not started the movie is initialized and then played, otherwise it is just played.
-
-
+-->
 
 
 
@@ -150,7 +154,9 @@ _advanced: False_
 
 _description: _
 
-Load a movie file (fileName) into that object. It will look for the movie file inside of the data/ folder. The movie does not automatically play once loaded.
+<!--Load a movie file (fileName) into that object. It will look for the movie file inside of the data/ folder. The movie does not automatically play once loaded.
+-->
+name に指定したパスのムービーファイルを読み込みます。data/ フォルダの中のムービーファイルを参照します。ムービーは読み込み後自動的には再生されません。
 
 Example:
 ~~~~{.cpp}
@@ -213,14 +219,15 @@ _advanced: False_
 
 _description: _
 
-Closes the movie file and de-allocates resources.
-
+ムービーファイルを閉じて、メモリリソースを解放します。
+<!--Closes the movie file and de-allocates resources.
+-->
 
 Example:
 ~~~~{.cpp}
 ofVideoPlayer myPlayer;
-myPlayer.loadMovie("myMovie.mov"); //Loads video resources
-myPlayer.closeMovie(); //Unloads video resources
+myPlayer.loadMovie("myMovie.mov"); //ビデオリソースを読み込み
+myPlayer.closeMovie(); //ビデオリソースを破棄する
 ~~~~
 
 
@@ -278,9 +285,9 @@ _advanced: False_
 
 _description: _
 
-Calls the closeMovie() function, which closes the movie file and de-allocates resources.
+<!--Calls the closeMovie() function, which closes the movie file and de-allocates resources.-->
 
-
+closeMovie() 関数をコールすれば、ムービーファイルを閉じて、メモリリソースを解放します。
 
 
 
@@ -334,10 +341,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Calls the idleMovie() function. This function idles the movie player, so that the movie can play. If you don't call it, when the movie is playing then you may encounter problems, especially on windows machines. 
-
-
+-->
+idleMovie() 関数をコールしてください。この関数でムービープレイヤーを待機状態にすると、ムービーが再生可能になります。もしこれをコールしないと、ムービーはが再生されているとき、とりわけ Windows マシンで問題に遭遇するでしょう。
 
 
 
@@ -391,10 +398,11 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 This function idles the movie player, so that the movie can play. If you don't call it, when the movie is playing then you may encouter problems, especially on winodws machines.
+-->
 
-
+この関数でムービープレイヤーを待機状態にすると、ムービーが再生可能になります。もしこれをコールしないと、ムービーが再生されているとき、とりわけ Windows マシンで問題に遭遇するでしょう。
 
 
 
@@ -420,10 +428,11 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Plays the movie. If the movie has been stopped or paused it will the continue playback at the point it was stopped. 
+-->
 
-
+ムービーを再生します。ムービーがストップまたはポーズしているときは、停止している地点からプレイバックを再開します。
 
 
 
@@ -449,10 +458,11 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Stops the movie. 
+-->
 
-
+ムービーを停止します。
 
 
 
@@ -479,11 +489,12 @@ _advanced: False_
 
 _description: _
 
-For example, if the pixels are new, you could then process them.
+<!--For example, if the pixels are new, you could then process them.-->
+例えば、ピクセルが新しい場合、処理を行う事が出来ます。
 ~~~~{.cpp}
 
 if (myMovie.isFrameNew()){
-	;	// do something
+	;	// 何かする
 }
 ~~~~
 
@@ -514,10 +525,11 @@ _advanced: False_
 
 _description: _
 
-For example, to get the red green and blue of the pixel (100,20):
+<!--For example, to get the red green and blue of the pixel (100,20):-->
+ピクセル(100,20) の RGB を取得する例。
 ~~~~{.cpp}
 unsigned char * pixels = myMovie.getPixels();
-int widthOfLine = myMovie.width * w;  // how long is a line of pixels
+int widthOfLine = myMovie.width * w;  // 一行のピクセル数がどれだけあるか
 int red 	= pixels[(20 * widthOfLine) + 100 * 3    ];
 int green 	= pixels[(20 * widthOfLine) + 100 * 3 + 1];
 int blue 	= pixels[(20 * widthOfLine) + 100 * 3 + 2];
@@ -578,9 +590,9 @@ _advanced: False_
 
 _description: _
 
-note: 1 = normal speed, 0 = paused, -1 = backwards. 
+<!--note: 1 = normal speed, 0 = paused, -1 = backwards. -->
 
-
+注：1 = ノーマル速度、0 = ポーズ、-1 = 巻き戻し
 
 
 
@@ -662,10 +674,12 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Sets the position of the playhead to a given percentage through the movie. Can be used to scrub through a movie. 
+-->
 
-
+ムービーを通してのパーセンテージを与えて再生位置を設定します。
+ムービーのスクラブをするのに使う事が出来ます。
 
 
 
@@ -692,9 +706,9 @@ _advanced: False_
 
 _description: _
 
-Sets the volume of a movie - default = 0, silent 
+<!--Sets the volume of a movie - default = 0, silent -->
 
-
+ムービーの音量を設定します。デフォルトは 0 で無音です。
 
 
 
@@ -721,12 +735,13 @@ _advanced: False_
 
 _description: _
 
-Sets the looping state of the movie. Deafult behavior is to loop. There are three options:
+<!--
+Sets the looping state of the movie. Deafult behavior is to loop. There are three options:-->
+ムービーのループ状態を設定します。デフォルトの動作はループするです。3 つのオプションがあります。
 ~~~~{.cpp}
-
-OF_LOOP_NONE - don't loop, the movie will stop when it gets to the last frame (or first frame, if playing backwards)
-OF_LOOP_NORMAL - loop normally (the last frame loops to the first frame)
-OF_LOOP_PALINDROME - loop back and forth
+OF_LOOP_NONE - ループしない、ムービーは最終フレームで停止する (逆再生をしている場合は最初のフレーム)
+OF_LOOP_NORMAL - 通常再生 (最終フレームから最初のフレームへループする)
+OF_LOOP_PALINDROME - 逆へ前へループする (訳注：通常再生と逆再生を繰り返す)
 ~~~~
 
 
@@ -756,9 +771,9 @@ _advanced: False_
 
 _description: _
 
-Sets the speed of the movie that is playing. 1 = normal, 2 = 2x as fast, 0 = stopped, -1 = backwards, etc; 
+<!--Sets the speed of the movie that is playing. 1 = normal, 2 = 2x as fast, 0 = stopped, -1 = backwards, etc; -->
 
-
+ムービー再生の速度を設定します。1 = 通常、2 = 倍速、0 = 停止、-1 = 逆再生
 
 
 
@@ -784,10 +799,11 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Sets the current frame of the video. Should be used only if you know the bounds of the movie ( using totalNumberFrames() ) or store a location using getCurrentFrame();
+-->
 
-
+ビデオの現在のフレームを設定します。ムービーの長さ ( totalNumberFrames() を使う ) を知っているときか、getCurrentFrame() を使って位置を保存したいときに使うべきです。
 
 
 
@@ -814,7 +830,11 @@ _advanced: False_
 
 _description: _
 
-Set the usage of texture inside this object. Typically, you will want to draw the movie on screen, and so it will be necessary to use a texture, but there may be cases where it helps to not use a texture in order to save memory or for better performance. To disable the internal use of the texture, you can load the movie like this:
+このオブジェクトのなかのテクスチャの使用方法を設定します。
+一般的には、ムービーをスクリーンに描画したいとき、テクスチャを使うのが必要不可欠ですが、さらによいパフォーマンスのためにメモリをセーブして、テクスチャーを使わないケースがあります。テクスチャの内部使用を不可にし、ムービーをこのように読み込む事ができます。
+
+
+<!--Set the usage of texture inside this object. Typically, you will want to draw the movie on screen, and so it will be necessary to use a texture, but there may be cases where it helps to not use a texture in order to save memory or for better performance. To disable the internal use of the texture, you can load the movie like this:-->
 ~~~~{.cpp}
 
 myMovie.setUseTexture(false);
@@ -848,9 +868,9 @@ _advanced: False_
 
 _description: _
 
-Returns a reference to the videoPlayer's texture.
+<!--Returns a reference to the videoPlayer's texture.-->
 
-
+videoPlayer のテクスチャの参照を返します。
 
 
 
@@ -876,10 +896,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Draws the texture of the movie player class at the position (x,y) with the given width (w) and height (h). 
-
-
+-->
+ムービープレイヤークラスに位置 (x,y) と幅 (w) と高さ (h) を与えてテクスチャを描画します。
 
 
 
@@ -906,9 +926,9 @@ _advanced: False_
 
 _description: _
 
-Draws the texture of the movie player class as the position (x,y) with the internal width and height of the loaded movie. 
-
-
+<!--Draws the texture of the movie player class as the position (x,y) with the internal width and height of the loaded movie. 
+-->
+ムービープレイヤークラスに位置 (x,y) を与えて読み込み済みムービーの幅と高さでテクスチャを描画します。
 
 
 
@@ -1019,9 +1039,10 @@ _advanced: False_
 
 _description: _
 
+<!--
 Sets the paused state of the movie. Use "true" to pause and false to unpause. 
-
-
+-->
+ムービーのポーズ状態を設定します。true にするとポーズされ、false にすると解除されます。
 
 
 
@@ -1104,9 +1125,9 @@ _advanced: False_
 
 _description: _
 
-Moves the playhead to the first frame of the movie. This can also be accomplished using setCurrentFrame(0).
-
-
+<!--Moves the playhead to the first frame of the movie. This can also be accomplished using setCurrentFrame(0).
+-->
+再生ヘッドをムービーの最初のフレームに移動します。これは setCurrentFrame(0) のショートカットメソッドとして使用する事が出来ます。
 
 
 
@@ -1133,9 +1154,9 @@ _advanced: False_
 
 _description: _
 
-Advances the playhead by one frame.
+<!--Advances the playhead by one frame.-->
 
-
+再生位置をひとつフレームを進めます。
 
 
 
@@ -1162,9 +1183,9 @@ _advanced: False_
 
 _description: _
 
-Reverses the playhead by one frame.
+<!--Reverses the playhead by one frame.-->
 
-
+再生位置をひとつフレームを巻戻します。
 
 
 
@@ -1583,9 +1604,9 @@ _advanced: False_
 
 _description: _
 
-Variable containing the width of the video.
+<!--Variable containing the width of the video.-->
 
-
+ビデオの幅を表す変数です。
 
 
 
@@ -1632,9 +1653,9 @@ _advanced: False_
 
 _description: _
 
-Variable containing the height of the video.
+<!--Variable containing the height of the video.-->
 
-
+ビデオの高さを表す変数です。
 
 
 
@@ -1680,11 +1701,11 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Contains the playback speed of the video. 1.0 is the normal speed. 2.0 is double the normal speed, -1 is backwards etc. 
+-->
 
-
-
+ビデオの再生速度です。1.0 は通常速度で、2.0 は 通常速度の倍で、-1 は巻き戻しなどです。
 
 
 
@@ -1730,9 +1751,9 @@ _advanced: False_
 
 _description: _
 
-A boolean that describes if the movie loaded properly. 
-
-
+<!--A boolean that describes if the movie loaded properly. 
+-->
+ムービーが読み込まれているかどうかを表す論理値です。
 
 
 
@@ -1778,10 +1799,10 @@ _advanced: False_
 -->
 
 _description: _
+<!--
+Variable containing the number of frames of the video.-->
 
-Variable containing the number of frames of the video.
-
-
+ビデオのフレーム数を表す変数です。
 
 
 
@@ -1827,10 +1848,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 Array of pixels that represents the current frame of live video. The data is stored as RGB in an array which is the size: width*height*3.
-
-
+-->
+起動中のビデオの現在のフレームに含まれるピクセルの配列です。データは RGB の配列で表されるため、その大きさは width*height*3 
 
 
 
@@ -1877,9 +1898,9 @@ _advanced: False_
 
 _description: _
 
-A boolean controlling if pixels have change.
+<!--A boolean controlling if pixels have change.-->
 
-
+ピクセルが変更されているかどうかの論理値です。
 
 
 
@@ -1926,9 +1947,9 @@ _advanced: False_
 
 _description: _
 
-ofTexture used by the video player class. 
+<!--ofTexture used by the video player class. -->
 
-
+ビデオプレイヤークラスで使われている ofTexture です。
 
 
 
@@ -1974,10 +1995,10 @@ _advanced: False_
 -->
 
 _description: _
-
+<!--
 bUseTexture enables and disables the use of ofTexture in our video player.
-
-
+-->
+bUseTexture はビデオプレイヤーで ofTexture を使用するかしないかを表します。
 
 
 
@@ -2024,9 +2045,9 @@ _advanced: False_
 
 _description: _
 
-Boolean varible containing true if the texture has been already allocated inside our video player.
-
-
+<!--Boolean varible containing true if the texture has been already allocated inside our video player.
+-->
+テクスチャーがビデオプレイヤーの中で既にメモリを確保していた場合、true になります。
 
 
 
