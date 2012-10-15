@@ -45,11 +45,11 @@ author_site: http://www.stfj.net
         *   [1.7.12 基本的な論理構造の問題][37]
         *   [1.7.13 Xcodeのブレイクポイントと、何故デバッガが凄いのか][38]
 
-## Processingは実際どのように動作しているのか?
+## <a id="How_Processing_Actually_Works"></a> Processingは実際どのように動作しているのか?
 
 もし、あなたがある程度Processingでプログラミングしてきたのなら、あなたは当然クラスを使ったことがあると受けとめて良いですよね? Javaのクラスの特徴一つは、もしかしたら馴染みがないかもしれませんが、多態性(ポリモーフィズム、クラスの継承)です。
 
-### クラスの拡張とは? (基底クラスとサブクラスって何?)
+###<a id="What_is_class_extending.3F_.28base_and_sub_classes.29.3F"></a> クラスの拡張とは? (基底クラスとサブクラスって何?)
 
 クラスの拡張は、基本となる一つのクラスから、機能を追加したクラスを新規に生成するための方法です。
 
@@ -119,12 +119,12 @@ class TripleEnemy : public Enemy
 
 これで自分自身で動きまわり初期化するが、それぞれに別々に表示される2つの敵のタイプができました。この方法の別の利点としては、もしわたしたちが敵の移動や初期化の方法を知らなかったとしても、基底クラスを一度だけ変更すれば、全ての特殊な敵を動かし初期化できるのです。
 
-### 了解、じゃあProcessingではそれはどうやるの?
+###<a id="Ok.2C_so_what_does_this_have_to_do_with_Processing.3F"></a> 了解、じゃあProcessingではそれはどうやるの?
 
 しかしながら、プロセッシングはこうした方法をコンパイラから隠しています。Processingは実際基底クラス(pApplet)を動かしています。あなたが記述したプログラムはすべて、もちろんクラスも含め、Processingのアプリケーション内部では、自動的に動作してるProcessingエンジンの基底クラスを派生させています。あなたがdraw()やsetup()関数を書いた時、実際にはProcessingの基底クラスの中になるdraw()やsetup()関数を再定義しているのです。
 
 
-## openFramewroksはどうやって動いているの?
+## <a id="How_OpenFrameworks_Works."></a>openFramewroksはどうやって動いているの?
 
 openFrameworksは、Processingとよく似た方法で作られています。ただ、煩雑な部分もそのまま隠していません。しかし、testApp.hを開いてみると\#include "ofMain.h" という行のすぐ下に、"class TestApp : public ofSimpleApp{"という記述がみられます。
 
@@ -137,7 +137,7 @@ openFrameworksは、Processingとよく似た方法で作られています。�
 main.cppはmain()関数を含んでいます。この中にはスクリーンサイズを設定したり、プログラムのなかで動作させる無限ループを開始したりしています。もし、より詳しく知りたいのであれば、2.1のセクションを読んでみてください。しかし、これは現在のところ混乱を招きかねないので、必須ではありません。
 
 
-### Main.cppの詳細
+### <a id="Main.cpp_In-depth"></a>Main.cppの詳細
 
 oFのサンプルプログラムのどれをみても、main.cppファイルには一番上に2つの\#includeの宣言が含まれているのがわかります。これは、Processingが行なっている方法と一緒です。
 
@@ -169,7 +169,7 @@ ofRunAppは、ofSimpleAppの種類をパラメータを渡さなくてはなり�
     
 あなたが自分自身でクラスを書くようになるまでは、testApp.hとtestApp.cppはProcessingのメインウィンドウのように考える助けとなるかもしれません。あなたの記述する全てのコードは、この2つのファイルに含まれます。その気がなければ、その他のXcodeに入っているコードは見る必要はないのです。
 
-## Java vs. C++ コンパイルのプロセス
+## <a id="Java_vs._C.2B.2B_Compile_Processes"></a>Java vs. C++ コンパイルのプロセス
 
 JavaとC++では、コンパイルのプロセスが大きく異なります。C++のコンパイルのプロセスをステージごとに理解しることは、吐きださせる様々なタイプのエラーの内容を理解する上でとても重要です。どの段階でどのようなエラーがあるのかという知識によって、プロジェクトのデバッグの助けになります。
 
@@ -185,7 +185,7 @@ C++の場合はより複雑です。
 この方法の利点は、一度コンパイルしたセクションは再コンパイルする必要はないので、C++のコンパイラのスタイルは巨大なプログラム(例えば、openFrameworksのアプリケーション本体)に向いているという点であるとすぐに理解できでしょう。これは、実際にサンプルプログラムを開いてコンパイルしてみるとわかります。最初のコンパイルは30秒から1分ほどかかるかもしれません。もし、testApp.cppに変更を加えて再度コンパイルすると、コンパイルはずっと早く終わるはずです。これは、XCodeはopenFrameworksの全てのライブラリをもうコンパイルする必要がなく、修正した少量のコード変化だけを再コンパイルすれば良いからです。
 
 
-## C++ではクラスはどうやって動かすの? (2つのファイル!?)
+## <a id="How_Classes_Work_in_C.2B.2B_.28Two_Files.21.3F.29"></a>C++ではクラスはどうやって動かすの? (2つのファイル!?)
 
 C++のクラスは2つのファイルから構成されています。
 この2つは、レシピだと思うと理解しやすいでしょう。
@@ -206,7 +206,7 @@ C++のクラスは2つのファイルから構成されています。
 
 これらを確認するために、testApp.cppとtestApp.をみてみましょう。
 
-### testApp.h
+### <a id="testApp.h"></a>testApp.h
 
 testApp.hの全てのコードは、もし\#ifndefを宣言をすると全体を囲むことがきる。この宣言はコンパイルのプリプロセッサのステージのためのものです。基本的にコンパイラがコード全体をコンパイルする前に、全てのinclude宣言が機能するようにコードをコピー＆ペーストします。もし複数の場所に同じヘッダーが呼びだされてしまった場合、コンパイルの際に問題を引きおこします。\#ifndefは任意の変数名をつけてコンパイラに伝えます。例えば\_TEST\_APPのような名前が既にどこかのコードで使用されていたら、再度定義することはできなくなります。この手法は、コードの構造を簡単にするハックの一種で、自分でカスタムのクラスを生成した際にも実践できます(違う変数名をつけてあげれば良いのです)。
 
@@ -226,13 +226,13 @@ C++では実際に使用する前にヘッダー内でクラスについて定�
 より詳細なC++のクラスについての情報は以下を参照してください：
 [http://pages.cs.wisc.edu/~hasti/cs368/CppTutorial/NOTES/CLASSES-INTRO.html][48]
 
-### testApp.cpp
+### <a id="testApp.cpp"></a>testApp.cpp
 
 ここにあなたの実際のコードの実装を記述します。クラスの関数の書式はProcessingとはちょっと異なります。
 C++ :  \[ReturnType\] \[class\] :: \[functionName\] ( \[type\]\[variableName\]..etc )
 JAVA/P5 : \[ReturnType\] \[functionName\] ( \[type\]\[variableName\]..etc )
 
-## なんだ\*&れは? (ポインタの初歩).
+## <a id="What_the_Fu.2A.26.3F_.28a_very_basic_introduction_to_pointers.29."></a>なんだ\*&れは? (ポインタの初歩).
 
 Pointerは間違いなく、C++のもっとも困難でがっかりさせられる部分でしょう。
 
@@ -243,7 +243,7 @@ Pointerは間違いなく、C++のもっとも困難でがっかりさせられ�
 C++とJavaの最も大きな違いは、Javaは基本的なデータ型(byte, short, int, long, float, double, boolean, and char)を除いて、全ての値は参照渡しされます。ひとつ重要な注意点としては、Processingでは文字列(String)は値で渡されます。それに対して、C++は全てのクラスに見られるように値をコピーします。
 
 
-### 値と参照
+### <a id="Value_vs._Reference"></a>値と参照
 
 値と参照の違いを理解するには、まずコンピュータがRAMの中に値をどのように記録しているのかを知るべきです。
 
@@ -329,7 +329,7 @@ testがaddOne()に渡されたときには、それは実際には52498、もし
 
 オブジェクトにまつわる全てを渡していたのでは動作が遅くなっていまうので、このようにしているのです。基本データタイプは値で渡せるだけ小さいのですが、それ以外の全ては参照でわたされます。
 
-### &と\*
+### <a id=".26_and_.2A"></a>&と\*
 
 C++はJavaとは違って、渡しているものが値なのか参照なのかを明確に表明しなくてはなりません。また、変数が実際の値を入れるためのものなのかデータの位置を指し示しているだけなのか、そのふるまいを定義することもできるのです。int型を先程Testクラスでやったときのようにふるまうように作成することも可能です。それらの操作は全て&(参照)と\*(参照外し)の2つの記号で行います。
 
@@ -373,7 +373,7 @@ C++はJavaとは違って、渡しているものが値なのか参照なのか�
  //xは10になる
 ~~~~
 
-### どんな状況で使うのか?
+### <a id="So_Where_Do_I_use_This.3F"></a>どんな状況で使うのか?
 
 最初に、関数同士で配列をやりとりしたいのであればポインタを使うと便利です。例えば、movieGrabberExampleで実例を見ることが可能です。ここではポインタは、取得したビデオのピクセルにアクセスするためにポインタを使っています。
 
@@ -395,7 +395,7 @@ C++はJavaとは違って、渡しているものが値なのか参照なのか�
 ポインタについてより詳細に学ぶのであれば、下記のサイトをみてください。わたしはこのサイトの冒頭部分を参照しました。
 ( [http://www.cplusplus.com/doc/tutorial/pointers.html][51] )
 
-### 基本のデータ型
+### <a id="Basic_Data-types"></a>基本のデータ型
 
 JavaとC++は多くの基本データ型を共有しています。
 
@@ -406,7 +406,7 @@ JavaとC++は多くの基本データ型を共有しています。
 unsigned byte、unsigned short、unsigned int、unsigned long、unsigned float、unsigned double、unsigned char
 unsignedはプラスとマイナスの値(例えば、charは-128から127の値をもつ)の代わりに、プラスマイナス記号のない変数(unsigned charは0ー255の値を持つ)を意味します。
 
-## PImage, updatePixels() 対 ofTexture, pixels\[\]
+## <a id="PImage.2C_updatePixels.28.29_vs._ofTexture.2C_pixels.5B.5D"></a>PImage, updatePixels() 対 ofTexture, pixels\[\]
 
 OpenGLに描画する際に(oFではOpenGLを使用したGLUTライブラリを使って描画しています。ProcessingではオプションでOpenGLの描画を選びます。使用するかどうかはウィンドウサイズを宣言するところで決定します)、画面に表示しようとしているいかなるピクセルデータも描画前にRAMにプレロードされている必要があります。ピクセル(ビットマップ)データをRAMにロードすることを、イメージをテクスチャにすると呼びます。
 
@@ -455,7 +455,7 @@ ofImageはピクセルを操作できます、なぜならofImageは2つのデ�
 
 see: [http://www.openframeworks.cc/documentation\#ofImage-setUseTexture][58]
 
-### 何故Pixelの値はColorオブジェクトとして格納されていないの?
+### <a id="How_are_pixel_values_stored_without_a_Color_object.3F"></a>何故Pixelの値はColorオブジェクトとして格納されていないの?
 
 ピクセル値は、unsignedのchar型の連なりとして表現されています。unsignedのchar型は、0から255の範囲内に値を格納するさいにとても良い方法です。ピクセルの配列を返す(getPixels())oFの全てのオブジェクトは、unsignedのchar型の配列で値を返します。なぜなら色を表現するには3種類(red, green, blueの3つのチャンネル)のunsigned char型があれば良いからです。この配列の長さは全てのピクセルの数に3を掛けた数になり、下記のような構造で格納されています。
 
@@ -473,9 +473,9 @@ ofSetColor(myPixels[colorIndex],myPixels[colorIndex+1],myPixels[colorIndex+2]);
 //赤色に続く2つの配列の値をとりだして、それぞれの色のチャンネンルをセット
 ~~~~
 
-## C++に関する既知の問題 / その他のトピックス
+## <a id="Common_Problems_With_C.2B.2B_.2F_Misc._Topics"></a>C++に関する既知の問題 / その他のトピックス
 
-### 暗黙のデータ変換の期待
+### <a id="Expecting_implicit_data_conversion.3F"></a>暗黙のデータ変換の期待
 
 C++で最初に驚かされる事の一つは、暗黙にデータ変換をしてくれないことです。
 下記の整数型を表示しようとしてるコードが良い例です。
@@ -490,31 +490,31 @@ printf(num +"\n");
 
 これは、printf()がstring型かchar型しか出力してくれないことが原因です。numはこのどちらでもないからです。string型やchar型でない変数をstring型に変換するにはofToString()を使います。
 
-### ウィンドウのサイズ変更
+### <a id="Changing_window_size"></a>ウィンドウのサイズ変更
 
 ウィンドウのサイズはmain.cooで直感的に設定可能です。main.cppをみれば、コメントにどのようにしてウィンドウのサイズを変更するのか、フルスクリーンにするか否かの説明があり、すぐに理解できると思います。
 
-### Update()とDraw()?
+### <a id="Update.28.29_and_Draw.28.29.3F"></a>Update()とDraw()?
 
 Processingと違って、openFrameworksはプログラムのループ構造の中でupdate()とdraw()という2つのメソッドがあります。
 全ての計算をupdate()関数の中でするようにして、draw()関数は単純にその結果を表示するようにするように練習すると良いでしょう。このことによって、draw()関数が込み入り過ぎているためスピードが低下してしまうのを避けることができます。画面がちらついたりイメージの半分しか描画されないようなときには、単純にフレームレートを下げるべきです。
 
 加えて、もしプロジェクトの中でなにか付加のかかる処理(画像のローディングや、なんらかのデータをファイルから読みこむときなど)をするときには、それらの処理はsetup()関数の中で行うべきです。update()やdraw()関数はループのなかで動作するので、その中では毎フレームで行う処理のみを含めるようにすべきです。一度だけ実行すれば良いものは、setup()の中に置かれるべきでしょう。
 
-### コンソールに出力するには?
+### <a id="How_in_the_world_do_I_print_to_the_console.3F"></a>コンソールに出力するには?
 
 コンソールに出力するには、2つの方法があります。最初の1つはprintfで、とても強固ですがやや複雑です。openFramewroksに標準で含まれています。
 
 2つ目は、iostreamを使用する方法です。より単純ですが、その代わりやや強固さに欠けます。標準ではopenFrameworksには含まれていません。
 
-#### printf
+#### <a id="printf"></a>printf
 
 もしコンソールへの出力にprintfを使いたいのであれば、下記にとても良いチュートリアルがあります。
 
 [http://www.cplusplus.com/reference/clibrary/cstdio/printf.html][66]
 
   
-#### iostream
+#### <a id="iostream"></a>iostream
 
 もう一つのコンソールに出力するオプションはiostreamです。とても古いC++のライブラリで、、コンソールへとても簡単に出力が可能で、様々な変数の型を暗黙に変換してくれます。ofToString()を使う必要もありません。
 
@@ -571,7 +571,7 @@ iostreamではProcessingと違ってbool型のfalseは「false」ではなく「
 
 もう一つの注意点として、Javaでは改行を入れるかどうかはprint()かprintln()のどちらの関数を選ぶかによって決まっていました。C++のiostreamでは、改行の有無はcoutの末尾に「endl」というキーワードをいれるかどうかで決まります。
 
-### 塗り潰しの図形は、スムージングできない?
+### <a id="Smoothing_not_working_on_filled_shapes.3F"></a>塗り潰しの図形は、スムージングできない?
 
 もし塗り潰しの図形(例えばofBegenShape()などで)を描こうとすると、ofEnableSmoothing()を使用したとしても図形のエッジがスムースに処理されていないことに気が付くでしょう。これはoFがOpenGLを扱うために使用しているGLUTに起因しています。GLUTはフルスクリーンのグラフィックに対応していませんでした。そのため、形をスムースにするためのフルスクリーン・アンチエイリアシングもできません。
 
@@ -595,7 +595,7 @@ ofBeginShape(); //なめらかなエッジ
 ofEndShape();
 ~~~~
 
-### ofSetColorに関するビデオ表示の問題
+### <a id="Displaying_video_problem.2Ffeature_related_to_ofSetColor"></a>ofSetColorに関するビデオ表示の問題
 
 ofTextureを使用した全ての図形に関して、スクリーンの描画する際の問題(特徴)があります。わたしが最初にofVideGravverでこの問題に総合しました。これはおそらく多くの人が陥りやすいことなので、videoにまつわる問題(もしくは特徴)として挙げておきたいと思います。
 
@@ -609,7 +609,7 @@ ofSetColor(0,0,0);
 
 解決法はとてもシンプルです。ofTextureを使用した図形を描画する前に、ofSetColor()を使用して描画色を白に、もしくは自分が着色したい色に設定されていることを確認することです。
 
-### Processingのbackground() 対 oFのofBackground()
+### <a id="Processing_background.28.29_vs._OF_ofBackground.28.29"></a>Processingのbackground() 対 oFのofBackground()
 
 Processingではbackground()命令によってProcessingに望んだ色で背景を設定するようになっています。
 
@@ -629,7 +629,7 @@ ofSetBackgroundAuto(false);
 
 これによって、oFは画面をリフレッシュすることなく、毎フレーム描画していきます。
 
-### ofFill() / ofNoFill() 対 Processingのfill() noFill()
+### <a id="ofFill.28.29_.2F_ofNoFill.28.29_vs._processing_fill.28.29_noFill.28.29"></a>ofFill() / ofNoFill() 対 Processingのfill() noFill()
 
 Processingでは、塗り潰しとストロークを以下の命令で切り替えます。
 
@@ -643,18 +643,18 @@ C++ | JAVA/P5
 ofFill();   | fill(); noStroke();
 ofNoFill(); | noFill(); stroke(1);
   
-### 数学関数とそれはどこから来たのか?(ノー・モア Math.\*)
+### <a id="Math_functions.2C_and_where_they_come_from_.28no_more_Math..2A.29"></a>数学関数とそれはどこから来たのか?(ノー・モア Math.\*)
 
 openFrameworksの数学関数は3種類のファイルからなりたっています。
 
-#### cmath
+#### <a id="cmath"></a>cmath
 
 複素数に関する数学関数です。(trigonometric, hyperbolic, exponential, logarithmic, power, rounding, absolute value and remainder functions)。これらはcmathライブラリ(math.h)から来ていて、oFで標準でインクルードされています。
 
 これらの関数の一覧は下記を参照してください。
 [http://www.cplusplus.com/reference/clibrary/cmath/][75]
 
-#### ofConstants
+#### <a id="ofConstants"></a>ofConstants
 
 また別の基本的な数学関数として、ofConstantsから提供されているものがあります。
 
@@ -677,13 +677,13 @@ openFrameworksの数学関数は3種類のファイルからなりたってい�
 *   CLAMP(val,min,max);
 *   ABS(\[絶対値を取得した数学関数\]);
 
-#### ofMath
+#### <a id="ofMath"></a>ofMath
 
 さらに、ofMath()はランダムな値を取得したいときに使います。
 
 [http://www.openframeworks.cc/documentation\#ofMath-about][78]
 
-### 構造体、何のために、どうやって使うのか?
+### <a id="Structs.2C_what_are_they_for.2C_and_how_can_we_use_them.3F"></a>構造体、何のために、どうやって使うのか?
 
 構造体は、クラスがミニチュアになったようなもので、メソッドを持ちません。基本的にはカスタムのデータ構造を扱うオブジェクトです。
 
@@ -705,7 +705,7 @@ struct [name]
 };
 ~~~~
 
-### メモリ管理
+### <a id="Memory_Management_and_You"></a>メモリ管理
 
 JavaやProcessingでは、ガベージコレクションが作動します、これによって短いサイクルで、ポインタが参照していない使用済みの全てのオブジェクトをインタプリタがRAMの中から探しだし、消去してくれます。
 
@@ -728,7 +728,7 @@ JavaやProcessingと違って、C++は自動化されたガベージコレクシ
 delete temp;
 ~~~~
 
-### 基本的な論理構造の問題
+### <a id="Basic_Logic_Problems"></a>基本的な論理構造の問題
 
 ザック・リーバーマンが論理演算のエラーについて少し含めてほしいということなので、ここで書いていきたい。
 
@@ -765,61 +765,61 @@ xは、0より大きく、10より小さい
 こう問いかけてください：
 xは0より小さい、または、**xは** 10より大きい
 
-### Xcodeのブレイクポイントと、何故デバッガが凄いのか
+### <a id="accidental_breakpoints_in_Xcode_and_Why_Having_a_Debugger_Rocks"></a>Xcodeのブレイクポイントと、何故デバッガが凄いのか
 
-[![Image:BkPt.jpg](002_images/BkPt.jpg)][84]
+[![Image:BkPt.jpg](002_images/BkPt.jpg)]
 
 ブレイクポイントは、エディターの左側にあるコラムをクリックすることで挿入できます。
 Breakpoints are something that you can put in by clicking on the far left column of the editing window. If you\'re compiling in debug mode:
 
-[![Image:BuildConf.jpg](002_images/BuildConf.jpg)][85]
+[![Image:BuildConf.jpg](002_images/BuildConf.jpg)]
 
 もしデバッグモードでデバッグすると、プログラムはブレイクポイントにさしかかったところで実行を止め、変数や現在作動しているプロセスを見ることのできるデバッグ用のコンソールを起動します。以下のようになるでしょう。
-[![Image:HilightedVar.jpg](002_images/HilightedVar.jpg)][86]
+[![Image:HilightedVar.jpg](002_images/HilightedVar.jpg)]
 
 これは、本当に便利なデバッグプログラムです。しかし、どのようにしてプログラムの停止を維持しているのか知らないと、とまどうことになるかもしれません。
 
 ブレイクポイントを消去するには、クリックしたままドラッグしてウィンドウの外へもっていってください。
 
-[0]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#column-one
-[1]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#searchInput
-[2]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#An_overview_of_OpenFrameworks_for_processing_junkies.
-[3]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#How_Processing_Actually_Works
-[4]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#What_is_class_extending.3F_.28base_and_sub_classes.29.3F
-[5]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Ok.2C_so_what_does_this_have_to_do_with_Processing.3F
-[6]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#How_OpenFrameworks_Works.
-[7]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Main.cpp_In-depth
-[8]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Java_vs._C.2B.2B_Compile_Processes
-[9]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#How_Classes_Work_in_C.2B.2B_.28Two_Files.21.3F.29
-[10]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#testApp.h
-[11]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#testApp.cpp
-[12]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#What_the_Fu.2A.26.3F_.28a_very_basic_introduction_to_pointers.29.
-[13]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Value_vs._Reference
-[14]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#.26_and_.2A
-[15]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#So_Where_Do_I_use_This.3F
-[16]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Basic_Data-types
-[17]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#The_Processing_String_Exception
-[18]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#PImage.2C_updatePixels.28.29_vs._ofTexture.2C_pixels.5B.5D
-[19]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#How_are_pixel_values_stored_without_a_Color_object.3F
-[20]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Common_Problems_With_C.2B.2B_.2F_Misc._Topics
-[21]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Expecting_implicit_data_conversion.3F
-[22]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Changing_window_size
-[23]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Update.28.29_and_Draw.28.29.3F
-[24]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#How_in_the_world_do_I_print_to_the_console.3F
-[25]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#printf
-[26]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#iostream
-[27]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Smoothing_not_working_on_filled_shapes.3F
-[28]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Displaying_video_problem.2Ffeature_related_to_ofSetColor
-[29]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Processing_background.28.29_vs._OF_ofBackground.28.29
-[30]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#ofFill.28.29_.2F_ofNoFill.28.29_vs._processing_fill.28.29_noFill.28.29
-[31]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Math_functions.2C_and_where_they_come_from_.28no_more_Math..2A.29
-[32]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#cmath
-[33]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#ofConstants
-[34]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#ofMath
-[35]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Structs.2C_what_are_they_for.2C_and_how_can_we_use_them.3F
-[36]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Memory_Management_and_You
-[37]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#Basic_Logic_Problems
-[38]: file:///home/arturo/Downloads/ittyeditor-read-only/ittyeditor-example.html#accidental_breakpoints_in_Xcode_and_Why_Having_a_Debugger_Rocks
+[0]: #column-one
+[1]: #searchInput
+[2]: #An_overview_of_OpenFrameworks_for_processing_junkies.
+[3]: #How_Processing_Actually_Works
+[4]: #What_is_class_extending.3F_.28base_and_sub_classes.29.3F
+[5]: #Ok.2C_so_what_does_this_have_to_do_with_Processing.3F
+[6]: #How_OpenFrameworks_Works.
+[7]: #Main.cpp_In-depth
+[8]: #Java_vs._C.2B.2B_Compile_Processes
+[9]: #How_Classes_Work_in_C.2B.2B_.28Two_Files.21.3F.29
+[10]: #testApp.h
+[11]: #testApp.cpp
+[12]: #What_the_Fu.2A.26.3F_.28a_very_basic_introduction_to_pointers.29.
+[13]: #Value_vs._Reference
+[14]: #.26_and_.2A
+[15]: #So_Where_Do_I_use_This.3F
+[16]: #Basic_Data-types
+[17]: #The_Processing_String_Exception
+[18]: #PImage.2C_updatePixels.28.29_vs._ofTexture.2C_pixels.5B.5D
+[19]: #How_are_pixel_values_stored_without_a_Color_object.3F
+[20]: #Common_Problems_With_C.2B.2B_.2F_Misc._Topics
+[21]: #Expecting_implicit_data_conversion.3F
+[22]: #Changing_window_size
+[23]: #Update.28.29_and_Draw.28.29.3F
+[24]: #How_in_the_world_do_I_print_to_the_console.3F
+[25]: #printf
+[26]: #iostream
+[27]: #Smoothing_not_working_on_filled_shapes.3F
+[28]: #Displaying_video_problem.2Ffeature_related_to_ofSetColor
+[29]: #Processing_background.28.29_vs._OF_ofBackground.28.29
+[30]: #ofFill.28.29_.2F_ofNoFill.28.29_vs._processing_fill.28.29_noFill.28.29
+[31]: #Math_functions.2C_and_where_they_come_from_.28no_more_Math..2A.29
+[32]: #cmath
+[33]: #ofConstants
+[34]: #ofMath
+[35]: #Structs.2C_what_are_they_for.2C_and_how_can_we_use_them.3F
+[36]: #Memory_Management_and_You
+[37]: #Basic_Logic_Problems
+[38]: #accidental_breakpoints_in_Xcode_and_Why_Having_a_Debugger_Rocks
 [39]: file:///index.php?title=OF_for_Processing_users&action=edit&section=1 "Edit section: An overview of OpenFrameworks for processing junkies."
 [40]: file:///index.php?title=OF_for_Processing_users&action=edit&section=2 "Edit section: How Processing Actually Works"
 [41]: file:///index.php?title=OF_for_Processing_users&action=edit&section=3 "Edit section: What is class extending? (base and sub classes)?"
