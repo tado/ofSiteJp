@@ -2,7 +2,7 @@
 
 <h1>download</h1>
 <div id="download-latest-header">
-  <h2>0071</h2>
+  <h2>0072</h2>
   <p><strong>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも…バージョン間の違いの一覧は、<a href="https://github.com/openframeworks/openFrameworks/blob/develop/changes.txt">更新履歴</a>を参照してください。</strong></p>
   <p>openFrameworksを使用するためにはIDE(統合開発環境)が必要です。また、実際に試していくにはプラットフォームごとのセットアップガイドが必要となるでしょう。もしバグをみつけたら<a href="http://github.com/openframeworks/openFrameworks/issues">問題点</a>のページに投稿してください。その他質問があれば、<a href="http://forum.openframeworks.cc">フォーラム</a>に投稿してください。openFrameworksは、<a href="../about/license.html">MITライセンス</a>で配布されています。</p>
 </div>
@@ -10,7 +10,7 @@
 <div id="download-latest-platform">
   <h2>osx</h2>
   <h3>ダウンロード</h3>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_0071_osx_release.zip">xcode</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_osx_release.zip">xcode</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/xcode">xcode</a></p>
 </div>
@@ -18,8 +18,8 @@
 <div id="download-latest-platform">
   <h2>linux</h2>
   <h3>ダウンロード</h3>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_v0071_linux_release.tar.gz">code::blocks</a></p>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_v0071_linux64_release.tar.gz">code::blocks (64 bit)</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_linux_release.tar.gz">code::blocks</a></p>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_linux64_release.tar.gz">code::blocks (64 bit)</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/linux-codeblocks">code::blocks</a></p>
 </div>
@@ -27,8 +27,8 @@
 <div id="download-latest-platform">
   <h2>windows</h2>
   <h3>ダウンロード</h3>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_v0071_win_cb_release.zip">code::blocks</a></p>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_v0071_vs2010_release.zip">visual studio 2010</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_win_cb_release.zip">code::blocks</a></p>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_vs2010_release.zip">visual studio 2010</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/codeblocks">code::blocks</a></p>
   <!--<p><a href="../setup/vs-2008">visual studio 2008</a></p>-->
@@ -39,7 +39,7 @@
   <h2>ios</h2>
   <p><em>osxのみ</em></p><br/>
   <h3>ダウンロード</h3>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_0071_iOS_release.zip">ios</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_ios_release.zip">ios</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/iphone">ios</a></p>
 </div>
@@ -48,7 +48,7 @@
   <h2>android</h2>
   <p><em>linuxもしくはosxのみ</em></p><br/>
   <h3>ダウンロード</h3>
-  <p><a href="http://www.openframeworks.cc/versions/v0.071/of_v0071_android_release.tar.gz">eclipse</a></p><br/>
+  <p><a href="http://www.openframeworks.cc/versions/v0072/of_v0072_android_release.tar.gz">eclipse</a></p><br/>
   <h3>セットアップガイド</h3>
   <p><a href="../setup/android-eclipse">eclipse</a></p>
 </div>
