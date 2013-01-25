@@ -6,14 +6,13 @@ author: Patricio Gonzalez Vivo
 author_site: http://patriciogonzalezvivo.com
 ---
 
-ここまで読んだあなたは、openFrameworksのインストール方法、IDEの設定、サンプルプロジェクトのコンパイル方法を理解できているでしょう。
-ここでは次のステップに移り、実際にものを作っていきます。
+Well, you probably (and if not you should) read and learn how to install openFrameworks, setup you IDE and compile some project examples.
+So the right next step probably could be jump into the nice stuff and start making things.
 
-## 1. 描画する
-
-早速、何かを描いてみることから始めます。何かを描画したい場合には ```testApp.cpp``` の `void testApp::draw()` に、コードを書くのでした。
+## 1. Drawing Something
+Let's start by drawing something. As you know, if we want to draw something we have to put it on `void testApp::draw()` on you ```testApp.cpp```.
  
-"Hello World"プログラムのグラフィック版として、青い円を描いてみましょう。
+Let's a graphic version of a "Hello World". Drawing a blue circle.
 
 ~~~~{.cpp}
 	void testApp::draw(){
@@ -25,8 +24,6 @@ author_site: http://patriciogonzalezvivo.com
 ~~~~
 
 For those that know a little about Processing this probable looks familiar, but probably with a "of" at the beginning. 
-
-Processingの経験があれば、"of"という文字から始まっている点を除いて親しみやすいコードでしょう。
 
 In the first line we are cleaning the background turning this into a black with `ofBackground(0);`. It's also possible to use RGB Channel by typing `ofBackground(76,63,72);` or something more intuitive like `ofBackground(ofColor::black);`. 
 After drawing the background we are setting up the color that's going to use for drawing from that moment to the very end, unless it's changed. That's  `ofSetColor(int r, int g, int b)` do. This way's of dealing with stuff it's herded from openGL. There everything it's defined and that's applied from that point until it's changed again. Maybe at the beginning seams strange but soon you'll see that's a pretty good and efficient way of dealing with properties. 
