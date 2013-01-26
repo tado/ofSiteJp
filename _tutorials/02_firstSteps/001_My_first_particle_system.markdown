@@ -56,16 +56,15 @@ Processingの経験があれば、"of"という文字から始まっている点
 
 oFのドキュメントではopenFrameworksの全ての関数とクラスがまとまっています。もっとたくさんのコードを試していくとすぐに「oFのやりかた」がわかるようになり、直感的にプログラムを書くことが出来るようになるでしょう。
 
-チャレンジ: ここまで学んできた知識と[http://openframeworks.jp/documentation/](http://openframeworks.jp/documentation/) を使って、デジタルなカンディンスキー風のアートワークを作成してみてください。良い結果を得るために`ofEnableSmoothing()`を使ってみてください。グラフィックのエッジや`ofBackgroundGradient(ofColor::white, ofColor(255,255,200), OF_GRADIENT_CIRCULAR);` で生成したグラデーションをスムーズに描画することができます。
+課題: ここまで学んできた知識と[http://openframeworks.jp/documentation/](http://openframeworks.jp/documentation/) を使って、デジタルなカンディンスキー風のアートワークを作成してみてください。良い結果を得るために`ofEnableSmoothing()`を使ってみてください。グラフィックのエッジや`ofBackgroundGradient(ofColor::white, ofColor(255,255,200), OF_GRADIENT_CIRCULAR);` で生成したグラデーションをスムーズに描画することができます。
 
 ![Image:kandisky.jpg](001_images/kandinsky.jpg)
 
 ## 2. 物体を動かす
 
+さて、ここまでやってたことには、あなたが期待していたであろうインタラクティブ性はありません。物体を動かしてみましょう。
 
-So far, so good. It's it. but everything seems a little static and the complete absence of interactivity probably it's getting you anxious. So let's start moving things around.   
-
-There are to oF native variables on every testApp class. The are call `mouseX` and `mouseY`. It's not hard to guess what are those for. So let's go back to our previous example. On `draw()` on the `testApp.cpp` and use this variables.
+以下のtestAppクラスにはoFが用意している変数 `mouseX`と`mouseY`が書かれています。これらの変数は名前通りの値を表しています。前述のサンプルコードの`draw()`を書き換えてみましょう。
 
 ~~~~{.cpp}
     void testApp::draw(){
@@ -76,11 +75,11 @@ There are to oF native variables on every testApp class. The are call `mouseX` a
     }
 ~~~~
 
-If you try to do the same with a rectangle ( `ofRect(mouseX,mouseY, 30, 30);`) you will notice that the center of the rectangle it just don't fit with the mouse position. That's because rectangles are draw from the top right corner. What's consistent with the way things are draw on the screen isn't? 
-So, if we want to change this and draw the rectangles from the center we will use `ofSetRectMode(OF_RECTMODE_CENTER);`. 
-Probably every time you see something that starts with "OF_" and it's all on capital letters means that you are probably dealing with modes and pre-defined types. This things are every where and we use them for lot's of things. Exploring the auto-completion list of your IDE or use the IDE functions of "Jump to definition".
+円ではなく、矩形を使いたい場合( `ofRect(mouseX, mouseY, 30, 30);` ) マウスの位置と矩形の中心があっていないことに気付くでしょう。これは矩形が左上から描かれるためです。スクリーンへの描画と同じように行いたい場合には矩形を中心から描くために`ofSetRectMode(OF_RECTMODE_CENTER);`を使って下さい。
 
-By know we are only working on the `draw()` methods, and if we want some oF magic to happen we have to start using `update()` and `setup()`. So let's create two variables that are going to store an `x` and `y` variables for the circle in order to make some simple interactions. The thing here it's that if we create them on the `draw()` o `update()` method the will be created and destroyed every time a loop it's completed. In order to have some sort of "memory" of this variables that survive each loop we need to define them on the owl testApp class. In order to do that we have to jump to the the `testApp.h` , and there add them like this:
+すべて大文字で"OF_"から始まるのはモードや予め定義されている型を表しています。多くの種類を使うので、使用しているIDEの自動補完で探すか、「Jump to definition」機能を使って調べてみて下さい。
+
+これまでのプログラムでは`draw()`メソッド内だけにコードを書いていましたが、oFの特徴でもある`update()`、`setup()`を使っていきます。まずは円を動かすための2つの変数`x`と`y`を定義します。変数を`draw()`か`update()`メソッド上で定義するとループが終わる度に生成、破棄されます。変数を各ループ上で「保存」しておきたい場合には常に動いているtestAppクラスで定義しておかなければなりません。testAppクラスに変数を定義するには`testApp.h`を以下の様に記述します。
 
 
 ~~~~{.cpp}
@@ -105,30 +104,28 @@ By know we are only working on the `draw()` methods, and if we want some oF magi
     };
 ~~~~
 
-We are going to use this two variables to store the last position of the ball and in each itineration progressively move this parameters where the mouse is.
+この2つの変数はボールの最新の位置を保存しておくために利用し、値を各ループ内でのマウスの位置に変更していきます。
 
 ~~~~{.cpp}
     void testApp::setup(){
-        // Smooth edges
+        // 輪郭を滑らかにする
         ofEnableSmoothing();
 
-        // Fixed framerate
+        // フレームレートを設定する   
         ofSetFrameRate(30);
 
-        // Initial x position of the ball
+        // ボールの初期X座標
         xPos = ofGetWindowWidth()*0.5;
 
-        // Initial y position of the ball
+        // ボールの初期Y座標
         yPos = ofGetWindowHeight()*0.5; 
     }
 
     void testApp::update(){
         xPos += ( mouseX - xPos )*0.1;
         yPos += ( mouseY - yPos )*0.1;
-        // We calculate the x and y distance 
-        // of the ball to the mouse position and 
-        // add a little portion of it to the x and y 
-        // variables
+        // ボールのxとyの距離をマウスの位置に設定する
+        // ここでは、x,yの変数を調整している
     }
 
     void testApp::draw(){
@@ -139,10 +136,10 @@ We are going to use this two variables to store the last position of the ball an
     }
 ~~~~
 
-Nice, isn't?
-Other very typical way of interaction it's the the keyboard. OpenFrameworks have some default methods for dealing with mouse and keyboard events. Take a look at the bottom of the `testApp.cpp`. You will see `keyPress()`, `keyRelease()`, `mouseMove()`, `mouseDragged()`, `mousePressed()` and `mouseReleased()` events.
-We can use them to make some other interactions. In this point we can add some randomness interaction using `ofRandom()` and `ofNoise()`. I highly recommend you take a look to the documentation ( [www.openframeworks.cc/documentation/](http://www.openframeworks.cc/documentation/) ) and also taking a look to Golan's ofNoise example at `openFrameworks/examples/math` directory.
-So let's add something really simple, here every time you press the mouse the ball get a random new position on the windows.
+無事にボールを動かすことができました。プログラムと対話する方法としてはキーボードを使う方法もあります。OpenFrameworksではマウスとキーボードのイベントを扱うために異なるメソッドが用意されています。`testApp.cpp`の下の方を見てみると`keyPress()`、`keyRelease()`、`mouseMove()`、`mouseDragged()`、`mousePressed()`、`mouseReleased()`というメソッドがあります。
+ここでは、`ofRandom()`、`ofNoise()`といったメソッドを使ってランダムな効果を与えることができます。このメソッドについてはドキュメント([http://openframeworks.jp/documentation/](http://openframeworks.jp/documentation/))を読むことをおすすめします。また、`openFrameworks/examples/math`でGolanによるoFNoiseの例を見ることができます。
+
+マウスボタンを押すとボールがウィンドウ内のランダムな位置に移動するというシンプルな効果を加えます。
 
 ~~~~{.cpp}
     void testApp::mousePressed(int x, int y, int button){
@@ -151,13 +148,13 @@ So let's add something really simple, here every time you press the mouse the ba
     }
 ~~~~
 
-CHALLENGE: Ok, now that we learn how to make variables that can be access from every method on the class we can start thinking on how store information and re use it. The next challenge could be to catch your Kandinsky-style project and make it in some way every time you click the windows all the peaces jump to a new position. Like a Kyndinsky-picture-maker. Also if you feel comfortable with it, you can add some basic animations to them.
+課題: クラス内の全てのメソッドからアクセスすることができる変数を作る方法を学んだので、データを保存し、それを再利用する方法が分かりました。カンディンスキーのプロジェクトで、ウィンドウ内をクリックすると全ての要素の位置が変わる様にしてみて下さい。カンディンスキーメーカーです。慣れてきたら、動きにアニメーションを加えても良いでしょう。            
 
+## 3. クラス
 
-## 3. Thanks God we have classes
+これまでの課題では、最終的に似たようなコードを繰り返し書かなければならないことがわかります。コンピュータの主な役割は、私たちの仕事を簡単にしてくれることです。特に繰り返し行うものに特化しています。
+実際、[アラン・ケイ](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%83%B3%E3%83%BB%E3%82%B1%E3%82%A4)は、抽象的なオブジェクトを作り、それを再利用するために、また物事を簡潔、柔軟に表すためにオブジェクト指向プログラミング(C++の主な特徴でもあります)というアイデアを用いました。
 
-If you are have doing the challenges you probably with end up with lot's of lines of code that actually look very similar repited several times. The main idea of computers it's to make our job easier, specially the repetitive one. 
-Actually [Alan Kay](http://en.wikipedia.org/wiki/Alan_Kay) comes with this idea of object-oriented-programing ( witch is the main thing about C++ ) in order to make this little abstract object in order to re-use them and makes things easier and flexible.
 
 So in order to make and use this "object" we have to make what it's call a class. Let's imagine a ball.
 It's an round object that have some properties like the position and the color, also do things like move around. All this abstract items can be imagined as:
