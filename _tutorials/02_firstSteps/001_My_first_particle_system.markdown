@@ -1,328 +1,322 @@
 ---
 date: 2012/02/24 10:00:00
-title: パーティクルシステム入門 (翻訳中, under translation)
+title: パーティクルシステム入門
 summary: プログラムの入門としてパーティクルシステムの作成を楽しみませんか?
 author: Patricio Gonzalez Vivo
 author_site: http://patriciogonzalezvivo.com
 ---
 
-Well, you probably (and if not you should) read and learn how to install openFrameworks, setup you IDE and compile some project examples.
-So the right next step probably could be jump into the nice stuff and start making things.
+ここまで読んだあなたは、openFrameworksのインストール方法、IDEの設定、サンプルプロジェクトのコンパイル方法を理解できているでしょう。
+ここでは次のステップに移り、実際にものを作っていきます。
 
-## 1. Drawing Something
-Let's start by drawing something. As you know, if we want to draw something we have to put it on `void testApp::draw()` on you ```testApp.cpp```.
+## 1. 描画する
+
+早速、何かを描いてみることから始めます。何かを描画したい場合には ```testApp.cpp``` の `void testApp::draw()` に、コードを書くのでした。
  
-Let's a graphic version of a "Hello World". Drawing a blue circle.
+"Hello World"プログラムのグラフィック版として、青い円を描いてみましょう。
 
 ~~~~{.cpp}
-	void testApp::draw(){
-		ofBackground(0);
-		ofSetColor(0,0,255);
-		ofFill();
-		ofCircle(100, 100, 30);
-	}
+    void testApp::draw(){
+        ofBackground(0);
+        ofSetColor(0,0,255);
+        ofFill();
+        ofCircle(100, 100, 30);
+    }
 ~~~~
 
-For those that know a little about Processing this probable looks familiar, but probably with a "of" at the beginning. 
+Processingの経験があれば、"of"という文字から始まっている点を除いて親しみやすいコードでしょう。
 
-In the first line we are cleaning the background turning this into a black with `ofBackground(0);`. It's also possible to use RGB Channel by typing `ofBackground(76,63,72);` or something more intuitive like `ofBackground(ofColor::black);`. 
-After drawing the background we are setting up the color that's going to use for drawing from that moment to the very end, unless it's changed. That's  `ofSetColor(int r, int g, int b)` do. This way's of dealing with stuff it's herded from openGL. There everything it's defined and that's applied from that point until it's changed again. Maybe at the beginning seams strange but soon you'll see that's a pretty good and efficient way of dealing with properties. 
-So as we saw with ofBackground you can try doing something like `ofSetColor(ofColor:blue);` and it will work. 
-The next line says `ofFill();` witch defines the drawing type to color filled images. Opposite of that it's `ofNoFill();` witch only draw the contour line. If you are thinking on using just the contour lines you probably want to try `ofSetLineWidth( 4 );`
-So, after setting up our background and drawing color we draw a little circle of 30 pixels of radio at the `100,100` position.
+最初の行では `ofBackground(0);` で背景を黒に設定しています。これは、 `ofBackground(76,63,72)` のようにRGBチャンネルでも設定することができます。より直感的に `ofBackground(ofColor::black);` という指定もできます。
+背景を描画した後、これから描画するものに対して描画色を指定しています。 `ofSetColor(int r, int g, int b)` を使って色を指定すると、その部分から再度変更しない限りプログラムの最後まで指定した色が使われます。このような色の指定はopenGLの手法に倣ったものです。一度、定義すると変更しない限り、その定義が使われます。なれないうちはしっくりと来ないかもしれませんが、属性を扱う際には良い方法だという事がわかってくるでしょう。
+`ofBackground` と同じように `ofSetColor(ofColor::blue)`とすることもできます。
+次に`ofFill()`で画像を色で塗るかどうかを定義しています。逆に`ofNoFill()`を使えば輪郭のみを描画します。輪郭のみを描画したい場合には`ofSetLineWidth(4)`というコードも試してみて下さい。
+背景と描画色を設定したので、`100, 100`に位置する30ピクセルの小さな円を描きます。
 
 ![Image: coordinates.jpg](001_images/coordinates.png)
 
-As you notice, `x` and `y` coordinates are setup in one way that the `0,0` position it's the right top corner. 
+図の様に、`x`と`y`の座標は原点`0,0`を右上として見たものです。
 
-So if we have a `1024,768` windows and we want to draw something on the middle we can do something like: `ofCircle(1024/2,768/2,30);`. But what happen if the windows it's resized? The circle it's not more in the middle? It's not going to be centered any more, isn't it?
+そのため、`1024,768`というサイズのウィンドウの中央に円を書きたい場合には`ofCircle(1024/2, 768/2, 30)` のように指定します。しかし、ウィンドウの大きさはユーザが自由に変更することができます。ウィンドウサイズが変われば、円の位置は中心からずれてしまいます。
 
-Where it's where some oF methods becomes very handy. Let me, introduce `ofGetWindowWidth()` and `ofGetWindowHeight()`. This methods return the values of the width and height of the windows, witch it's very very handy from drawing. There are two similar functions call `ofGetScreenWidth()` and `ofGetScreenHeight()` that instead of returning the windows parameters the return the screen ones.
-Let's use some of this new stuff we have learn:
+このような場合にはoFのメソッドを使って解決してみましょう。oFでは`ofGetWindowWidth()`と`ofGetWindowHeight()`というウィンドウの高さと幅を返すメソッドが用意されています。何かを描画したい場合にはこのメソッドは重宝します。また、同じようなメソッドとして`ofGetScreenWidth()`、`ofGetScreenHeight()`というスクリーンの高さと幅を返すメソッドもあります。
+これらのメソッドを使って、さきほどのプログラムを書き換えてみましょう。
 
 ~~~~{.cpp}
-	void testApp::draw(){
-		ofBackground(30,10,30);
-		ofSetColor(ofColor::blue);
-		ofFill();
-		ofCircle( ofGetWindowWidth()*0.5, ofGetWindowHeight()*0.5, 30);
-	}
+    void testApp::draw(){
+        ofBackground(30,10,30);
+        ofSetColor(ofColor::blue);
+        ofFill();
+        ofCircle( ofGetWindowWidth()*0.5, ofGetWindowHeight()*0.5, 30);
+    }
 ~~~~
-So, now If you try to resize the windows this little blue world it's going to be at the center of the screen. Congratulations!!
 
-A good next step it could be to take a look at the "Graphics" section on  [www.openframeworks.cc/documentation/](http://www.openframeworks.cc/documentation/) . There you will find lot's of other methods to draw stuff like `ofLine()`, `ofRect()`. 
+これで、ウィンドウサイズを変えても小さな青い円はウィンドウの中心に位置するようになりました!
 
-On the documentation of oF you will notice that all the functions and classes on openFrameworks have a consistent way of working. The more you try things and play with them sooner you will get this "oF Style" and things will become pretty intuitive. 
+グラフィックに関しては、[http://openframeworks.jp/documentation/](http://openframeworks.jp/documentation/) のGraphicのセクションを見れば、`ofLine()`、`ofRect()`のような他のメソッドを探すことができます。
 
-CHALLENGE: Width the things we learn and those you can explore on [www.openframeworks.cc/documentation/](http://www.openframeworks.cc/documentation/) . Try to make your a digital Kandinsky-style art work. A little tip for super awesome results will be the use of: `ofEnableSmoothing();` for making smooth edge on the drawings and something like `ofBackgroundGradient(ofColor::white,ofColor(255,255,200), OF_GRADIENT_CIRCULAR);` for a nice gradient background
+oFのドキュメントではopenFrameworksの全ての関数とクラスがまとまっています。もっとたくさんのコードを試していくとすぐに「oFのやりかた」がわかるようになり、直感的にプログラムを書くことが出来るようになるでしょう。
+
+課題: ここまで学んできた知識と[http://openframeworks.jp/documentation/](http://openframeworks.jp/documentation/) を使って、デジタルなカンディンスキー風のアートワークを作成してみてください。良い結果を得るために`ofEnableSmoothing()`を使ってみてください。グラフィックのエッジや`ofBackgroundGradient(ofColor::white, ofColor(255,255,200), OF_GRADIENT_CIRCULAR);` で生成したグラデーションをスムーズに描画することができます。
 
 ![Image:kandisky.jpg](001_images/kandinsky.jpg)
- 
 
-## 2. Moving things around
+## 2. 物体を動かす
 
-So far, so good. It's it. but everything seems a little static and the complete absence of interactivity probably it's getting you anxious. So let's start moving things around.   
+さて、ここまでやってたことには、あなたが期待していたであろうインタラクティブ性はありません。物体を動かしてみましょう。
 
-There are to oF native variables on every testApp class. The are call `mouseX` and `mouseY`. It's not hard to guess what are those for. So let's go back to our previous example. On `draw()` on the `testApp.cpp` and use this variables.
-
-~~~~{.cpp}
-	void testApp::draw(){
-		ofBackground(30,10,30);
-		ofSetColor(ofColor::blue);
-		ofFill();
-		ofCircle( mouseX, mouseY, 30);
-	}
-~~~~
-
-If you try to do the same with a rectangle ( `ofRect(mouseX,mouseY, 30, 30);`) you will notice that the center of the rectangle it just don't fit with the mouse position. That's because rectangles are draw from the top right corner. What's consistent with the way things are draw on the screen isn't? 
-So, if we want to change this and draw the rectangles from the center we will use `ofSetRectMode(OF_RECTMODE_CENTER);`. 
-Probably every time you see something that starts with "OF_" and it's all on capital letters means that you are probably dealing with modes and pre-defined types. This things are every where and we use them for lot's of things. Exploring the auto-completion list of your IDE or use the IDE functions of "Jump to definition".
-
-By know we are only working on the `draw()` methods, and if we want some oF magic to happen we have to start using `update()` and `setup()`. So let's create two variables that are going to store an `x` and `y` variables for the circle in order to make some simple interactions. The thing here it's that if we create them on the `draw()` o `update()` method the will be created and destroyed every time a loop it's completed. In order to have some sort of "memory" of this variables that survive each loop we need to define them on the owl testApp class. In order to do that we have to jump to the the `testApp.h` , and there add them like this:
-
+以下のtestAppクラスにはoFが用意している変数 `mouseX`と`mouseY`が書かれています。これらの変数は名前通りの値を表しています。前述のサンプルコードの`draw()`を書き換えてみましょう。
 
 ~~~~{.cpp}
-	class testApp : public ofBaseApp{
-	public:
-		void setup();
-		void update();
-		void draw();
-
-		void keyPressed  (int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
-
-		float xPos;
-		float yPos;
-	};
+    void testApp::draw(){
+        ofBackground(30,10,30);
+        ofSetColor(ofColor::blue);
+        ofFill();
+        ofCircle( mouseX, mouseY, 30);
+    }
 ~~~~
 
-We are going to use this two variables to store the last position of the ball and in each itineration progressively move this parameters where the mouse is.
+円ではなく、矩形を使いたい場合( `ofRect(mouseX, mouseY, 30, 30);` ) マウスの位置と矩形の中心があっていないことに気付くでしょう。これは矩形が左上から描かれるためです。スクリーンへの描画と同じように行いたい場合には矩形を中心から描くために`ofSetRectMode(OF_RECTMODE_CENTER);`を使って下さい。
+
+すべて大文字で"OF_"から始まるのはモードや予め定義されている型を表しています。多くの種類を使うので、使用しているIDEの自動補完で探すか、「Jump to definition」機能を使って調べてみて下さい。
+
+これまでのプログラムでは`draw()`メソッド内だけにコードを書いていましたが、oFの特徴でもある`update()`、`setup()`を使っていきます。まずは円を動かすための2つの変数`x`と`y`を定義します。変数を`draw()`か`update()`メソッド上で定義するとループが終わる度に生成、破棄されます。変数を各ループ上で「保存」しておきたい場合には常に動いているtestAppクラスで定義しておかなければなりません。testAppクラスに変数を定義するには`testApp.h`を以下の様に記述します。
+
 
 ~~~~{.cpp}
-	void testApp::setup(){
-		// Smooth edges
-		ofEnableSmoothing();
+    class testApp : public ofBaseApp{
+    public:
+        void setup();
+        void update();
+        void draw();
 
-	    // Fixed framerate
-		ofSetFrameRate(30);
+        void keyPressed  (int key);
+        void keyReleased(int key);
+        void mouseMoved(int x, int y );
+        void mouseDragged(int x, int y, int button);
+        void mousePressed(int x, int y, int button);
+        void mouseReleased(int x, int y, int button);
+        void windowResized(int w, int h);
+        void dragEvent(ofDragInfo dragInfo);
+        void gotMessage(ofMessage msg);
 
-		// Initial x position of the ball
-		xPos = ofGetWindowWidth()*0.5;
-
-		// Initial y position of the ball
-		yPos = ofGetWindowHeight()*0.5; 
-	}
-
-	void testApp::update(){
-		xPos += ( mouseX - xPos )*0.1;
-		yPos += ( mouseY - yPos )*0.1;
-		// We calculate the x and y distance 
-		// of the ball to the mouse position and 
-		// add a little portion of it to the x and y 
-		// variables
-	}
-
-	void testApp::draw(){
-		ofBackgroundGradient(ofColor::gray,ofColor(30,10,30), OF_GRADIENT_CIRCULAR);
-		ofSetColor(200,200,124);
-		ofFill();
-		ofCircle( xPos, yPos, 30);
-	}
+        float xPos;
+        float yPos;
+    };
 ~~~~
 
-Nice, isn't?
-Other very typical way of interaction it's the the keyboard. OpenFrameworks have some default methods for dealing with mouse and keyboard events. Take a look at the bottom of the `testApp.cpp`. You will see `keyPress()`, `keyRelease()`, `mouseMove()`, `mouseDragged()`, `mousePressed()` and `mouseReleased()` events.
-We can use them to make some other interactions. In this point we can add some randomness interaction using `ofRandom()` and `ofNoise()`. I highly recommend you take a look to the documentation ( [www.openframeworks.cc/documentation/](http://www.openframeworks.cc/documentation/) ) and also taking a look to Golan's ofNoise example at `openFrameworks/examples/math` directory.
-So let's add something really simple, here every time you press the mouse the ball get a random new position on the windows.
+この2つの変数はボールの最新の位置を保存しておくために利用し、値を各ループ内でのマウスの位置に変更していきます。
 
 ~~~~{.cpp}
-	void testApp::mousePressed(int x, int y, int button){
-		xPos = ofRandom( ofGetWindowWidth() );
-		yPos = ofRandom( ofGetWindowHeight() );
-	}
+    void testApp::setup(){
+        // 輪郭を滑らかにする
+        ofEnableSmoothing();
+
+        // フレームレートを設定する   
+        ofSetFrameRate(30);
+
+        // ボールの初期X座標
+        xPos = ofGetWindowWidth()*0.5;
+
+        // ボールの初期Y座標
+        yPos = ofGetWindowHeight()*0.5; 
+    }
+
+    void testApp::update(){
+        xPos += ( mouseX - xPos )*0.1;
+        yPos += ( mouseY - yPos )*0.1;
+        // ボールのxとyの距離をマウスの位置に設定する
+        // ここでは、x,yの変数を調整している
+    }
+
+    void testApp::draw(){
+        ofBackgroundGradient(ofColor::gray,ofColor(30,10,30), OF_GRADIENT_CIRCULAR);
+        ofSetColor(200,200,124);
+        ofFill();
+        ofCircle( xPos, yPos, 30);
+    }
 ~~~~
 
-CHALLENGE: Ok, now that we learn how to make variables that can be access from every method on the class we can start thinking on how store information and re use it. The next challenge could be to catch your Kandinsky-style project and make it in some way every time you click the windows all the peaces jump to a new position. Like a Kyndinsky-picture-maker. Also if you feel comfortable with it, you can add some basic animations to them.
+無事にボールを動かすことができました。プログラムと対話する方法としてはキーボードを使う方法もあります。OpenFrameworksではマウスとキーボードのイベントを扱うために異なるメソッドが用意されています。`testApp.cpp`の下の方を見てみると`keyPress()`、`keyRelease()`、`mouseMove()`、`mouseDragged()`、`mousePressed()`、`mouseReleased()`というメソッドがあります。
+ここでは、`ofRandom()`、`ofNoise()`といったメソッドを使ってランダムな効果を与えることができます。このメソッドについてはドキュメント([http://openframeworks.jp/documentation/](http://openframeworks.jp/documentation/))を読むことをおすすめします。また、`openFrameworks/examples/math`でGolanによるoFNoiseの例を見ることができます。
 
+マウスボタンを押すとボールがウィンドウ内のランダムな位置に移動するというシンプルな効果を加えます。
 
-## 3. Thanks God we have classes
+~~~~{.cpp}
+    void testApp::mousePressed(int x, int y, int button){
+        xPos = ofRandom( ofGetWindowWidth() );
+        yPos = ofRandom( ofGetWindowHeight() );
+    }
+~~~~
 
-If you are have doing the challenges you probably with end up with lot's of lines of code that actually look very similar repited several times. The main idea of computers it's to make our job easier, specially the repetitive one. 
-Actually [Alan Kay](http://en.wikipedia.org/wiki/Alan_Kay) comes with this idea of object-oriented-programing ( witch is the main thing about C++ ) in order to make this little abstract object in order to re-use them and makes things easier and flexible.
+課題: クラス内の全てのメソッドからアクセスすることができる変数を作る方法を学んだので、データを保存し、それを再利用する方法が分かりました。カンディンスキーのプロジェクトで、ウィンドウ内をクリックすると全ての要素の位置が変わる様にしてみて下さい。カンディンスキーメーカーです。慣れてきたら、動きにアニメーションを加えても良いでしょう。            
 
-So in order to make and use this "object" we have to make what it's call a class. Let's imagine a ball.
-It's an round object that have some properties like the position and the color, also do things like move around. All this abstract items can be imagined as:
+## 3. クラス
 
-Ball:
+これまでの課題では、最終的に似たようなコードを繰り返し書かなければならないことがわかります。コンピュータの主な役割は、私たちの仕事を簡単にしてくれることです。特に繰り返し行うものに特化しています。
+[アラン・ケイ](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A9%E3%83%B3%E3%83%BB%E3%82%B1%E3%82%A4)は、抽象的なオブジェクトを作り、それを再利用するため、また物事を簡潔、柔軟に表すためにオブジェクト指向プログラミング(C++の主な特徴でもあります)というアイデアを用いました。
 
-- position (property)
+「オブジェクト」を作り、使うためにはクラスと呼ばれるものを作る必要があります。
+ボールを例に考えてみましょう。
+ボールは球状のもので、位置や色、動きまわるといった属性(property)を持っています。これらの抽象的な特徴は以下の様に考えることができます。
 
-- color (property)
+ボール:
 
-- move (function or method)
+- 位置 (属性)
 
-This exactly what a `.h` it's a list of things that makes an object. So let's add two new files to our project ( this depends on the IDE you are using ), one it's going to be a `.h` file call `ball.h` (here we are going to define the elements of our ball) and the other one a `.cpp` call `ball.cpp` ( here we are going to write how this things are going to work together ).
+- 色 (属性)
+
+- 動く (関数またはメソッド)
+
+`.h`ファイルはまさにオブジェクトを作るためのこれらのリストを定義するファイルなのです。新たに2つのファイルをプロジェクトに加えてみましょう(ファイルの作成方法は使用しているIDEによって異なります)。"ball.h"(ボールを構成する要素を定義する)と"ball.cpp"(ボールを構成する要素が互いにどのように振る舞うかを定義する)です。
+
 
 ![Image:kandisky.jpg](001_images/newFile.png)
 
-The `ball.h` file should look like: 
+`ball.h`は以下の様にします。
 
 ~~~~{.cpp}
-	#ifndef ball_h
-	#define ball_h
+    #ifndef ball_h
+    #define ball_h
 
-	#include "ofMain.h"
+    #include "ofMain.h"
 
-	class Ball {
-	public:
-    		// Constructor
-    		Ball();     
+    class Ball {
+    public:
+            // Constructor
+            Ball();     
     
-    		// Methods
-    		void moveTo();
-    		void draw();
+            // Methods
+            void moveTo();
+            void draw();
     
-    		// Properties
-    		int x;
-    		int y;
-    		ofColor color;
-	};
-	#endif
+            // Properties
+            int x;
+            int y;
+            ofColor color;
+    };
+    #endif
 ~~~~
 
-Some couple of things are going around here. First note that's follows the `#...` you probably want to leave things that they are. A super simple explanation of it it could be: "Hey compiler, don't compile this stuff two times, and for compiling you will need ofMain.h header file.". The `ofMain.h` have all the methods and objects of openFrameworks. It's what makes your code oF-based and not just C++ code. It's where the magic came from.
+初めて出てくるものがいくつかあります。まず`#...`から始まる行はそのままにしておきます。簡潔に言うと、これはコンパイラーに対して「このクラスは1回だけコンパイルしてくれ。今バイルするにはofMain.hというヘッダーファイルが必要だ」という命令を行なっています。`ofMain.h`はopenFrameworksの全てのメソッドとオブジェクトが含まれるヘッダーファイルです。こうすることでC++だけでなくoFベースのコードを書くことができるようになります。
 
-For making a object you need to call the class function and give it a constructor. The constructor it's the method that it will run when you create it. It's like when you write 'int i' and 'i' automatically it's setup to zero. The int constructor did that. 
-Then the rest of the things are the ones we describe before. I add a `draw()` function in order to draw the ball on our "world".
+オブジェクトを作るにはクラスの関数を呼び出し、それをコンストラクタに渡す必要があります。コンストラクタはオブジェクトを作成するときに初期化を行うための関数です。例えば`int i`と書くと`i`は自動的に0となります。これはintのコンストラクタが行なってくれているためです。
+コードの以降の部分は前に解説しています。またボールを描画するために`draw()`メソッドを追加しています。
 
-IMPORTANT: Take a look to the `};` at the end of the class. That's super important! Without that you probably get some impossible errors to track down.  
+重要: クラスを定義する際には末尾の`};`に注意して下さい。これを忘れるとエラーになります。
 
-On the `ball.cpp` side let's preparing everything for work writing:
+`ball.cpp`ではオブジェクトを動作させるための準備を行います。
 
 ~~~~{.cpp}
-	#include "ball.h"
+    #include "ball.h"
 
-	Ball::Ball(){
-		// Set the initial color
-		color.set( ofRandom(255), ofRandom(255), ofRandom(255));
+    Ball::Ball(){
+        // 初期の色を設定する
+        color.set( ofRandom(255), ofRandom(255), ofRandom(255));
     
-		// Initial x position of the ball
-		x = ofRandom( ofGetWindowWidth() ); 
+        //　初期のX座標を設定する
+        x = ofRandom( ofGetWindowWidth() ); 
     
-		// Initial y position of the ball
-		y = ofRandom( ofGetWindowHeight() ); 
-	}
+        // 初期のY座標を設定する
+        y = ofRandom( ofGetWindowHeight() ); 
+    }
 
-	void Ball::moveTo(){
+    void Ball::moveTo(){
     
-	}
+    }
 
-	void Ball::draw(){
-		ofSetColor(color);
-		ofFill();
-		ofCircle( x, y, 30);
-	}
+    void Ball::draw(){
+        ofSetColor(color);
+        ofFill();
+        ofCircle( x, y, 30);
+    }
 ~~~~
 
-So, as you see here we are going to put the implementation of the methods defined on `ball.h`. Note also that we have to said to the compiler two things:
+つまり、`ball.h`で定義したメソッドの実装を行なっています。`ball.cpp`でもコンパイラーに2つの指示を行なっています。
 
-- `#include "ball.h"` this stuff responds to "ball.h" file
+- `#include "ball.h"` ball.hを読み込む
 
-- `Ball::` this says to the compiler that this method it's from `Ball` class. You can picture it like a last name. And it's use exactly for the same reason. To know where one becomes and not mess up names.
+- `Ball::` `Ball`クラスのメソッドであることを表す。苗字のような役割を持つ。何に属するものなんかが明確になり、名前も複雑にならない
 
-The last step for adding a class on a C++ project it's to add it to the `testApp.h` with a `#include "ball.h"` 
+
+最後にこのクラスをプロジェクトに加えるために`testApp.h`を以下の様に変更します。
 
 ~~~~{.cpp}
-	#pragma once
+    #pragma once
 
-	#include "ofMain.h"
+    #include "ofMain.h"
 
-	#include "ball.h" // Add this
+    #include "ball.h" // この行を追加
 
-	class testApp : public ofBaseApp{
-  	public:
-    		void setup();
-    		void update();
-    		void draw();
+    class testApp : public ofBaseApp{
+    public:
+            void setup();
+            void update();
+            void draw();
 
-    		void keyPressed  (int key);
-    		void keyReleased(int key);
-    		void mouseMoved(int x, int y );
-    		void mouseDragged(int x, int y, int button);
-    		void mousePressed(int x, int y, int button);
-    		void mouseReleased(int x, int y, int button);
-    		void windowResized(int w, int h);
-    		void dragEvent(ofDragInfo dragInfo);
-    		void gotMessage(ofMessage msg);
+            void keyPressed  (int key);
+            void keyReleased(int key);
+            void mouseMoved(int x, int y );
+            void mouseDragged(int x, int y, int button);
+            void mousePressed(int x, int y, int button);
+            void mouseReleased(int x, int y, int button);
+            void windowResized(int w, int h);
+            void dragEvent(ofDragInfo dragInfo);
+            void gotMessage(ofMessage msg);
     
-    		Ball theBall;	// Now let´s try it by replacing the previous variables 
-							// for a object with that information
-	};
+            Ball theBall;   // 位置情報はオブジェクト自身が持っているので
+                            // xPos,yPos変数は不要になる
+    };
 ~~~~
 
-So on the `testApp.cpp` we can change things to look like this:
+`testApp.cpp`は以下の様に変更します。
 
 ~~~~{.cpp}
-	void testApp::setup(){
-		// Smooth edges
-		ofEnableSmoothing();
+    void testApp::setup(){
+        // 輪郭を滑らかにする
+        ofEnableSmoothing();
 
-		// Fixed framerate
-		ofSetFrameRate(30);
+        // フレームレートを設定する
+        ofSetFrameRate(30);
 
-		// Not need to define the initial position of the ball
-		// because the Ball constructor does it for you     
-	}
+        // Ballクラスのコンストラクタが位置を初期化するので
+        // ここでは設定する必要がない
+    }
 
-	void testApp::update(){
-		theBall.x += ( mouseX - theBall.x )*0.1;    
-		theBall.y += ( mouseY - theBall.y )*0.1;
-	}
+    void testApp::update(){
+        theBall.x += ( mouseX - theBall.x )*0.1;    
+        theBall.y += ( mouseY - theBall.y )*0.1;
+    }
 
-	void testApp::draw(){
-		ofBackgroundGradient(ofColor::gray,ofColor(30,10,30), OF_GRADIENT_CIRCULAR);
-    		
-		// Now we have a method that does the drawing stuff
-		theBall.draw();
-	}
+    void testApp::draw(){
+        ofBackgroundGradient(ofColor::gray,ofColor(30,10,30), OF_GRADIENT_CIRCULAR);
+            
+        // 描画するメソッドを呼び出す
+        theBall.draw();
+    }
 ~~~~
 
-Ok, so now we have a general object that´s automatically is created with some random values, but if we want we can access to the information inside it by using `object.property` or `object.method()`. 
-This means that every time we want a new ball we have just to create it and draw it! It´s not awesome?
+これで自動的にランダムな値を持つオブジェクトを作り、`object.property`や`object.method()`を使ってオブジェクトが持つ情報にアクセスすることができます。つまり、ボールが必要になったらその都度オブジェクトを作り、描画すれば良いのです。
 
-One last thing, it's to talk about how you can pass some parameters to a object method. If we look to the `testApp::update()` code we are accessing to `x` and `y` information by calling them using the `.`. That's not bad, but it to make things more logical and intuitive if we said something like `myBall.moveTo(mouseX,mouseY)` isn´t it?
-So let´s change `ball.h` and  `ball.cpp`.
+最後に、オブジェクトのメソッドに引数を渡す方法について解説します。`testApp::update()`を見ると、`x`と`y`という情報にアクセスするために`.`を使っています。これでも悪くないのですが、もっと論理的に直感的に行いたい場合、`myBall.moveTo(mouseX, mouseY)`のようにしたいところです。
+
+`ball.h`と`ball.cpp`を以下の様に変更してみましょう。
 
 ~~~~{.cpp}
-	void Ball::moveTo(int _xDestiny, int _yDestiny){
-		x += ( _xDestiny - x )*0.1;
-		y += ( _yDestiny - y )*0.1;
-	}
+    void Ball::moveTo(int _xDestiny, int _yDestiny){
+        x += ( _xDestiny - x )*0.1;
+        y += ( _yDestiny - y )*0.1;
+    }
 ~~~~
 
-And use it like like this on the testApp project
+testAppプロジェクトでは以下の様に使用することができます。
 
 ~~~~{.cpp}
-	void testApp::update(){
-    		theBall.moveTo(mouseX,mouseY);
-	}
+    void testApp::update(){
+        theBall.moveTo(mouseX,mouseY);
+    }
 ~~~~
 
 
-## 4. Let's go physicaly
+## 4. 自然の法則に従う
 
-Before we continue on our way a to proper particle system. I have good news, You don´t have to deal with heavy maths and lot's of variables for making some nice physics calculations. There some really cool native classes that will help your on that and make's your life really easy. Also you can get very deep in to crazy awesome things taking a look to on Keith´s tutorials at [Math Tutorials](http::/openframeworks.cc/tutorials/maths/)
-Our new things it´s going to be a object call `ofVec2f()` for dealing with two dimensional math vector. This will let us work with forces very easily, and because at the very end it´s a class we are going to use them as object. Just like we do with our bright class call `Ball`.
-Each `ofVec2f` have a `x` and `y` value, and you can access to them in the same way we just do with `ball.x` and `ball.y`. The thing with `ofVec2f` it´s that also have really handy methods like `.dot()` and also operator `+`, `+`, `*` and `/` that get in chard of the maths calculations.
-
- 
- 
-
-
+自然なパーティクルシステムの作成を続ける前に、良いニュースとして、物理演算を行うために難解な数学やたくさんの変数を扱う必要は無いということを知っておいて下さい。複雑な部分は用意されている素晴らしいクラスが行なってくれます。Keithによる[チュートリアル](http://openframeworks.jp/tutorials/maths/)も役に立つでしょう。2次元のベクトルを扱うために`ofVec2f`というクラスを使います。これにより重力を簡単に扱えるようになります。`Ball`クラスを作ったことを思い出して下さい。`ofVec2f`クラスのオブジェクトはそれぞれ`x`と`y`の値を持ち、`ball.x`、`ball.y`と同じようにアクセスすることができます。また`.dot()`のような便利なメソッドを持ち、`+`、`-`、`*`、`/`のような演算子を使って計算を行うこともできます。
