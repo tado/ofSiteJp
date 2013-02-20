@@ -503,6 +503,11 @@ a.nohover {
     color: #444;
     margin-bottom:2em;
 }
+
+.article > p > img{
+	max-width:100%;
+}
+
 .functionslist a {
 	color: #444;
 	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
@@ -670,6 +675,13 @@ hr {
 	margin: 0px;
 	padding: 0px 0px 10px 0px;
 	position: relative;
+}
+#editdocs{
+    float:right;
+}
+#docstitle{
+    width:60%;
+    float:left;
 }
 .documentation_detail_right_col img {
 	max-width: 480px;
@@ -893,7 +905,7 @@ div.galleryItem p {
 }
 #download-latest-platform, #documentation-ebook {
 	background-color: #eee;
-	height: 175px;
+	height: 180px;
 	margin-bottom: 1em;
 	margin-right: 1em;
 	padding: 20px;
