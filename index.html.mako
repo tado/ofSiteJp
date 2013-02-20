@@ -11,7 +11,7 @@
   <div class="home-links">
     <h3>openFrameworks<br/>創造的なコーディングのためのC++のオープンソースツールキット</span></h3>
     <h3><a href="download/">download</a></h3>
-    <p>最新のリリースの入手と、openFrameworksを作動させるためのセットアップガイド。</p>
+    <p>最新のリリース(0.7.4)の入手と、openFrameworksを作動させるためのセットアップガイド。</p>
 
     <h3><a href="documentation/">documentation</a></h3>
     <p>openFramewroksのクラス、関数、アドオンのリファレンス資料。ガイドやチュートリアルは、<a href="http://wiki.openframeworks.cc/">wiki</a>を参照してください。</p>
