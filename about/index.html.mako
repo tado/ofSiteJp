@@ -34,6 +34,58 @@ openFrameworksは[ザック・リーバーマン(Zach Lieberman)](http://thesyst
 
 ----------------
 
+貢献者と、協力者
+--------
+openFrameworksは、[oFコミュニティー](../community/)の協力のもと、[Zach Lieberman](http://thesystemis.com/), [Theodore Watson](http://muonics.net/), and [Arturo Castro](http://arturocastro.net/)のコアメンバー ("the core")によって、活発に開発されています。
+openFrameworksは、2つの重要な先駆的なプロジェクトの恩恵を受けています。[Casey Reas](http://reas.com/)と[Ben Fry](http://benfry.com/)とProcessingのコミュニティ、そして、ACU ToolkitというBen Fryと[MITメディアラボの「コンピューテーション美学(Aesthetics and Computation)グループ」](http://acg.media.mit.edu/)によって開発され個人的に配布されたたC++ライブラリーです。
+何人ものコミュニティーのリーダーが、openFramworksを基本機能を構成するサブセクションのリポジトリを整備しています。
+
+現在:
+
+* 3Dリーダー: [Elliot Woods](http://www.kimchiandchips.com/) (elliotwoods)
+* Addonsリーダー: [James George](jamesgeorge.org/) (obviousjim) and [Greg Borenstein](http://gregborenstein.com/) (atduskgreg)
+* コミュニティー・マネージャー: [Kyle McDonald](http://kylemcdonald.net/) (kylemcdonald)
+* ドキュメント・リーダー: [Dayan Moisa](http://justdayan.com/) (justdayan)
+* フォーラム・リーダー: [Jason Van Cleave](http://jvcref.com/) (jvcleave)
+* GitHubリーダー: [Christoph Buchner](https://github.com/bilderbuchi) (bilderbuchi)
+* ハードウェア・リーダー: [Josh Noble](http://thefactoryfactory.com/) (joshua noble)
+* インターナルアプリケション・リーダー: [Philip Whitfield](http://undef.ch/) (underdoeg)
+* iOSリーダー: [Lukasz Karluk](http://www.julapy.com/blog/) (julapy)
+* 対外的リーダー: [Caitlin Morris](http://caitlinmorris.net/) (c_tl_n)
+* サウンド・リーダー: [Damian Stewart](http://damianstewart.com/) (damian)
+* チュートリアル・リーダー: [Diederick Huijbers](http://www.roxlu.com/) (roxlu) and [Jeff Crouse](http://www.jeffcrouse.info/) (jefftimesten)
+* タイポグラフィー・リーダー: [Christopher Baker](http://christopherbaker.net/) (bakercp)
+* ヴィデオ・リーダー: [James George](http://www.jamesgeorge.org/) (obviousjim)
+* Windowsリーダー: [Matthew Gingold](http://gingold.com.au/) (gameoverhack)
+
+過去のリーダー:
+
+* [Steve Varga](http://www.vargatron.com/) (vargatron) タイポグラフィー・リーダー 
+
+多くの組織が、助成金、寄付、国際開発者会議の会場の提供などを通して多大な協力を提供してきています。
+
+* [Ars Electronica Futurelab and Festival](http://www.aec.at/)
+* [Eyebeam Art & Technology Center](http://eyebeam.org/)
+* [Ford Foundation](http://www.fordfoundation.org/)
+* [Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org/) at CMU
+* [Parsons the New School for Design](http://amt.parsons.edu)
+
+また、以下の組織は、「oF Lab」という数日にわたって開催される教育ワークショップのイベントの会場を提供していただきました。(完全なリストは、[wiki](http://wiki.openframeworks.cc/index.php?title=Education))を参照してください。
+
+* [Art && Code Festival](http://artandcode.com/)
+* [Eyeo festival](http://eyeofestival.com/)
+* [Fabrica: The Benetton Group Communications Research Center](http://www.fabrica.it/)
+* [Graphic Design Festival Breda](http://www.graphicdesignfestival.nl/en/)
+* [iMAL Center for for Digital Cultures and Technology](http://www.imal.org/)
+* [MediaLab Prado](http://medialab-prado.es/)
+* [New York University Interactive Telecommunication Program](http://itp.nyu.edu/itp/) (ITP)
+* [Pratersauna Digital LAB](https://vimeo.com/psdl)
+* [Resonate.io Festival](http://resonate.io/)
+* [Victoria and Albert Museum](http://www.vam.ac.uk/)
+* [山口芸術情報センター](http://www.ycam.jp/en/) (YCAM)
+
+----------------
+
 デザイン哲学
 --------
 
