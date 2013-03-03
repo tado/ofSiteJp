@@ -34,7 +34,7 @@ openFrameworksは[ザック・リーバーマン(Zach Lieberman)](http://thesyst
 
 ----------------
 
-貢献者と、協力者
+貢献や協力をした人達
 --------
 openFrameworksは、[oFコミュニティー](../community/)の協力のもと、[Zach Lieberman](http://thesystemis.com/), [Theodore Watson](http://muonics.net/), and [Arturo Castro](http://arturocastro.net/)のコアメンバー ("the core")によって、活発に開発されています。
 openFrameworksは、2つの重要な先駆的なプロジェクトの恩恵を受けています。[Casey Reas](http://reas.com/)と[Ben Fry](http://benfry.com/)とProcessingのコミュニティ、そして、ACU ToolkitというBen Fryと[MITメディアラボの「コンピューテーション美学(Aesthetics and Computation)グループ」](http://acg.media.mit.edu/)によって開発され個人的に配布されたたC++ライブラリーです。
@@ -70,7 +70,7 @@ openFrameworksは、2つの重要な先駆的なプロジェクトの恩恵を�
 * [Frank-Ratchye STUDIO for Creative Inquiry](http://studioforcreativeinquiry.org/) at CMU
 * [Parsons the New School for Design](http://amt.parsons.edu)
 
-また、以下の組織は、「oF Lab」という数日にわたって開催される教育ワークショップのイベントの会場を提供していただきました。(完全なリストは、[wiki](http://wiki.openframeworks.cc/index.php?title=Education))を参照してください。
+また、以下の組織は、「oF Lab」という数日にわたって開催される教育ワークショップのイベントの会場を提供していただきました。完全なリストは、[wiki](http://wiki.openframeworks.cc/index.php?title=Education)を参照してください。
 
 * [Art && Code Festival](http://artandcode.com/)
 * [Eyeo festival](http://eyeofestival.com/)
