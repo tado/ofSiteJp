@@ -81,9 +81,9 @@ iphone: [iPhone 0062 FAT][19]
 
 **pre release v0.061**
 
-**_note that 0.06 project files are not compatible with 0.061 -- a guide detailing the new project structure will be posted soon._**
+**注意:0.06のプロジェクトは、0.061とは互換性がありません。**
 
-_**FAT Packages:** starting from 0.05, we are releasing normal and "FAT" versions, the fat versions contain several addons ready to go, plus addon examples. These addons aren't part of the core OF codebase, but contain advanced functionality like opencv, vector output, OSC, network communication, vector math and more._
+_**FAT Packages** 0.05からノーマル版と「FAT版」という2つのバージョンをリリースしてきました。FAT版とはいくつかのアドオンと、アドオンのサンプルを含んだバージョンです。これらはoFのコアには含まれていませんが、OpenCV、ベクトルデータ出力、OSC、ネットワーク通信、ベクトルなど様々な高度な機能を含んでいます。_
 
 windows: [visual studio 2008][20] | [visual studio 2008 FAT][21][][22]
 
@@ -106,8 +106,6 @@ license (MIT): [license][37]
 
 **pre release v0.06**
 
-_starting for 0.05, we are releasing normal and "FAT" versions, the fat versions contain several addons ready to go, plus addon examples. These addons aren't part of the core OF codebase, but contain advanced functionality like opencv, vector output, OSC, network communication, vector math and more. Also, in this release we will also post binaries of the examples, so you can download and try without having to compile_
-
 windows: [visual studio 2008][38] | [visual studio 2008 FAT][39][][22]
 
 [code blocks][22] | [code blocks FAT][40]
@@ -124,7 +122,7 @@ changes:[changelog for 0.06][36]
 
 **pre release v0.05**
 
-**addon fixes:** Since the 005 release there have been several critical fixes for addons -- details of the fixes and how to apply them can be found here: [addon fixes][49].
+**アドオンの修正点:** 005をリリースするにあたり、アドオンに関する様々な修正を行っています。それらの修正点は[addon fixes][49]を参照してください。
 
 windows: [visual studio][50] | [visual studio FAT][51]  
 [code blocks][52] | [code blocks FAT][53]  
