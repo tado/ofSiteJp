@@ -42,7 +42,7 @@
 <div id="download-bg-mobile">
     <div id="download-latest-platform-title">
       <h2>mobile</h2>
-      <p><em>openFrameworks for mobile platforms supports the same features as the desktop versions plus mobile specific features like acceleromter, compass, gps...</em></p>
+      <p><em>モバイル版のopenFrameworksは、デスクトップ版と同等の機能に加えて、加速度系、コンパス、GPSなど、モバイル端末固有の機能をサポートしています。</em></p>
     </div>
 
     <div id="download-latest-platform">
@@ -67,8 +67,8 @@
 <div id="download-bg-armlinux">
     <div id="download-latest-platform-title">
       <h2>linux arm</h2>
-      <p><em>openFrameworks for arm boards running linux like Raspberry Pi, Beaglebone (black), Pandaboard, BeagleBoard and others.</em></p>
-      <p><em>We have setup guides for some of the most common boards but it should work on any armv6 and armv7 board.</em></p>
+      <p><em>Raspberry Pi, Beaglebone (black), Pandaboard, BeagleBoardといった、Linuxの作動するARMベースのボードのためのopenFrameworksです。</em></p>
+      <p><em>セットアップガイドは主要なボードのみしか用意されていませんが、ARM6かARM7のボードであれば作動するはずです。</em></p>
     </div>
 
     <div id="download-latest-platform">
