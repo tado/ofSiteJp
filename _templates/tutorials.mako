@@ -1,35 +1,58 @@
+## -*- coding: utf-8 -*-
 <%inherit file="base.mako" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     ${self.head()}
   </head>
   <body>
-    <div id="content">
+    <div id="content" class="tutorial">
       ${self.header()}
       <div id="body-wrap">	
-	<div class="page-wide">
-          <ul class="submenu">
-            <li><a href="${bf.config.site.url}/documentation">reference</a></li>
-            <li><a href="${bf.config.site.url}/tutorials">tutorials</a></li>
-          </ul>
-          <h1>tutorials</h1>
-          <div class="submenucol-left">
-            <ul class="categories">
-              % for category in categories:
-              <li><a href="/tutorials/${category}">${category}</a></li>
-              % endfor
-            </ul>
-          </div><!-- End Page Wide -->
+	    <div class="page-wide">        
+	        <h1>tutorials</h1>
+            <div class="page-right-medium">
+                <p>This section contains tutorials about specific tasks in openFrameworks. If you want to contribute a tutorial, fork the <a href="http://github.com/openframeworks/ofSite">ofSite repository in github</a> and add your tutorial in markdown or asciidoc format inside the _tutorials folder.
+                </p>
+            </div>
+        </div><!-- End Page Wide -->  
+		    
+        % for category in categories:
+            % if len(category["articles"]) > 0:
+                <div class="page-wide sectiontitle">  
+                        <h2>${category["category"]}</h2>
+                    </div><!-- End Page Wide -->
+                <div class="page-wide">  
+                    <ul class="articles">
+                    % for article in category["articles"]:
+                         <li><a href="/tutorials/${category["category"]}/${article.file}">${article.title}</a></br>
+                             <p>${article.summary}</p>
+                         </li>
+                    % endfor
+                    </ul>
+                </div><!-- End Page Wide -->
+            % endif
+        % endfor
+          
 
-          <div class="submenucol-right">
-	    <p>このセクションは、openFrameworksの機能ごとのチュートリアルを収録しています。もしチュートリアルに貢献したいと考えているのでしたら、GitHubにある<a href="http://github.com/openFrameworks/ofSite">ofSite</a>のリポジトリをフォークしてあなたのチュートリアルをmarkdownフォーマットで記述して「_tutorial」フォルダ以下に配置してください。</p>
-	    <p>※ 現在、翻訳しながら順次公開しています。</p>
-          </div><!-- End Page Wide -->
-    	</div>
+        <div id="wishlist" class="page-wide sectiontitle">  
+          <h2>tutorial wish list</h2>
+        </div>
+        <div class="page-wide">
+          <p>These are highly desired tutorials. To contribute a tutorial, fork the <a href="http://github.com/openframeworks/ofSite">ofSite repository in github</a> and add your tutorial in markdown or asciidoc format inside the _tutorials folder.</p>
+          <ul>
+            <li>basics of graphics - how to draw things</li>
+            <li>ofPixels, ofTexture, ofImage</li>
+            <li>gl - getting started, ofFbo, ofVbo</li>
+            <li>cameras - basics of ofEasyCam, ofCamera</li>
+            <li>std::map</li>
+          </ul>
+        </div>
+
       </div><!-- End Body Wrap -->
+      
       <div id="footer">
         ${self.footer()}
       </div> <!-- End Footer -->
@@ -38,7 +61,7 @@
 </html>
 
 <%def name="header()">
-<%include file="header.mako" args="active='documentation'" />
+  <%include file="header.mako" args="active='tutorials'" />
 </%def>
 
 

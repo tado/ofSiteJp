@@ -6,12 +6,11 @@ import logging
 import blogofile_bf as bf
 import shutil
 import sys
+import random
 
 import argparse
 import shutil
 import glob
-
-import sets
 
 sys.path.append(os.path.join(os.path.realpath(__file__)[0:-(len(os.path.join('_controllers','documentation.py'))+1)],'_tools'))
 #sys.path.append( os.path.realpath('')+"/../_tools" )
@@ -19,60 +18,11 @@ import markdown_file
 
 logger = logging.getLogger("blogofile.post")    
         
+def uniqify(seq):
+    seen = set()
+    seen_add = seen.add
+    return [ x for x in seq if x not in seen and not seen_add(x)]
         
-        
-class Block(object):
-    def __init__(self, source):
-        self.source = source
-        self.name = None
-        self.classes = []
-        self.mode = 'module'
-        self.__parse()
-    
-    def __parse(self):
-        src_list = self.source.split('\n')
-        for element in src_list:
-            self.__parse_element(element)
-        for clazz in self.classes:
-            if 'methods' in clazz:
-                clazz['methods'] = sets.Set(clazz['methods']) 
-            if 'variables' in clazz:
-                clazz['vars'] = sets.Set(clazz['variables'])
-                
-    def __parse_element(self, element):
-        mode = self.mode
-        if mode=='module' and element[:2]=='##':
-            self.name = element[2:-2]
-            self.mode = 'clazz'
-        elif mode=='clazz' and element is not None and element != "" and element.find('__')==-1 and element.find('###')!=-1:
-            #print element[3:-3]
-            self.classes.append({'name':element[3:-3]})
-        elif mode=='clazz' and element.find('__visible:')!=-1:
-            if element.find('false')!=-1:
-                self.classes[-1]['visible'] = False
-            else:
-                self.classes[-1]['visible'] = True
-        elif mode=='clazz' and element.find('__advanced:')!=-1:
-            if element.find('false')!=-1:
-                self.classes[-1]['advanced'] = False
-            else:
-                self.classes[-1]['advanced'] = True
-        elif mode=='clazz' and element.find('__methods__')!=-1:
-            self.mode='methods'
-            self.classes[-1]['methods']=[]
-        elif mode=='methods' and element is not None and element != "" and element.find('__')==-1 and element.find('##')==-1:
-            self.classes[-1]['methods'].append(element)
-        elif mode=='methods' and element.find('__variables__')!=-1:
-            self.mode='variables'
-            self.classes[-1]['variables']=[]
-        elif mode=='clazz' and element.find('__functions__')!=-1:
-            self.mode='methods'
-            self.classes[-1]['methods']=[]
-        elif mode=='variables' and element is not None and element != "" and element.find('__')==-1 and element.find('##')==-1:
-            self.classes[-1]['variables'].append(element)
-        elif (mode=='methods' or mode=='variables') and element.find('##')!=-1:
-            self.mode = 'clazz'
-            self.__parse_element(element)
 
 def run():
     classes = []
@@ -80,59 +30,115 @@ def run():
     documentation = bf.config.controllers.documentation
         
     classes = markdown_file.getclass_list()
+    classes_simple_name = markdown_file.getclass_list(False)
+    addon_classes = markdown_file.list_all_addons()
+    
+    module_lookup = dict()
+    core_index = dict()
+    addons_index = dict()
+    
+    # Create an index of which module each class is in for generated links to other classes
+    for class_name in classes:
+        clazz = markdown_file.getclass(class_name)
+        if clazz.istemplated:
+            module_lookup[class_name[:-1]] = clazz.module    
+        else:
+            module_lookup[class_name] = clazz.module
+        
     for clazz_name in classes:
         clazz = markdown_file.getclass(clazz_name)
-        functions_file = markdown_file.getfunctionsfile(clazz_name)
+        if clazz.istemplated:
+            clazz.name = clazz.name[:-1]
+
+        methods_to_remove = []
+        for method in clazz.function_list:
+            if method.name[0]=="~" or method.name.find("OF_DEPRECATED_MSG")!=-1:
+                methods_to_remove.append(method)
+        for method in methods_to_remove:
+            clazz.function_list.remove(method)
+
+        clazz.detailed_inline_description = str(clazz.detailed_inline_description.encode('ascii', 'ignore'))
+        for class_name in classes_simple_name:
+            rep = class_name + "[\s]"
+            clazz.detailed_inline_description = re.sub(rep, "<a href=\"../"+module_lookup[class_name]+"/"+class_name+".html\" class=\"docs_class\" >"+class_name+"</a> ", clazz.detailed_inline_description)
+            rep = class_name + "[(]"
+            clazz.detailed_inline_description = re.sub(rep, "<a href=\"../"+module_lookup[class_name]+"/"+class_name+".html\" class=\"docs_class\" >"+class_name+"</a>(", clazz.detailed_inline_description)
+
+        clazz.reference = str(clazz.reference.encode('ascii', 'ignore'))
+        for class_name in classes_simple_name:
+            rep = class_name + "[\s]"
+            clazz.reference = re.sub(rep, "<a href=\"../"+module_lookup[class_name]+"/"+class_name+".html\" class=\"docs_class\" >"+class_name+"</a> ", clazz.reference)
+            rep = class_name + "[(]"
+            clazz.reference = re.sub(rep, "<a href=\"../"+module_lookup[class_name]+"/"+class_name+".html\" class=\"docs_class\" >"+class_name+"</a>(", clazz.reference)
+
+        functions_file = markdown_file.getfunctionsfile(clazz.name)
         #print clazz.name
-        #print clazz.function_list
+        #print clazz.function_list 
         env = {
             "modulename": clazz.name,
             "clazz": clazz,
-            "functions": functions_file
+            "functions": functions_file,
+            "classes_list": classes,
+            "is_addon": (clazz.name in addon_classes)
         }
-        bf.writer.materialize_template("documentation_class.mako", ('documentation',clazz.module+"/"+clazz.name+".html"), env )
+        
+        bf.template.materialize_template("documentation_class.mako", ('documentation',clazz.module+"/"+clazz.name+".html"), env )
+        
+        if not clazz.module in addon_classes:
+            if not clazz.module in core_index.keys():
+                core_index[clazz.module] = []
+            if functions_file!=None:
+                for function in functions_file.function_list:
+                    clazz.function_list.append(function)
+            core_index[clazz.module].append(clazz)
+        else:
+            if not clazz.module in addons_index.keys():
+                addons_index[clazz.module] = []
+            if functions_file!=None:
+                for function in functions_file.function_list:
+                    clazz.function_list.append(function)
+            addons_index[clazz.module].append(clazz)
+        
     
     function_files = markdown_file.getfunctionsfiles_list()
     for functionfile_name in function_files:
-        if functionfile_name in classes:
+        if functionfile_name in classes_simple_name:
             continue
         functions_file = markdown_file.getfunctionsfile(functionfile_name)
+
+# might be needed at some point?
+#        functions_file.reference = str(functions_file.reference)
+#        for func in function_files:
+#            functions_file.reference = str.replace(functions_file.reference, class_name, "<a href=\"../"+clazz.module+"/"+class_name+".html\">"+class_name+"</a>")
+
+
+        functions_to_remove = []
+        for function in functions_file.function_list:
+            if function.name.find("OF_DEPRECATED_MSG")!=-1:
+                functions_to_remove.append(method)
+        for function in functions_to_remove:
+            functions_file.function_list.remove(method)
         env = {
             "modulename": functions_file.name,
             "clazz": None,
-            "functions": functions_file
+            "functions": functions_file,
+            "is_addon": (functions_file.name in addon_classes) 
         }
-        bf.writer.materialize_template("documentation_class.mako", ('documentation',functions_file.module+"/"+functions_file.name+".html"), env )
+        bf.template.materialize_template("documentation_class.mako", ('documentation',functions_file.module+"/"+functions_file.name+".html"), env )
+        
+        if not functions_file.module in addon_classes:
+            if not functions_file.module in core_index:
+                core_index[functions_file.module] = []
+            core_index[functions_file.module].append(functions_file)
+        else:
+            if not functions_file.module in addons_index:
+                addons_index[functions_file.module] = []
+            addons_index[functions_file.module].append(functions_file)
+        
         
 
-    # process index file
-    indexhtml_file = open("_documentation/" + "index.markdown",'r')
-    indexhtml = indexhtml_file.read()
-    columns = []
-    columns_src = indexhtml.split('___column___')
-    for column in columns_src:    
-        blocks_src = column.split('//----------------------')
-        blocks = []
-        for block in blocks_src:
-            b = Block(block)
-            if b.name is not None and b.name != "":
-                blocks.append(b)
-        columns.append(blocks)
-    
-    indexhtml_file = open("_documentation/" + "indexAddons.markdown",'r')
-    indexhtml = indexhtml_file.read()
-    addons_columns = []
-    columns_src = indexhtml.split('___column___')
-    for column in columns_src:    
-        blocks_src = column.split('//----------------------')
-        blocks = []
-        for block in blocks_src:
-            b = Block(block)
-            if b.name is not None and b.name != "":
-                blocks.append(b)
-        addons_columns.append(blocks)
-        
-    bf.writer.materialize_template("documentation.mako", ('documentation',"index.html"), {'columns':columns,'addons_columns':addons_columns} )
+    # process index file        
+    bf.template.materialize_template("documentation.mako", ('documentation',"index.html"), {'core':core_index,'addons':addons_index} )
     
     for root, dirs, files in os.walk(directory):
         for name in files:

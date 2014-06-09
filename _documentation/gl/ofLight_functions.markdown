@@ -1,32 +1,12 @@
 #functions
 
-##Description
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofEnableLighting()
 
 <!--
-_syntax: ofEnableLighting()_
-_name: ofEnableLighting_
-_returns: void_
-_returns_description: _
-_parameters: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
+##Description
 
 
 
@@ -52,34 +32,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void ofEnableSeparateSpecularLight()
-
-<!--
-_syntax: ofEnableSeparateSpecularLight()_
-_name: ofEnableSeparateSpecularLight_
-_returns: void_
-_returns_description: _
-_parameters: _
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
 
 
 
@@ -106,7 +68,88 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofEnableLighting()
+
+<!--
+_syntax: ofEnableLighting()_
+_name: ofEnableLighting_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofEnableSeparateSpecularLight()
+
+<!--
+_syntax: ofEnableSeparateSpecularLight()_
+_name: ofEnableSeparateSpecularLight_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -133,7 +176,52 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSetGlobalAmbientColor(&c)
+
+<!--
+_syntax: ofSetGlobalAmbientColor(&c)_
+_name: ofSetGlobalAmbientColor_
+_returns: void_
+_returns_description: _
+_parameters: const ofColor &c_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -160,7 +248,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 

@@ -1,3 +1,4 @@
+#coding:utf-8
 <%inherit file="/_templates/markdown.mako" />
 
 過去のリリース

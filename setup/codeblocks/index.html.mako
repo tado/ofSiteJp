@@ -1,56 +1,65 @@
+## -*- coding: utf-8 -*-
 <%inherit file="/_templates/markdown.mako" />
 
-code::blocks セットアップガイド
-=========================
+code::blocks setup guide
+========================
 
-わたしたちが、windows版のcodeblocksを好むのは軽いからです。また、windows visual studioのいくつかの癖を回避できます。この文書は、起動と実行までのステップ・バイ・ステップのチュートリアルです。
+We like Code::Blocks for Windows development since it's light weight, and avoids some of the quirkiness of windows visual studio. here's a step by step tutorial to get up and running.
+**Note**: [Step e)](#additions) is required to run openFrameworks. Please do not skip this step. 
 
-**a) code::blocksの最新版のバイナリーをダウンロード**
+Version
+------- 
+The new version of Code::Blocks (12.11) is not compatible with openFrameworks versions 0073 and lesser. It will work with 0.7.4 (forthcoming) and what's on the develop branch of github. This is because of a change in the compiler which makes libraries compiled with an older compiler incompatible with the newer compiler. If you are using openFrameworks 0073 or lesser, use [Code::Blocks 10.05][0].
 
-[Code::Blocksをダウンロード][0] 注：**mingwも一緒に**ダウンロードしてください。最新版は10.05で、問題なく動きます。
+Installation
+------------ 
+**a) Download Code::Blocks binary (latest release)**
+
+> [Download Code::Blocks][1] 
+**Note**: download **WITH** MinGW. Code::Blocks version 12.11 works well with openFrameworks 0.7.4+. 
 
 ![a_download](codeblocks.png)  
 
 
-**b) インストール**
+**b) Install**
+
+![b_install](b_install.png)  
 
 
-![b_install](http://www.openframeworks.cc/wp-content/uploads/2009/07/b_install.png)  
+**c) You don't have to change anything**
+
+![c_setup](c_setup.png)  
 
 
-**c) 何も設定を変更する必要はありません**
+**d) I chose not too, since Code::Blocks is not my primary IDE**
+
+![d_assoc](d_assoc-640x378.png)
 
 
-![c_setup](http://www.openframeworks.cc/wp-content/uploads/2009/07/c_setup.png)  
+<a id="additions"></a>**e) Add files to MinGW**
 
-**d) ここでもnotを選択します、code::blocksをメインのIDEにはしないからです**
+Similar to devcpp, we will have to add a few libraries to devcpp. You can download the files:
 
-![d_assoc](http://www.openframeworks.cc/wp-content/uploads/2009/07/d_assoc-640x378.png)
+> [Additions for Code::Blocks to work with openFrameworks][2]
 
 
-**e) mingwのファイルを追加します**
+In the zip there are two folders, you need to put the **contents** of them into the contents of folders in MinGW.
 
-devcppと同じように、いくつかのライブラリを追加します。ここからダウンロードできます。
+*   Add the _contents_ of the folder "**add\_to\_codeblocks\_mingw\_include**" into "**C:\\Program Files\\CodeBlocks\\MinGW\\include**" (or wherever your app\\mingw\\include is)
+*   Add the _contents_ of the folder "**add\_to\_codeblocks\_mingw\_lib**" into "**C:\\Program Files\\CodeBlocks\\MinGW\\lib**" (or wherever your app\\mingw\\lib is)
+    
+![e_putInMingw](e_putInMingw-640x446.png)
 
-* [oFのための追加ファイル][1]
+These are additional libs and header files that need to be added to the MinGW distribution that comes with Code::Blocks. 
 
-zipファイルの中には2つのファイルが入っています。その**中身**を、mingwのフォルダの中に入れる必要があります。
+Here's a quick video which shows what this should look like: [copy steps for codeblocks][3]
+<iframe src="http://player.vimeo.com/video/33985058" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
-* **add\_to\_codeblocks\_mingw\_include**フォルダの中身を、**C:\\Program Files\\CodeBlocks\\MinGW\\include**に追加 (もしくは、アプリの中の\\mingw\\includeへ)
-* **add\_to\_codeblocks\_mingw\_lib**フォルダの中身を、**C:\\Program Files\\CodeBlocks\\MinGW\\lib**へ (もしくはアプリの\\mingw\\libへ)
 
-![e_putInMingw](http://www.openframeworks.cc/wp-content/uploads/2009/07/e_putInMingw-640x446.png)
 
-clodeblocksにはMinGWに追加する必要のある、補足的なライブラリとヘッダーがあります。
-
-どのようにするのか解説した簡単なビデオチュートリアルがあります。[copying codeblocks](http://vimeo.com/33985058)
-
-注：もし既にC++をインストールしたことがあるのなら、CBが正しくmingwフォルダを追加しているか確認してください(c:/program files/cb/mingw)。[より詳しい情報はこちら][2]
-
-**楽しくやりましょう!**
+**As always have fun!**
 
 [0]: http://www.codeblocks.org/downloads/26
-[1]: http://www.openframeworks.cc/content/files/codeblocks_additions.zip
-[2]: http://www.openframeworks.cc/forum/viewtopic.php?f=18&t=793
-
-
+[1]: http://www.codeblocks.org/downloads/5
+[2]: http://www.openframeworks.cc/content/files/codeblocks_additions.zip
+[3]: http://vimeo.com/33985058

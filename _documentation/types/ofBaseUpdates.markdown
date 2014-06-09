@@ -1,6 +1,19 @@
 #class ofBaseUpdates
 
 
+<!--
+_visible: True_
+_advanced: True_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
 
@@ -10,34 +23,6 @@
 ##Methods
 
 
-
-### ~ofBaseUpdates()
-
-<!--
-_syntax: ~ofBaseUpdates()_
-_name: ~ofBaseUpdates_
-_returns: _
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
 
 ###void update()
 
@@ -52,12 +37,60 @@ _version_started: 006_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ~ofBaseUpdates()
+
+<!--
+_syntax: ~ofBaseUpdates()_
+_name: ~ofBaseUpdates_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 006_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 

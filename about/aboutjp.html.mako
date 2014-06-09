@@ -1,3 +1,4 @@
+#coding:utf-8
 <%inherit file="/_templates/slideshow.mako" />
 
 <h1>日本語版について</h1>

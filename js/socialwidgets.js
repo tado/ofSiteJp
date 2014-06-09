@@ -32,7 +32,7 @@ function feedGithubLoaded(result) {
 			dateTag.title = date;
 			dateTag.appendChild(document.createTextNode(jQuery.timeago(date)));
       a.appendChild(document.createTextNode(title));
-			a.appendChild(dateTag);
+			//a.appendChild(dateTag);
       //a.appendChild(document.createTextNode(entry.getElementsByTagNameNS("*","thumbnail")[0].getAttribute("url")));
       /*for( p in entry.getElementsByTagName("link")){
          a.appendChild(document.createTextNode(p.tagName));
@@ -42,6 +42,7 @@ function feedGithubLoaded(result) {
       div.appendChild(img);
       li.appendChild(div);
       li.appendChild(a);
+      li.appendChild(dateTag);
       li.appendChild(document.createElement("br"));
       //li.appendChild(document.createTextNode(entry.getElementsByTagName("updated")[0].textContent));
       ul.appendChild(li);
@@ -69,10 +70,12 @@ function feedForumLoaded(result) {
       var li = document.createElement("li");
       var a = document.createElement("a");
       a.href = entry.link;
-      a.appendChild(document.createTextNode(Encoder.htmlDecode(entry.author) + ": " + Encoder.htmlDecode(entry.title)));
+      a.appendChild(document.createTextNode(Encoder.htmlDecode(entry.title)));
       li.appendChild(a);
       li.appendChild(document.createElement("br"));
-      li.appendChild(document.createTextNode(Encoder.htmlDecode(entry.contentSnippet.substr(0,100)+"...")));
+      var span = document.createElement("span")
+      span.innerHTML = entry.content.substr(0,150) + "...</p>"
+      li.appendChild(span);
       ul.appendChild(li);
     }
     container.appendChild(ul);

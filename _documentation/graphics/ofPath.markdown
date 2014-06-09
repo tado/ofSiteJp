@@ -1,11 +1,22 @@
 #class ofPath
 
 
+<!--
+_visible: True_
+_advanced: False_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
-ofPathクラスは、一点のパス、又は複数点から成るパスを定義します。複数点から成るパスをひとつのベクターデータオブジェクトとして連結させて、画面への描画、パスの操作、サブパスの操作等が行えます。
-ofPolylineに比べて複雑な図形を扱う事に優れ、またofPolyline, ofSubPathのインスタンスに比べて入り組んだ親子関係を持った線や図形の管理を簡単に行う事が出来ます。ofPathは、デフォルトでofSubPathインスタンスを使用します。パスを閉じる時、自動的に新しいパスを追加します。
-
+ofPath is a way to create a path or multiple paths consisting of points. It allows you to combine multiple paths consisting of points into a single vector data object that can be drawn to the screen, manipulated point by point, or manipulated with it's child subpaths. It is better at representing and manipulating complex shapes than the [ofPolyline](ofPolyline.html) and more easily represents multiple child lines or shapes as either ofSubPath or ofPolyline instances. By default ofPath uses ofSubPath instances. Closing the path automatically creates a new path:
 
 ~~~~{.cpp}
 for( int i = 0; i < 5; i++) {
@@ -14,8 +25,7 @@ for( int i = 0; i < 5; i++) {
 }
 ~~~~
 
-
-ofPolylineのインスタンスを使用するには、POLYLINESモードをセットします。
+To use ofPolyline instances, simply set the mode to POLYLINES
 
 ~~~~{.cpp}
 path.setMode(POLYLINES);
@@ -25,559 +35,80 @@ path.setMode(POLYLINES);
 
 
 
-
-
-
 ##Methods
 
 
 
-### ofPath()
+###void addCommand(&command)
 
 <!--
-_syntax: ofPath()_
-_name: ofPath_
-_returns: _
+_syntax: addCommand(&command)_
+_name: addCommand_
+_returns: void_
 _returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
+_parameters: const Command &command_
+_access: private_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-新しいofPathクラスのインスタンスを生成します。
+
+
 
 
 
 
 <!----------------------------------------------------------------------------->
 
-###void clear()
+###void arc(&centre, radiusX, radiusY, angleBegin, angleEnd, clockwise)
 
 <!--
-_syntax: clear()_
-_name: clear_
+_syntax: arc(&centre, radiusX, radiusY, angleBegin, angleEnd, clockwise)_
+_name: arc_
 _returns: void_
 _returns_description: _
-_parameters: _
+_parameters: const ofPoint &centre, float radiusX, float radiusY, float angleBegin, float angleEnd, bool clockwise_
 _access: public_
-_version_started: 007_
+_version_started: 0071_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
+_inlined_description: _
 
 
-ofPathのインスタンスから、全てのサブパスを消去します。
 
 
 
 
-<!----------------------------------------------------------------------------->
 
-###void newSubPath()
-
-<!--
-_syntax: newSubPath()_
-_name: newSubPath_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-ofPolylineか、ofSubPathどちらかの任意の新しいインスタンスを生成します。
-ofSubPathへの呼び出し後に追加された全てのパスは、新しいサブパスが生成された時に完成します。
-close() メソッドを呼ぶと、自動的に newSubPath() が呼び出されます。
-既に閉じられているパスへはポイントの追加を行いません。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void close()
-
-<!--
-_syntax: close()_
-_name: close_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-現在のサブパスを閉じ、newSubPath() を呼んで ofPolyline, ofSubPath どちらか任意の新しいサブパスを生成します。
-既に閉じられているパスへはポイントの追加を行いません。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void lineTo(&p)
-
-<!--
-_syntax: lineTo(&p)_
-_name: lineTo_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &p_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から、p の位置までの直線を描画します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void lineTo(x, y)
-
-<!--
-_syntax: lineTo(x, y)_
-_name: lineTo_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から、x, y の位置までの直線を描画します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void lineTo(x, y, z)
-
-<!--
-_syntax: lineTo(x, y, z)_
-_name: lineTo_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float z_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-現在の描画位置から、x, y, z の位置までの直線を描画します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void moveTo(&p)
-
-<!--
-_syntax: moveTo(&p)_
-_name: moveTo_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &p_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-p の位置へ、描画位置を移動します。
-lineTo(), curveTo() 等を連続して呼んだ場合、描画位置 p から、新しい描画位置へ移動します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void moveTo(x, y, z = 0)
-
-<!--
-_syntax: moveTo(x, y, z = 0)_
-_name: moveTo_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float z=0_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-p の位置へ、描画位置を移動します。
-lineTo(), curveTo() 等を連続して呼んだ場合、描画位置 x, y, z から、新しい描画位置へ移動します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void curveTo(&p)
-
-<!--
-_syntax: curveTo(&p)_
-_name: curveTo_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &p_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-現在の描画位置から p への曲線を描画します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void curveTo(x, y)
-
-<!--
-_syntax: curveTo(x, y)_
-_name: curveTo_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-現在の描画位置から x, y への曲線を描画します。
-マウス座標位置に小さなバラ曲線（正葉曲線）を描画するサンプルコード:
-
-~~~~{.cpp}
-float scale = ofDist(mouseX, mouseY, px, py);
-
-for( float theta = 0; theta < TWO_PI; theta += 0.1) 
-{
-	float r =  cos(theta * (scale/6)) * scale; 
-	path.curveTo(mouseX + r * cos(theta), mouseY + r * sin(theta));
-}
-
-px = mouseX;
-py = mouseY;
-~~~~
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void curveTo(x, y, z)
-
-<!--
-_syntax: curveTo(x, y, z)_
-_name: curveTo_
-_returns: void_
-_returns_description: _
-_parameters: float x, float y, float z_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から x, y、z への曲線を描画します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void bezierTo(&cp1, &cp2, &p)
-
-<!--
-_syntax: bezierTo(&cp1, &cp2, &p)_
-_name: bezierTo_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &cp1, const ofPoint &cp2, const ofPoint &p_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から p へ、ofPoint cp1, cp2のコントロールポイントを使った三次ベジェ曲線を描画します。
-サンプルコード:
-~~~~{.cpp}
-line.addVertex(ofPoint(200, 400));
-line.bezierTo(100, 100, 800, 100, 700, 400);
-~~~~
-このコードの実行結果:
-![polyline bezier](bezier.png)
-黄色の点がコントロールポイントです。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void bezierTo(cx1, cy1, cx2, cy2, x, y)
-
-<!--
-_syntax: bezierTo(cx1, cy1, cx2, cy2, x, y)_
-_name: bezierTo_
-_returns: void_
-_returns_description: _
-_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-現在の描画位置から x, y へ、座標cx1, cy1, 座標cx2, cy2 のコントロールポイントを使った三次ベジェ曲線を描画します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void bezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)
-
-<!--
-_syntax: bezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)_
-_name: bezierTo_
-_returns: void_
-_returns_description: _
-_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から x, y, z へ、座標cx1, cy1, cz1, 座標cx2, cy2, cz2 のコントロールポイントを使った三次ベジェ曲線を描画します。
-
-~~~~{.cpp}
-
-float cx = ofGetWidth()/2;
-float cy = 200;
-float step = TWO_PI / 60;
-for (float i = 0.0; i < TWO_PI; i+=step) {
-	
-	
-	if(i == 0.0) {
-		line.addVertex(cx + (400*cos(i)), cy+400, 400 * sin(i));
-	} else {
-		line.bezierTo( cx - (200*cos(i)), cy-100, 400 * sin(i), 
-					   cx + (200*cos(i)), cy+600, 400 * sin(i), 
-					   cx + (400*cos(i)), cy+400, 400 * sin(i));
-	}
-}
-~~~~
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void quadBezierTo(&cp1, &cp2, &p)
-
-<!--
-_syntax: quadBezierTo(&cp1, &cp2, &p)_
-_name: quadBezierTo_
-_returns: void_
-_returns_description: _
-_parameters: const ofPoint &cp1, const ofPoint &cp2, const ofPoint &p_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から、開始位置 cp1, コントロールポイント cp2, 終了位置 p の二次ベジェ曲線を3D空間に描画します。
-![polyline curves](curves.png)
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void quadBezierTo(cx1, cy1, cx2, cy2, x, y)
-
-<!--
-_syntax: quadBezierTo(cx1, cy1, cx2, cy2, x, y)_
-_name: quadBezierTo_
-_returns: void_
-_returns_description: _
-_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-現在の描画位置から、開始位置座標cx1, cy1, コントロールポイント座標 cx2, cy2, 終了位置座標 x, y の二次ベジェ曲線を2D空間に描画します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void quadBezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)
-
-<!--
-_syntax: quadBezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)_
-_name: quadBezierTo_
-_returns: void_
-_returns_description: _
-_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
 
 
 
-現在の描画位置から、開始位置座標cx1, cy1, cz1 コントロールポイント座標 cx2, cy2, cz2 終了位置座標 x, y, z の二次ベジェ曲線を3D空間に描画します。
 
 
 
@@ -597,24 +128,34 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-
-centre の位置に円弧を描画します。radiusX, radiusY の半径と、円弧開始アングル、円弧終了アングルを指定出来ます。
-座標 100, 100 の位置に半径50pxの円弧を描くサンプルコード:
+Creates an arc at centre, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd. To draw a circle with a radius of 50 pixels at 100, 100:
 
 ~~~~{.cpp}
 path.arc( 100, 100, 50, 50, 0, 360);
 ~~~~
 
-angleEnd は angleBegin より大きい数字である必要があります。
-例えば、0, 180 はOKです。180, 0 は正しくありません。
+Note that angleBegin needs to be larger than angleEnd, i.e. 0, 180 is ok, while 180,0 is not.
+
+
+
+
 
 
 
@@ -633,16 +174,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-座標 x, y の位置に円弧を描画します。radiusX, radiusY の半径と、円弧開始アングル、円弧終了アングルを指定出来ます。
-座標 300, 300 の位置に半径200pxの円弧を描くサンプルコード:
+Creates an arc at x,y, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd. To draws a shape with a radius of 200 pixels at 300, 300:
 
 ~~~~{.cpp}
 path.moveTo(300, 300);
@@ -651,8 +200,12 @@ path.arc( 300, 300, 200, 200, 0, 271); // note 271, not 270 for precision
 
 ![ofPath arc](ofPath_arc.png)
 
-angleEnd は angleBegin より大きい数字である必要があります。
-例えば、0, 180 はOKです。180, 0 は正しくありません。
+Note that angleBegin needs to be larger than angleEnd, i.e. 0, 180 is ok, while 180,0 is not.
+
+
+
+
+
 
 
 <!----------------------------------------------------------------------------->
@@ -670,15 +223,2675 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
-座標 x, y, z の位置に円弧を描画します。radiusX, radiusY の半径と、円弧開始アングル、円弧終了アングルを指定出来ます。
+Creates an arc at x,y,z, which has the radiusX, radiusY, and begins at angleBegin and ends at angleEnd.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void arcNegative(&centre, radiusX, radiusY, angleBegin, angleEnd)
+
+<!--
+_syntax: arcNegative(&centre, radiusX, radiusY, angleBegin, angleEnd)_
+_name: arcNegative_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &centre, float radiusX, float radiusY, float angleBegin, float angleEnd_
+_access: public_
+_version_started: 0071_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void arcNegative(x, y, radiusX, radiusY, angleBegin, angleEnd)
+
+<!--
+_syntax: arcNegative(x, y, radiusX, radiusY, angleBegin, angleEnd)_
+_name: arcNegative_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float radiusX, float radiusY, float angleBegin, float angleEnd_
+_access: public_
+_version_started: 0071_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void arcNegative(x, y, z, radiusX, radiusY, angleBegin, angleEnd)
+
+<!--
+_syntax: arcNegative(x, y, z, radiusX, radiusY, angleBegin, angleEnd)_
+_name: arcNegative_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, float radiusX, float radiusY, float angleBegin, float angleEnd_
+_access: public_
+_version_started: 0071_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void bezierTo(&cp1, &cp2, &p)
+
+<!--
+_syntax: bezierTo(&cp1, &cp2, &p)_
+_name: bezierTo_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &cp1, const ofPoint &cp2, const ofPoint &p_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a cubic bezier line from the current drawing point with the 2 control points indicated by ofPoint cp1 and cp2, that ends at ofPoint to. For instance, the following:
+~~~~{.cpp}
+line.addVertex(ofPoint(200, 400));
+line.bezierTo(100, 100, 800, 100, 700, 400);
+~~~~
+Creates this:
+![polyline bezier](bezier.png)
+The control points are shown in yellow.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void bezierTo(cx1, cy1, cx2, cy2, x, y)
+
+<!--
+_syntax: bezierTo(cx1, cy1, cx2, cy2, x, y)_
+_name: bezierTo_
+_returns: void_
+_returns_description: _
+_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a cubic bezier line from the current drawing point with the 2 control points indicated by the coordinates cx1, cy1 and cx2, cy2, that ends at the coordinates x, y.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void bezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)
+
+<!--
+_syntax: bezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)_
+_name: bezierTo_
+_returns: void_
+_returns_description: _
+_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a cubic bezier line in 3D space from the current drawing point with the 2 control points indicated by the coordinates cx1, cy1, cz1 and cx2, cy2, cz2, that ends at the coordinates x, y, z.
+~~~~{.cpp}
+float cx = ofGetWidth()/2;
+float cy = 200;
+float step = TWO_PI / 60;
+for (float i = 0.0; i < TWO_PI; i+=step) {
+	
+	
+	if(i == 0.0) {
+		line.addVertex(cx + (400*cos(i)), cy+400, 400 * sin(i));
+	} else {
+		line.bezierTo( cx - (200*cos(i)), cy-100, 400 * sin(i), 
+					   cx + (200*cos(i)), cy+600, 400 * sin(i), 
+					   cx + (400*cos(i)), cy+400, 400 * sin(i));
+	}
+}
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void circle(x, y, radius)
+
+<!--
+_syntax: circle(x, y, radius)_
+_name: circle_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float radius_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void circle(x, y, z, radius)
+
+<!--
+_syntax: circle(x, y, z, radius)_
+_name: circle_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, float radius_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void circle(&p, radius)
+
+<!--
+_syntax: circle(&p, radius)_
+_name: circle_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, float radius_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void clear()
+
+<!--
+_syntax: clear()_
+_name: clear_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Removes all subpaths from the ofPath instance.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void close()
+
+<!--
+_syntax: close()_
+_name: close_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Closes the current subpath and creates a new subpath, either an ofPolyline or ofSubPath by calling newSubPath(), ensuring that the closed path doesn't have new points added to it.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void curveTo(&p)
+
+<!--
+_syntax: curveTo(&p)_
+_name: curveTo_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a curve to p from the current drawing position.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void curveTo(x, y)
+
+<!--
+_syntax: curveTo(x, y)_
+_name: curveTo_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a curve to x,y from the current drawing position. To draw a small rose curves at the mouse position:
+
+~~~~{.cpp}
+float scale = ofDist(mouseX, mouseY, px, py);
+
+for( float theta = 0; theta < TWO_PI; theta += 0.1) 
+{
+	float r =  cos(theta * (scale/6)) * scale; 
+	path.curveTo(mouseX + r * cos(theta), mouseY + r * sin(theta));
+}
+
+px = mouseX;
+py = mouseY;
+~~~~
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void curveTo(x, y, z)
+
+<!--
+_syntax: curveTo(x, y, z)_
+_name: curveTo_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a curve to x,y,z from the current drawing position.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void draw(x, y)
+
+<!--
+_syntax: draw(x, y)_
+_name: draw_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws the path at x,y. Calling draw() also calls tessllate().
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void draw()
+
+<!--
+_syntax: draw()_
+_name: draw_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws the path at 0,0. Calling draw() also calls tessllate().
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ellipse(x, y, width, height)
+
+<!--
+_syntax: ellipse(x, y, width, height)_
+_name: ellipse_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float width, float height_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ellipse(x, y, z, width, height)
+
+<!--
+_syntax: ellipse(x, y, z, width, height)_
+_name: ellipse_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, float width, float height_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ellipse(&p, width, height)
+
+<!--
+_syntax: ellipse(&p, width, height)_
+_name: ellipse_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, float width, float height_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void flagShapeChanged()
+
+<!--
+_syntax: flagShapeChanged()_
+_name: flagShapeChanged_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void generatePolylinesFromCommands()
+
+<!--
+_syntax: generatePolylinesFromCommands()_
+_name: generatePolylinesFromCommands_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getCircleResolution()
+
+<!--
+_syntax: getCircleResolution()_
+_name: getCircleResolution_
+_returns: int_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###vector< Command > & getCommands()
+
+<!--
+_syntax: getCommands()_
+_name: getCommands_
+_returns: vector< Command > &_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0.8.0_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###const vector< Command > & getCommands()
+
+<!--
+_syntax: getCommands()_
+_name: getCommands_
+_returns: const vector< Command > &_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int getCurveResolution()
+
+<!--
+_syntax: getCurveResolution()_
+_name: getCurveResolution_
+_returns: int_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor getFillColor()
+
+<!--
+_syntax: getFillColor()_
+_name: getFillColor_
+_returns: ofColor_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the ofColor that the ofPath is using.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Mode getMode()
+
+<!--
+_syntax: getMode()_
+_name: getMode_
+_returns: Mode_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###vector< ofPolyline > & getOutline()
+
+<!--
+_syntax: getOutline()_
+_name: getOutline_
+_returns: vector< ofPolyline > &_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+This returns an ofPolyline representing the outline of an ofPath.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor getStrokeColor()
+
+<!--
+_syntax: getStrokeColor()_
+_name: getStrokeColor_
+_returns: ofColor_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the stroke color that the ofPath is using.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float getStrokeWidth()
+
+<!--
+_syntax: getStrokeWidth()_
+_name: getStrokeWidth_
+_returns: float_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the stroke width.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofMesh & getTessellation()
+
+<!--
+_syntax: getTessellation()_
+_name: getTessellation_
+_returns: ofMesh &_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool getUseShapeColor()
+
+<!--
+_syntax: getUseShapeColor()_
+_name: getUseShapeColor_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPolyWindingMode getWindingMode()
+
+<!--
+_syntax: getWindingMode()_
+_name: getWindingMode_
+_returns: ofPolyWindingMode_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Returns the poly winding mode currently in use.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool hasChanged()
+
+<!--
+_syntax: hasChanged()_
+_name: hasChanged_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool hasOutline()
+
+<!--
+_syntax: hasOutline()_
+_name: hasOutline_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool isFilled()
+
+<!--
+_syntax: isFilled()_
+_name: isFilled_
+_returns: bool_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Whether the path is using a fill or not.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPolyline & lastPolyline()
+
+<!--
+_syntax: lastPolyline()_
+_name: lastPolyline_
+_returns: ofPolyline &_
+_returns_description: _
+_parameters: _
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void lineTo(&p)
+
+<!--
+_syntax: lineTo(&p)_
+_name: lineTo_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a straight line from the current drawing position to the location indicated by p.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void lineTo(x, y)
+
+<!--
+_syntax: lineTo(x, y)_
+_name: lineTo_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a straight line from the current drawing position to the location indicated by x,y.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void lineTo(x, y, z)
+
+<!--
+_syntax: lineTo(x, y, z)_
+_name: lineTo_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Draws a straight line from the current drawing position to the location indicated by x,y,z.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void moveTo(&p)
+
+<!--
+_syntax: moveTo(&p)_
+_name: moveTo_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Moves the drawing position to p. This means that a subsequent calls to, for instance, lineTo() or curveTo() will connect the location p to the new location.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void moveTo(x, y, z = 0)
+
+<!--
+_syntax: moveTo(x, y, z = 0)_
+_name: moveTo_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z=0_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Moves the drawing position to x,y.z. This means that a subsequent calls to, for instance, lineTo() or curveTo() will connect the location x,y,z to the new location.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void newSubPath()
+
+<!--
+_syntax: newSubPath()_
+_name: newSubPath_
+_returns: void_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a new subpath, either an ofPolyline instance or an ofSubPath instance. All points added after a call to ofSubPath will be done in the newly created subpath. Calling close() automatically calls create newSubPath(), ensuring that the closed path doesn't have new points added to it.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofPath()
+
+<!--
+_syntax: ofPath()_
+_name: ofPath_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a new ofPath instance.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void quadBezierTo(&cp1, &cp2, &p)
+
+<!--
+_syntax: quadBezierTo(&cp1, &cp2, &p)_
+_name: quadBezierTo_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &cp1, const ofPoint &cp2, const ofPoint &p_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a quadratic bezier line in 3D space from the current drawing point with the beginning indicated by the coordinates cx1, cy1, cz1, the control point at cx2, cy2, cz2, and that ends at the coordinates x, y, z.
+![polyline curves](curves.png)
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void quadBezierTo(cx1, cy1, cx2, cy2, x, y)
+
+<!--
+_syntax: quadBezierTo(cx1, cy1, cx2, cy2, x, y)_
+_name: quadBezierTo_
+_returns: void_
+_returns_description: _
+_parameters: float cx1, float cy1, float cx2, float cy2, float x, float y_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a quadratic bezier line in 2D space from the current drawing point with the beginning indicated by the point p1, the control point at p2, and that ends at the point p3.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void quadBezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)
+
+<!--
+_syntax: quadBezierTo(cx1, cy1, cz1, cx2, cy2, cz2, x, y, z)_
+_name: quadBezierTo_
+_returns: void_
+_returns_description: _
+_parameters: float cx1, float cy1, float cz1, float cx2, float cy2, float cz2, float x, float y, float z_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Creates a quadratic bezier line in 3D space from the current drawing point with the beginning indicated by the coordinates cx1, cy1, the control point at cx2, cy2, and that ends at the coordinates x, y.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectRounded(&b, r)
+
+<!--
+_syntax: rectRounded(&b, r)_
+_name: rectRounded_
+_returns: void_
+_returns_description: _
+_parameters: const ofRectangle &b, float r_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectRounded(&p, w, h, r)
+
+<!--
+_syntax: rectRounded(&p, w, h, r)_
+_name: rectRounded_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, float w, float h, float r_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectRounded(x, y, w, h, r)
+
+<!--
+_syntax: rectRounded(x, y, w, h, r)_
+_name: rectRounded_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float w, float h, float r_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectRounded(&p, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+
+<!--
+_syntax: rectRounded(&p, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)_
+_name: rectRounded_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, float w, float h, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectRounded(&b, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+
+<!--
+_syntax: rectRounded(&b, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)_
+_name: rectRounded_
+_returns: void_
+_returns_description: _
+_parameters: const ofRectangle &b, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectRounded(x, y, z, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
+
+<!--
+_syntax: rectRounded(x, y, z, w, h, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)_
+_name: rectRounded_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, float w, float h, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectangle(&r)
+
+<!--
+_syntax: rectangle(&r)_
+_name: rectangle_
+_returns: void_
+_returns_description: _
+_parameters: const ofRectangle &r_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectangle(&p, w, h)
+
+<!--
+_syntax: rectangle(&p, w, h)_
+_name: rectangle_
+_returns: void_
+_returns_description: _
+_parameters: const ofPoint &p, float w, float h_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectangle(x, y, w, h)
+
+<!--
+_syntax: rectangle(x, y, w, h)_
+_name: rectangle_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float w, float h_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rectangle(x, y, z, w, h)
+
+<!--
+_syntax: rectangle(x, y, z, w, h)_
+_name: rectangle_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y, float z, float w, float h_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void rotate(az, &axis)
+
+<!--
+_syntax: rotate(az, &axis)_
+_name: rotate_
+_returns: void_
+_returns_description: _
+_parameters: float az, const ofVec3f &axis_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void scale(x, y)
+
+<!--
+_syntax: scale(x, y)_
+_name: scale_
+_returns: void_
+_returns_description: _
+_parameters: float x, float y_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Changes the size of either the ofPolyline or ofSubPath instances that the ofPath contains. These changes are non-reversible, so for instance scaling by 0,0 zeroes out all data.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setCircleResolution(circleResolution)
+
+<!--
+_syntax: setCircleResolution(circleResolution)_
+_name: setCircleResolution_
+_returns: void_
+_returns_description: _
+_parameters: int circleResolution_
+_access: public_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setColor(&color)
+
+<!--
+_syntax: setColor(&color)_
+_name: setColor_
+_returns: void_
+_returns_description: _
+_parameters: const ofColor &color_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+This sets the color of the path. This affects both the line if the path is drawn as wireframe and the fill if the path is drawn with fill. All subpaths are affected.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setCurveResolution(curveResolution)
+
+<!--
+_syntax: setCurveResolution(curveResolution)_
+_name: setCurveResolution_
+_returns: void_
+_returns_description: _
+_parameters: int curveResolution_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setFillColor(&color)
+
+<!--
+_syntax: setFillColor(&color)_
+_name: setFillColor_
+_returns: void_
+_returns_description: _
+_parameters: const ofColor &color_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+This sets the fill color of the path. This has no affect if the path is drawn as wireframe.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setFillHexColor(hex)
+
+<!--
+_syntax: setFillHexColor(hex)_
+_name: setFillHexColor_
+_returns: void_
+_returns_description: _
+_parameters: int hex_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+This sets the fill color of the path. This has no affect if the path is drawn as wireframe.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setFilled(hasFill)
+
+<!--
+_syntax: setFilled(hasFill)_
+_name: setFilled_
+_returns: void_
+_returns_description: _
+_parameters: bool hasFill_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+Sets whether the path should be drawn as wireframes or filled.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setHexColor(hex)
+
+<!--
+_syntax: setHexColor(hex)_
+_name: setHexColor_
+_returns: void_
+_returns_description: _
+_parameters: int hex_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+This sets the color of the path. This affects both the line if the path is drawn as wireframe and the fill if the path is drawn with fill. All subpaths are affeted.
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setMode(mode)
+
+<!--
+_syntax: setMode(mode)_
+_name: setMode_
+_returns: void_
+_returns_description: _
+_parameters: Mode mode_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
 
 
 
@@ -697,17 +2910,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
-サブパス内各ポイントの繋がり方を指定します。
-OpenGLは凸ポリゴンのみをレンダリング出来ます。それ以外（凹ポリゴン等）はテセレーションしてからでなければ描画が出来ません。
-もしofPathのインスタンスがfilledであれば、この処理は自動的に行われます。
-指定可能なオプションは以下の通りです。
+
+This sets the way that the points in the sub paths are connected. OpenGL can only render convex polygons which means that any shape that isn't convex, i.e. that has points which are concave, going inwards, need to be tessellated into triangles so that OpenGL can render them. If you're using filled shapes with your ofPath this is done automatically for you. The possible options you can pass in are:
 
 OF_POLY_WINDING_ODD
 OF_POLY_WINDING_NONZERO
@@ -717,10 +2937,10 @@ OF_POLY_WINDING_ABS_GEQ_TWO
 
 ![ofPath winding modes](winding_modes.gif)
 
-サンプルコード:
+So adding the following points:
 
 ~~~~{.cpp}
-void testApp::setup(){
+void ofApp::setup(){
 	
 	path.lineTo(0, 400);
 	path.lineTo(400, 400);
@@ -759,7 +2979,7 @@ void testApp::setup(){
 
 }
 
-void testApp::draw(){
+void ofApp::draw(){
 	
 	ofTranslate(40,40);
 	path.draw();
@@ -768,7 +2988,7 @@ void testApp::draw(){
 	
 }
 
-void testApp::keyPressed(int key){
+void ofApp::keyPressed(int key){
 	
 	mode++;
 	if( mode > 4 ) mode = 0;
@@ -779,180 +2999,13 @@ void testApp::keyPressed(int key){
 }
 ~~~~
 
-non zeroとpositiveでは、挙動が違う事が確認出来ます。
+we can see non zero and positive handle the winding differently:
 
 ![ofPath winding](path_winding.png)
 
 
 
-<!----------------------------------------------------------------------------->
 
-###void setFilled(hasFill)
-
-<!--
-_syntax: setFilled(hasFill)_
-_name: setFilled_
-_returns: void_
-_returns_description: _
-_parameters: bool hasFill_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-パスがワイヤーフレームとして描画されるか、塗りつぶして描画されるかを指定します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setStrokeWidth(width)
-
-<!--
-_syntax: setStrokeWidth(width)_
-_name: setStrokeWidth_
-_returns: void_
-_returns_description: _
-_parameters: float width_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-描画線の幅を指定します。
-ofPathがワイヤーフレームとして描画される場合以外の時に有効です。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setColor(&color)
-
-<!--
-_syntax: setColor(&color)_
-_name: setColor_
-_returns: void_
-_returns_description: _
-_parameters: const ofColor &color_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-パスの色を指定します。
-パスがワイヤーフレームとして描画される場合の描画線色、塗りつぶしとして描画される場合の塗りつぶし色、両方に適用されます。
-ofPathインスタンス内全てのサブパスに対して色指定が行われます。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setHexColor(hex)
-
-<!--
-_syntax: setHexColor(hex)_
-_name: setHexColor_
-_returns: void_
-_returns_description: _
-_parameters: int hex_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-パスの色を指定します。
-パスがワイヤーフレームとして描画される場合の描画線色、塗りつぶしとして描画される場合の塗りつぶし色、両方に適用されます。
-ofPathインスタンス内全てのサブパスに対して色指定が行われます。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setFillColor(&color)
-
-<!--
-_syntax: setFillColor(&color)_
-_name: setFillColor_
-_returns: void_
-_returns_description: _
-_parameters: const ofColor &color_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-パスの塗りつぶし色を指定します。
-パスがワイヤーフレームとして描画される場合には、何も効果はありません。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setFillHexColor(hex)
-
-<!--
-_syntax: setFillHexColor(hex)_
-_name: setFillHexColor_
-_returns: void_
-_returns_description: _
-_parameters: int hex_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-パスの塗りつぶし色を指定します。
-パスがワイヤーフレームとして描画される場合には、何も効果はありません。
 
 
 
@@ -971,17 +3024,28 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
 
 
+This sets the stroke color of the path. This has no affect if the path is drawn filled.
 
-パスの描画線色を指定します。
-パスが塗りつぶしとして描画される場合には、何も効果はありません。
+
+
+
 
 
 
@@ -1000,180 +3064,24 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-パスの描画線色を指定します。
-パスが塗りつぶしとして描画される場合には、何も効果はありません。
+_inlined_description: _
 
 
 
-<!----------------------------------------------------------------------------->
 
-###ofPolyWindingMode getWindingMode()
 
-<!--
-_syntax: getWindingMode()_
-_name: getWindingMode_
-_returns: ofPolyWindingMode_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
+
+
 
 _description: _
 
 
-現在のpoly winding modeを返します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool isFilled()
-
-<!--
-_syntax: isFilled()_
-_name: isFilled_
-_returns: bool_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-パスの塗りつぶしが有効か無効かを返します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofColor getFillColor()
-
-<!--
-_syntax: getFillColor()_
-_name: getFillColor_
-_returns: ofColor_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-ofPathが使用している塗り描画色を返します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofColor getStrokeColor()
-
-<!--
-_syntax: getStrokeColor()_
-_name: getStrokeColor_
-_returns: ofColor_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-ofPathが使用している線描画色を返します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float getStrokeWidth()
-
-<!--
-_syntax: getStrokeWidth()_
-_name: getStrokeWidth_
-_returns: float_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-描画線の幅を返します。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool hasOutline()
-
-<!--
-_syntax: hasOutline()_
-_name: hasOutline_
-_returns: bool_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
+This sets the stroke color of the path. This has no affect if the path is drawn filled.
 
 
 
@@ -1183,335 +3091,37 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void draw(x, y)
+###void setStrokeWidth(width)
 
 <!--
-_syntax: draw(x, y)_
-_name: draw_
+_syntax: setStrokeWidth(width)_
+_name: setStrokeWidth_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y_
+_parameters: float width_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-
-座標 x, y の位置にパスを描画します。
-draw() メソッドを呼ぶと、同時にtessllate() も呼ばれます。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void draw()
-
-<!--
-_syntax: draw()_
-_name: draw_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-座標 0, 0 の位置にパスを描画します。
-draw() メソッドを呼ぶと、同時にtessllate() も呼ばれます。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofSubPath getSubPaths()
-
-<!--
-_syntax: getSubPaths()_
-_name: getSubPaths_
-_returns: ofSubPath_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-ofSubPathインスタンスのベクターデータを返します。
-ofPathインスタンス内でofPolylinesを使用している場合は、何も返しません。
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofPolyline getOutline()
-
-<!--
-_syntax: getOutline()_
-_name: getOutline_
-_returns: ofPolyline_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-ofPathの外形をofPolylineで返します。
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofMesh getTessellation()
-
-<!--
-_syntax: getTessellation()_
-_name: getTessellation_
-_returns: ofMesh_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void simplify(tolerance = 0.3)
-
-<!--
-_syntax: simplify(tolerance = 0.3)_
-_name: simplify_
-_returns: void_
-_returns_description: _
-_parameters: float tolerance=0.3_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
+_inlined_description: _
 
 
 
 
 
-<!----------------------------------------------------------------------------->
 
-###void flagShapeChanged()
 
-<!--
-_syntax: flagShapeChanged()_
-_name: flagShapeChanged_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
 
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setMode(mode)
-
-<!--
-_syntax: setMode(mode)_
-_name: setMode_
-_returns: void_
-_returns_description: _
-_parameters: Mode mode_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setCurveResolution(curveResolution)
-
-<!--
-_syntax: setCurveResolution(curveResolution)_
-_name: setCurveResolution_
-_returns: void_
-_returns_description: _
-_parameters: int curveResolution_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getCurveResolution()
-
-<!--
-_syntax: getCurveResolution()_
-_name: getCurveResolution_
-_returns: int_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setArcResolution(res)
-
-<!--
-_syntax: setArcResolution(res)_
-_name: setArcResolution_
-_returns: void_
-_returns_description: _
-_parameters: int res_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int getArcResolution()
-
-<!--
-_syntax: getArcResolution()_
-_name: getArcResolution_
-_returns: int_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
+Sets the stroke width of the line if the ofPath is to be drawn not in wireframe.
 
 
 
@@ -1534,12 +3144,22 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1549,25 +3169,35 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###bool getUseShapeColor()
+###void simplify(tolerance = 0.3)
 
 <!--
-_syntax: getUseShapeColor()_
-_name: getUseShapeColor_
-_returns: bool_
+_syntax: simplify(tolerance = 0.3)_
+_name: simplify_
+_returns: void_
 _returns_description: _
-_parameters: _
+_parameters: float tolerance=0.3_
 _access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1590,12 +3220,22 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1618,10 +3258,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1631,25 +3280,35 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
-###void rotate(az, &axis)
+###void triangle(x1, y1, x2, y2, x3, y3)
 
 <!--
-_syntax: rotate(az, &axis)_
-_name: rotate_
+_syntax: triangle(x1, y1, x2, y2, x3, y3)_
+_name: triangle_
 _returns: void_
 _returns_description: _
-_parameters: float az, const ofVec3f &axis_
+_parameters: float x1, float y1, float x2, float y2, float x3, float y3_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -1659,53 +3318,35 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
-###void scale(x, y)
+###void triangle(x1, y1, z1, x2, y2, z2, x3, y3, z3)
 
 <!--
-_syntax: scale(x, y)_
-_name: scale_
+_syntax: triangle(x1, y1, z1, x2, y2, z2, x3, y3, z3)_
+_name: triangle_
 _returns: void_
 _returns_description: _
-_parameters: float x, float y_
+_parameters: float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3_
 _access: public_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-ofPathが保持しているofPolyline, ofSubPath のサイズを変更します。
-この変更は、可逆ではありません。つまり、scale(0, 0) を実行するとパスデータは消失します。
+_inlined_description: _
 
 
 
-<!----------------------------------------------------------------------------->
 
-###ofSubPath lastPath()
 
-<!--
-_syntax: lastPath()_
-_name: lastPath_
-_returns: ofSubPath_
-_returns_description: _
-_parameters: _
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
+
+
 
 _description: _
 
@@ -1715,55 +3356,38 @@ _description: _
 
 
 
-<!----------------------------------------------------------------------------->
-
-###ofPolyline lastPolyline()
-
-<!--
-_syntax: lastPolyline()_
-_name: lastPolyline_
-_returns: ofPolyline_
-_returns_description: _
-_parameters: _
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
 
 <!----------------------------------------------------------------------------->
 
-###void generatePolylinesFromPaths()
+###void triangle(&p1, &p2, &p3)
 
 <!--
-_syntax: generatePolylinesFromPaths()_
-_name: generatePolylinesFromPaths_
+_syntax: triangle(&p1, &p2, &p3)_
+_name: triangle_
 _returns: void_
 _returns_description: _
-_parameters: _
-_access: private_
-_version_started: 007_
+_parameters: const ofPoint &p1, const ofPoint &p2, const ofPoint &p3_
+_access: public_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -1776,126 +3400,6 @@ _description: _
 ##Variables
 
 
-
-###ofSubPath paths
-
-<!--
-_name: paths_
-_type: ofSubPath_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofPolyWindingMode windingMode
-
-<!--
-_name: windingMode_
-_type: ofPolyWindingMode_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofColor fillColor
-
-<!--
-_name: fillColor_
-_type: ofColor_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofColor strokeColor
-
-<!--
-_name: strokeColor_
-_type: ofColor_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###float strokeWidth
-
-<!--
-_name: strokeWidth_
-_type: float_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
 
 ###bool bFill
 
@@ -1919,15 +3423,16 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
-###bool bUseShapeColor
+###bool bHasChanged
 
 <!--
-_name: bUseShapeColor_
+_name: bHasChanged_
 _type: bool_
 _access: private_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -1943,87 +3448,16 @@ _description: _
 
 
 
-<!----------------------------------------------------------------------------->
-
-###ofPolyline polylines
-
-<!--
-_name: polylines_
-_type: ofPolyline_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
 
 <!----------------------------------------------------------------------------->
 
-###ofPolyline tessellatedContour
+###bool bNeedsPolylinesGeneration
 
 <!--
-_name: tessellatedContour_
-_type: ofPolyline_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofMesh cachedTessellation
-
-<!--
-_name: cachedTessellation_
-_type: ofMesh_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool cachedTessellationValid
-
-<!--
-_name: cachedTessellationValid_
+_name: bNeedsPolylinesGeneration_
 _type: bool_
 _access: private_
-_version_started: 007_
+_version_started: 0073_
 _version_deprecated: _
 _summary: _
 _visible: True_
@@ -2033,101 +3467,6 @@ _advanced: False_
 
 _description: _
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool hasChanged
-
-<!--
-_name: hasChanged_
-_type: bool_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int prevCurveRes
-
-<!--
-_name: prevCurveRes_
-_type: int_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int curveResolution
-
-<!--
-_name: curveResolution_
-_type: int_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###int arcResolution
-
-<!--
-_name: arcResolution_
-_type: int_
-_access: private_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_visible: True_
-_constant: True_
-_advanced: False_
--->
-
-_description: _
 
 
 
@@ -2159,6 +3498,182 @@ _description: _
 
 
 
+
+<!----------------------------------------------------------------------------->
+
+###bool bUseShapeColor
+
+<!--
+_name: bUseShapeColor_
+_type: bool_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofMesh cachedTessellation
+
+<!--
+_name: cachedTessellation_
+_type: ofMesh_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool cachedTessellationValid
+
+<!--
+_name: cachedTessellationValid_
+_type: bool_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int circleResolution
+
+<!--
+_name: circleResolution_
+_type: int_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###Command commands
+
+<!--
+_name: commands_
+_type: Command_
+_access: private_
+_version_started: 0073_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int curveResolution
+
+<!--
+_name: curveResolution_
+_type: int_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor fillColor
+
+<!--
+_name: fillColor_
+_type: ofColor_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
 <!----------------------------------------------------------------------------->
 
 ###Mode mode
@@ -2183,6 +3698,132 @@ _description: _
 
 
 
+
+<!----------------------------------------------------------------------------->
+
+###ofPolyline polylines
+
+<!--
+_name: polylines_
+_type: ofPolyline_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###int prevCurveRes
+
+<!--
+_name: prevCurveRes_
+_type: int_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofColor strokeColor
+
+<!--
+_name: strokeColor_
+_type: ofColor_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###float strokeWidth
+
+<!--
+_name: strokeWidth_
+_type: float_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPolyline tessellatedContour
+
+<!--
+_name: tessellatedContour_
+_type: ofPolyline_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
+
+
+
+
+
+
+
 <!----------------------------------------------------------------------------->
 
 ###ofTessellator tessellator
@@ -2200,6 +3841,32 @@ _advanced: False_
 -->
 
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPolyWindingMode windingMode
+
+<!--
+_name: windingMode_
+_type: ofPolyWindingMode_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_visible: True_
+_constant: True_
+_advanced: False_
+-->
+
+_description: _
+
 
 
 

@@ -1,6 +1,85 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: False_
+-->
+
 ##Description
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec3f operator*(&v, &m)
+
+<!--
+_syntax: operator*(&v, &m)_
+_name: operator*_
+_returns: ofVec3f_
+_returns_description: _
+_parameters: const ofVec3f &v, const ofMatrix4x4 &m_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofVec4f operator*(&v, &m)
+
+<!--
+_syntax: operator*(&v, &m)_
+_name: operator*_
+_returns: ofVec4f_
+_returns_description: _
+_parameters: const ofVec4f &v, const ofMatrix4x4 &m_
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
+
+
 
 
 
@@ -25,7 +104,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -52,34 +140,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofVec3f operator*(&v, &m)
-
-<!--
-_syntax: operator*(&v, &m)_
-_name: operator*_
-_returns: ofVec3f_
-_returns_description: _
-_parameters: const ofVec3f &v, const ofMatrix4x4 &m_
-_version_started: _
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
 
 
 

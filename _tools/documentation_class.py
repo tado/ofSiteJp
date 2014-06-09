@@ -21,6 +21,8 @@ class DocsClass:
         self.addons = False
         self.function_list = []
         self.var_list = []
+        self.detailed_inline_description = ""
+        self.istemplated = False
         
 
     def functions(self):
@@ -61,12 +63,10 @@ class DocsClass:
         method.syntax = method.syntax + ")"
         method.returns = returns
         method.new = True
-        found = False
         for function in self.function_list:
             if function.name == name:
                 dst_parameters_types = self.get_parameter_types(function.parameters)
                 src_parameters_types = self.get_parameter_types(parameters)
-
                 if(len(src_parameters_types)==len(dst_parameters_types)):
                     a = -1
                     for i in range(len(src_parameters_types)):
@@ -74,16 +74,12 @@ class DocsClass:
                             break
                         else:
                             a = i
-                    if a == len(src_parameters_types)-1:
+                    if a == len(src_parameters_types)-1 and function.returns == returns:
                         function.new = False
+                        function.parameters = parameters
                         return function
-                        found = True
-                        #print 'found ' + function.name
-                        break
-        if not found:
-            #print 'not found ' + method.name
-            #clazzmethod = method
-            self.function_list.append(method)   
+                        
+        self.function_list.append(method)   
         return method
 
     def var_by_name(self, name):

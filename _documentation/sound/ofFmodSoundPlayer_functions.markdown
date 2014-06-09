@@ -1,6 +1,13 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: True_
+-->
+
 ##Description
+
 
 
 
@@ -8,14 +15,14 @@
 
 <!----------------------------------------------------------------------------->
 
-###void ofFmodSoundStopAll()
+###float * ofFmodSoundGetSpectrum(nBands)
 
 <!--
-_syntax: ofFmodSoundStopAll()_
-_name: ofFmodSoundStopAll_
-_returns: void_
+_syntax: ofFmodSoundGetSpectrum(nBands)_
+_name: ofFmodSoundGetSpectrum_
+_returns: float *_
 _returns_description: _
-_parameters: _
+_parameters: int nBands_
 _version_started: _
 _version_deprecated: _
 _summary: _
@@ -25,7 +32,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -52,7 +68,52 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofFmodSoundStopAll()
+
+<!--
+_syntax: ofFmodSoundStopAll()_
+_name: ofFmodSoundStopAll_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -79,7 +140,16 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
+
 
 
 

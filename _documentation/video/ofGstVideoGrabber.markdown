@@ -1,6 +1,19 @@
 #class ofGstVideoGrabber
 
 
+<!--
+_visible: True_
+_advanced: True_
+_istemplated: False_
+-->
+
+##InlineDescription
+
+
+
+
+
+
 ##Description
 
 
@@ -11,95 +24,11 @@
 
 
 
-### ofGstVideoGrabber()
+###void close()
 
 <!--
-_syntax: ofGstVideoGrabber()_
-_name: ofGstVideoGrabber_
-_returns: _
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-### ~ofGstVideoGrabber()
-
-<!--
-_syntax: ~ofGstVideoGrabber()_
-_name: ~ofGstVideoGrabber_
-_returns: _
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setPixelFormat(pixelFormat)
-
-<!--
-_syntax: setPixelFormat(pixelFormat)_
-_name: setPixelFormat_
-_returns: void_
-_returns_description: _
-_parameters: ofPixelFormat pixelFormat_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void videoSettings()
-
-<!--
-_syntax: videoSettings()_
-_name: videoSettings_
+_syntax: close()_
+_name: close_
 _returns: void_
 _returns_description: _
 _parameters: _
@@ -108,10 +37,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -121,14 +59,15 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
-###void listDevices()
+###ofGstVideoUtils * getGstVideoUtils()
 
 <!--
-_syntax: listDevices()_
-_name: listDevices_
-_returns: void_
+_syntax: getGstVideoUtils()_
+_name: getGstVideoUtils_
+_returns: ofGstVideoUtils *_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -136,96 +75,12 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setDeviceID(id)
-
-<!--
-_syntax: setDeviceID(id)_
-_name: setDeviceID_
-_returns: void_
-_returns_description: _
-_parameters: int id_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###void setDesiredFrameRate(framerate)
-
-<!--
-_syntax: setDesiredFrameRate(framerate)_
-_name: setDesiredFrameRate_
-_returns: void_
-_returns_description: _
-_parameters: int framerate_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool initGrabber(w, h)
-
-<!--
-_syntax: initGrabber(w, h)_
-_name: initGrabber_
-_returns: bool_
-_returns_description: _
-_parameters: int w, int h_
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
+_inlined_description: _
 
 
 
@@ -233,111 +88,9 @@ _description: _
 
 
 
-<!----------------------------------------------------------------------------->
 
-###void update()
-
-<!--
-_syntax: update()_
-_name: update_
-_returns: void_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###bool isFrameNew()
-
-<!--
-_syntax: isFrameNew()_
-_name: isFrameNew_
-_returns: bool_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###unsigned char * getPixels()
-
-<!--
-_syntax: getPixels()_
-_name: getPixels_
-_returns: unsigned char *_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
 _description: _
-
 
-
-
-
-
-
-<!----------------------------------------------------------------------------->
-
-###ofPixelsRef getPixelsRef()
-
-<!--
-_syntax: getPixelsRef()_
-_name: getPixelsRef_
-_returns: ofPixelsRef_
-_returns_description: _
-_parameters: _
-_access: public_
-_version_started: 007_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: no_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
 
 
 
@@ -360,12 +113,136 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPixelFormat getPixelFormat()
+
+<!--
+_syntax: getPixelFormat()_
+_name: getPixelFormat_
+_returns: ofPixelFormat_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 0072_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###unsigned char * getPixels()
+
+<!--
+_syntax: getPixels()_
+_name: getPixels_
+_returns: unsigned char *_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofPixelsRef getPixelsRef()
+
+<!--
+_syntax: getPixelsRef()_
+_name: getPixelsRef_
+_returns: ofPixelsRef_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -388,12 +265,22 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -403,12 +290,50 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void close()
+###bool initGrabber(w, h)
 
 <!--
-_syntax: close()_
-_name: close_
-_returns: void_
+_syntax: initGrabber(w, h)_
+_name: initGrabber_
+_returns: bool_
+_returns_description: _
+_parameters: int w, int h_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool isFrameNew()
+
+<!--
+_syntax: isFrameNew()_
+_name: isFrameNew_
+_returns: bool_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -416,12 +341,252 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###vector< ofVideoDevice > listDevices()
+
+<!--
+_syntax: listDevices()_
+_name: listDevices_
+_returns: vector< ofVideoDevice >_
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ofGstVideoGrabber()
+
+<!--
+_syntax: ofGstVideoGrabber()_
+_name: ofGstVideoGrabber_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###ofGstVideoFormat & selectFormat(w, h, desired_framerate)
+
+<!--
+_syntax: selectFormat(w, h, desired_framerate)_
+_name: selectFormat_
+_returns: ofGstVideoFormat &_
+_returns_description: _
+_parameters: int w, int h, int desired_framerate_
+_access: private_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setDesiredFrameRate(framerate)
+
+<!--
+_syntax: setDesiredFrameRate(framerate)_
+_name: setDesiredFrameRate_
+_returns: void_
+_returns_description: _
+_parameters: int framerate_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void setDeviceID(id)
+
+<!--
+_syntax: setDeviceID(id)_
+_name: setDeviceID_
+_returns: void_
+_returns_description: _
+_parameters: int id_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###bool setPixelFormat(pixelFormat)
+
+<!--
+_syntax: setPixelFormat(pixelFormat)_
+_name: setPixelFormat_
+_returns: bool_
+_returns_description: _
+_parameters: ofPixelFormat pixelFormat_
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+needs to be called before initGrabber 
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -444,10 +609,19 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
+
+_inlined_description: _
+
+
+
+
+
+
+
 
 _description: _
 
@@ -457,14 +631,15 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
-###ofGstVideoUtils getGstVideoUtils()
+###void update()
 
 <!--
-_syntax: getGstVideoUtils()_
-_name: getGstVideoUtils_
-_returns: ofGstVideoUtils_
+_syntax: update()_
+_name: update_
+_returns: void_
 _returns_description: _
 _parameters: _
 _access: public_
@@ -472,12 +647,22 @@ _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -487,25 +672,73 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###ofGstVideoFormat selectFormat(w, h, desired_framerate)
+###void videoSettings()
 
 <!--
-_syntax: selectFormat(w, h, desired_framerate)_
-_name: selectFormat_
-_returns: ofGstVideoFormat_
+_syntax: videoSettings()_
+_name: videoSettings_
+_returns: void_
 _returns_description: _
-_parameters: int w, int h, int desired_framerate_
-_access: private_
+_parameters: _
+_access: public_
 _version_started: 007_
 _version_deprecated: _
 _summary: _
 _constant: False_
-_static: no_
+_static: False_
 _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+### ~ofGstVideoGrabber()
+
+<!--
+_syntax: ~ofGstVideoGrabber()_
+_name: ~ofGstVideoGrabber_
+_returns: _
+_returns_description: _
+_parameters: _
+_access: public_
+_version_started: 007_
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+
+
+
+
+
+
+
+_description: _
+
 
 
 
@@ -519,11 +752,11 @@ _description: _
 
 
 
-###ofGstCamData camData
+###int attemptFramerate
 
 <!--
-_name: camData_
-_type: ofGstCamData_
+_name: attemptFramerate_
+_type: int_
 _access: private_
 _version_started: 007_
 _version_deprecated: _
@@ -534,6 +767,7 @@ _advanced: False_
 -->
 
 _description: _
+
 
 
 
@@ -565,13 +799,14 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
-###int attemptFramerate
+###ofGstCamData camData
 
 <!--
-_name: attemptFramerate_
-_type: int_
+_name: camData_
+_type: ofGstCamData_
 _access: private_
 _version_started: 007_
 _version_deprecated: _
@@ -582,6 +817,7 @@ _advanced: False_
 -->
 
 _description: _
+
 
 
 
@@ -613,6 +849,7 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
 ###ofPixelFormat internalPixelFormat
@@ -637,6 +874,7 @@ _description: _
 
 
 
+
 <!----------------------------------------------------------------------------->
 
 ###ofGstVideoUtils videoUtils
@@ -654,6 +892,7 @@ _advanced: False_
 -->
 
 _description: _
+
 
 
 

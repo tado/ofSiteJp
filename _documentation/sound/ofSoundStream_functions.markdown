@@ -1,6 +1,89 @@
 #functions
 
+
+<!--
+_visible: True_
+_advanced: False_
+-->
+
 ##Description
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSoundStreamClose()
+
+<!--
+_syntax: ofSoundStreamClose()_
+_name: ofSoundStreamClose_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Stops the sound stream and also cleans up the stream's resources. 
+
+
+
+
+
+
+
+_description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSoundStreamListDevices()
+
+<!--
+_syntax: ofSoundStreamListDevices()_
+_name: ofSoundStreamListDevices_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Prints a list of available devices to the console. 
+
+
+
+
+
+
+
+_description: _
+
+
+
 
 
 
@@ -25,20 +108,27 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+
+
+
+
+
+
 _description: _
 
-<!--Sets up the audio, with nOutputs channels of audio out, nInputs channels of audio in. You also must pass in a pointer to the ofSimpleApp, so you can just use the word "this". For example, for 2 channel output, call in the setup function:-->
 
-nOutputs でオーディオアウトのチャンネル、nInput でオーディオインのチャンネルというように、オーディオを設定を行います。そしてまたただの "this" というような単語を使った ofSimpleApp のポインタを渡す事必要があります。2 channel アウトプットする場合はこのような設定関数を呼び出します。
-
+Sets up the audio, with nOutputs channels of audio out, nInputs channels of audio in. You also must pass in a pointer to the ofSimpleApp, so you can just use the word "this". For example, for 2 channel output, call in the setup function:
 ~~~~{.cpp}
 
 ofSoundStreamSetup(2,0,this);
 ~~~~
 
-<!--In this simplified call, the bufferSize, sampleRate, and number of buffers (for latency) are all set to defaults.-->
+In this simplified call, the bufferSize, sampleRate, and number of buffers (for latency) are all set to defaults.
 
-これを任意で呼び出す事で、バッファサイズ (bufferSize)、サンプルレート (sampleRate)、バッファ値 (レイテンシーのための) を全てデフォルトに設定されます。
+
+
 
 
 
@@ -62,67 +152,21 @@ _visible: True_
 _advanced: False_
 -->
 
-_description: _
-
-<!--Sets up the audio, but allows you to control more precise details of the audio system.-->
-
-オーディオを設定し、さらにもっとこ細かいオーディオシステムの詳細を設定することができます。
+_inlined_description: _
 
 
 
 
-<!----------------------------------------------------------------------------->
 
-###void ofSoundStreamStop()
 
-<!--
-_syntax: ofSoundStreamStop()_
-_name: ofSoundStreamStop_
-_returns: void_
-_returns_description: _
-_parameters: _
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
 
 _description: _
 
-<!--Stops (pauses) the audio stream. -->
 
-オーディオストリームを停止（一時停止）します。
-
+Sets up the audio, but allows you to control more precise details of the audio system.
 
 
 
-<!----------------------------------------------------------------------------->
-
-###void ofSoundStreamStart()
-
-<!--
-_syntax: ofSoundStreamStart()_
-_name: ofSoundStreamStart_
-_returns: void_
-_returns_description: _
-_parameters: _
-_version_started: 006_
-_version_deprecated: _
-_summary: _
-_constant: False_
-_static: False_
-_visible: True_
-_advanced: False_
--->
-
-_description: _
-
-<!--Starts (un-pauses) the audio stream. The stream starts automatically with ofSoundStreamSetup, so you only need to call this if the stream has been stopped.-->
-
-オーディオストリームを再生（再開）します。ストリームは ofSoundStreamSetup により自動的に開始されるので、ストリームが停止されたときだけ呼び出す必要があります。
 
 
 
@@ -146,7 +190,20 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets up and starts a global 
+
+This will set up a sound stream with a default sample rate of 44100, a buffer size of 256 samples, and a queue of 4 buffers.
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -173,7 +230,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets up and starts a global 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -200,7 +268,18 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Sets up and starts a global 
+
+
+
+
+
+
+
 _description: _
+
 
 
 
@@ -210,11 +289,11 @@ _description: _
 
 <!----------------------------------------------------------------------------->
 
-###void ofSoundStreamClose()
+###void ofSoundStreamStart()
 
 <!--
-_syntax: ofSoundStreamClose()_
-_name: ofSoundStreamClose_
+_syntax: ofSoundStreamStart()_
+_name: ofSoundStreamStart_
 _returns: void_
 _returns_description: _
 _parameters: _
@@ -227,7 +306,56 @@ _visible: True_
 _advanced: False_
 -->
 
+_inlined_description: _
+
+Starts the sound stream (audioIn() / audioOut() will start being called) 
+
+
+
+
+
+
+
 _description: _
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+###void ofSoundStreamStop()
+
+<!--
+_syntax: ofSoundStreamStop()_
+_name: ofSoundStreamStop_
+_returns: void_
+_returns_description: _
+_parameters: _
+_version_started: _
+_version_deprecated: _
+_summary: _
+_constant: False_
+_static: False_
+_visible: True_
+_advanced: False_
+-->
+
+_inlined_description: _
+
+Stops the sound stream (audioIn() / audioOut() will stop being called) 
+
+
+
+
+
+
+
+_description: _
+
 
 
 
