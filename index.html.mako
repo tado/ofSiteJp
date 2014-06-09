@@ -18,7 +18,8 @@
     <p>openFramewroksのクラス、関数、アドオンのリファレンス資料。ガイドやチュートリアルは、<a href="http://wiki.openframeworks.cc/">wiki</a>を参照してください。</p>
 
     <h3><a href="http://forum.openframeworks.cc/">forum</a></h3>
-    <p>フォーラムは、openFrameworksに関係する多くの仲間と交流する場となっています。<a href="/forum">日本語フォーラム</a>もあります。</p>
+    <p>フォーラムは、openFrameworksに関係する多くの仲間と交流する場となっています。
+    <!-- <a href="/forum">日本語フォーラム</a>もあります。</p>-->
   </div>
 </div>
 
