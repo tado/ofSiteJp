@@ -21,7 +21,7 @@
                     <li><a href="/tutorials">tutorials</a></li>
                 </ul-->
 
-                <h1 class="documentation">リファレンス</h1> <ul class="docsadvanced"><li><a href="/documentation" class="active">基本</a></li> <li><a href="/doxygen/annotated.html">応用</a></li> </ul>
+                <h1 class="documentation">reference</h1> <ul class="docsadvanced"><li><a href="/documentation" class="active">基本</a></li> <li><a href="/doxygen/annotated.html">応用</a></li> </ul>
             </div>  
 		    <div class="page-right-narrow">
           <p>このページは、openFrameworksのコアとパッケージに含まれているアドオンに関するリファレンスです。第三者によるアドオンは、<a href="http://ofxaddons.com/">http://ofxaddons.com/</a>を参照してください。openFrameworksのAPIは常に発展しています、修正や機能の追加、コメントなどは大歓迎です!</p>

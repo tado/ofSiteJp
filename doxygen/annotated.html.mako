@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 <%inherit file="base.mako" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -23,10 +24,10 @@
       <div id="body-wrap">
       		<div class="page-wide">
 	            <div class="page-left-split">
-           		    <h1 class="documentation">reference</h1> <ul class="docsadvanced"><li><a href="/documentation">basic</a></li> <li><a  class="active" href="/doxygen/annotated.html">advanced</a></li> </ul>
+           		    <h1 class="documentation">reference</h1> <ul class="docsadvanced"><li><a href="/documentation">基本</a></li> <li><a  class="active" href="/doxygen/annotated.html">応用</a></li> </ul>
            		</div>
 		        <div class="page-right-narrow">
-			        <p>This documentation is automatically generated from the openFrameworks source code using doxygen and refers to the most recent release, version <strong>${bf.config.currentVersion}</strong>.</p>
+			        <p>このドキュメントは、最新バージョンのopenFrameworks verion <strong>${bf.config.currentVersion}</strong> のソースコードからdoxgenを使用して自動生成されています。</p>
 		        </div>
        		</div>
       		<div class="page-wide">
