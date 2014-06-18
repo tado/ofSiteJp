@@ -18,15 +18,15 @@
 	<hr>
 
 
-	<h2 id="documents">documents</h2>
-	<p><a href="https://github.com/openframeworks/openFrameworks/wiki">developer wiki</a> - central location for links to relevant openFrameworks developer docs</p>
-	<p><a href="https://github.com/openframeworks/openFrameworks/wiki/openFrameworks-git-workflow">git workflow</a> - the version control workflow followed by the openFrameworks community when dealing with the development of openFrameworks</p>
-	<p><a href="https://github.com/openframeworks/openFrameworks/wiki/openFrameworks-Coding-style-guidelines">coding style guide</a> - guidelines for proper formatting of openFrameworks code</p>
-	<p><a href="https://github.com/openframeworks/openFrameworks/wiki/Code-Contribution-Workflow">code contribution workflow</a> - contribution workflow for the openFrameworks core</p>
-	<p><a href="https://docs.google.com/document/d/1GjgjQZCHTcOD3cT9OFSl0AZ1nhfYwwvxTl5L4OJE6qA/edit?usp=sharing">1.0 roadmap</a> - decisions taken during the last dev conference about the dev style for a future 1.0 version</p>
+	<h2 id="documents">ドキュメント</h2>
+	<p><a href="https://github.com/openframeworks/openFrameworks/wiki">開発者wiki</a> - openFrameworksに関連した開発ドキュメントの中心</p>
+	<p><a href="https://github.com/openframeworks/openFrameworks/wiki/openFrameworks-git-workflow">gitワークフロー</a> - opeFrameworksの開発の際に、開発者コミュニティーに従って開発するためのバージョン管理ワークフロー</p>
+	<p><a href="https://github.com/openframeworks/openFrameworks/wiki/openFrameworks-Coding-style-guidelines">コードスタイルガイドe</a> - openFrameworksのコードの適切な書式を定めたガイドライン</p>
+	<p><a href="https://github.com/openframeworks/openFrameworks/wiki/Code-Contribution-Workflow">コーディングの貢献のためのワークフロー</a> - openFrameworksコアへ貢献するためのワークフロー</p>
+	<p><a href="https://docs.google.com/document/d/1GjgjQZCHTcOD3cT9OFSl0AZ1nhfYwwvxTl5L4OJE6qA/edit?usp=sharing">1.0ロードマップ</a> - 前回の開発者会議で話し合われた、ver.1.0に向けての指針</p>
 
 	<hr>
-	<h2 id="contributors">contributors</h2>
+	<h2 id="contributors">貢献者</h2>
 	<p>openFrameworks is actively developed by <a href="http://thesystemis.com/">Zach Lieberman</a>, <a href="http://muonics.net/">Theodore Watson</a>, and <a href="http://arturocastro.net/">Arturo Castro</a> ("the core"), with help from the <a href="../community/">OF community</a>. openFrameworks is indebted to two significant precursors: the <a href="http://processing.org/">Processing development environment</a>, created by <a href="http://reas.com/">Casey Reas</a>, <a href="http://benfry.com/">Ben Fry</a> and the Processing community; and the ACU Toolkit, a privately distributed C++ library developed by Ben Fry and others in the <a href="http://acg.media.mit.edu/">MIT Media Lab's Aesthetics and Computation Group</a>. A number of community leaders maintain responsibility for subsections of openFrameworks on a rotating basis, currently:</p>
 	<ul>
 		<li>3D leader: <a href="http://www.kimchiandchips.com/">Elliot Woods</a> (elliotwoods)</li>
