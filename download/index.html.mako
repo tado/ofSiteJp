@@ -4,7 +4,7 @@
 <h1>download</h1>
 <div id="download-latest-header">
   <h2>${bf.config.currentVersion}</h2>
-  <p><strong>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも… ${bf.config.currentVersion}は、これまでの古いプロジェクトとは100%の互換性はありません。バージョン間の違いの一覧は、<a href="https://raw.github.com/openframeworks/openFrameworks/0.8.1/CHANGELOG.md">更新履歴</a>を参照してください。</strong></p>
+  <p><strong>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも… ${bf.config.currentVersion}は、これまでの古いプロジェクトとは100%の互換性はありません。バージョン間の違いの一覧は、<a href="https://raw.github.com/openframeworks/openFrameworks/0.8.2/CHANGELOG.md">更新履歴</a>を参照してください。</strong></p>
   <p>openFrameworksを使用するためにはIDE(統合開発環境)が必要です。また、実際に試していくにはプラットフォームごとのセットアップガイドが必要となるでしょう。もしバグをみつけたら<a href="http://github.com/openframeworks/openFrameworks/issues">問題点</a>のページに投稿してください。その他質問があれば、<a href="http://forum.openframeworks.cc">フォーラム</a>に投稿してください。openFrameworksは、<a href="../about/license.html">MITライセンス</a>で配布されています。</p>
 </div>
 
