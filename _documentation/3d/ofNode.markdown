@@ -16,10 +16,17 @@ _istemplated: False_
 
 ##Description
 
-The ofNode is the base of all things 3d. It lets you represent a location and orientation in 3d space and also allows you to add children or parents so that sets of nodes can move together. This is handy for representing complex 3d models that are linked together, the same way that your hand is linked to your wrist (hopefully), which is linked to your elbow (hopefully), and so on. Nodes are the base of the ofPrimitives, ofCamera, and ofEasyCamera, among other things.
+ofNodeは3Dの基礎となるクラスです。3D空間の座標・向き・縮尺の表現の他、ノード同士の親子関係を作って一緒に動かすこともできます。これにより、手軽に互いに結合された複雑な3Dモデルを表現することが出来ます。丁度、あなたの手が手首と、手首が肘と繋がっているのと同じように。（繋がってますよね？）
 
-To get the current position, check out: getX(), getY(), getZ(). To get the axis of the node call getXAxis() (or the y and z variants for those other axes). Another really useful feature of the ofNode is that you can get the [Eulerian angles](http://en.wikipedia.org/wiki/Euler_angles) of each node: getPitch(), getHeading(), getRoll(). The global transformation matrix of the ofNode is also available using the getGlobalTransformMatrix(), very handy for figuring out things in relation to the OpenGL representation of your OF world. getGlobalOrientation() also is handy, returning a ofQuaternion that you can use to find out whether your node is upside down in relation to the rest of your OF world (really an OpenGL context, but let's not get into that quite yet).
+ノードはofPrimitives, ofCamera, ofEasyCamera等のベースになっています。
 
+現在の座標を取得するには、getX(), getY(), getZ()を使います。
+
+ノードの軸の向きを取得するには、getXAxis()（y軸・z軸はgetYAxis()・getZAxis()）を使います。
+
+他の便利な機能として、ノードの[オイラー角](http://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E8%A7%92)の取得はgetPitch(), getHeading(), getRoll()で取得できます。ofNodeのグローバル変換行列はgetGlobalTransformMatrix()で取得することができます。これは、OpenGL空間上のノード表現について考えるときに非常に便利です。
+
+また、ノードの回転行列は、getGlobalOrientation()で取得することができます。これを用いて、ノードがOF空間において逆さまになっているか否かを簡単に調べることができます。（実際にはOF空間というのはOpenGLコンテキストの事なのですが、今はまだ深く説明しません。）
 
 
 
@@ -57,7 +64,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標を+Y軸方向にamount分移動します。
 
 
 
@@ -95,7 +102,9 @@ _inlined_description: _
 
 _description: _
 
+親ノードとの接続を解除します。
 
+その際、変換行列（座標・向き・縮尺）は子ノードだったときの変換行列（座標・向き・縮尺）を引き継ぎます。
 
 
 
@@ -133,7 +142,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの変換行列を再作成します。
 
 
 
@@ -171,8 +180,9 @@ _inlined_description: _
 
 _description: _
 
+ノードを独自の方法で描画する場合、draw()の代わりにこの関数をオーバーライドして下さい。
 
-
+（customDraw()に記述された描画ロジックには、ノードの座標・向き・縮尺が適用されます。）
 
 
 
@@ -209,7 +219,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標を+Z軸方向にamount分移動します。
 
 
 
@@ -247,7 +257,10 @@ _inlined_description: _
 
 _description: _
 
+描画関数。この関数はオーバーライドしないで下さい。
 
+この関数をオーバーライドして描画を行った場合、ノードの座標・向き・縮尺が適用されません。
+代わりに、customDraw()を使用して下さい。
 
 
 
@@ -285,7 +298,9 @@ _inlined_description: _
 
 _description: _
 
+グローバルの[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)を返します。
 
+親ノードの変換行列が影響します。
 
 
 
@@ -323,7 +338,9 @@ _inlined_description: _
 
 _description: _
 
+グローバル座標を返します。
 
+親ノードの変換行列が影響します。
 
 
 
@@ -358,10 +375,11 @@ _inlined_description: _
 
 
 
-
 _description: _
 
+グローバルの縮尺を返します。
 
+親ノードの変換行列が影響します。
 
 
 
@@ -399,7 +417,9 @@ _inlined_description: _
 
 _description: _
 
+グローバル変換行列（座標・位置・縮尺）を返します。
 
+親ノードの変換行列が影響します。
 
 
 
@@ -437,7 +457,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのオイラー角のヘディング（y軸回りの回転角）を返します。
 
 
 
@@ -475,7 +495,9 @@ _inlined_description: _
 
 _description: _
 
+ローカル変換行列（座標・位置・縮尺）を返します。
 
+親ノードの変換行列は影響しません。
 
 
 
@@ -513,7 +535,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの-Z軸の向きを返します。
 
 
 
@@ -551,7 +573,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのオイラー角を返します。
 
 
 
@@ -589,7 +611,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)を返します。
 
 
 
@@ -627,7 +649,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの親ノードのポインタを返します。
 
 
 
@@ -665,7 +687,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのオイラー角のピッチ（x'軸回りの回転角）を返します。
 
 
 
@@ -703,7 +725,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標を返します。
 
 
 
@@ -741,7 +763,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのオイラー角のロール（z''軸回りの回転角）を返します。
 
 
 
@@ -779,7 +801,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの縮尺を返します。
 
 
 
@@ -817,8 +839,7 @@ _inlined_description: _
 
 _description: _
 
-
-
+ノードの+X軸の向きを返します。
 
 
 
@@ -855,7 +876,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの+Y軸の向きを返します。
 
 
 
@@ -893,7 +914,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのX座標を返します。
 
 
 
@@ -931,7 +952,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの+X軸の向きを返します。
 
 
 
@@ -969,7 +990,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのY座標を返します。
 
 
 
@@ -1007,7 +1028,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの+Y軸の向きを返します。
 
 
 
@@ -1045,7 +1066,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのZ座標を返します。
 
 
 
@@ -1083,7 +1104,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの+Z軸の向きを返します。
 
 
 
@@ -1121,7 +1142,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードの-z軸方向が座標lookAtPosition方向を向くように回転します。
 
 
 
@@ -1159,8 +1180,7 @@ _inlined_description: _
 
 _description: _
 
-
-
+ノードの-z軸方向がノードlookAtNode方向を向くように回転します。
 
 
 
@@ -1197,7 +1217,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標を(x,y,z)分移動します。
 
 
 
@@ -1235,7 +1255,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標をベクトルoffset分移動します。
 
 
 
@@ -1311,7 +1331,9 @@ _inlined_description: _
 
 _description: _
 
+ノードの向きが変更された際に呼び出される関数です。
 
+向きが変更された際に独自の処理を行う場合、この関数をオーバーライドして下さい。
 
 
 
@@ -1349,7 +1371,9 @@ _inlined_description: _
 
 _description: _
 
+ノードの座標が変更された際に呼び出される関数です。
 
+座標が変更された際に独自の処理を行う場合、この関数をオーバーライドして下さい。
 
 
 
@@ -1387,7 +1411,9 @@ _inlined_description: _
 
 _description: _
 
+ノードの縮尺が変更された際に呼び出される関数です。
 
+縮尺が変更された際に独自の処理を行う場合、この関数をオーバーライドして下さい。
 
 
 
@@ -1425,7 +1451,9 @@ _inlined_description: _
 
 _description: _
 
+座標centerPointを中心する半径radiusの球があったと仮定し、ノードを経度longitude・緯度latitudeの座標に移動します。
 
+また、ノードの-z軸方向が座標centerPoint方向を向きます。
 
 
 
@@ -1463,7 +1491,9 @@ _inlined_description: _
 
 _description: _
 
+ノードcenterNodeを中心する半径radiusの球があったと仮定し、ノードを経度longitude・緯度latitudeの座標に移動します。
 
+また、ノードの-z軸方向がノードccenterNode方向を向きます。
 
 
 
@@ -1501,7 +1531,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きを+Y軸方向を中心軸としてdegrees度回転します。
 
 
 
@@ -1539,7 +1569,7 @@ _inlined_description: _
 
 _description: _
 
-
+ローカル変換行列を初期状態に戻します。
 
 
 
@@ -1577,7 +1607,7 @@ _inlined_description: _
 
 _description: _
 
-
+transformGL()による変形を元に戻します。
 
 
 
@@ -1615,7 +1645,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きを+Z軸方向を中心軸としてdegrees度回転します。
 
 
 
@@ -1653,7 +1683,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きを[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)qで回転します。
 
 
 
@@ -1691,7 +1721,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きをベクトルvを回転軸としてdegrees度回転します。
 
 
 
@@ -1729,7 +1759,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きをベクトル(vx,vy,vz)を回転軸としてdegrees度回転します。
 
 
 
@@ -1767,7 +1797,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードを座標pointを中心として[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)qで回転します。
 
 
 
@@ -1805,7 +1835,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードを座標pointを中心とし、ベクトルvを回転軸としてdegrees度回転します。
 
 
 
@@ -1843,7 +1873,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きを[オイラー角](http://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E8%A7%92)でセットします。
 
 
 
@@ -1881,7 +1911,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのグローバル座標に座標(px,py,pz)をセットします。
 
 
 
@@ -1919,7 +1949,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのグローバル座標に座標pをセットします。
 
 
 
@@ -1957,7 +1987,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きに[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)qをセットします。
 
 
 
@@ -1995,6 +2025,7 @@ _inlined_description: _
 
 _description: _
 
+ノードのローカルの向きに[オイラー角](http://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E8%A7%92)eulerAnglesをセットします。
 
 
 
@@ -2033,6 +2064,13 @@ _inlined_description: _
 
 _description: _
 
+ノードに親ノードを接続します。
+
+親ノードを接続すると、グローバル座標・位置・向きに親ノードの座標・位置・向きが反映されます。
+
+親ノードが不要な場合は、NULLをセットして下さい。（デフォルト値はNULLです。）
+
+bMaintainGlobalTransformにtrueを設定すると、ノードのグローバル座標・位置・向きが親ノード接続後も保持されます。
 
 
 
@@ -2062,7 +2100,7 @@ _advanced: False_
 
 _inlined_description: _
 
-
+ノードのローカル座標に座標(px,py,pz)をセットします。
 
 
 
@@ -2109,7 +2147,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標に座標pをセットします。
 
 
 
@@ -2147,7 +2185,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル縮尺をセットします。
 
 
 
@@ -2185,7 +2223,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル縮尺をセットします。
 
 
 
@@ -2223,7 +2261,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル縮尺をセットします。
 
 
 
@@ -2261,7 +2299,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル変換行列に直接、変換行列m44をセットします。
 
 
 
@@ -2299,7 +2337,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカルの向きを+X軸方向を中心軸としてdegrees度回転します。
 
 
 
@@ -2337,7 +2375,7 @@ _inlined_description: _
 
 _description: _
 
-
+グローバル変換行列に従ってノードを変形します。
 
 
 
@@ -2375,7 +2413,7 @@ _inlined_description: _
 
 _description: _
 
-
+ノードのローカル座標を+X軸方向にamount分移動します。
 
 
 
@@ -2442,7 +2480,7 @@ _advanced: False_
 
 _description: _
 
-
+ノードのローカルの回転軸です。
 
 
 
@@ -2467,7 +2505,7 @@ _advanced: False_
 
 _description: _
 
-
+ノードのローカルの回転行列です。
 
 
 
@@ -2492,7 +2530,7 @@ _advanced: False_
 
 _description: _
 
-
+ノードのローカルの向きです。
 
 
 
@@ -2517,7 +2555,7 @@ _advanced: False_
 
 _description: _
 
-
+ノードの親ノードです。
 
 
 
@@ -2542,7 +2580,7 @@ _advanced: False_
 
 _description: _
 
-
+ノードのローカル座標です。
 
 
 
@@ -2567,7 +2605,7 @@ _advanced: False_
 
 _description: _
 
-
+ノードのローカルの縮尺です。
 
 
 
