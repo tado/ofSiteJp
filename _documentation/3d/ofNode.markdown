@@ -64,7 +64,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのローカル座標を+Y軸方向にamount分移動します。
+ノードのローカル座標を+Y方向にamount分移動します。
 
 
 
@@ -142,7 +142,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの変換行列を再作成します。
+ノードの変換行列を作成します。
 
 
 
@@ -219,7 +219,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのローカル座標を+Z軸方向にamount分移動します。
+ノードのローカル座標を+Z方向にamount分移動します。
 
 
 
@@ -298,9 +298,8 @@ _inlined_description: _
 
 _description: _
 
-グローバルの[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)を返します。
+ノードのグローバルの[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)を返します。
 
-親ノードの変換行列が影響します。
 
 
 
@@ -338,9 +337,7 @@ _inlined_description: _
 
 _description: _
 
-グローバル座標を返します。
-
-親ノードの変換行列が影響します。
+ノードのグローバル座標を返します。
 
 
 
@@ -377,9 +374,7 @@ _inlined_description: _
 
 _description: _
 
-グローバルの縮尺を返します。
-
-親ノードの変換行列が影響します。
+ノードのグローバルの縮尺を返します。
 
 
 
@@ -417,9 +412,7 @@ _inlined_description: _
 
 _description: _
 
-グローバル変換行列（座標・位置・縮尺）を返します。
-
-親ノードの変換行列が影響します。
+ノードのグローバル変換行列（座標・位置・縮尺）を返します。
 
 
 
@@ -457,7 +450,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのオイラー角のヘディング（y軸回りの回転角）を返します。
+ノードのローカルのオイラー角のヘディング（y軸回りの回転角）を返します。
 
 
 
@@ -495,9 +488,8 @@ _inlined_description: _
 
 _description: _
 
-ローカル変換行列（座標・位置・縮尺）を返します。
+ノードのローカル変換行列（座標・位置・縮尺）を返します。
 
-親ノードの変換行列は影響しません。
 
 
 
@@ -535,7 +527,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの-Z軸の向きを返します。
+ノードのローカルの-Z軸の向きを返します。
 
 
 
@@ -573,7 +565,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのオイラー角を返します。
+ノードのローカルのオイラー角を返します。
 
 
 
@@ -611,7 +603,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)を返します。
+ノードのローカルの[クォータニオン](http://ja.wikipedia.org/wiki/%E5%9B%9B%E5%85%83%E6%95%B0)を返します。
 
 
 
@@ -687,7 +679,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのオイラー角のピッチ（x'軸回りの回転角）を返します。
+ノードのローカルのオイラー角のピッチ（x'軸回りの回転角）を返します。
 
 
 
@@ -763,7 +755,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのオイラー角のロール（z''軸回りの回転角）を返します。
+ノードのローカルのオイラー角のロール（z''軸回りの回転角）を返します。
 
 
 
@@ -801,7 +793,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの縮尺を返します。
+ノードのローカルの縮尺を返します。
 
 
 
@@ -839,7 +831,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの+X軸の向きを返します。
+ノードのローカルの+X軸の向きを返します。
 
 
 
@@ -876,7 +868,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの+Y軸の向きを返します。
+ノードのローカルの+Y軸の向きを返します。
 
 
 
@@ -914,7 +906,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのX座標を返します。
+ノードのローカルX座標を返します。
 
 
 
@@ -952,7 +944,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの+X軸の向きを返します。
+ノードのローカルの+X軸の向きを返します。
 
 
 
@@ -990,7 +982,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのY座標を返します。
+ノードのローカルY座標を返します。
 
 
 
@@ -1028,7 +1020,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの+Y軸の向きを返します。
+ノードのローカルの+Y軸の向きを返します。
 
 
 
@@ -1066,7 +1058,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのZ座標を返します。
+ノードのローカルZ座標を返します。
 
 
 
@@ -1104,7 +1096,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの+Z軸の向きを返します。
+ノードのローカルの+Z軸の向きを返します。
 
 
 
@@ -1142,7 +1134,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの-z軸方向が座標lookAtPosition方向を向くように回転します。
+ノードのグローバルの-z軸が座標lookAtPosition方向を向くように回転します。
 
 
 
@@ -1180,7 +1172,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの-z軸方向がノードlookAtNode方向を向くように回転します。
+ノードのグローバルの-z軸がノードlookAtNode方向を向くように回転します。
 
 
 
@@ -1293,7 +1285,7 @@ _inlined_description: _
 
 _description: _
 
-
+ofNodeのコンストラクタです。
 
 
 
@@ -1331,7 +1323,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの向きが変更された際に呼び出される関数です。
+ノードのローカルの向きが変更された際に呼び出される関数です。
 
 向きが変更された際に独自の処理を行う場合、この関数をオーバーライドして下さい。
 
@@ -1371,7 +1363,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの座標が変更された際に呼び出される関数です。
+ノードのローカル座標が変更された際に呼び出される関数です。
 
 座標が変更された際に独自の処理を行う場合、この関数をオーバーライドして下さい。
 
@@ -1411,7 +1403,7 @@ _inlined_description: _
 
 _description: _
 
-ノードの縮尺が変更された際に呼び出される関数です。
+ノードのローカルの縮尺が変更された際に呼び出される関数です。
 
 縮尺が変更された際に独自の処理を行う場合、この関数をオーバーライドして下さい。
 
@@ -1453,7 +1445,7 @@ _description: _
 
 座標centerPointを中心する半径radiusの球があったと仮定し、ノードを経度longitude・緯度latitudeの座標に移動します。
 
-また、ノードの-z軸方向が座標centerPoint方向を向きます。
+また、ノードのグローバルの-z軸が座標centerPoint方向を向きます。
 
 
 
@@ -1493,7 +1485,7 @@ _description: _
 
 ノードcenterNodeを中心する半径radiusの球があったと仮定し、ノードを経度longitude・緯度latitudeの座標に移動します。
 
-また、ノードの-z軸方向がノードccenterNode方向を向きます。
+また、ノードのグローバルの-z方向がノードccenterNode方向を向きます。
 
 
 
@@ -1531,7 +1523,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのローカルの向きを+Y軸方向を中心軸としてdegrees度回転します。
+ノードのローカルの向きを+Y方向を中心軸としてdegrees度回転します。
 
 
 
@@ -1645,7 +1637,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのローカルの向きを+Z軸方向を中心軸としてdegrees度回転します。
+ノードのローカルの向きを+Z方向を中心軸としてdegrees度回転します。
 
 
 
@@ -2337,7 +2329,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのローカルの向きを+X軸方向を中心軸としてdegrees度回転します。
+ノードのローカルの向きを+X方向を中心軸としてdegrees度回転します。
 
 
 
@@ -2413,7 +2405,7 @@ _inlined_description: _
 
 _description: _
 
-ノードのローカル座標を+X軸方向にamount分移動します。
+ノードのローカル座標を+X方向にamount分移動します。
 
 
 
@@ -2451,7 +2443,7 @@ _inlined_description: _
 
 _description: _
 
-
+ofNodeのデストラクタです。
 
 
 
