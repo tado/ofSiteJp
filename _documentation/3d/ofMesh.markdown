@@ -16,36 +16,38 @@ _istemplated: False_
 
 ##Description
 
-An ofMesh represents a set of vertices in 3D spaces, and normals at those points, colors at those points, and texture coordinates at those points. Each of these different properties is stored in a vector. 
-Vertices are passed to your graphics card and your graphics card fill in the spaces in between them in a processing usually called the rendering pipeline. The rendering pipeline goes more or less like this:
+ofMeshは3D空間の頂点と、各頂点の法線・頂点色・テクスチャ座標の集まりを表します。これらのプロパティは、vectorに保持されます。
 
-1. Say how you're going to connect all the points.
+頂点情報はグラフィックカードに渡され、グラフィックカードはレンダリングパイプラインと呼ばれるプロセスで各頂点間の空間を描画します。レンダリングパイプラインは大体以下のように動作します。
 
-2. Make some points.
+1. 頂点同士の繋ぎ方を決める。
+2. 頂点をいくつか作る。
+3. 頂点の作成を終了する。
 
-3. Say that you're done making points.
+8つ頂点を作れば立方体を作れるのだろう、と思うかもしれません。しかし、実際はそれほど簡単ではありません。OpenGLレンダラーは頂点同士の繋ぎ方を複数用意していますが、どれも8つの頂点だけで立方体を作ってくれるほど賢くありません。
 
-You may be thinking: I'll just make eight vertices and voila: a cube. Not so quick. There's a hitch and that hitch is that the OpenGL renderer has different ways of connecting the vertices that you pass to it and none are as efficient as to only need eight vertices to create a cube. 
-
-You've probably seen a version of the following image somewhere before.
+以下のような画像をどこかで見たことはありませんか。
 ![PRIMATIVES](primitives_new-640x269.gif)
-Generally you have to create your points to fit the drawing mode that you've selected because of whats called winding. A vertex gets connected to another vertex in the order that the mode does its winding and this means that you might need multiple vertices in a given location to create the shape you want. The cube, for example, requires eighteen vertices, not the eight that you would expect. If you note the order of vertices in the GL chart above you'll see that all of them use their vertices slightly differently (in particular you should make note of the GL_TRIANGLE_STRIP example). Drawing a shape requires that you keep track of which drawing mode is being used and which order your vertices are declared in. 
+一般的に、これらの中から描画モードを選択してそのwinding規則に沿うように頂点を作らなくてはなりません。頂点はモードのwinding規則によって決められた順番で他の頂点と繋がります。
 
-If you're thinking: it would be nice if there were an abstraction layer for this you're thinking right. Enter the mesh, which is really just an abstraction of the vertex and drawing mode that we started with but which has the added bonus of managing the draw order for you. That may seem insignificant at first, but it provides some real benefits when working with complex geometry.
+これにより、求める形状をを作るために、同じ座標に複数の頂点が必要になる場合があります。例えば、立方体の場合は18個の頂点が必要です。8個ではありません。
 
-A very typical usage is something like the following:
+上図を見ると、各々で頂点の順番の付け方が少しずつ違うことが分かるはずです（特に、GL_TRIANGLE_STRIP）。正しく形状を描画するには、現在どの描画モードを選択しているのかと、その描画モードの頂点の順番を把握する必要があります。
+
+そんな面倒なことを考えずに描画する機能は無いのか？と思うでしょう。そこでメッシュの出番です。メッシュは、単に頂点情報と描画モードを抽象化しただけのものです。一見すると大した物では無いように見えるでしょうが、複雑な形状を扱う際は実に役立ちます。
+
+典型的な使用法は、以下のようなものです。
 
 ~~~~{.cpp}
 ofMesh mesh;
 for (int y = 0; y < height; y++){
 	for (int x = 0; x<width; x++){
-		mesh.addVertex(ofPoint(x,y,0)); // make a new vertex
-		mesh.addColor(ofFloatColor(0,0,0));  // add a color at that vertex
-	}
+		mesh.addVertex(ofPoint(x,y,0)); // 頂点を作成する
+		mesh.addColor(ofFloatColor(0,0,0));  // 頂点色を設定	}
 }
 
-// now it's important to make sure that each vertex is correctly connected with the
-// other vertices around it. This is done using indices, which you can set up like so:	
+// 正しい形状にするには、各々の頂点を正しく接続しなくてはなりません。
+// それは、indices（頂点インデックスリスト）を用いて行われ、以下のように設定できます。 
 for (int y = 0; y<height-1; y++){
 	for (int x=0; x<width-1; x++){
 		mesh.addIndex(x+y*width);				// 0
@@ -97,7 +99,7 @@ _inlined_description: _
 _description: _
 
 
-This adds a color to the mesh, the color will be associated with the vertex in the same position.
+頂点色をメッシュの頂点色リストの末尾に追加します。頂点色は同じ位置の頂点に関連付けられます。
 
 
 
@@ -137,8 +139,7 @@ _inlined_description: _
 _description: _
 
 
-This adds colors using a reference to a vector of ofColors. For each color in the vector, this will put the colors at the corresponding vertex.
-
+頂点色（ofFloatColor）のリストをメッシュの頂点色リストの末尾に追加します。リスト中の各々のofFloatColorが、対応する頂点の頂点色として追加されます。
 
 
 
@@ -177,7 +178,9 @@ _inlined_description: _
 _description: _
 
 
-This adds a pointer of colors to the ofMesh instance with the amount passed as the second parameter.
+頂点色（ofFloatColor）の配列をメッシュの頂点色リストの末尾に追加します。
+
+配列ポインタで指定するので、引数``amt``に配列の要素数をセットする必要があります。
 
 
 
@@ -216,8 +219,12 @@ _inlined_description: _
 
 _description: _
 
+頂点インデックスを、メッシュの頂点インデックスリストの末尾に追加します。
 
-Add an index to the index vector. Each index represents the order of connection for  vertices. This determines the way that the vertices are connected according to the polygon type set in the primitiveMode. It important to note that a particular vertex might be used for several faces and so would be referenced several times in the index vector.
+頂点インデックスは頂点の接続順を表します。頂点インデックスリストとofPrimitiveModeで設定されたプリミティブモードによって、頂点同士の繋ぎ方が決まります。
+
+重要：頂点インデックスリストに同じ頂点を複数回追加することもできます。（同じ頂点が複数の面で使用されることがあるため）
+
 ~~~~{.cpp}
     ofMesh mesh;
     mesh.setMode(OF_PRIMITIVE_TRIANGLES);
@@ -225,15 +232,15 @@ Add an index to the index vector. Each index represents the order of connection 
     mesh.addVertex(ofPoint(200, 0, 0 ));
     mesh.addVertex(ofPoint(-200, 0, 0 ));
     mesh.addVertex(ofPoint(0, 200, 0 ));
-    mesh.addIndex(0); //connect the first vertex we made, v0
-    mesh.addIndex(1); //to v1
-    mesh.addIndex(2); //to v2 to complete the face
-    mesh.addIndex(1); //now start a new face beginning with v1
-    mesh.addIndex(2); //that is connected to v2
-    mesh.addIndex(3); //and we complete the face with v3
+    mesh.addIndex(0); //面の最初の頂点v0を
+    mesh.addIndex(1); //頂点v1に繋ぎ、
+    mesh.addIndex(2); //頂点v2に繋いで面を完成させる
+    mesh.addIndex(1); //新しい面を作成。面の最初の頂点v1を
+    mesh.addIndex(2); //頂点v2に繋ぎ、
+    mesh.addIndex(3); //頂点v3に繋いで面を完成させる
 ~~~~
 
-Will give you this shape:
+上記コードで以下の形状が作成されます。
 ![image of basic use of indices](index.jpg)
 
 
@@ -273,8 +280,7 @@ _inlined_description: _
 
 _description: _
 
-
-This adds a vector of indices.
+頂点インデックスのリストを頂点インデックスリストの末尾に追加します。
 
 
 
@@ -314,8 +320,9 @@ _inlined_description: _
 _description: _
 
 
-This adds indices to the ofMesh by pointing to an array of indices. The "amt" defines the length of the array.
+頂点インデックスの配列をメッシュの頂点インデックスリストの末尾に追加します。
 
+配列ポインタで指定するので、引数``amt``に配列の要素数をセットする必要があります。
 
 
 
@@ -354,8 +361,15 @@ _inlined_description: _
 _description: _
 
 
-Add a normal to the mesh as a 3D vector, typically perpendicular to the plane of the face. A normal is a vector that defines how a surface responds to lighting, i.e. how it is lit. The amount of light reflected by a surface is proportional to the angle between the light's direction and the normal. The smaller the angle the brighter the surface will look. See the normalsExample for advice on computing the normals.
-addNormal adds the 3D vector to the end of the list, so you need to make sure you add normals at the same index of the matching face.
+法線（3Dベクトル）をメッシュの法線リストの末尾に追加します（一般的には面に対して垂直なベクトルです）。
+
+法線は、ライティングの際に各々の面がどのように照らされるか等、光に対する反応を決めるベクトルです。
+
+面がどの程度光を反射するかは光の方向と法線の角度に比例し、角度が小さければ面はより明るくなります。
+
+法線の計算方法は、normalExampleを参照して下さい。
+
+addNormalメソッドは、法線リストの末尾に引数の3Dベクトルを追加します。法線を対応する面と同じインデックスに追加したことを確認して下さい。
 
 
 
@@ -395,7 +409,10 @@ _inlined_description: _
 _description: _
 
 
-Add a vector of normals to a mesh, allowing you to push out many normals at once rather than adding one at a time. The vector of normals is added after the end of the current normals list.
+法線のリストをメッシュの法線リストの末尾に追加します。
+
+複数の法線を一度に追加することができます。
+
 
 
 
@@ -434,9 +451,9 @@ _inlined_description: _
 
 _description: _
 
+法線の配列をメッシュの法線リストの末尾に追加します。
 
-Add an array of normals to the mesh. Because you are using a pointer to the array you also have to define the length of the array as an int (amt). The normals are added at the end of the current normals list.
-
+配列ポインタで指定するので、引数amtに配列の要素数をセットする必要があります。
 
 
 
@@ -475,7 +492,10 @@ _inlined_description: _
 _description: _
 
 
-Add a Vec2f representing the texture coordinate. Because OF uses ARB textures these are in pixels rather than 0-1 normalized coordinates.
+テクスチャ座標（Vec2f）をメッシュテクスチャ座標リストの末尾に追加します。
+
+OFはARBテクスチャを使用しているため、0〜1に正規化された座標ではなくピクセル座標を使用します。
+
 
 
 
@@ -515,7 +535,9 @@ _inlined_description: _
 _description: _
 
 
-Add a vector of texture coordinates to a mesh, allowing you to push out many at once rather than adding one at a time. The vector of texture coordinates is added after the end of the current texture coordinates list.
+テクスチャ座標のリストをメッシュのテクスチャ座標リストの末尾に追加します。
+
+複数のテクスチャ座標を一度に追加することができます。
 
 
 
@@ -555,7 +577,9 @@ _inlined_description: _
 _description: _
 
 
-Add an array of texture coordinates to the mesh. Because you are using a pointer to the array you also have to define the length of the array as an int (amt). The texture coordinates are added at the end of the current texture coordinates list.
+テクスチャ座標の配列をメッシュのテクスチャ座標リストの末尾に追加します。
+
+配列ポインタで指定するので、引数amtに配列の要素数をセットする必要があります。
 
 
 
@@ -595,7 +619,10 @@ _inlined_description: _
 _description: _
 
 
-Adding a triangle means using three of the vertices that have already been added to create a triangle. This is an easy way to create triangles in the mesh. The indices refer to the index of the vertex in the vector of vertices.
+三つの頂点インデックスを指定することで、指定した三頂点を持つ三角形をメッシュに追加します。
+
+簡単にメッシュに三角形を追加できるメソッドです。
+
 
 
 
@@ -635,7 +662,12 @@ _inlined_description: _
 _description: _
 
 
-Add a new vertex at the end of the current list of vertices. It is important to remember that the order the vertices are added to the list determines how they link they form the polygons and strips (assuming you do not change their indeces). See the ofMesh class description for details.
+メッシュの頂点リストの末尾に頂点を追加します。
+
+頂点インデックスを指定しない場合、頂点を追加する順番によってポリゴンや辺の頂点の繋がり方が決まります。
+
+詳細は、ofMeshのクラス説明を参照して下さい。
+
 
 
 
@@ -674,8 +706,9 @@ _inlined_description: _
 
 _description: _
 
+頂点のリストをメッシュの頂点リストの末尾に追加します。
 
-Add a vector of vertices to a mesh, allowing you to push out many at once rather than adding one at a time. The vector of vertices is added after the end of the current vertices list.
+複数の頂点を一度に追加することができます。
 
 
 
@@ -715,7 +748,9 @@ _inlined_description: _
 _description: _
 
 
-Add an array of vertices to the mesh. Because you are using a pointer to the array you also have to define the length of the array as an int (amt). The vertices are added at the end of the current vertices list.
+頂点の配列をメッシュの頂点リストの末尾に追加します。
+
+配列ポインタで指定するので、引数amtに配列の要素数をセットする必要があります。
 
 
 
@@ -755,7 +790,10 @@ _inlined_description: _
 _description: _
 
 
-Add the vertices, normals, texture coordinates and indices of one mesh onto another mesh. Everything from the refrenced mesh is simply added at the end of the current mesh's lists.
+指定したメッシュの頂点・法線・テクスチャ座標・頂点インデックスのリストをメッシュに追加します。
+
+各リストは、メッシュの各リストの末尾に追加されます。
+
 
 
 
@@ -785,7 +823,7 @@ _advanced: False_
 
 _inlined_description: _
 
-Returns an ofMesh representing an XYZ coordinate system. 
+
 
 
 
@@ -796,7 +834,7 @@ Returns an ofMesh representing an XYZ coordinate system.
 
 _description: _
 
-
+XYZ座標系を表現するofMeshを返します。
 
 
 
@@ -835,7 +873,9 @@ _inlined_description: _
 _description: _
 
 
-A helper method that returns a box made of triangles. The resolution settings for the width and height are optional (they are both set at a default of 2 triangles per side).
+直方体のメッシュを返すヘルパーメソッドです。各面は三角形の組み合わせで作られます。
+
+幅・高さ・奥行きの解像度の設定（resX, resY, resZ）は任意（デフォルトは2）です。
 ~~~~{.cpp}
 ofMesh mesh;
 mesh = ofMesh::box(200.0, 200.0, 200.0);
@@ -881,7 +921,7 @@ _inlined_description: _
 _description: _
 
 
-This removes all the vertices, colors, and indices from the mesh.
+メッシュの全ての頂点・頂点色・頂点インデックス・テクスチャ座標を削除します。
 
 
 
@@ -921,7 +961,7 @@ _inlined_description: _
 _description: _
 
 
-Clear all the colors.
+メッシュの全ての頂点色を削除します。
 
 
 
@@ -961,8 +1001,9 @@ _inlined_description: _
 _description: _
 
 
-Remove all the indices of the mesh. This means that your mesh will be a point cloud.
+メッシュの全ての頂点インデックスを削除します。
 
+これにより、メッシュは頂点のみが存在する状態になります。
 
 
 
@@ -1001,8 +1042,7 @@ _inlined_description: _
 _description: _
 
 
-Remove all the normals.
-
+メッシュの全ての法線を削除します。
 
 
 
@@ -1041,8 +1081,7 @@ _inlined_description: _
 _description: _
 
 
-Clear all the texture coordinates.
-
+メッシュの全てのテクスチャ座標を削除します。
 
 
 
@@ -1081,8 +1120,7 @@ _inlined_description: _
 _description: _
 
 
-Removes all the vertices.
-
+メッシュの全ての頂点を削除します。
 
 
 
@@ -1121,7 +1159,11 @@ _inlined_description: _
 _description: _
 
 
-A helper method that returns a cone made of triangles. The resolution settings for the radius, height, and cap are optional (they are set at a default of 12 segments around the radius, 6 segments in the height, and 2 on the cap). The only valid modes are the default OF_PRIMITIVE_TRIANGLE_STRIP and OF_PRIMITIVE_TRIANGLES.
+円錐のメッシュを返すヘルパーメソッドです。各面は三角形の組み合わせで作られます。
+
+円・高さ・底面の解像度の設定（radiusSegments, heightSegments, capSegments）は任意（円解像度のデフォルトは12、高さ解像度のデフォルトは6、底面解像度のデフォルトは2）です。
+
+有効なモードは、デフォルトのOF_PRIMITIVE_TRIANGLE_STRIPか又はOF_PRIMITIVE_TRIANGLESのみです。
 ~~~~{.cpp}
 ofMesh mesh;
 mesh = ofMesh::cone(100.0, 200.0);
@@ -1167,7 +1209,11 @@ _inlined_description: _
 _description: _
 
 
-A helper method that returns a cylinder made of triangles. The resolution settings for the radius, height, and cap are optional (they are set at a default of 12 segments around the radius, 6 segments in the height, and 2 on the cap). You have the option to cap the cylinder or not. The only valid modes are the default OF_PRIMITIVE_TRIANGLE_STRIP and OF_PRIMITIVE_TRIANGLES.
+円柱のメッシュを返すヘルパーメソッドです。各面は三角形の組み合わせで作られます。
+
+円・高さ・底面の解像度の設定（radiusSegments, heightSegments, numCapSegments）は任意（円解像度のデフォルトは12、高さ解像度のデフォルトは6、底面解像度のデフォルトは2）です。底面をつける否かはbCappedで設定できます。
+
+有効なモードは、デフォルトのOF_PRIMITIVE_TRIANGLE_STRIPか又はOF_PRIMITIVE_TRIANGLESのみです。
 ~~~~{.cpp}
 ofMesh mesh;
 mesh = ofMesh::cylinder(100.0, 200.0);
@@ -1213,8 +1259,7 @@ _inlined_description: _
 _description: _
 
 
-Disable mesh colors. Use enableColors() to turn colors back on.
-
+メッシュの頂点色を無効化します。enableColors()で再度有効化できます。
 
 
 
@@ -1253,7 +1298,7 @@ _inlined_description: _
 _description: _
 
 
-Disable mesh indices. Use enableIndices() to turn indices back on.
+メッシュの頂点インデックスを無効化します。enableIndices()で再度有効化できます。
 
 
 
@@ -1293,7 +1338,7 @@ _inlined_description: _
 _description: _
 
 
-Disable mesh normals. Use enableNormals() to turn normals back on.
+メッシュの法線を無効化します。enableNormals()で再度有効化できます。
 
 
 
@@ -1333,7 +1378,8 @@ _inlined_description: _
 _description: _
 
 
-Disable mesh textures. Use enableTextures() to turn textures back on.
+メッシュのテクスチャ座標を無効化します。enableTextures()で再度有効化できます。
+
 
 
 
@@ -1373,8 +1419,9 @@ _inlined_description: _
 _description: _
 
 
-This draws the mesh using its primitive type, meaning that if you set them up to be triangles, this will draw the triangles.
+setMode()で設定されたプリミティブモードでメッシュを描画します。
 
+つまり、三角形を用いるプリミティブモードであれば、三角形の組み合わせで描画します。
 
 
 
@@ -1413,7 +1460,9 @@ _inlined_description: _
 _description: _
 
 
-This draws the mesh using a defined renderType, overriding the renderType defined with setMode().
+指定されたレンダータイプ（ofPolyRenderMode）でメッシュを描画します。
+
+レンダータイプはsetMode()で設定されたプリミティブモードより優先されます。
 
 
 
@@ -1453,7 +1502,7 @@ _inlined_description: _
 _description: _
 
 
-This draws the mesh as faces, meaning that you'll have a collection of faces.
+メッシュを面の集まりとして描画します。
 
 
 
@@ -1493,7 +1542,9 @@ _inlined_description: _
 _description: _
 
 
-This allows you draw just the vertices, meaning that you'll have a point cloud.
+メッシュを頂点の集まりとして描画します。
+
+つまり、点のみが描画されます。
 
 
 
@@ -1533,8 +1584,9 @@ _inlined_description: _
 _description: _
 
 
-This draws the mesh as GL_LINES, meaning that you'll have a wireframe.
+メッシュを線の集まり（GL_LINES）として描画します。
 
+つまり、ワイヤフレームが描画されます。
 
 
 
@@ -1573,7 +1625,10 @@ _inlined_description: _
 _description: _
 
 
-Enable mesh colors. Use disableColors() to turn colors off. Colors are enabled by default when they are added to the mesh.
+メッシュの頂点色を有効化します。disableColors()で無効化できます。
+
+頂点色は、メッシュに追加された時点ではデフォルトで有効化されています。
+
 
 
 
@@ -1613,7 +1668,10 @@ _inlined_description: _
 _description: _
 
 
-Enable mesh indices. Use disableIndices() to turn indices off. Indices are enabled by default when they are added to the mesh.
+メッシュの頂点インデックスを有効化します。disableIndices()で無効化できます。
+
+頂点インデックスは、メッシュに追加された時点ではデフォルトで有効化されています。
+
 
 
 
@@ -1653,7 +1711,9 @@ _inlined_description: _
 _description: _
 
 
-Enable mesh normals. Use disableNormals() to turn normals off. Normals are enabled by default when they are added to the mesh.
+メッシュの法線を有効化します。disableNormals()で無効化できます。
+
+法線は、メッシュに追加された時点ではデフォルトで有効化されています。
 
 
 
@@ -1693,7 +1753,10 @@ _inlined_description: _
 _description: _
 
 
-Enable mesh textures. Use disableTextures() to turn textures off. Textures are enabled by default when they are added to the mesh.
+メッシュのテクスチャ座標を有効化します。disableTextures()で無効化できます。
+
+テクスチャ座標は、メッシュに追加された時点ではデフォルトで有効化されています。
+
 
 
 
@@ -1733,8 +1796,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a ofVec3f defining the centroid of all the vetices in the mesh.
-
+メッシュの全頂点の重心を返します。
 
 
 
@@ -1773,7 +1835,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the color at the index in the colors vector.
+指定されたインデックスの頂点色を返します。
 
 
 
@@ -1813,7 +1875,9 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the colors of the mesh, if it has any. Use this if you plan to change the colors as part of this call as it will force a reset of the cache.
+メッシュの頂点色リストを返します。
+
+このメソッドはキャッシュを強制的に初期化するので、頂点色を変更する場合のみこのメソッドを使ってください。
 
 
 
@@ -1853,7 +1917,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the colors of the mesh, if it has any. (read only)
+メッシュの頂点色リストを返します。（読み取り専用）
 
 
 
@@ -1893,7 +1957,10 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer that contains all of the colors of the mesh, if it has any. Use this if you plan to change the colors as part of this call as it will force a reset of the cache.
+メッシュの頂点色リストの配列ポインタを返します。
+
+このメソッドはキャッシュを強制的に初期化するので、頂点色を変更する場合のみこのメソッドを使ってください。
+
 
 
 
@@ -1933,7 +2000,8 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer that contains all of the colors of the mesh, if it has any. (read only)
+メッシュの頂点色リストの配列ポインタを返します。
+
 
 
 
@@ -1973,7 +2041,9 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the faces of the mesh. This isn't currently implemented.
+指定されたインデックスに対応する、メッシュの面を構成する頂点インデックスのリストを返します。
+
+※ 現在は未実装です。
 
 
 
@@ -2012,8 +2082,10 @@ _inlined_description: _
 
 _description: _
 
+メッシュの各面の法線のリストを返します。
 
-Returns a vector containing the calculated normals of each face in the mesh. As a default it only calculates the normal for the face as a whole but by setting (perVertex = true) it will return the same normal value for each of the three vertices making up a face.
+デフォルトでは面毎の法線のみを返しますが、設定(perVertex = true)により、面を構成する３頂点それぞれの法線を返します（法線のベクトルは3つとも同じです）。
+
 
 
 
@@ -2053,7 +2125,11 @@ _inlined_description: _
 _description: _
 
 
-Returns the index from the index vector. Each index represents the index of the vertex in the vertices vector. This determines the way that the vertices are connected into the polgoynon type set in the primitiveMode. 
+指定されたインデックスに対応する頂点インデックスを返します。
+
+各々の頂点インデックスは頂点リスト中の頂点のインデックスを示します。
+
+頂点インデックスは、頂点リストをプリミティブに変換するためにどのような順番で頂点同士を繋げるかを決めます。
 
 
 
@@ -2093,7 +2169,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the indices that the mesh contains.
+メッシュの頂点インデックスリストの配列ポインタを返します。
 
 
 
@@ -2133,7 +2209,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the indices that the mesh contains.
+メッシュの頂点インデックスリストの配列ポインタを返します。
 
 
 
@@ -2173,7 +2249,11 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the indices of the mesh, if it has any. Use this if you plan to change the indices as part of this call as it will force a reset of the cache.
+
+メッシュの頂点インデックスリストを返します。
+
+このメソッドはキャッシュを強制的に初期化するので、頂点インデックスを変更する場合のみこのメソッドを使ってください。
+
 
 
 
@@ -2213,7 +2293,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the indices of the mesh, if it has any. (read only)
+メッシュの頂点インデックスリストを返します。（読み取り専用）
 
 
 
@@ -2253,7 +2333,9 @@ _inlined_description: _
 _description: _
 
 
-Returns a mesh made up of a range of indices from startIndex to the endIndex. The new mesh includes the mesh mode, colors, textures, and normals of the original mesh (assuming any were added).  
+指定したインデックス範囲（startIndex〜endIndex）の頂点インデックスリストから新しいメッシュを作成して返します。
+
+新しいメッシュは元のメッシュのモード・頂点色・テクスチャ座標・法線を含みます。
 
 
 
@@ -2330,8 +2412,7 @@ _inlined_description: _
 
 _description: _
 
-
-Returns the primitive mode that the mesh is using.
+メッシュの現在のプリミティブモードを返します。
 
 
 
@@ -2371,7 +2452,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the normal at the index in the normals vector.
+指定されたインデックスに対応する法線を返します。
 
 
 
@@ -2411,8 +2492,9 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the normals of the mesh, if it has any. Use this if you plan to change the normals as part of this call as it will force a reset of the cache.
+メッシュの法線リストを返します。
 
+このメソッドはキャッシュを強制的に初期化するので、法線を変更する場合のみこのメソッドを使ってください。
 
 
 
@@ -2451,7 +2533,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the normals of the mesh, if it has any. (read only)
+メッシュの法線リストを返します。（読み取り専用）
 
 
 
@@ -2491,7 +2573,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the normals that the mesh contains.
+メッシュの法線リストの配列ポインタを返します。
 
 
 
@@ -2531,7 +2613,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the normals that the mesh contains.
+メッシュの法線リストの配列ポインタを返します。
 
 
 
@@ -2571,7 +2653,9 @@ _inlined_description: _
 _description: _
 
 
-Returns the size of the colors vector for the mesh. This will tell you how many colors are contained in the mesh.
+メッシュの頂点色リストの要素数を返します。
+
+メッシュが持つ頂点色の数を調べることができます。
 
 
 
@@ -2611,7 +2695,10 @@ _inlined_description: _
 _description: _
 
 
-Returns the size of the indices vector for the mesh. This will tell you how many indices are contained in the mesh.
+メッシュの頂点インデックスリストの要素数を返します。
+
+メッシュが持つ頂点インデックスの数を調べることができます。
+
 
 
 
@@ -2651,7 +2738,9 @@ _inlined_description: _
 _description: _
 
 
-Returns the size of the normals vector for the mesh. This will tell you how many normals are contained in the mesh.
+メッシュの法線リストの要素数を返します。
+
+メッシュが持つ法線の数を調べることができます。
 
 
 
@@ -2691,7 +2780,9 @@ _inlined_description: _
 _description: _
 
 
-Returns the size of the texture coordinates vector for the mesh. This will tell you how many texture coordinates are contained in the mesh.
+メッシュのテクスチャ座標リストの要素数を返します。
+
+メッシュが持つテクスチャ座標の数を調べることができます。
 
 
 
@@ -2731,7 +2822,10 @@ _inlined_description: _
 _description: _
 
 
-Returns the size of the vertices vector for the mesh. This will tell you how many vertices are contained in the mesh.
+メッシュの頂点リストの要素数を返します。
+
+メッシュが持つ頂点の数を調べることができます。
+
 
 
 
@@ -2771,7 +2865,10 @@ _inlined_description: _
 _description: _
 
 
-Returns the Vec2f representing the texture coordinate. Because OF uses ARB textures these are in pixels rather than 0-1 normalized coordinates.
+指定されたインデックスに対応するテクスチャ座標を返します。
+
+OFはARBテクスチャを使用しているため、0〜1に正規化された座標ではなくピクセル座標を返します。
+
 
 
 
@@ -2811,7 +2908,12 @@ _inlined_description: _
 _description: _
 
 
-Returns a vector of Vec2f representing the texture coordinates for the whole mesh. Because OF uses ARB textures these are in pixels rather than 0-1 normalized coordinates. Use this if you plan to change the texture coordinates as part of this call as it will force a reset of the cache.
+メッシュのテクスチャ座標リストを返します。
+
+OFはARBテクスチャを使用しているため、0〜1に正規化された座標ではなくピクセル座標を返します。
+
+このメソッドはキャッシュを強制的に初期化するので、テクスチャ座標を変更する場合のみこのメソッドを使ってください。
+
 
 
 
@@ -2851,7 +2953,10 @@ _inlined_description: _
 _description: _
 
 
-Returns a vector of Vec2f representing the texture coordinates for the whole mesh. Because OF uses ARB textures these are in pixels rather than 0-1 normalized coordinates. (read only)
+
+メッシュのテクスチャ座標リストを返します（読み取り専用）。
+
+OFはARBテクスチャを使用しているため、0〜1に正規化された座標ではなくピクセル座標を返します。
 
 
 
@@ -2891,7 +2996,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the texture coords that the mesh contains.
+メッシュのテクスチャ座標リストの配列ポインタを返します。
 
 
 
@@ -2931,7 +3036,9 @@ _inlined_description: _
 _description: _
 
 
-Get a pointer to the ofVec2f texture coordinates that the mesh contains.
+
+メッシュのテクスチャ座標リストの配列ポインタを返します。
+
 
 
 
@@ -2971,7 +3078,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the mesh as a vector of unique ofMeshFaces.
+メッシュを構成するofMeshFaceのリスト（重複無し）を返します。
 
 
 
@@ -3011,7 +3118,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the vertex at the index.
+インデックスに対応する頂点を返します。
 
 
 
@@ -3051,7 +3158,7 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the vertices of the mesh.
+メッシュの頂点リストを返します。
 
 
 
@@ -3091,7 +3198,8 @@ _inlined_description: _
 _description: _
 
 
-Returns the vector that contains all of the vertices of the mesh.
+メッシュの頂点リストを返します。
+
 
 
 
@@ -3131,7 +3239,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the vertices that the mesh contains.
+メッシュの頂点リストの配列ポインタを返します。
 
 
 
@@ -3171,7 +3279,7 @@ _inlined_description: _
 _description: _
 
 
-Returns a pointer to the vertices that the mesh contains.
+メッシュの頂点リストの配列ポインタを返します。
 
 
 
@@ -3211,7 +3319,7 @@ _inlined_description: _
 _description: _
 
 
-Whether the mesh has any colors.
+メッシュが頂点色を持つか否かを返します。
 
 
 
@@ -3251,7 +3359,7 @@ _inlined_description: _
 _description: _
 
 
-Whether the mesh has any indices assigned to it.
+メッシュが頂点インデックスを持つか否かを返します。
 
 
 
@@ -3291,7 +3399,7 @@ _inlined_description: _
 _description: _
 
 
-Whether the mesh has any normals.
+メッシュが法線を持つか否かを返します。
 
 
 
@@ -3331,8 +3439,7 @@ _inlined_description: _
 _description: _
 
 
-Whether the mesh has any textures assigned to it.
-
+メッシュがテクスチャ座標を持つか否かを返します。
 
 
 
@@ -3371,7 +3478,7 @@ _inlined_description: _
 _description: _
 
 
-Whether the mesh has any vertices.
+メッシュが頂点を持つか否かを返します。
 
 
 
@@ -3411,7 +3518,8 @@ _inlined_description: _
 _description: _
 
 
-If the colors of the mesh have changed, been added or removed.
+
+メッシュの頂点色が変更・追加・削除されたか否かを返します。
 
 
 
@@ -3451,7 +3559,7 @@ _inlined_description: _
 _description: _
 
 
-If the indices of the mesh have changed, been added or removed.
+メッシュの頂点インデックスが変更・追加・削除されたか否かを返します。
 
 
 
@@ -3491,7 +3599,7 @@ _inlined_description: _
 _description: _
 
 
-If the normals of the mesh have changed, been added or removed.
+メッシュの法線が変更・追加・削除されたか否かを返します。
 
 
 
@@ -3531,7 +3639,7 @@ _inlined_description: _
 _description: _
 
 
-If the texture coords of the mesh have changed, been added or removed.
+メッシュのテクスチャ座標が変更・追加・削除されたか否かを返します。
 
 
 
@@ -3571,7 +3679,7 @@ _inlined_description: _
 _description: _
 
 
-If the vertices of the mesh have changed, been added or removed.
+メッシュの頂点が変更・追加・削除されたか否かを返します。
 
 
 
@@ -3687,11 +3795,11 @@ _inlined_description: _
 _description: _
 
 
-Loads a mesh from a file located at the provided path into the mesh.
-This will replace any existing data within the mesh.
+指定したパスのファイルからメッシュ情報を読み込みます。
 
-It expects that the file will be in the [PLY Format](http://en.wikipedia.org/wiki/PLY_(file_format)).
-It will only load meshes saved in the PLY ASCII format; the binary format is not supported. 
+これにより、メッシュの既存情報が全て上書きされます。
+
+ファイルは[PLY Format](http://en.wikipedia.org/wiki/PLY_(file_format))で記述されている必要があります。また、PLY ASCIIフォーマットのみサポートしています（バイナリフォーマットはサポートしていません）。
 
 
 
@@ -3769,8 +3877,7 @@ _inlined_description: _
 _description: _
 
 
-This creates the mesh, using OF_PRIMITIVE_TRIANGLES and without any initial vertices.
-
+メッシュをOF_PRIMITIVE_TRIANGLESモードで作成します（初期状態では頂点を持ちません）。
 
 
 
@@ -3809,7 +3916,12 @@ _inlined_description: _
 _description: _
 
 
-This allows to you to use one of the other ofPrimitiveModes: OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_TRIANGLE_STRIP, OF_PRIMITIVE_TRIANGLE_FAN, OF_PRIMITIVE_LINES, OF_PRIMITIVE_LINE_STRIP, OF_PRIMITIVE_LINE_LOOP, OF_PRIMITIVE_POINTS. See [ofGLUtils](../gl/ofGLUtils.htm) for more information on these types.
+メッシュを指定したプリミティブモード（OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_TRIANGLE_STRIP, OF_PRIMITIVE_TRIANGLE_FAN, OF_PRIMITIVE_LINES, OF_PRIMITIVE_LINE_STRIP, OF_PRIMITIVE_LINE_LOOP, OF_PRIMITIVE_POINTS）で作成します。
+
+モードの詳細は、[ofGLUtils](../gl/ofGLUtils.htm)を参照してください。
+
+また、頂点リストvertsをメッシュの初期状態の頂点リストとして設定します。
+
 
 
 
@@ -3887,7 +3999,7 @@ _inlined_description: _
 _description: _
 
 
-Remove a color at the index in the colors vector.
+指定したインデックスの頂点色を削除します。
 
 
 
@@ -3927,7 +4039,7 @@ _inlined_description: _
 _description: _
 
 
-Removes an index.
+指定したインデックスの頂点インデックスを削除します。
 
 
 
@@ -3967,7 +4079,7 @@ _inlined_description: _
 _description: _
 
 
-Remove a normal.
+指定したインデックスの法線を削除します。
 
 
 
@@ -4007,7 +4119,7 @@ _inlined_description: _
 _description: _
 
 
-Remove a Vec2f representing the texture coordinate.
+指定したインデックスのテクスチャ座標を削除します。
 
 
 
@@ -4047,7 +4159,7 @@ _inlined_description: _
 _description: _
 
 
-Removes the vertex at the index in the vector.
+指定したインデックスの頂点を削除します。
 
 
 
@@ -4087,15 +4199,13 @@ _inlined_description: _
 _description: _
 
 
-Saves the mesh at the passed path in the [PLY Format](http://en.wikipedia.org/wiki/PLY_(file_format)).
+指定されたパスにメッシュを[PLY Format](http://en.wikipedia.org/wiki/PLY_(file_format))で保存します。
 
-There are two format options for PLY: a binary format and an ASCII format.
-By default, it will save using the ASCII format. 
-Passing ``true`` into the ``useBinary`` parameter will save it in the binary format.
+PLYにはバイナリフォーマットとASCIIフォーマットの二種類のフォーマットオプションた用意されています。デフォルトでは、ASCIIフォーマットで保存します。``useBinary``引数に``true``をセットすることで、バイナリフォーマットで保存されます。
 
-If you're planning on reloading the mesh into ofMesh, ofMesh currently only supports loading the ASCII format.
+もしメッシュを再度ofMeshに読み込む場合、現在はASCIIフォーマットの読み込みしかサポートされていません。
 
-For more information, see the [PLY format specification](http://paulbourke.net/dataformats/ply/).
+さらに詳しい情報は、[PLY format specification](http://paulbourke.net/dataformats/ply/)を参照してください。
 
 
 
@@ -4135,7 +4245,7 @@ _inlined_description: _
 _description: _
 
 
-Set the color at the index in the colors vector.
+指定したインデックスの頂点色に``c``をセットします。
 
 
 
@@ -4251,7 +4361,7 @@ _inlined_description: _
 _description: _
 
 
-This sets the index at i.
+指定したインデックスの頂点インデックスに``i``をセットします。
 
 
 
@@ -4291,7 +4401,9 @@ _inlined_description: _
 _description: _
 
 
-Allows you to set the ofPrimitiveMode. The available modes are OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_TRIANGLE_STRIP, OF_PRIMITIVE_TRIANGLE_FAN, OF_PRIMITIVE_LINES, OF_PRIMITIVE_LINE_STRIP, OF_PRIMITIVE_LINE_LOOP, OF_PRIMITIVE_POINTS 
+メッシュのプリミティブモードを設定します。
+
+有効なモードは、OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_TRIANGLE_STRIP, OF_PRIMITIVE_TRIANGLE_FAN, OF_PRIMITIVE_LINES, OF_PRIMITIVE_LINE_STRIP, OF_PRIMITIVE_LINE_LOOP, OF_PRIMITIVE_POINTSです。
 
 
 
@@ -4445,7 +4557,7 @@ _inlined_description: _
 _description: _
 
 
-Allow you to set up the indices automatically when you add a vertex.
+頂点を追加した後にこのメソッドを呼ぶと、自動的に頂点インデックスが設定されます。
 
 
 
