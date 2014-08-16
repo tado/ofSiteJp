@@ -1,3 +1,5 @@
+#coding:utf-8
+
 #class ofMesh
 
 
@@ -27,7 +29,9 @@ ofMeshは3D空間の頂点と、各頂点の法線・頂点色・テクスチャ
 8つ頂点を作れば立方体を作れるのだろう、と思うかもしれません。しかし、実際はそれほど簡単ではありません。OpenGLレンダラーは頂点同士の繋ぎ方を複数用意していますが、どれも8つの頂点だけで立方体を作ってくれるほど賢くありません。
 
 以下のような画像をどこかで見たことはありませんか。
+
 ![PRIMATIVES](primitives_new-640x269.gif)
+
 一般的に、これらの中から描画モードを選択してそのwinding規則に沿うように頂点を作らなくてはなりません。頂点はモードのwinding規則によって決められた順番で他の頂点と繋がります。
 
 これにより、求める形状をを作るために、同じ座標に複数の頂点が必要になる場合があります。例えば、立方体の場合は18個の頂点が必要です。8個ではありません。
@@ -47,13 +51,13 @@ for (int y = 0; y < height; y++){
 }
 
 // 正しい形状にするには、各々の頂点を正しく接続しなくてはなりません。
-// それは、indices（頂点インデックスリスト）を用いて行われ、以下のように設定できます。 
+// それは、indices（頂点インデックスリスト）を用いて行われ、以下のように設定できます。
 for (int y = 0; y<height-1; y++){
 	for (int x=0; x<width-1; x++){
 		mesh.addIndex(x+y*width);				// 0
 		mesh.addIndex((x+1)+y*width);			// 1
 		mesh.addIndex(x+(y+1)*width);			// 10
-		
+
 		mesh.addIndex((x+1)+y*width);			// 1
 		mesh.addIndex((x+1)+(y+1)*width);		// 11
 		mesh.addIndex(x+(y+1)*width);			// 10
@@ -880,7 +884,7 @@ _description: _
 ofMesh mesh;
 mesh = ofMesh::box(200.0, 200.0, 200.0);
 ~~~~
- 
+
 ![image of a simple box](box.jpg)
 
 
@@ -1168,7 +1172,7 @@ _description: _
 ofMesh mesh;
 mesh = ofMesh::cone(100.0, 200.0);
 ~~~~
- 
+
 ![image of a simple cone](cone.jpg)
 
 
@@ -1218,7 +1222,7 @@ _description: _
 ofMesh mesh;
 mesh = ofMesh::cylinder(100.0, 200.0);
 ~~~~
- 
+
 ![image of a simple cylinder](cylinder.jpg)
 
 
@@ -5261,4 +5265,3 @@ _description: _
 
 
 <!----------------------------------------------------------------------------->
-
