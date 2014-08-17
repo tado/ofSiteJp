@@ -1,7 +1,7 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="/_templates/markdown.mako" />
 
-Visual Studioセットアップガイド
+Visual Studio Setup Guide
 =========================
 
 これは、Visual Studio 2012を使って作業したい人のためのセットアップの解説です。Express for Windows Desktopも、含まれています。
@@ -13,13 +13,13 @@ Visual Studioセットアップガイド
 
 [ExpressのWebサイト][0]に移動して、ExpressエディションのVisual Studioコンパイラーをダウンロードします。
 
-![vs_download](vs_download.png)  
+![vs_download](vs_download.png)
 
 インストール
 -------
 インストーラを実行して、デフォルトの設定でインストールします。
 
-![vs_install](vs_install.png)  
+![vs_install](vs_install.png)
 
 アップデート
 ------
