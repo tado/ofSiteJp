@@ -3,50 +3,55 @@
 
 linux eclipse
 =============
-**Note**: see the [FAQ](#faq) at the bottom of this page if you're having trouble.
 
-This guide describes how to get started with openframeworks using Eclipse as IDE. Eclipse is very powerful, however it is a complex and somewhat resource heavy environment. If you are new and/or want to get started quickly, try using the [code::blocks environment][15] first.
+**注意** : 何かトラブルに遭遇したら、最後にある[FAQ](#faq)を参照してください。
 
-This guide was tested on Ubuntu 12.10 64 bit installation with Eclipse Juno(4.2 SR1) and the openFrameworks version of_v0073 for 64bit. Eclipse specific steps may apply to other platforms. 
+このガイドは、EclipseをIDEとしてopenFrameworksを使用し始める方法について解説しています。Eclipseはとてもパワフルです。その反面、複雑で若干リソースが重い環境です。もし、新規ユーザ、もしくは素早く開発を始めたいのなら、[Code::Blocks][15]版から始めると良いでしょう。
 
-To use it you will need Eclipse for C++ and openframeworks.
+このガイドは、Ubuntu 12.10 64bit版で、Eclipse Juno(4.1 SR1)、openFrameworksのv0073の64bit版でテストしました。Eclipse特有の作業手順は、他のプラットフォームでも適用可能でしょう。
 
-Summary
+使用するには、Eclipse for C++とopenFrameoworksが必要です。
+
+要約
 -------
-The main steps are:
 
-- Install Eclipse.
-- Download openFrameworks either from the download page, or clone from git.
-- Create a new project using the projectGenerator tool.
-- Import the openFrameworks projects into Eclipse.
-- Import the new project into Eclipse.
-- Set the new project properties to find referenced source.
-- Set the new project build targets to allow debugging.
-- Add some code to the new project to check that code complete works.
-- Debug the new project to check that debug build works.
+主な作業手順は以下のとおり :
 
+- Eclipseのインストール
+- ダウンロードページ、もしくはgitのクローンから、openFrameworksをダウンロード
+- Project Generatorで、新規プロジェクトを生成
+- openFrameworksのプロジェクトを、Eclipseにインポート
+- 新規プロジェクトのインポート
+- 参照されているソースを探すためのプロパティーを新規プロジェクトに設定
+- デバッグ用に、新規ビルドターゲットを追加
+- プログラムが正しく動いているかチェックするためのコードをプロジェクトに追加
+- デバッグビルドが機能しているかデバッグして確認
 
-Installation
+インストール
 ------------
 
-**a) Eclipse**: Download the C/C++ edition for your platform from the [downloads section on the Eclipse website][11].
+**a) Eclipse**: (EclipseのWebサイトのダウンロードペー)[11]から、使用しているプラットフォーム向けのC/C++エディションをダウンロードする。
 
 ![download Eclipse][01downloadEclipse]
 
-These instructions currently use Eclipse Juno 4.2 SR1.
+この説明は、Eclipse Juno 4.2 SR1.を使用しています。
 
-There are installation [instructions on the eclipse site][1]. You need the official Sun/Oracle version of Java to use eclipse. The Java installation instructions for ubuntu referenced on this page are old and for this installation [these instructions][12] were used. For more ubuntu specific information on how to install eclipse look at the this [question and answer][13] and an [this page which shows where to put executables and how to make a launch icon][14].
+[Eclipseのサイト][1]に、インストールの解説があります。Sun/Oracleの公式版のJavaがEclipseには必要です。このページで参照されている、UbuntuへのJavaのインストール解説は古く、[こちらのインストール解説][12]が使用されています。よりUbuntuに特化したEclipseのインストール情報は、[質問と回答][13]そして[このページのどこに実行ファイルを置いて起動アイコンを生成するか][14]に掲載されています。
 
 
-**b) openFrameworks for linux package**: Download it from the [openFrameworks downloads page][4].
+**b) openFrameworks for linux package**: [openFrameworksのダウンロードページ][4]からダウンロード。
 
-You may also check out the openFrameworks source from [GitHub (under master branch)][9].
+[Githubのマスターブランチ][9]からチェックアウトすることも可能です。
 
-- in the scripts/linux folder inside the openFrameworks package you will find a directory with the name of your distribution. There are 2 scripts, install_codeblocks.sh and install_dependencies.sh. You only need to run install_dependencies.sh. Don&#8217;t execute it from the desktop, as it needs root privileges to run, you will need to run it from a terminal. You can execute it more than once without problem if something goes wrong. If you update your openFrameworks version, execute install_dependencies.sh script again. If you are using the tar-zipped downloaded version of openframeworks, at this point, you should be able to build the examples using the makefile from the command line.  If you are using the GitHub version you will have to generate the example projects using projectGenerator if you want to run them.
+- openFrameworksパッケージの script/linix フォルダの下に、ディストリビューションの名前がつけられたディレクトリがあります。その中には install_codeblocks.sh、install_dependencies.sh という2つのスクリプトが入っています。必要なのは、install_dependencies.sh のみです。root権限が必要となるため、デスクトップから起動するのは避けて、ターミナルから起動するようにします。もし、おかしなことがあれば、複数回実行することも問題ありません。もし、openFrameworksのバージョンを上げた場合は、install_dependencies.sh を再度実行してください。もし、tar+zipで圧縮されたダウンロードバージョンのopenFrameworksを使用している場合、コマンドラインからmakefileを使用してサンプルをビルドすることが可能です。Github版を使用している場合には、必要であれば、projectGeneratorを使用して、サンプルを生成しなくてはなりません。
 
-On Ubuntu the exact steps are as follows:
 
-__Ubuntu:__ 
+Ubuntuでの正確な手順は、以下のようになります :
+
+
+__Ubuntu:__
+
+- 
 
 - open a terminal. If you are using unity click on the Dash icon and type term then choosing the appropriate application.
 
@@ -68,9 +73,9 @@ __Ubuntu:__
         make
         cd bin
         ./polygonExample
-    
 
-**c) Start Eclipse**: 
+
+**c) Start Eclipse**:
 
 Depending on where you installed eclipse you can start it from the terminal or if you made a launcher icon start it from there. The terminal command may look like this:
 
@@ -81,7 +86,7 @@ You will see a pop up asking you what workspace to use. Just point it to the def
 ![workspace launcher][01workspaceLauncher]
 
 
-**d) Import openFrameworks into Eclipse:** 
+**d) Import openFrameworks into Eclipse:**
 
 File \> Import and select General \> Existing projects in the workspace...
 
@@ -89,7 +94,7 @@ File \> Import and select General \> Existing projects in the workspace...
 ![import projects 2][02importProjects]
 
 Import in this order:
- 
+
 - openFrameworks/libs
 - openFrameworks/libs/openFrameworks
 - openFrameworks/addons/
@@ -100,10 +105,10 @@ Run \> External Tools \> External Tools Configuration
 
 ![add external tool 1][01externalTool]
 
-Set the Location to 
+Set the Location to
         /home/ofUser/of_v0073_linux64_release/apps/projectGenerator/projectGeneratorSimple/bin/projectGeneratorSimple
 
-Set the Working directory to 
+Set the Working directory to
         /home/ofUser/of_v0073_linux64_release/apps/projectGenerator/projectGeneratorSimple/bin
 
 ![add external tool 2][02externalTool]
@@ -123,7 +128,7 @@ Fill in the info for your test project
 
 **g) Import the test project**
 
-In eclipse import the test project. You can right-click on the project explorer tab or choose 
+In eclipse import the test project. You can right-click on the project explorer tab or choose
 
 File \> Import then make sure to choose C/C++ Existing code as makefile project
 
@@ -132,7 +137,7 @@ File \> Import then make sure to choose C/C++ Existing code as makefile project
 
 **h) Set test project references**
 
-Add the references to openFrameworks in the project so that source code is visible in the test code. 
+Add the references to openFrameworks in the project so that source code is visible in the test code.
 
 Right click on the test project in the project browser and choose Properties. Choose C/C++ Generatl and choose the References tab. Then select both the addons and the openFrameworks projects.
 
@@ -140,11 +145,11 @@ Right click on the test project in the project browser and choose Properties. Ch
 
 **i) Add test project debug settings**
 
-The openframeworks project makefile uses the argument "Debug" to compile the code with the correct symbols to allow debugging. The executable it generates for debug ends with _debug. e.g. 
+The openframeworks project makefile uses the argument "Debug" to compile the code with the correct symbols to allow debugging. The executable it generates for debug ends with _debug. e.g.
 
-        test_debug 
+        test_debug
 
-instead of just 
+instead of just
 
         test
 
@@ -182,9 +187,9 @@ Activate a breakpoint in the new code by Right-click in the margin and choosing 
 Notes
 -----
 
-- Data files should go in bin/data. 
+- Data files should go in bin/data.
 
-- Sometimes there are unresolved symbols which look like bugs, red squiggles. The project still compiles and runs correctly. This happens if Eclipse is confused about which symbols it should use. 
+- Sometimes there are unresolved symbols which look like bugs, red squiggles. The project still compiles and runs correctly. This happens if Eclipse is confused about which symbols it should use.
 
 - You can see the output of the compiler and of the ofLog commands in the Console tab.
 
@@ -244,5 +249,3 @@ For openFrameworks/addons/ save [this file][addonsProjectFile] as .project file.
 [02addCode]: 02addCode.png
 [03addCode]: 03addCode.png
 [01debugTestProject]: 01debugTestProject.png
-
-
