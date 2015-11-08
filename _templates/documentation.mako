@@ -9,6 +9,16 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="${bf.config.site.url}/js/jquery.masonry.min.js"></script>
     <script src="${bf.config.site.url}/js/documentation_index.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43083059-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
   </head>
   <body>
     <div id="content">
@@ -21,12 +31,13 @@
                     <li><a href="/tutorials">tutorials</a></li>
                 </ul-->
 
-                <h1 class="documentation">reference</h1> <ul class="docsadvanced"><li><a href="/documentation" class="active">基本</a></li> <li><a href="/doxygen/annotated.html">応用</a></li> </ul>
+                
+                <h1 class="documentation">reference</h1> <ul class="docsadvanced"><li><a href="/documentation" class="active">basic</a></li> <li><a href="/doxygen/annotated.html">advanced</a></li> </ul>
             </div>  
 		    <div class="page-right-narrow">
-          <p>このページは、openFrameworksのコアとパッケージに含まれているアドオンに関するリファレンスです。第三者によるアドオンは、<a href="http://ofxaddons.com/">http://ofxaddons.com/</a>を参照してください。openFrameworksのAPIは常に発展しています、修正や機能の追加、コメントなどは大歓迎です!</p>
-			    <p><a href="http://openframeworks.cc/tutorials/developers/003_contributing_to_the_documentation.html">ドキュメンテーションの導入</a>のチュートリアルに従って、ドキュメンテーションに貢献することが可能です。</p>
-			    <p>このドキュメントは、最新版のリリース<strong>${bf.config.currentVersion}</strong>を参照しています。</p>
+			    <p>This page is the reference for the openFrameworks core and included addons. There are also <a href="http://ofxaddons.com/">contributed addons</a>. The openFrameworks API is constantly evolving: any corrections, additions or comments are very welcome!</p>
+			    <p>You can contribute to this documentation from GitHub by following the  <a href="/tutorials/developers/003_contributing_to_the_documentation.html">instructions in the documentation tutorial.</a> 
+			    <p>This documentation refers to the most recent release, version <strong>${bf.config.currentVersion}</strong>.</p>
 		    </div>
 	   </div>
 	   
