@@ -4,38 +4,41 @@
 <h1>download</h1>
 <div id="download-latest-header">
   <h2>${bf.config.currentVersion}</h2>
-  <p><strong>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも… ${bf.config.currentVersion}は、これまでの古いプロジェクトとは100%の互換性はありません。バージョン間の違いの一覧は、<a href="https://raw.github.com/openframeworks/openFrameworks/${bf.config.currentVersion}/CHANGELOG.md">更新履歴</a>を参照してください。</strong></p>
+  <h3>は最新のリリースです。様々な新機能や新しいインターフェイスが追加されています。もしかしたら新たなバグも… ${bf.config.currentVersion}は、これまでの古いプロジェクトとは100%の互換性はありません。バージョン間の違いの一覧は、<a href="https://raw.github.com/openframeworks/openFrameworks/${bf.config.currentVersion}/CHANGELOG.md">更新履歴</a>を参照してください。</strong></h3>
   <p>openFrameworksを使用するためにはIDE(統合開発環境)が必要です。また、実際に試していくにはプラットフォームごとのセットアップガイドが必要となるでしょう。もしバグをみつけたら<a href="http://github.com/openframeworks/openFrameworks/issues">問題点</a>のページに投稿してください。その他質問があれば、<a href="http://forum.openframeworks.cc">フォーラム</a>に投稿してください。openFrameworksは、<a href="../about/license.html">MITライセンス</a>で配布されています。</p>
 </div>
 
 <div id="download-bg-desktop">
     <div id="download-latest-platform">
-      <h2>osx</h2>
-      <h3>download<br/>openFrameworks for</h3>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_osx_release.zip">xcode</a></p><br/>
-      <h3>IDE setup guide</h3>
-      <p><a href="../setup/xcode">xcode</a></p>
+	    <h2>osx</h2>
+	    <h3>download<br/>openFrameworks for</h3>
+	    <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_osx_release.zip">osx</a></p><br/>
+	    <h3>IDE setup guides</h3>
+	    <p><a href="../setup/xcode">xcode</a></p>
+	    <p><a href="../setup/qtcreator">qt creator</a></p>
+	    <p><a href="../setup/emscripten">emscripten</a></p>
     </div>
 
     <div id="download-latest-platform">
-      <h2>linux</h2>
-      <h3>download<br/>openFrameworks for</h3>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_linux_release.tar.gz">code::blocks</a></p>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_linux64_release.tar.gz">code::blocks (64 bit)</a></p><br/>
-      <h3>IDE setup guide</h3>
-      <p><a href="../setup/linux-codeblocks">code::blocks</a></p>
-      <p><a href="../setup/linux-eclipse">eclipse</a></p>
+	    <h2>linux</h2>
+	    <h3>download<br/>openFrameworks for</h3>
+	    <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_linux_release.tar.gz">linux 32bit</a> / <a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_linux64_release.tar.gz">linux 64bit</a></p><br/>
+	    <h3>IDE setup guides</h3>
+	    <p><a href="../setup/linux-install">linux install</a></p>
+	    <p><a href="../setup/qtcreator">qt creator</a></p>
+	    <p><a href="../setup/linux-eclipse">eclipse</a></p>
+	    <p><a href="../setup/emscripten">emscripten</a></p>
     </div>
 
     <div id="download-latest-platform-last">
-      <h2>windows</h2>
-      <h3>download<br/>openFrameworks for</h3>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_win_cb_release.zip">code::blocks</a></p>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_vs_release.zip">visual studio</a></p><br/>
-      <h3>IDE setup guides</h3>
-      <p><a href="../setup/codeblocks">code::blocks</a></p>
-      <!--<p><a href="../setup/vs-2008">visual studio 2008</a></p>-->
-      <p><a href="../setup/vs">visual studio</a></p>
+	    <h2>windows</h2>
+	    <h3>download<br/>openFrameworks for</h3>
+	    <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_vs_release.zip">visual studio (2015)</a></p>
+	    <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_msys2_release.zip">qt creator / msys2</a></p><br/>
+	    <h3>IDE setup guides</h3>
+	    <p><a href="../setup/vs">visual studio</a></p>
+	    <p><a href="../setup/qtcreator">qt creator</a></p>
+	    <p><a href="../setup/msys2">msys2</a></p>
     </div>
 </div>
 
@@ -46,20 +49,21 @@
     </div>
 
     <div id="download-latest-platform">
-      <h2>ios</h2>
-      <p><em>osx only</em></p><br/>
-      <h3>download<br/>openFrameworks for</h3>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_ios_release.zip">xcode</a></p><br/>
-      <h3>IDE setup guide</h3>
-      <p><a href="../setup/iphone">xcode</a></p>
+	    <h2>ios</h2>
+	    <p><em>osx only</em></p><br/>
+	    <h3>download<br/>openFrameworks for</h3>
+	    <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_ios_release.zip">xcode</a></p><br/>
+	    <h3>IDE setup guide</h3>
+	    <p><a href="../setup/iphone">xcode</a></p>
     </div>
 
     <div id="download-latest-platform-last">
-      <h2>android</h2>
-      <h3>download<br/>openFrameworks for</h3>
-      <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_android_release.tar.gz">eclipse</a></p><br/>
-      <h3>IDE setup guide</h3>
-      <p><a href="../setup/android-eclipse">ADT</a></p>
+	    <h2>android</h2>
+	    <h3>download<br/>openFrameworks for</h3>
+	    <p><a href="http://www.openframeworks.cc/versions/v${bf.config.currentVersion}/of_v${bf.config.currentVersion}_android_release.tar.gz">android</a></p><br/>
+	    <h3>IDE setup guides</h3>
+	    <p><a href="../setup/android-eclipse">eclipse + ADT</a></p>
+	    <p><a href="../setup/android-studio">android studio</a></p>
     </div>
 </div>
 
@@ -91,13 +95,9 @@
 
 <br class="clearboth"/>
 
-openFrameworksはコンパイルされていない状態でライブラリとしてリリースしています。つまり、openFrameworksをダウンロードしてunzipしたら、以下のフォルダが展開されるはずです：「addons/」「/apps」「/libs」など。これらのフォルダにopenFrameworksの全てが含まれています。ですので、もし複数のバージョンのopenFrameworksを同時に保持していたいのであれば、複数のフォルダを作成して保存するだけです。例えば「openFrameworks007/」「openFrameworks0071/」というフォルダを一つずつ作成し、それぞれに「apps/」フォルダなどが含まれるようにします。もし新しいバージョンのopenFrameworksがリリースされたとしても、作成した古いバージョンのアプリケーションは、引き続き古いバージョンのopenFrameworksでコンパイル可能です。
+openFrameworksはコンパイルされていない状態でライブラリとしてリリースしています。つまり、openFrameworksをダウンロードしてunzipしたら、以下のフォルダが展開されるはずです：「addons/」「/apps」「/libs」など。これらのフォルダにopenFrameworksの全てが含まれています。ですので、もし複数のバージョンのopenFrameworksを同時に保持していたいのであれば、複数のフォルダを作成して保存するだけです。例えば「of_v0.9.0_osx_release/」「of_v0.8.4_osx_release/」というフォルダを一つずつ作成し、それぞれに「apps/」フォルダなどが含まれるようにします。もし新しいバージョンのopenFrameworksがリリースされたとしても、作成した古いバージョンのアプリケーションは、引き続き古いバージョンのopenFrameworksでコンパイル可能です。
 
-まず始めに「apps/examples/」からみていくと良いでしょう。たくさんのサンプルを通してopenFrameworksで何ができるのかがわかるでしょう。フォントのロード、グラフィクス、オーディオ入出力、サウンドファイルを再生しFFT解析、ビデオのキャプチャー、動画の再生、画像のロードと保存、イベントの取り扱い、シリアル接続などをデモしています。「apps/addonsExamples/」には、さらに多くのサンプルがあります。
-
-<br />
-
-バージョン0071では、さらにいくつかの新しいサンプルが追加されています：ポイントピッカー、ゲームイベント、クォータニオンによる配置、ポイント状のテクスチャ、など
+exampleフォルダーは、スタート地点としてうってつけです。exampleフォルダの中には、openFrameworksで可能な様々な実例が入っています。フォントのロード、グラフィクス、オーディオ入出力、サウンドファイルを再生しFFT解析、ビデオのキャプチャー、動画の再生、画像のロードと保存、イベントの取り扱い、シリアル接続などをデモしています。
 
 <div id="myslides">
   <img src="0.png" />
