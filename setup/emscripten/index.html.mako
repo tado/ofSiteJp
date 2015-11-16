@@ -1,55 +1,53 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="/_templates/markdown.mako" />
 
-emscripten setup
+emscriptenセットアップガイド
 ===========
 
-Have you ever made a project in openFrameworks and been like "This is awesome! I want to put it on my online portfolio!". You could always make a video or take photos, but what about the UI aspect of your project? How can people see the awesome mouse effects you made? Enter Emscripten. Emscripten translates your C++ code into Javascript code in a matter of minutes! So you can put your awesome OF project "on the line" in your portfolio.
+openFrameworksで作ったプロジェクトをWebで公開したいと思ったことはありませんか？いつもはビデオや写真を撮りますが、UIはどうでしょう？マウスを使ったエフェクトをどうやって見てもらいますか？そこで Emscripten の出番です。EmscriptenはあなたのC++コードをものの数分でJavaScriptに変換してくれるのです！あなたの作ったOFプロジェクトはポートフォリオに「すぐに」公開できます。
 
-These instruction will show you how to compile one example project in the openFrameworks distribution, and can be reused whenever you want to translate an openFrameworks sketch to a web page. Assuming that you have downloaded openFrameworks 0.9 (it works only with OF versions >= 0.9) you only have to install emscripten and compile a project with it. Here the instruction steb by step.
+このガイドではあなた自身のスケッチをWebページに変換したいときにいつでも再利用できるようなやり方で、openFrameworksのディストリビューションに含まれるexampleプロジェクトのひとつをコンパイルする方法を紹介します。すでにopenFrameworks 0.9をダウンロードしていれば（emscriptenはOFのバージョン0.9以上で動作します）、あとはemscriptenをインストールしてプロジェクトをコンパイルするだけです。ひとつずつ見ていきましょう。
 
-Install Emscripten
+Emscriptenのインストール
 ------------------
 
-Go at this [page](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html) and download the SDK for your Operating System
-If your are on windows, double click the `.exe` installer and follow the wizard.
-If you are on Mac or Linux, search for the `Portable Emscripten SDK for Linux and OS X`, click on it and start the download. Once the download is finished, unzip the folder, open a terminal there and run the followings commands:
+[このページ](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html)からあなたのOSに対応するSDKをダウンロードしてください。Windowsの場合、いずれかの`.exe`インストーラをダウンロードし、ダブルクリックしてウィザードに従います。MacとLinuxの場合、`Portable Emscripten SDK for Linux and OS X`を見つけてダウンロードします。ダウンロードが終わったらアーカイブを解凍して任意のディレクトリに展開し、ターミナルを開いて以下のコマンドを実行してください。
 
 ```bash
-# Fetch the latest registry of available tools.
+# 利用可能なツール群の最新のレジストリをフェッチする
 ./emsdk update
 
-# Download and install the latest SDK tools.
+# 最新のSDKをインストールする
 ./emsdk install latest
 
-# Make the "latest" SDK "active"
+# "latest"のSDKを有効にする
 ./emsdk activate latest
 ```
-the installation will take a while. When it is finished, type `source ./emsdk_env.sh` to set the system path to the active version of Emscripten. You can copy the output of this command and add it to your `.profile` file, in order to save this variables also for the next sessions.
 
-Compile an openFrameworks project using emscripten
+これには少し時間がかかります。終わったら`source ./emsdk_env.sh`と入力・実行してEmscriptenへのパスを通しましょう。次回のセッションのために、このコマンドが出力した変数群をコピーしてあなたの`.profile`ファイルに加えておくのもよいでしょう。
+
+emscriptenを使用してopenFrameworks プロジェクトをコンパイルする
 --------------------------------------
 
-Open the terminal in in one project in the examples folder, like `examples/3d/3DPrimitivesExample`, and compile the project using this command
+ターミナルを開いて任意のexampleフォルダ（例：`examples/3d/3DPrimitivesExample`）に移動したら、次のコマンドを使ってコンパイルします。
 
 ```bash
 emmake make
 ```
-
-Once the compilation is finished, there will be a new file in `examples/3d/3DPrimitivesExample/bin`, the `3DPrimitivesExample.html` file. Open this file with the command:
+コンパイルが終わると`examples/3d/3DPrimitivesExample/bin`フォルダの中に`3DPrimitivesExample.html`ができているはずです。次のコマンドでこのファイルを開いてください。
 
 ```bash
 emrun bin/3DPrimitivesExample.html
 ```
 
-If it does not work, it is probably because you are opening with safari, and safari does not support WebGL. Let's open it with another browser, like chrome
+WebGLに対応していないブラウザでは動作しません。その場合はChromeなどで開いてみましょう。
 
 ```bash
 emrun --browser chrome bin/3DPrimitivesExample.html
 ```
-If everything works, you should see this image
+
+すべて上手く動いていればこのような画面が見えるはずです。
 
 ![](3dprimitives.png)
 
-This Tutorial is taken from this [blog post](http://www.reginafloresmir.com/blog/2015/5/14/openframeworks-on-the-line) by Regine Flores Mir.
-
+このチュートリアルはRegine Flores Mirによる[こちらの記事](http://www.reginafloresmir.com/blog/2015/5/14/openframeworks-on-the-line)をもとにしました。
