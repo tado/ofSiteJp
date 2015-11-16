@@ -1,29 +1,44 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="/_templates/markdown.mako" />
 
-Visual Studio Setup Guide
+visual studioセットアップガイド
 =========================
 
-これは、Visual Studio 2012を使って作業したい人のためのセットアップの解説です。Express for Windows Desktopも、含まれています。
+これは、Visual Studio 2015を使って作業したい人のためのセットアップの解説です。Express for Windows Desktopも、含まれています。
 
 ダウンロード
 --------
 
-- [Visual Studio 2012 Express for Windows Desktopをダウンロード][0]
+- [Visual Studio Community 2015をダウンロード][0]
 
-[ExpressのWebサイト][0]に移動して、ExpressエディションのVisual Studioコンパイラーをダウンロードします。
+[Visual Studio][0]に移動して、Community editionのVisual Studio IDEをダウンロードします。
 
-![vs_download](vs_download.png)
+![](visual_studio_community.png)
 
 インストール
 -------
-インストーラを実行して、デフォルトの設定でインストールします。
+インストーラーを起動して、設定はデフォルトのままでインストールします。
 
-![vs_install](vs_install.png)
+![](vs_install.png)
 
-アップデート
-------
-もし、古いバージョンのopenFrameworksとVisual Studioで開発するのでれば、簡単に以降する助けになるスクリプトを用意しました。ここから[ダウンロード][1]して、プロジェクトフォルダにコピーして、実行します。
+ビデオ・コーデック
+-------
+openFrameworksの 0.9.0 からは、動画の再生にQuickTimeではなくDirectShowを使用しています。QuickTime形式や、MP4形式の動画に対応するには、使用しているマシンにビデオ・コーデック(Video Codec)をインストールする必要があります。
+私たちは、[K-Lite Codec Pack][1]を推奨しています。フリーでダウンロードでき、ほとんどの動画形式をサポートしています。しかし、多くのコーデックはアドウェアがバンドルされています。
+以下のリンクは、openFrameworksでテスト済みで、インストーラーがダウンロードする前に自動的にアドウェアを消去してくれます。
 
-[0]: http://www.microsoft.com/en-us/download/details.aspx?id=34673
-[1]: https://gist.github.com/LeoColomb/5284354/raw/0900e935b40ab5a45dce82e50561d9ae5511dfa6/migrationToVS2012.cmd
+- [https://ninite.com/klitecodecs/][2]
+
+Visual Studio向け、openFrameworksプラグイン
+---------------------------------------------------
+Visua Studioのメニューから、Tools > Extensions and Updates に行きます。online and search を選択して、「openFrameworks」で検索して、プラグインをインストールします。
+
+これにより、File > New > Project... メニューから、新規にopenFrameworksのプロジェクトが生成され、後からアドオンを追加したり消去するためのメニューが用意されます。
+
+さらに詳しい情報は、[Visual Studio Gallery page](https://visualstudiogallery.msdn.microsoft.com/77678909-81b8-494b-b75c-d97dd7a3eaa6) にあります。また、下記のビデオを参照してください。
+
+<iframe src="https://player.vimeo.com/video/143111085" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+[0]: https://www.visualstudio.com/
+[1]: https://en.wikipedia.org/wiki/K-Lite_Codec_Pack
+[2]: https://ninite.com/klitecodecs/
