@@ -26,13 +26,9 @@ Windows
 
 ビルドシステムはmsys2がデフォルトのディレクトリ（c:\msys64）にあることを期待します。もし他の場所にインストールされている場合はプロジェクトファイルの修正が必要になるかもしれません。
 
-msys2を利用してQt Creator使うには、メニューから**ツール > オプション**を開いて**ビルドと実行**メニューから**コンパイラ**タブを選択し、リストに**c:\msys64\mingw32\bin**がなければ追加します。**キット**タブへ移動し、
+msys2とともにQt Creatorを使うには、メニューから**ツール > オプション**を開いて**ビルドと実行**メニューから**コンパイラ**タブを選択し、コンパイラのリストに**c:\msys64\mingw32\bin**がなければ追加します。その後、**キット**タブへ移動してデスクトップキットがmsys2からgccを使用するように設定します。
 
-Some parts of the build system rely on msys2 being installed in the default folder: c:\msys64 and installing it somewhere else might need modifications to the project files.
-
-To use QtCreator with msys2 go to Qt Creator > Preferences > Build and Run > Compilers and if it's not there add a compiler that points to c:\msys64\mingw32\bin then in the Kits tab configure the Desktop Kit to use gcc from msys2.
-
-Once installed you can install the Qt Creator plugin for openFrameworks that comes with the OF download by copying the templates in scripts/qtcreator/templates to c:\Qt\qtcreator-3.5.1\share\qtcreator\templates.
+最後にscripts/qtcreator/templatesフォルダ内のテンプレートをc:\Qt\qtcreator-3.5.1\share\qtcreator\templatesにコピーしてopenFrameworksのためのQt Creatorプラグインをインストールしましょう。
 
 OSX
 ----
