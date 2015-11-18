@@ -4,24 +4,29 @@
 Qt Creator
 ==========
 
-Since version 0.9.0 we have support for Qt Creator in Linux, Windows and OSX. This guide is based on Qt Creator 3.5.1 and a different version might have different steps to follow or not work as expected.
+LinuxとWindows、そしてOSX向けに、バージョン0.9.0からQt Creatorに対応しました。このガイドはQt Creator 3.5.1をベースにしており、その他のバージョンでは手順が異なったり、期待通りに動かない可能性があります。
 
-You can download Qt Creator from: [http://www.qt.io/download-open-source/#section-6](http://www.qt.io/download-open-source/#section-6)
+Qt Creatorは以下のリンクからダウンロードすることができます。  
+[http://www.qt.io/download-open-source/#section-6](http://www.qt.io/download-open-source/#section-6)
 
 
 Linux
 -----
 
-Before using OF in linux you need to run some install scripts, follow the instructions [here](../linux-install/) if you haven't done so yet.
+LinuxでOFを使うためにはいくらか準備が必要です。まだセットアップが済んでいない場合は[こちらのガイド](../linux-install)を参照しながらおこなってください。
 
-In linux even if Qt Creator is available in the official repositories for your distributions, it's recommended to install qtcreator from their webpage instead. The one that comes with the distribution (at least in ubuntu) might be outdated and installing the one from the webpage you'll get support for the clang plugin which analizes the code while you type marking any errors more accurately than the default qtcreator static analizer. 
+LinuxでQt Creatorを使用する場合、ディストリビューションのリポジトリに存在するものよりもWebページで配布されているものをインストールすることをおすすめします。ディストリビューションから手に入るバージョン（少なくともUbuntu版）は古くなっている可能性がありますが、Webページからダウンロードできるバージョンでは、デフォルトの静的解析ツールに比べてより正確にエラー箇所を教えてくれるclangプラグインのサポートが得られます。
 
-Once installed you can install the Qt Creator plugin for openFrameworks that comes with the OF download, you can run the install_template.sh script in scripts/qtcreator and it'll install everything for you.
+いったんインストールが済めば、openFrameworks向けのQt Creatorプラグインのインストールができます。scripts/qtcreator 内にある install_template.sh を実行すれば必要なものがすべてインストールされるでしょう。
 
 Windows
 ----
 
-First of all you'll need to install msys2. Follow the instructions in the [setup guide for msys2](../msys2)
+まずはじめにmsys2をインストールする必要があります。[セットアップガイド](../msys2)を参照してください。
+
+ビルドシステムはmsys2がデフォルトのディレクトリ（c:\msys64）にあることを期待します。もし他の場所にインストールされている場合はプロジェクトファイルの修正が必要になるかもしれません。
+
+msys2を利用してQt Creator使うには、メニューから**ツール > オプション**を開いて**ビルドと実行**メニューから**コンパイラ**タブを選択し、リストに**c:\msys64\mingw32\bin**がなければ追加します。**キット**タブへ移動し、
 
 Some parts of the build system rely on msys2 being installed in the default folder: c:\msys64 and installing it somewhere else might need modifications to the project files.
 
@@ -32,25 +37,26 @@ Once installed you can install the Qt Creator plugin for openFrameworks that com
 OSX
 ----
 
-After installing QtCreator go to Qt Creator > Preferences > Build and Run and configure the Desktop Kit to use clang instead of gcc. If you can't change it from there, press manage or go to the Compilers tab and check that clang is available. You might need to add a custom config to be able to enable clang instead of GCC.
+Qt Creatorをインストールして起動したら、メニューバーから**Qt Creator > 設定（⌘+,）**を開きます。**ビルドと実行**メニューから**キット**タブを選択し、gccではなくclangを使用するよう設定をおこなってください。設定が変更できない場合は「管理」ボタンを押すか直接**コンパイラ**タブへ移動し、clangが有効になっているか確認します。場合によっては独自の設定を追加する必要があるかもしれません。
 
-Once installed you can install the Qt Creator plugin for openFrameworks that comes with the OF download, you can run the install_template.sh script in scripts/qtcreator and it'll install everything for you.
+いったんインストールが済めば、openFrameworks向けのQt Creatorプラグインのインストールができます。scripts/qtcreator 内にある install_template.sh を実行すれば必要なものがすべてインストールされるでしょう。
 
-All platforms
+すべてのプラットフォーム
 -------------
 
-Optionally you can enabled the Clang static analizer which is more accurate finding errors in the code while you type but it's also sometimes slower. To enable it, from qt's page:
+必要に応じてClangの静的解析ツールを有効にすることができます。これはコーディング中に正確にエラーを発見してくれるものですが、速度の低下につながることもあります。Qtのページから、これを有効化する手順を紹介します。
 
-Configuring Clang Code Model Plugin
+Clang コードモデル用プラグインの設定
 
-  - Select Help > About Plugins > C++ > ClangCodeModel to enable the plugin.
-  - Restart Qt Creator to be able to use the plugin.
-  - Select Tools > Options > C++ > Code Model, and select the parser to use for files of each type. (Set everything to Clang)
+  - メニューバーから **Qt Creator > プラグインについて...** を選択してプラグインの一覧を開き、**C++ > Clang Code Model** のチェックボックスを選択します。
+  - Qt Creatorを再起動します。
+  - メニューバーから **設定... > C++ > コードモデルの確認...** を開いて、すべてのオプションをClangに変更します。
 
-The openFrameworks plugin allows to create new projects and add official addons through a wizard, once the project is created you can edit the .qbs project file to easily add any new addons just by adding their name in the of.addons array.
+openFrameworksプラグインをインストールすると、ウィザードに従って新規プロジェクトの作成と公式アドオンの追加がおこなえます。プロジェクトを作成したあとは**.qbs**ファイル内にある**of.addons**という配列にアドオンの名前を加えることでそのアドオンを追加することができます。
 
-There's a second project type in the wizard that allows to create a project from existing code.
+また、既存のコードからプロジェクトを作成することも可能です。
 
-A project created in any platform will work right away in any of the other supported platforms
+あるプラットフォーム上で作成したプロジェクトは、サポートされるその他のプラットフォームでも動作するはずです。
+
 
 <iframe src="https://player.vimeo.com/video/142272907" width="1000" height="563" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
