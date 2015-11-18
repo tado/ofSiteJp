@@ -1,114 +1,108 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="/_templates/markdown.mako" />
 
-[openFrameworks](http://openframeworks.cc/) | [Documentation table of contents](table_of_contents.md)
+[openFrameworks](http://openframeworks.cc/) | [ドキュメント目次](table_of_contents.md)
 
 MSYS2
 =====
 
-Installing MSYS2 
+MSYS2のインストール 
 ----------------
 
-First, install MSYS2 using the [one-click installer](https://msys2.github.io/) or 
-directly unzipping the archive from their [repository](http://sourceforge.net/projects/msys2/files/Base/x86_64/)
+まず[公式ページ](https://msys2.github.io/)か[リポジトリ](http://sourceforge.net/projects/msys2/files/Base/x86_64/)からインストーラーをダウンロードしてインストールします。
 
-If you are going to use QtCreator you should install msys2 in the default install folder, c:\msys64
+Qt Creatorを使うつもりであれば、msys2はデフォルトの場所(c:\msys64)にインストールされている必要があります。
 
-Open a MSYS2 shell and update the system packages :
+インストールが済んだらMSYS2のシェルを起動してシステムパッケージを更新してください。
 
     pacman --noconfirm  --needed -Sy bash pacman pacman-mirrors msys2-runtime
 	
-Close the shell and open a new one to update the remaining packages :
+シェルを再起動し、残りのパッケージを更新します。
 
     pacman --noconfirm -Su
 
-You are now ready to install openFrameworks.	
+これでopenFrameworksをインストールする準備ができました。	
 
 
-Installing openFrameworks
+openFrameworksのインストール
 -------------------------
 
-Download and unzip the win_cb version of oF.
+qt creator / msys2版のoFをダウンロードして解凍してください。
 
-Open an MSYS shell and install OF dependencies:
+MSYSシェルを起動して依存関係のインストールをおこないます。
 
-    cd your_oF_directory/scripts/win_cb/msys2
+    cd your_oF_directory/scripts/msys2
     ./install_dependencies.sh`
+    
+**MINGW32シェル（MinGw-w64 Win32 Shell）**を起動してライブラリをコンパイルします。
 	
-Open an **MINGW32** shell and compile oF libraries:
-
 	cd your_oF_directory/libs/openFrameworksCompiled/project
     make
 
-You can speed-up compilation using parallel build `make -j4` or the number of cores you want it to use
+`make -j4`とすることで複数コアを使った並列ビルドも可能です(数字部分は使いたいコア数に応じて変更してください)。
 
 
-Setting the PATH variable
+PATH環境変数の設定
 -------------------------
-On MSYS2, openFrameworks needs the dlls that are provided by MSYS2 package manager `pacman`. The PATH variable tells the system where to look for these dlls. On Windows, the system starts to look into the executable folder, then into the folders defined in system PATH and finally into the folders defined in user PATH.
 
-You can find how to set the PATH in windows here: http://www.computerhope.com/issues/ch000549.htm
+MSYS2とともにopenFrameworksを使うためにはMSYS2のパッケージマネージャーである`pacman`が提供するいくつかのDLLが必要になります。PATH環境変数はDLLの場所をシステムに教えるためのものです。Windowsでは、実行ファイルはカレントディレクトリ、システム環境変数で定義されたPATH、ユーザー環境変数で定義されたPATHの順に探索されます。
 
-You'll need to add your_msys2_directory\mingw32\bin;your_msys2_directory\usr\bin to your PATH, which usually is:
+PATH環境変数の設定方法は[こちら](http://www.computerhope.com/issues/ch000549.htm)を参照してください。
 
-        c:\msys64\mingw32\bin;c:\msys64\usr\bin
-        
-You can also set the PATH from the command line: open a Windows cmd prompt and set you user PATH
+ここでは your_msys2_directory\mingw32\bin;your_msys2_directory\usr\bin をPATHに加える必要があります。これは通常
 
-        setx PATH "%PATH%;your_msys2_directory\mingw32\bin;your_msys2_directory\usr\bin;"
+	c:\msys64\mingw32\bin;c:\msys64\usr\bin
+	
+となるでしょう。
 
-If you have administrative privileges, you can directly set the system PATH. All users will benefit of it...
+コマンドラインから設定することもできます。コマンドプロンプトを起動してユーザーPATH環境変数を設定しましょう。
 
-That's all, now go to the your_oF_directory/examples folder, where you will find 
-the examples, and have fun! 
+	setx PATH "%PATH%;your_msys2_directory\mingw32\bin;your_msys2_directory\usr\bin;"
+	
+もし管理者権限を持っていればシステム環境変数の設定も可能です。この場合、すべてのユーザーが恩恵を受けることができるでしょう。
 
-Running examples
+これで完了です。まずはサンプルプロジェクトを楽しんでみてください！
+
+サンプルプロジェクトの実行
 ----------------
-Compile the example (for example the 3DPrimitivesExample)
+例として3DPrimitivesExampleをコンパイルしてみましょう。
 
     cd your_oF_directory/examples/3d/3DPrimitivesExample
     make
 
-At this point, `make run` or  double-click on the exe file to launch. 
+`make run`と打つかダブルクリックしてアプリケーションを起動してください。
 
 
 Makefile
 --------
 
-Every example has a Makefile you can configure using the files config.make
-and addons.make.
+すべてのサンプルプロジェクトにはMakefileがあり、config.makeファイルおよびaddons.makeファイルを使用して設定をおこなうことができます。
 
-config.make: This file has options to add search paths, libraries, etc., the 
-syntax is the usual syntax in makefiles, there's help comments inside the file.
+config.make: 一般的なMakefileの記法を使ってサーチパスやライブラリの追加をおこなうためのファイルです。ファイル内のコメントを参考にしてください。
 
-addons.make: if you want to use an addon which is inside the addons folder, just 
-add its name in a new line in this file.
+addons.make: アドオンを使いたい場合は、そのアドオンの名前をこのファイルに書き加えます。
 
 QtCreator
 ---------
 
-With msys2 you can also use QtCreator as an IDE, you can find more information in the corresponding [setup guide](../qtcreator):
+IDEとしてQt Creatorを使用することもできます。詳しくは[セットアップガイド](../qtcreator)を参照してください。
 
-FAQ / Common problems
+よくある質問
 --------------------- 
-- "I have a TLSv1_1_client_method missing error" when I double-click the exe ?"
+- exeファイルをダブルクリックすると "TLSv1_1_client_method missing" というエラーが出ます。
 
-The executable looks for ssleay32.dll and libeay32.dll and it first finds a version that doesn't support TLS v1.1. Often it happens with Intel iCls software. The solution is to move the your_msys2_directory\mingw32\bin path before the conflicting path. If the conflicting path is in the system PATH and you do not have administrative privileges, copy/link ssleay32.dll and libeay32.dll from your_msys2_directory\mingw32\bin to the executable folder.
+実行ファイルが見つけたssleay32.dllおよびlibeay32.dllがTLS v1.1をサポートしていないために出るエラーで、Intel iClsソフトウェアでよく起こります。解決するにはyour_msys2_directory\mingw32\binのパスを衝突しているパスより前に移動させます。衝突しているパスがシステム環境変数の中にあり、管理者権限を持っていない場合は、ssleay32.dllとlibeay32.dllをyour_msys2_directory\mingw32\binからexeファイルのあるフォルダにコピーもしくはリンクしてください。
 
-- "I'm on a corporate network with a proxy. I cannot download packages with pacman."
+- 会社のネットワークにプロキシが設定されているため、pacmanからパッケージをダウンロードできません。
 
-You may need to set HTTP_PROXY and HTTPS_PROXY environment variables.
+HTTP\_PROXYおよびHTTPS\_PROXY環境変数を設定する必要があります。コマンドプロンプトで以下のように打ち込んでください。
 
-    From a DOS/CMD prompt :    
-    set http_proxy=http://your_proxy:your_port
-    set http_proxy=http://username:password@your_proxy:your_port
-    set https_proxy=https://your_proxy:your_port
-    set https_proxy=https://username:password@your_proxy:your_port
-Don't forget to escape special characters in your password...
-
-
-
- 
+	set http_proxy=http://your_proxy:your_port
+	set http_proxy=http://username:password@your_proxy:your_port
+	set https_proxy=https://your_proxy:your_port
+	set https_proxy=https://username:password@your_proxy:your_port
+	
+パスワードに含まれる特殊文字をエスケープするのをお忘れなく。
 
 many thanks!! OFteam
 
